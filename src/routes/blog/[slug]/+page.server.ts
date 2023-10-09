@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type {PageServerLoad} from './$types';
+import type {PageServerLoad} from '../../../../.svelte-kit/types/src/routes';
 import fs from 'node:fs/promises'
 import path from 'path'
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
@@ -12,7 +12,10 @@ export const prerender = true;
 
 
 export const load: PageServerLoad = async ({ params }) => {
-  const fullFilePath = path.resolve(SRC_ROOT_PATH, '../texts/ru/blog/test1.md')
+  const fullFilePath = path.resolve(
+      SRC_ROOT_PATH,
+      `../texts/ru/blog/${params.slug}.md`
+  )
   let rawContent
 
   try {
