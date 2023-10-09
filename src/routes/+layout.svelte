@@ -1,29 +1,36 @@
 <script>
-	import { SvelteUIProvider } from '@svelteuidev/core';
-	import Header from './Header.svelte';
-	import './styles.css';
+	import { SvelteUIProvider } from '@svelteuidev/core'
+	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+	//import HeadContent from './HeadContent.svelte'
+	import SideBar from './SideBar.svelte'
+	//import FooterContent from './FooterContent.svelte'
+	import './styles.css'
+
+	// let isDark = false;
+	// let opened = false;
+	//
+	// function toggleTheme() {
+	// 	isDark = !isDark;
+	// }
+	// function toggleOpened() {
+	// 	opened = !opened;
+	// }
 </script>
 
-<div class="app">
-	<Header />
 
+<div class="app">
 	<main>
 		<SvelteUIProvider withNormalizeCSS withGlobalStyles themeObserver="dark">
 			<slot />
+
+			<SideBar />
+
 		</SvelteUIProvider>
-
-
-		<pre>
-			{JSON.stringify('', null, 2)}
-		</pre>
 	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
 </div>
 
 <style>
+/*
 	.app {
 		display: flex;
 		flex-direction: column;
@@ -58,4 +65,5 @@
 			padding: 12px 0;
 		}
 	}
+	*/
 </style>
