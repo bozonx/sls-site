@@ -1,4 +1,5 @@
 <script>
+	import { SvelteUIProvider } from '@svelteuidev/core';
 	import Header from './Header.svelte';
 	import './styles.css';
 </script>
@@ -7,7 +8,14 @@
 	<Header />
 
 	<main>
-		<slot />
+		<SvelteUIProvider withNormalizeCSS withGlobalStyles themeObserver="dark">
+			<slot />
+		</SvelteUIProvider>
+
+
+		<pre>
+			{JSON.stringify('', null, 2)}
+		</pre>
 	</main>
 
 	<footer>
