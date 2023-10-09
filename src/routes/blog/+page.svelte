@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let data;
+  import type {PageMetaData} from "$lib/types/PageMetaData";
+  export let data: {meta: PageMetaData, html: string};
 </script>
 
 <svelte:head>
@@ -12,9 +13,17 @@
 		header
   </h1>
 
-  <pre>
-    text {JSON.stringify(data)}
-  </pre>
+  <div>
+    {data.meta.date}
+  </div>
+
+  <div>
+    {data.meta.tags}
+  </div>
+
+  <div>
+    {@html data.html}
+  </div>
 
 </section>
 

@@ -15,6 +15,7 @@
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
 		"@types/cookie": "^0.5.1",
+		"@types/js-yaml": "^4.0.6",
 		"@types/mdast": "^4.0.1",
 		"@types/node": "^20.8.3",
 		"hast-util-sanitize": "^5.0.0",
@@ -31,6 +32,7 @@
 	"dependencies": {
 		"@svelteuidev/composables": "^0.15.3",
 		"@svelteuidev/core": "^0.15.3",
-		"mdast-util-to-hast": "^13.0.2"
+		"mdast-util-to-hast": "^13.0.2",
+		"yaml": "^2.3.2"
 	}
 }

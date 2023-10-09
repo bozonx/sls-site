@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
 import fs from 'node:fs/promises'
 import path from 'path'
-import {convertMdToHtml} from "$lib/helpers";
+import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
 import {SRC_ROOT_PATH} from "$lib/constants";
 
 
@@ -13,10 +13,10 @@ export const prerender = true;
 
 export const load: PageServerLoad = async ({ params }) => {
   const fullFilePath = path.resolve(SRC_ROOT_PATH, '../texts/ru/blog/test1.md')
-  let mdContent
+  let rawContent
 
   try {
-    mdContent = await fs.readFile(fullFilePath, 'utf8')
+    rawContent = await fs.readFile(fullFilePath, 'utf8')
   }
   catch (e) {
 
@@ -25,7 +25,10 @@ export const load: PageServerLoad = async ({ params }) => {
     throw error(404, 'Not found');
   }
 
+  const [meta, md] = extractMetaDataFromMdPage(rawContent)
+
   return {
-    content: convertMdToHtml(mdContent)
+    meta,
+    html: convertMdToHtml(md)
   }
 }
