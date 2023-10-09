@@ -1,8 +1,9 @@
 import { error } from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
-import { fileURLToPath } from 'url';
 import fs from 'node:fs/promises'
-import { dirname, resolve } from 'path';
+import path from 'path'
+import {convertMdToHtml} from "$lib/helpers";
+import {SRC_ROOT_PATH} from "$lib/constants";
 
 
 // since there's no dynamic data here, we can prerender
@@ -11,23 +12,20 @@ export const prerender = true;
 
 
 export const load: PageServerLoad = async ({ params }) => {
-  console.log(1111, params)
+  const fullFilePath = path.resolve(SRC_ROOT_PATH, '../texts/ru/blog/test1.md')
+  let mdContent
 
-  const filename = fileURLToPath(import.meta.url);
-  const myDirname = dirname(filename)
-  const fullFilePath = resolve(myDirname, '../../../texts/ru/blog/test1.md')
+  try {
+    mdContent = await fs.readFile(fullFilePath, 'utf8')
+  }
+  catch (e) {
 
-  const content = await fs.readFile(fullFilePath, 'utf8')
+    // TODO: use translate
 
-  return {
-    content
+    throw error(404, 'Not found');
   }
 
-  // const post = await getPostFromDatabase(params.slug);
-  //
-  // if (post) {
-  //   return post;
-  // }
-  //
-  // throw error(404, 'Not found');
+  return {
+    content: convertMdToHtml(mdContent)
+  }
 }
