@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import type {PageServerLoad} from './$types';
+import type {PageServerLoad} from '../../../../../.svelte-kit/types/src/routes';
 import fs from 'node:fs/promises'
 import path from 'path'
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
-import {SRC_ROOT_PATH} from "$lib/constants";
+import {SRC_ROOT_PATH} from "$lib/constants.server";
 
 
 // since there's no dynamic data here, we can prerender

@@ -1,7 +1,19 @@
 <script>
 	import { page } from '$app/stores';
-	import {DarkMode, Button, Navbar, NavBrand, NavHamburger, NavLi, NavUl} from "flowbite-svelte";
+	import {
+		DarkMode,
+		Navbar,
+		NavBrand,
+		NavHamburger,
+		NavLi,
+		NavUl,
+		Button,
+		Dropdown,
+		DropdownItem
+	} from "flowbite-svelte";
 	import {Cog} from "svelte-heros-v2";
+	import { ChevronDownSolid } from 'flowbite-svelte-icons'
+	import {SUPPORTED_LANGS} from "$lib/constants";
 
 	export let toggleDrawer
 
@@ -32,6 +44,14 @@
 
 
 	// btnClass="xl:hidden focus:outline-none whitespace-normal rounded-lg focus:ring-2 p-1.5 focus:ring-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 m-0 mr-3"
+
+	const makeLangUrl = (lang) => {
+		const pathName = ($page.url.pathname || '')
+				.replace(/^\/\w{2}/, '')
+
+		return `/${lang}${pathName}`
+	}
+
 </script>
 
 <Navbar let:hidden let:toggle>
@@ -65,6 +85,14 @@
 	<div class="flex items-center ml-auto">
 		<DarkMode class="inline-block dark:hover:text-white hover:text-gray-900" />
 	</div>
+
+	<Button>Lang<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" /></Button>
+	<Dropdown>
+		{#each SUPPORTED_LANGS as lang}
+			<DropdownItem href={makeLangUrl(lang)}>{lang}</DropdownItem>
+		{/each}
+	</Dropdown>
+
 	<!--<NavHamburger on:click={toggle} btnClass="lg:hidden" />-->
 </Navbar>
 
