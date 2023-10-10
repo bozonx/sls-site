@@ -10,7 +10,7 @@
 
 <section>
   <h1>
-		header
+    {data.meta.title}
   </h1>
 
   <div>
@@ -18,11 +18,11 @@
   </div>
 
   <div>
-    {data.meta.tags}
+    {@html data.html}
   </div>
 
   <div>
-    {@html data.html}
+    {data.meta.tags}
   </div>
 
 </section>

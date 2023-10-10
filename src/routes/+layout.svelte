@@ -33,7 +33,7 @@
     duration: 200,
     easing: sineIn
   };
-  export let data = {
+  let data = {
     pages: [
       {
         meta: {
@@ -115,9 +115,9 @@
           activeClass="md:!pl-3 md:!py-2 lg:!pl-0 lg:text-primary-700 text-white dark:text-white dark:lg:text-primary-500 bg-primary-700 lg:bg-transparent dark:bg-primary-600 lg:dark:bg-transparent cursor-default"
       >
         <NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/'} href="/">Home</NavLi>
-        <NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/pages/about'} href="/pages/about"
+        <!--<NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/pages/about'} href="/pages/about"
         >About</NavLi
-        >
+        >-->
         <NavLi
             class="lg:px-2 lg:mb-0"
             href="https://github.com/shinokada/flowbite-sveltekit-responsive-sidebar-layout"
@@ -142,37 +142,13 @@
       id="sidebar"
   >
     <div class="flex items-center">
-      <CloseButton on:click={() => (drawerHidden = true)} class="mb-4 dark:text-white lg:hidden" />
+      <CloseButton
+          on:click={() => (drawerHidden = true)}
+          class="mb-4 dark:text-white lg:hidden"
+      />
     </div>
-    <Sidebar asideClass="w-54">
-      <SidebarWrapper divClass="overflow-y-auto py-4 px-3 rounded dark:bg-gray-800">
-        <SidebarGroup>
-          <SidebarItem label="Home" href="/" on:click={toggleSide} active={activeUrl === `/`} />
-          {#each data.pages as { meta, path }}
-            <SidebarItem
-                label={meta.title}
-                href={`/pages/${path}`}
-                {spanClass}
-                activeClass="flex items-center p-2 text-base font-normal text-gray-900 bg-primary-200 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-100 dark:hover:bg-primary-700"
-                on:click={toggleSide}
-                active={activeUrl === `/pages/${path}`}
-            />
-          {/each}
-          <SidebarDropdownWrapper label="Articles">
-            {#each data.articles as { meta, path }}
-              <SidebarItem
-                  label={meta.title}
-                  href={`/blog/${path}`}
-                  {spanClass}
-                  activeClass="flex items-center p-2 text-base font-normal text-gray-900 bg-primary-200 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-100 dark:hover:bg-primary-700"
-                  on:click={toggleSide}
-                  active={activeUrl === `/blog/${path}`}
-              />
-            {/each}
-          </SidebarDropdownWrapper>
-        </SidebarGroup>
-      </SidebarWrapper>
-    </Sidebar>
+
+    <SideBar />
   </Drawer>
 
   <div class="flex px-4 mx-auto w-full">

@@ -21,7 +21,7 @@ export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, st
     throw new Error(`Wrong page file`)
   }
 
-  const md = splat[1]
+  const md = splat[1].trim()
   const yamlString = splat[0].replace('<meta>', '').trim()
   const meta: PageMetaData = yaml.parse(yamlString)
 
