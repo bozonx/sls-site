@@ -20,11 +20,10 @@
   } from 'flowbite-svelte';
   import { Cog } from 'svelte-heros-v2';
   import { sineIn } from 'svelte/easing';
-
-
   import TopBar from './TopBar.svelte'
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
+  import BreadCrumbs from './BreadCrumbs.svelte'
   import "./styles.css";
 
 
@@ -99,6 +98,8 @@
 
   <div class="flex px-4 mx-auto w-full">
     <main class="lg:ml-72 w-full mx-auto">
+      <BreadCrumbs />
+
       <slot />
 
       <Footer />

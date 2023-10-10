@@ -9,9 +9,10 @@
 		NavUl,
 		Button,
 		Dropdown,
-		DropdownItem
+		DropdownItem,
+		Input
 	} from "flowbite-svelte";
-	import {Cog} from "svelte-heros-v2";
+	//import {Cog} from "svelte-heros-v2";
 	import { ChevronDownSolid, GlobeSolid } from 'flowbite-svelte-icons'
 	import {SUPPORTED_LANGS} from "$lib/constants";
 	import {curLang} from "$lib/helpers";
@@ -56,6 +57,9 @@
 
 
 	// class="flex items-center ml-auto"
+	//class="inline-block dark:hover:text-white hover:text-gray-900"
+	// 			nonActiveClass="md:!pl-3 md:!py-2 lg:!pl-0 text-gray-700 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-white lg:dark:hover:text-primary-700 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+	// activeClass="md:!pl-3 md:!py-2 lg:!pl-0 lg:text-primary-700 text-white dark:text-white dark:lg:text-primary-500 bg-primary-700 lg:bg-transparent dark:bg-primary-600 lg:dark:bg-transparent cursor-default"
 </script>
 
 <Navbar let:hidden let:toggle>
@@ -64,7 +68,7 @@
 	/>-->
 	<!--<Button on:click={toggleDrawer}>aaa</Button>-->
 	<NavBrand href="/" class="lg:ml-64">
-		<Cog />
+		<img src="/images/site_logo.svg" class="mr-3 h-6 sm:h-9" alt="Logo" />
 		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
 			Система личной свободы
 		</span>
@@ -73,18 +77,15 @@
 			{hidden}
 			{divClass}
 			{ulClass}
-			nonActiveClass="md:!pl-3 md:!py-2 lg:!pl-0 text-gray-700 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-white lg:dark:hover:text-primary-700 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
-			activeClass="md:!pl-3 md:!py-2 lg:!pl-0 lg:text-primary-700 text-white dark:text-white dark:lg:text-primary-500 bg-primary-700 lg:bg-transparent dark:bg-primary-600 lg:dark:bg-transparent cursor-default"
+			activeUrl={activeUrl}
 	>
-		<NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/'} href="/">Home</NavLi>
+		<NavLi class="lg:px-2 lg:mb-0" href="/">Home</NavLi>
 		<NavLi
 			class="lg:px-2 lg:mb-0"
-			active={activeUrl === `/${curLang($page.url.pathname)}/page/about`}
 			href={`/${curLang($page.url.pathname)}/page/about`}
 		>About</NavLi>
 		<NavLi
 			class="lg:px-2 lg:mb-0"
-			active={activeUrl === `/${curLang($page.url.pathname)}/page/donate`}
 			href={`/${curLang($page.url.pathname)}/page/donate`}
 		>Donate</NavLi>
 		<NavLi
@@ -93,10 +94,16 @@
 		>Youtube channel</NavLi>
 	</NavUl>
 
-	<div>
-		<Button>
-			<GlobeSolid />
-			<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" />
+	<!--
+	<div class="hidden relative md:block">
+		<Input id="search-navbar" class="pl-10" placeholder="Search..." />
+	</div>
+	-->
+
+	<div class="mr-1">
+		<Button color="dark" class="!pl-3 !pr-3" size="lg">
+			<GlobeSolid class="w-5 h-5" />
+			<!--<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" />-->
 		</Button>
 		<Dropdown>
 			{#each SUPPORTED_LANGS as lang}
@@ -106,7 +113,7 @@
 	</div>
 
 	<div>
-		<DarkMode class="inline-block dark:hover:text-white hover:text-gray-900" />
+		<DarkMode size="lg" />
 	</div>
 
 
