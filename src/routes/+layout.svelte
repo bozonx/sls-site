@@ -24,7 +24,7 @@
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
   import BreadCrumbs from './BreadCrumbs.svelte'
-  import "./styles.css";
+  import "../styles/styles.css";
 
 
   let transitionParams = {
@@ -102,7 +102,7 @@
       <div id="app-page">
         <!--<BreadCrumbs />-->
 
-        <div class="text-gray-900 dark:text-gray-200 text-lg">
+        <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />
         </div>
 
@@ -115,13 +115,3 @@
   </div>
 
 </SvelteUIProvider>
-
-<style>
-  /*
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-	*/
-</style>
