@@ -20,6 +20,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   try {
     rawContent = await fs.readFile(fullFilePath, 'utf8')
+    //rawContent = await import(fullFilePath)
   }
   catch (e) {
 

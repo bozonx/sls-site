@@ -22,9 +22,9 @@
   import { sineIn } from 'svelte/easing';
 
 
-  //import HeadContent from './HeadContent.svelte'
+  import TopBar from './TopBar.svelte'
   import SideBar from "./SideBar.svelte";
-  //import FooterContent from './FooterContent.svelte'
+  import Footer from './Footer.svelte'
   import "./styles.css";
 
 
@@ -33,107 +33,53 @@
     duration: 200,
     easing: sineIn
   };
-  let data = {
-    pages: [
-      {
-        meta: {
-          title: 'aaa'
-        },
-        path: '/page'
-      },
-    ],
-    articles: [
-      {
-        meta: {
-          title: 'aaa'
-        },
-        path: '/page'
-      },
-    ],
-  }
-
   let breakPoint: number = 1024;
-  let width: number;
-  let backdrop: boolean = false;
+  let windowWidth: number;
+  let showBackdrop: boolean = false
   let activateClickOutside = true;
   let drawerHidden: boolean = false;
-  $: if (width >= breakPoint) {
-    drawerHidden = false;
-    activateClickOutside = false;
+
+  $: if (windowWidth >= breakPoint) {
+    drawerHidden = false
+    activateClickOutside = false
   } else {
-    drawerHidden = true;
-    activateClickOutside = true;
+    drawerHidden = true
+    activateClickOutside = true
   }
+  $: activeUrl = $page.url.pathname
+
+  // const toggleSide = () => {
+  //   if (windowWidth < breakPoint) {
+  //     drawerHidden = !drawerHidden
+  //   }
+  // };
+  const toggleDrawer = () => {
+    //drawerHidden = false;
+    drawerHidden = !drawerHidden
+  };
+
   onMount(() => {
-    if (width >= breakPoint) {
+    if (windowWidth >= breakPoint) {
       drawerHidden = false;
       activateClickOutside = false;
     } else {
       drawerHidden = true;
       activateClickOutside = true;
     }
-  });
-  const toggleSide = () => {
-    if (width < breakPoint) {
-      drawerHidden = !drawerHidden;
-    }
-  };
-  const toggleDrawer = () => {
-    //drawerHidden = false;
-    drawerHidden = !drawerHidden;
-  };
-  $: activeUrl = $page.url.pathname;
-  let spanClass = 'pl-2 self-center text-md text-gray-900 whitespace-nowrap dark:text-white';
-  let divClass = 'w-full ml-auto lg:block lg:w-auto order-1 lg:order-none';
-  let ulClass =
-      'flex flex-col py-3 my-4 lg:flex-row lg:my-0 text-sm font-medium gap-4 dark:lg:bg-transparent lg:bg-white lg:border-0';
-  let navDivClass =
-      'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 divide-gray-200 dark:divide-gray-700 flex items-center justify-between w-full mx-auto py-1.5 px-4';
+  })
 </script>
 
-<svelte:window bind:innerWidth={width} />
+<svelte:window bind:innerWidth={windowWidth} />
 
 <SvelteUIProvider withnormalizecss withglobalstyles themeobserver="dark">
 
   <header class="flex-none w-full mx-auto bg-white dark:bg-slate-950">
-    <Navbar let:hidden let:toggle>
-      <NavHamburger
-          on:click={toggleDrawer}
-          btnClass="focus:outline-none whitespace-normal rounded-lg focus:ring-2 p-1.5 focus:ring-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 m-0 mr-3 lg:hidden"
-      />
-      <NavBrand href="/" class="lg:ml-64">
-        <Cog />
-        <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-          My Website
-        </span>
-      </NavBrand>
-      <NavUl
-          {hidden}
-          {divClass}
-          {ulClass}
-          nonActiveClass="md:!pl-3 md:!py-2 lg:!pl-0 text-gray-700 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-white lg:dark:hover:text-primary-700 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
-          activeClass="md:!pl-3 md:!py-2 lg:!pl-0 lg:text-primary-700 text-white dark:text-white dark:lg:text-primary-500 bg-primary-700 lg:bg-transparent dark:bg-primary-600 lg:dark:bg-transparent cursor-default"
-      >
-        <NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/'} href="/">Home</NavLi>
-        <!--<NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/pages/about'} href="/pages/about"
-        >About</NavLi
-        >-->
-        <NavLi
-            class="lg:px-2 lg:mb-0"
-            href="https://github.com/shinokada/flowbite-sveltekit-responsive-sidebar-layout"
-        >GitHub</NavLi
-        >
-      </NavUl>
-      <div class="flex items-center ml-auto">
-        <DarkMode class="inline-block dark:hover:text-white hover:text-gray-900" />
-      </div>
-      <NavHamburger on:click={toggle} btnClass="lg:hidden" />
-    </Navbar>
+    <TopBar toggleDrawer={toggleDrawer} />
   </header>
 
   <Drawer
       transitionType="fly"
-      {backdrop}
+      backdrop={showBackdrop}
       {transitionParams}
       bind:hidden={drawerHidden}
       bind:activateClickOutside
@@ -154,6 +100,8 @@
   <div class="flex px-4 mx-auto w-full">
     <main class="lg:ml-72 w-full mx-auto">
       <slot />
+
+      <Footer />
     </main>
   </div>
 
@@ -161,35 +109,6 @@
 
 <style>
   /*
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
 	@media (min-width: 480px) {
 		footer {
 			padding: 12px 0;

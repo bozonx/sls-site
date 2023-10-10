@@ -4,6 +4,7 @@ import {sanitize} from "hast-util-sanitize";
 import {toHtml} from "hast-util-to-html";
 import yaml from 'yaml'
 import type {PageMetaData} from "$lib/types/PageMetaData";
+import {DEFAULT_LANG, SUPPORTED_LANGS} from '$lib/constants';
 
 
 export function convertMdToHtml(mdContent: string) {
@@ -26,4 +27,17 @@ export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, st
   const meta: PageMetaData = yaml.parse(yamlString)
 
   return [meta, md]
+}
+
+export function acceptLangHeaderToLand(acceptLang?: string) {
+  if (!acceptLang) return DEFAULT_LANG
+
+  const splat = acceptLang.split(',')
+
+  if (
+      splat[0].length !== 2
+      || !SUPPORTED_LANGS.includes(splat[0])
+  ) return DEFAULT_LANG
+
+  return splat[0]
 }
