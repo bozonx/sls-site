@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type {PageServerLoad} from '../../../../.svelte-kit/types/src/routes';
+import type {PageServerLoad} from './$types';
 import fs from 'node:fs/promises'
 import path from 'path'
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
