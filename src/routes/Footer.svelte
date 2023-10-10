@@ -1,21 +1,21 @@
 <script>
   import {
     Footer,
-    FooterBrand,
     FooterCopyright,
-    FooterIcon,
     FooterLink,
     FooterLinkGroup
   } from 'flowbite-svelte';
+  import {curLang} from "$lib/helpers";
+  import MyFooterLink from "$lib/components/MyFooterLink.svelte"
   import { page } from '$app/stores';
 </script>
 
-<Footer>
-  <FooterCopyright href="/" by="Flowbite™" year={2022} />
-  <FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-    <FooterLink href="/">About</FooterLink>
-    <FooterLink href="/">Privacy Policy</FooterLink>
-    <FooterLink href="/">Licensing</FooterLink>
-    <FooterLink href="/">Contact</FooterLink>
+<Footer class="!bg-transparent">
+  <!--<FooterCopyright href="/" by="PFS™" year={2023} />-->
+  <div class="text-gray-600 dark:text-gray-400">Копирование разрешено только со ссылкой на источник</div>
+
+  <FooterLinkGroup ulClass="flex underline flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+    <MyFooterLink href="/page/about">О проекте</MyFooterLink>
+    <MyFooterLink href="/page/contacts">Контакты</MyFooterLink>
   </FooterLinkGroup>
 </Footer>

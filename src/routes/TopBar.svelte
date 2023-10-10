@@ -90,7 +90,8 @@
 		>Donate</NavLi>
 		<NavLi
 			class="lg:px-2 lg:mb-0"
-			href="https://www.youtube.com/@slsfreedom "
+			href="https://youtube.com/@slsfreedom"
+			target="_blank"
 		>Youtube channel</NavLi>
 	</NavUl>
 

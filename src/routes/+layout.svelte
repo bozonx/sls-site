@@ -16,7 +16,8 @@
     SidebarWrapper,
     Drawer,
     CloseButton,
-    SidebarDropdownWrapper
+    SidebarDropdownWrapper,
+    Card
   } from 'flowbite-svelte';
   import { Cog } from 'svelte-heros-v2';
   import { sineIn } from 'svelte/easing';
@@ -70,7 +71,7 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<SvelteUIProvider withnormalizecss withglobalstyles themeobserver="dark">
+<SvelteUIProvider withnormalizecss withglobalstyles themeobserver="dark" class="min-h-screen dark:bg-gray-900">
 
   <header class="flex-none w-full mx-auto bg-white dark:bg-slate-950">
     <TopBar toggleDrawer={toggleDrawer} />
@@ -83,7 +84,7 @@
       bind:hidden={drawerHidden}
       bind:activateClickOutside
       width="w-64"
-      class="overflow-scroll pb-32"
+      class="overflow-auto !p-0 pb-32 bg-gray-50"
       id="sidebar"
   >
     <div class="flex items-center">
@@ -96,13 +97,17 @@
     <SideBar />
   </Drawer>
 
-  <div class="flex px-4 mx-auto w-full">
+  <div class="flex sm:px-4 mx-auto w-full">
     <main class="lg:ml-72 w-full mx-auto">
-      <BreadCrumbs />
+      <!--<BreadCrumbs />-->
 
-      <slot />
+      <Card>
+        <slot />
+      </Card>
 
-      <Footer />
+      <div class="mt-20">
+        <Footer />
+      </div>
     </main>
   </div>
 
