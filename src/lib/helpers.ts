@@ -1,3 +1,4 @@
+import {trimCharStart} from 'squidlet-lib';
 import {fromMarkdown} from "mdast-util-from-markdown";
 import {toHast} from "mdast-util-to-hast";
 import {sanitize} from "hast-util-sanitize";
@@ -41,3 +42,16 @@ export function acceptLangHeaderToLand(acceptLang?: string) {
 
   return splat[0]
 }
+
+export function curLang(currentPathname: string): string {
+  const splat = trimCharStart(currentPathname, '/').split('/')
+
+  return splat[0]
+}
+
+// export function makePageUrl(newUrl: string, currentPathname: string): string {
+//   const splat = trimCharStart(currentPathname).split('/')
+//   const lang = splat[0]
+//
+//   return `/${lang}/${trimCharStart(newUrl)}`
+// }

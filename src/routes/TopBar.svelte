@@ -12,8 +12,10 @@
 		DropdownItem
 	} from "flowbite-svelte";
 	import {Cog} from "svelte-heros-v2";
-	import { ChevronDownSolid } from 'flowbite-svelte-icons'
+	import { ChevronDownSolid, GlobeSolid } from 'flowbite-svelte-icons'
 	import {SUPPORTED_LANGS} from "$lib/constants";
+	import {curLang} from "$lib/helpers";
+
 
 	export let toggleDrawer
 
@@ -52,6 +54,8 @@
 		return `/${lang}${pathName}`
 	}
 
+
+	// class="flex items-center ml-auto"
 </script>
 
 <Navbar let:hidden let:toggle>
@@ -73,25 +77,38 @@
 			activeClass="md:!pl-3 md:!py-2 lg:!pl-0 lg:text-primary-700 text-white dark:text-white dark:lg:text-primary-500 bg-primary-700 lg:bg-transparent dark:bg-primary-600 lg:dark:bg-transparent cursor-default"
 	>
 		<NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/'} href="/">Home</NavLi>
-		<!--<NavLi class="lg:px-2 lg:mb-0" active={activeUrl === '/pages/about'} href="/pages/about"
-    >About</NavLi
-    >-->
 		<NavLi
-				class="lg:px-2 lg:mb-0"
-				href="https://github.com/shinokada/flowbite-sveltekit-responsive-sidebar-layout"
-		>GitHub</NavLi
-		>
+			class="lg:px-2 lg:mb-0"
+			active={activeUrl === `/${curLang($page.url.pathname)}/page/about`}
+			href={`/${curLang($page.url.pathname)}/page/about`}
+		>About</NavLi>
+		<NavLi
+			class="lg:px-2 lg:mb-0"
+			active={activeUrl === `/${curLang($page.url.pathname)}/page/donate`}
+			href={`/${curLang($page.url.pathname)}/page/donate`}
+		>Donate</NavLi>
+		<NavLi
+			class="lg:px-2 lg:mb-0"
+			href="https://www.youtube.com/@slsfreedom "
+		>Youtube channel</NavLi>
 	</NavUl>
-	<div class="flex items-center ml-auto">
+
+	<div>
+		<Button>
+			<GlobeSolid />
+			<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" />
+		</Button>
+		<Dropdown>
+			{#each SUPPORTED_LANGS as lang}
+				<DropdownItem href={makeLangUrl(lang)}>{lang}</DropdownItem>
+			{/each}
+		</Dropdown>
+	</div>
+
+	<div>
 		<DarkMode class="inline-block dark:hover:text-white hover:text-gray-900" />
 	</div>
 
-	<Button>Lang<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" /></Button>
-	<Dropdown>
-		{#each SUPPORTED_LANGS as lang}
-			<DropdownItem href={makeLangUrl(lang)}>{lang}</DropdownItem>
-		{/each}
-	</Dropdown>
 
 	<!--<NavHamburger on:click={toggle} btnClass="lg:hidden" />-->
 </Navbar>

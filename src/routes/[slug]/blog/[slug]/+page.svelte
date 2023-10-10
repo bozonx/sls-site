@@ -1,5 +1,6 @@
 <script lang="ts">
   import type {PageMetaData} from "$lib/types/PageMetaData";
+  import TagList from '$lib/components/TagList.svelte'
   export let data: {meta: PageMetaData, html: string};
 </script>
 
@@ -21,9 +22,7 @@
     {@html data.html}
   </div>
 
-  <div>
-    {data.meta.tags}
-  </div>
+  <TagList tags={data.meta.tags} />
 
 </section>
 
