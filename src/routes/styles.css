@@ -21,6 +21,16 @@ body {
 	margin: 0;
 }
 
+#app-page {
+  width: 100%
+}
+@media (min-width: 1300px) {
+	#app-page {
+    width: 840px
+	}
+}
+
+
 /*
 
 

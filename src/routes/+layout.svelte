@@ -17,7 +17,6 @@
     Drawer,
     CloseButton,
     SidebarDropdownWrapper,
-    Card
   } from 'flowbite-svelte';
   import { Cog } from 'svelte-heros-v2';
   import { sineIn } from 'svelte/easing';
@@ -97,17 +96,21 @@
     <SideBar />
   </Drawer>
 
-  <div class="flex sm:px-4 mx-auto w-full">
-    <main class="lg:ml-72 w-full mx-auto">
-      <!--<BreadCrumbs />-->
+  <div class="flex px-4 sm:px-8 mx-auto w-full">
+    <main class="lg:ml-72 w-full mx-auto flex justify-center">
 
-      <Card>
-        <slot />
-      </Card>
+      <div id="app-page">
+        <!--<BreadCrumbs />-->
 
-      <div class="mt-20">
-        <Footer />
+        <div class="text-gray-900 dark:text-gray-200 text-lg">
+          <slot />
+        </div>
+
+        <div class="mt-20">
+          <Footer />
+        </div>
       </div>
+
     </main>
   </div>
 
