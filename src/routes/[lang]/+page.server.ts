@@ -1,10 +1,10 @@
 import { error } from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
-import {curLang} from '../../lib/helpers';
+import {SUPPORTED_LANGS} from '../../lib/constants';
 
 
 export const load: PageServerLoad = (event) => {
-  if (!curLang(event.url.pathname)) {
+  if (!SUPPORTED_LANGS.includes(event.params.lang)) {
 
     // TODO: translate !!!
 
