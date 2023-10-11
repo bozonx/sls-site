@@ -15,7 +15,7 @@
 	//import {Cog} from "svelte-heros-v2";
 	import { ChevronDownSolid, GlobeSolid } from 'flowbite-svelte-icons'
 	import {SUPPORTED_LANGS} from "$lib/constants";
-	import {curLang} from "$lib/helpers";
+	import {lang} from '$lib/store/lang';
 
 
 	export let toggleDrawer
@@ -82,11 +82,11 @@
 		<NavLi class="lg:px-2 lg:mb-0" href="/">Home</NavLi>
 		<NavLi
 			class="lg:px-2 lg:mb-0"
-			href={`/${curLang($page.url.pathname)}/page/about`}
+			href={`/${$lang}/page/about`}
 		>About</NavLi>
 		<NavLi
 			class="lg:px-2 lg:mb-0"
-			href={`/${curLang($page.url.pathname)}/page/donate`}
+			href={`/${$lang}/page/donate`}
 		>Donate</NavLi>
 		<NavLi
 			class="lg:px-2 lg:mb-0"

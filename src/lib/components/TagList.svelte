@@ -1,6 +1,5 @@
 <script>
   import { Badge } from "flowbite-svelte"
-  import {curLang} from "$lib/helpers";
   import {page} from "$app/stores";
 
   export let tags

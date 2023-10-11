@@ -18,7 +18,7 @@
     ChevronDoubleUpOutline,
     ChevronDoubleDownOutline,
   } from 'flowbite-svelte-icons';
-  import {curLang} from "$lib/helpers";
+  import {lang} from '$lib/store/lang';
 
 
   //let spanClass = 'flex-1 ml-3 whitespace-nowrap';
@@ -39,7 +39,7 @@
   <SidebarWrapper class="!p-0">
     <SidebarGroup>
 
-      <SidebarItem label="Последние" href={`/${curLang($page.url.pathname)}/recent`}>
+      <SidebarItem label="Последние" href={`/${$lang}/recent`}>
         <svelte:fragment slot="icon">
           <RectangleListSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
         </svelte:fragment>
@@ -56,7 +56,7 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <SidebarDropdownItem label="Tag1" href={`/${curLang($page.url.pathname)}/tag?t=tag1`} />
+        <SidebarDropdownItem label="Tag1" href={`/${$lang}/tag?t=tag1`} />
       </SidebarDropdownWrapper>
 
     </SidebarGroup>
@@ -68,13 +68,13 @@
         </svelte:fragment>
       </SidebarItem>
 
-      <SidebarItem label="О проекте" href={`/${curLang($page.url.pathname)}/page/about`}>
+      <SidebarItem label="О проекте" href={`/${$lang}/page/about`}>
         <svelte:fragment slot="icon">
           <InfoCircleSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
         </svelte:fragment>
       </SidebarItem>
 
-      <SidebarItem label="Донат" href={`/${curLang($page.url.pathname)}/page/donate`}>
+      <SidebarItem label="Донат" href={`/${$lang}/page/donate`}>
         <svelte:fragment slot="icon">
           <HeartSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
         </svelte:fragment>

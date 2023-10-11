@@ -1,16 +1,16 @@
+import {get} from 'svelte/store';
 import { error } from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
-import {convertMdToHtml, curLang, extractMetaDataFromMdPage} from "$lib/helpers";
+import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
 import {getBlogPage} from '$lib/server/getPage';
-
+import {lang} from '$lib/store/lang';
 
 
 export const load: PageServerLoad = async (event) => {
-  const lang = curLang(event.url.pathname)
   let rawContent: string
 
   try {
-    rawContent = await getBlogPage(lang, event.params.file)
+    rawContent = await getBlogPage(get(lang), event.params.file)
   }
   catch (e) {
 
