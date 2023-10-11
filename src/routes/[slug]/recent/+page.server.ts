@@ -1,35 +1,14 @@
 import { error } from '@sveltejs/kit';
-import type {PageServerLoad} from '../../../../../.svelte-kit/types/src/routes';
-import fs from 'node:fs/promises'
-import path from 'path'
+import type {PageServerLoad} from './$types';
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
 
 
 
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
 export const prerender = true;
+export const ssr = true
 
 
-export const load: PageServerLoad = async ({ params }) => {
-  // const fullFilePath = path.resolve(
-  //     SRC_ROOT_PATH,
-  //     `../texts/ru/blog/${params.slug}.md`
-  // )
-  // let rawContent
-  //
-  // try {
-  //   rawContent = await fs.readFile(fullFilePath, 'utf8')
-  // }
-  // catch (e) {
-  //
-  //   // TODO: use translate
-  //
-  //   throw error(404, 'Not found');
-  // }
-  //
-  // const [meta, md] = extractMetaDataFromMdPage(rawContent)
-
+export const load: PageServerLoad = async (event) => {
   return {
     // meta,
     // html: convertMdToHtml(md)
