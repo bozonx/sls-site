@@ -6,10 +6,10 @@
     PaginationItem
   } from 'flowbite-svelte';
   import {page} from "$app/stores";
-
+/*
   //export let data: {meta: PageMetaData, html: string};
 
-  $: activeUrl = $page.url.searchParams.get('page');
+  $: activeUrl = $page?.url.searchParams.get('page');
   let pages = [
     { name: 1, href: '/components/pagination?page=1' },
     { name: 2, href: '/components/pagination?page=2' },
@@ -38,7 +38,7 @@
   };
   const next = () => {
     alert('Next btn clicked. Make a call to your server to fetch data.');
-  };
+  };*/
 </script>
 
 <svelte:head>
@@ -51,7 +51,9 @@
   <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
 </Card>
 
+<!--
 <Pagination {pages} on:previous={previous} on:next={next} />
+-->
 
 <style>
 </style>

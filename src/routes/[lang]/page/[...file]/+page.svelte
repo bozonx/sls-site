@@ -1,6 +1,8 @@
 <script lang="ts">
   import type {PageMetaData} from "$lib/types/PageMetaData";
   import TagList from '$lib/components/TagList.svelte'
+  import Article from '$lib/components/Article.svelte'
+
   export let data: {meta: PageMetaData, html: string};
 </script>
 
@@ -9,22 +11,12 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-  <h1>
-    {data.meta.title}
-  </h1>
-
-  <div>
-    {data.meta.date}
-  </div>
-
-  <div>
-    {@html data.html}
-  </div>
-
-  <TagList tags={data.meta.tags} />
-
-</section>
+<Article
+  title={data.meta.title}
+  date={data.meta.date}
+  html={data.html}
+  tags={data.meta.tags}
+/>
 
 <style>
 /*    section {
