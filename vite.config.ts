@@ -12,6 +12,8 @@ export default defineConfig({
 		precompileIntl("locales"),
 	],
 	define: {
-		'__CONF__': JSON.stringify({rootDir: path.resolve('.')}),
+		'__CONF__': JSON.stringify({
+			rootDir: path.resolve('.')}
+		),
 	},
 })

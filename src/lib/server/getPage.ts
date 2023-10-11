@@ -18,8 +18,5 @@ export async function loadTextFile(lang: string, dir: string, fileName: string) 
       `texts/${lang}/${dir}/${fileName}`
   )
 
-
-  //console.log(11111, await import('s/.gitignore'))
-
   return await fs.readFile(fullFilePath, 'utf8')
 }

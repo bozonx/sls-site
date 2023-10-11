@@ -7,7 +7,7 @@
   } from 'flowbite-svelte';
   import {curLang} from "$lib/helpers";
   import MyFooterLink from "$lib/components/MyFooterLink.svelte"
-  import { page } from '$app/stores';
+  import {page} from "$app/stores";
 </script>
 
 <Footer class="!bg-transparent !p-0 shadow-none">
@@ -17,7 +17,6 @@
   </div>
 
   <FooterLinkGroup ulClass="flex underline flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-    <!--<MyFooterLink href="/page/about">О проекте</MyFooterLink>-->
-    <MyFooterLink href="/page/contacts">Контакты</MyFooterLink>
+    <MyFooterLink href={`/${curLang($page.url.pathname)}/page/contacts`}>Контакты</MyFooterLink>
   </FooterLinkGroup>
 </Footer>

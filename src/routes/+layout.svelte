@@ -3,7 +3,6 @@
   import { SvelteUIProvider } from '@svelteuidev/core'
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
-  //import { _ } from 'svelte-i18n'
   import { t } from 'svelte-intl-precompile'
   import {
     DarkMode,
@@ -25,7 +24,6 @@
   import TopBar from './TopBar.svelte'
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
-  import BreadCrumbs from './BreadCrumbs.svelte'
   import "../styles/styles.css";
 
 
@@ -102,7 +100,6 @@
     <main class="lg:ml-72 w-full mx-auto flex justify-center">
 
       <div id="app-page">
-        <!--<BreadCrumbs />-->
 
         <div class="dark:text-gray-900"> {$t('test')}</div>
 
