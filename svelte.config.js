@@ -22,6 +22,7 @@ const config = {
       strict: true,
     }),
   },
+  paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH }
 };
 
 export default config;

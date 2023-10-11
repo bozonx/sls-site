@@ -4,11 +4,6 @@ import {convertMdToHtml, curLang, extractMetaDataFromMdPage} from "$lib/helpers"
 import {getBlogPage} from '$lib/server/getPage';
 
 
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true;
-export const ssr = true
-
 
 export const load: PageServerLoad = async (event) => {
   const lang = curLang(event.url.pathname)
