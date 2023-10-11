@@ -3,12 +3,13 @@ import type {PageServerLoad} from '../../../../../.svelte-kit/types/src/routes';
 import fs from 'node:fs/promises'
 import path from 'path'
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
-import {SRC_ROOT_PATH} from "$lib/constants.server";
+import {SRC_ROOT_PATH} from "$lib/server/constants.server";
 
 
 // since there's no dynamic data here, we can prerender
 // it so that it gets served as a static asset in production
 export const prerender = true;
+export const ssr = true
 
 
 export const load: PageServerLoad = async ({ params }) => {

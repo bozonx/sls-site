@@ -106,7 +106,7 @@
           <slot />
         </div>
 
-        <div class="mt-20">
+        <div id="footer">
           <Footer />
         </div>
       </div>
