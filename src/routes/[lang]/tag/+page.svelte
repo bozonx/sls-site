@@ -5,8 +5,9 @@
     Pagination,
     PaginationItem
   } from 'flowbite-svelte';
+  import {page} from "$app/stores";
 
-  export let data: {meta: PageMetaData, html: string};
+  //export let data: {meta: PageMetaData, html: string};
 
   $: activeUrl = $page.url.searchParams.get('page');
   let pages = [

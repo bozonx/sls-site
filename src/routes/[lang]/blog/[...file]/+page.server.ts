@@ -10,7 +10,7 @@ export const load: PageServerLoad = async (event) => {
   let rawContent: string
 
   try {
-    rawContent = await getBlogPage(lang, event.params.slug)
+    rawContent = await getBlogPage(lang, event.params.file)
   }
   catch (e) {
 
