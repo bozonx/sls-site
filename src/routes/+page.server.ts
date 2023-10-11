@@ -1,7 +1,8 @@
 import { redirect } from '@sveltejs/kit';
-import type { LayoutServerLoad } from './$types';
+import type {PageServerLoad} from './$types';
 
-export const load: LayoutServerLoad = (event) => {
+
+export const load: PageServerLoad = (event) => {
   if (event.url.pathname === '/') {
 
     // TODO: resolve lang !!!
