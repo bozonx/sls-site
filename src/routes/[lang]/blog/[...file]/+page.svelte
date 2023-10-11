@@ -3,6 +3,9 @@
   import Article from '$lib/components/Article.svelte'
 
   export let data: {meta: PageMetaData, html: string}
+
+  //const myCustomVariable = app.customVariables.myCustomVariable;
+
 </script>
 
 <svelte:head>

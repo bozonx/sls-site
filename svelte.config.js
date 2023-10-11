@@ -1,6 +1,7 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/kit/vite";
 import {getAllThePagesUrls} from "./src/lib/server/getAllThePagesUrls.js";
+import path from "path";
 
 
 const pagesUrls = getAllThePagesUrls()
@@ -12,7 +13,9 @@ const config = {
   // for more information about preprocessors
   preprocess: [vitePreprocess({})],
 
-
+  customVariables: {
+    myCustomVariable: 'my custom value',
+  },
 
   kit: {
     // alias: {

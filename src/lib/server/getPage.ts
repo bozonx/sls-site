@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'path';
-import {SRC_ROOT_PATH} from '$lib/server/constants.server';
-import { base } from '$app/paths';
+import {ROOT_DIR} from '$lib/server/constants.server';
 
 
 export async function getSitePage(lang: string, pageName: string): Promise<string> {
@@ -15,8 +14,8 @@ export async function getBlogPage(lang: string, pageName: string): Promise<strin
 
 export async function loadTextFile(lang: string, dir: string, fileName: string) {
   const fullFilePath = path.resolve(
-      SRC_ROOT_PATH,
-      `../texts/${lang}/${dir}/${fileName}`
+      ROOT_DIR,
+      `texts/${lang}/${dir}/${fileName}`
   )
 
 
