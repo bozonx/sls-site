@@ -25,7 +25,7 @@
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
   import "../styles/styles.css";
-  //import {lang} from '../lib/store/lang';
+  import {lang} from '../lib/store/lang';
 
 
   let transitionParams = {
@@ -102,7 +102,7 @@
 
       <div id="app-page">
 
-        <div class="dark:text-gray-900"> {t('test.t')}</div>
+        <div class="dark:text-gray-900">{$lang} {t('test.t')}</div>
 
         <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />

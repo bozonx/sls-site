@@ -1,9 +1,9 @@
 <script>
   import moment from 'moment';
   import { Heading, P, A, Img } from 'flowbite-svelte';
-  import {curLang} from "$lib/helpers";
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
+  import {lang} from '$lib/store/lang';
 
 
   export let title
@@ -18,7 +18,7 @@
   </Heading>
 
   <div class="text-gray-400 dark:text-gray-500 text-sm mt-2">
-    {moment(date).locale(curLang($page.url.pathname)).format('LL')}
+    {moment(date).locale($lang).format('LL')}
   </div>
 
   <div class="mt-6 html-block">

@@ -5,7 +5,6 @@
     FooterLink,
     FooterLinkGroup
   } from 'flowbite-svelte';
-  import {curLang} from "$lib/helpers";
   import MyFooterLink from "$lib/components/MyFooterLink.svelte"
   import {page} from "$app/stores";
 </script>

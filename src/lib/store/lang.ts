@@ -1,10 +1,15 @@
-import {writable} from 'svelte/store';
-import {page} from "$app/stores";
-
+import {readable, writable} from 'svelte/store';
 
 export const lang = writable('')
 
-page.subscribe((value: any) => {
-  //pageVal = value
-  lang.set(value.params.lang)
-})
+// export const lang = readable(new Date(), (set) => {
+//   set('ru');
+// });
+
+
+// export const lang = writable('')
+//
+// page.subscribe((value: any) => {
+//   //pageVal = value
+//   lang.set(value.params.lang)
+// })
