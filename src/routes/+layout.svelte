@@ -1,6 +1,5 @@
 <script lang="ts">
   import "../app.postcss";
-  import { SvelteUIProvider } from '@svelteuidev/core'
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import { t } from 'svelte-intl-precompile'
@@ -70,7 +69,7 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<SvelteUIProvider withnormalizecss withglobalstyles themeobserver="dark" class="min-h-screen dark:bg-gray-900">
+<div class="min-h-screen dark:bg-gray-900">
 
   <header class="flex-none w-full mx-auto bg-white dark:bg-slate-950">
     <TopBar toggleDrawer={toggleDrawer} />
@@ -115,4 +114,4 @@
     </main>
   </div>
 
-</SvelteUIProvider>
+</div>
