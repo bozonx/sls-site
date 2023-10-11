@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@fontsource/fira-mono": "^4.5.10",
+    "@modyfi/vite-plugin-yaml": "^1.0.4",
     "@neoconfetti/svelte": "^1.0.0",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/adapter-static": "^2.0.3",
@@ -43,6 +44,8 @@
     "mdast-util-to-hast": "^13.0.2",
     "moment": "^2.29.4",
     "svelte-heros-v2": "^0.10.12",
+    "svelte-i18n": "^3.7.4",
+    "svelte-intl-precompile": "^0.12.3",
     "yaml": "^2.3.2"
   }
 }

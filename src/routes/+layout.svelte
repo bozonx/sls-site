@@ -3,6 +3,8 @@
   import { SvelteUIProvider } from '@svelteuidev/core'
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
+  //import { _ } from 'svelte-i18n'
+  import { t } from 'svelte-intl-precompile'
   import {
     DarkMode,
     Navbar,
@@ -101,6 +103,8 @@
 
       <div id="app-page">
         <!--<BreadCrumbs />-->
+
+        <div class="dark:text-gray-900"> {$t('test')}</div>
 
         <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />
