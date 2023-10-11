@@ -17,6 +17,6 @@
   </div>
 
   <FooterLinkGroup ulClass="flex underline flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-    <MyFooterLink href={`/${curLang($page.url.pathname)}/page/contacts`}>Контакты</MyFooterLink>
+    <MyFooterLink href="/page/contacts">Контакты</MyFooterLink>
   </FooterLinkGroup>
 </Footer>

@@ -2,7 +2,8 @@
   import "../app.postcss";
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
-  import { t } from 'svelte-intl-precompile'
+  //import { t } from 'svelte-intl-precompile'
+  import {t} from '$lib/store/t'
   import {
     DarkMode,
     Navbar,
@@ -24,6 +25,7 @@
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
   import "../styles/styles.css";
+  //import {lang} from '../lib/store/lang';
 
 
   let transitionParams = {
@@ -100,7 +102,7 @@
 
       <div id="app-page">
 
-        <div class="dark:text-gray-900"> {$t('test')}</div>
+        <div class="dark:text-gray-900"> {t('test.t')}</div>
 
         <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />
