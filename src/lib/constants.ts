@@ -1,6 +1,6 @@
 
 //export const LANG_COOKIE = '_lang'
-export const ITEM_PER_PAGE = 2
+export const ITEM_PER_PAGE = 10
 export const PAGINATION_MAX_ITEMS = 9
 export const FILE_ENCODE = 'utf8'
 export const DEFAULT_LANG = 'en'
