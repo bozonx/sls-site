@@ -7,8 +7,10 @@
 
   export let header
   export let res
+  export let baseUrl
 
-  const baseUrl = $page.url.pathname.replace(/\/\d+$/, '')
+
+  const paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
 
 
   // TODO: обработать если страница 0 или несуществует
@@ -19,7 +21,7 @@
   <Heading tag="h1" class="mb-10">{header}</Heading>
 
   {#each res.result as item}
-    <PagePreviewListItem {...item} />
+    <PagePreviewListItem baseUrl={baseUrl} {...item} />
   {/each}
 
   {#if res.totalPages > 0}
@@ -28,7 +30,7 @@
         curPage={res.page}
         totalPages={res.totalPages}
         maxItems={PAGINATION_MAX_ITEMS}
-        baseUrl={baseUrl}
+        baseUrl={paginationBaseUrl}
       />
     </div>
   {/if}

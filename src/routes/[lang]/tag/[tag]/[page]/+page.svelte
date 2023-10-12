@@ -12,4 +12,4 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<PagesList header={`#${$page.params.tag}`} res={data} />
+<PagesList header={`#${$page.params.tag}`} baseUrl={`/${$page.params.lang}/blog`} res={data} />
