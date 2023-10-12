@@ -18,8 +18,8 @@ export function getAllThePagesUrls() {
   const langs = fs.readdirSync(textsDir, enc)
 
   for (const lang of langs) {
-    const blogPages = readDirRecirsively(path.join(textsDir, lang, blogDir))
-    const pagePages = readDirRecirsively(path.join(textsDir, lang, pageDir))
+    const blogPages = readDirRecursivelySync(path.join(textsDir, lang, blogDir))
+    const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
 
     res = [
       ...res,
@@ -42,7 +42,7 @@ export function getAllThePagesUrls() {
 }
 
 
-function readDirRecirsively(rootDir, subDir = '') {
+function readDirRecursivelySync(rootDir, subDir = '') {
   const fullDirPath = path.join(rootDir, subDir)
   const files = fs.readdirSync(fullDirPath, enc)
   let res = []
@@ -53,7 +53,7 @@ function readDirRecirsively(rootDir, subDir = '') {
     if (stat.isDirectory()) {
       res = [
         ...res,
-        ...readDirRecirsively(rootDir, path.join(subDir, file))
+        ...readDirRecursivelySync(rootDir, path.join(subDir, file))
       ]
     }
     else {

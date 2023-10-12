@@ -6,6 +6,7 @@ import {toHtml} from "hast-util-to-html";
 import yaml from 'yaml'
 import type {PageMetaData} from "$lib/types/PageMetaData";
 import {DEFAULT_LANG, SUPPORTED_LANGS} from '$lib/constants';
+import type {PageItemData} from './types/PageItemData';
 
 
 export function convertMdToHtml(mdContent: string) {
@@ -28,6 +29,23 @@ export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, st
   const meta: PageMetaData = yaml.parse(yamlString)
 
   return [meta, md]
+}
+
+export function makePageItemData(content: string, fileName: string): PageItemData {
+  const [meta, md] = extractMetaDataFromMdPage(content)
+
+  return {
+    fileName,
+    title: meta.title,
+    date: meta.date,
+
+    // TODO: зарезолвить первую картинку
+    thumb: '',
+    tags: meta.tags,
+
+    // TODO: вычистить разметку
+    content: md
+  }
 }
 
 export function acceptLangHeaderToLand(acceptLang?: string) {

@@ -1,5 +1,7 @@
 
 //export const LANG_COOKIE = '_lang'
+export const ITEM_PER_PAGE = 10
+export const FILE_ENCODE = 'utf8'
 export const DEFAULT_LANG = 'en'
 
 // TODO: может лучше считывать из директорий
