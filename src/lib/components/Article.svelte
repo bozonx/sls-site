@@ -9,6 +9,7 @@
   export let date
   export let html
   export let tags
+  export let descr
 
   let localeDate
 
