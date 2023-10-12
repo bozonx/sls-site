@@ -56,7 +56,7 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <SidebarDropdownItem label="Tag1" href={`/${$lang}/tag?t=tag1`} />
+        <SidebarDropdownItem label="Tag1" href={`/${$lang}/tag/tag1`} />
       </SidebarDropdownWrapper>
 
     </SidebarGroup>
