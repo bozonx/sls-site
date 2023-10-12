@@ -106,7 +106,7 @@
 			<GlobeSolid class="w-5 h-5" />
 			<!--<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" />-->
 		</Button>
-		<Dropdown>
+		<Dropdown data-sveltekit-preload-data="tap">
 			{#each SUPPORTED_LANGS as lang}
 				<DropdownItem href={makeLangUrl(lang)}>{lang}</DropdownItem>
 			{/each}

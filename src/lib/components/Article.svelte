@@ -10,6 +10,9 @@
   export let date
   export let html
   export let tags
+
+
+  let localeDate = moment(date).locale($lang).format('LL')
 </script>
 
 <div>
@@ -18,7 +21,7 @@
   </Heading>
 
   <div class="text-gray-400 dark:text-gray-500 text-sm mt-2">
-    {moment(date).locale($lang).format('LL')}
+    {localeDate}
   </div>
 
   <div class="mt-6 html-block">

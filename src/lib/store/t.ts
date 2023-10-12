@@ -1,14 +1,11 @@
 import {deepGet} from 'squidlet-lib';
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 
 export const tStore = writable({})
 
-let tStoreVal = {}
-
-tStore.subscribe((value) => {
-  tStoreVal = value
-})
-
 export const t = (tPath: string) => {
-  return deepGet(tStoreVal, tPath, tPath)
+
+  console.log(222, get(tStore), deepGet(get(tStore), tPath, tPath))
+
+  return deepGet(get(tStore), tPath, tPath)
 }
