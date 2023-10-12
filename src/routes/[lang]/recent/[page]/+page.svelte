@@ -1,7 +1,9 @@
-<script lang="ts">
+<script>
   import PagesList from '$lib/components/PagesList.svelte'
 
   export let data
+
+  // TODO: translate meta
 </script>
 
 <svelte:head>

@@ -11,7 +11,7 @@
   export let date
   export let thumb
   export let tags
-  export let content
+  export let descr
 
 
   let localeDate = moment(date).locale($lang).format('LL')
@@ -27,7 +27,7 @@
   </div>
 
   <div class="mt-6 html-block">
-    {content}
+    {descr}
   </div>
 
   {#if tags && tags.length}

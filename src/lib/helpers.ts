@@ -30,6 +30,7 @@ export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, st
     title: '',
     date: '',
     tags: [],
+    descr: '',
     ...yaml.parse(yamlString)
   }
 
@@ -49,7 +50,7 @@ export function makePageItemData(content: string, fileName: string): PageItemDat
     tags: meta.tags,
 
     // TODO: вычистить разметку
-    content: md
+    descr: md
   }
 }
 

@@ -4,5 +4,5 @@ export interface PageItemData {
   date: string
   thumb?: string
   tags: string[]
-  content: string
+  descr: string
 }
