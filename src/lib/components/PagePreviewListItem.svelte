@@ -6,6 +6,7 @@
   import {lang} from '$lib/store/lang';
 
 
+  export let fileName
   export let title
   export let date
   export let thumb

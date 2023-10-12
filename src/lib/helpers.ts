@@ -26,7 +26,12 @@ export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, st
 
   const md = splat[1].trim()
   const yamlString = splat[0].replace('<meta>', '').trim()
-  const meta: PageMetaData = yaml.parse(yamlString)
+  const meta: PageMetaData = {
+    title: '',
+    date: '',
+    tags: [],
+    ...yaml.parse(yamlString)
+  }
 
   return [meta, md]
 }
