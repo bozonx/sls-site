@@ -1,7 +1,7 @@
 <script lang="ts">
-  import PagePreviewListItem from '$lib/components/PagePreviewListItem.svelte'
+  import PagesList from '$lib/components/PagesList.svelte'
 
-  export let data: {meta: PageMetaData, html: string}
+  export let data
 </script>
 
 <svelte:head>
@@ -9,8 +9,4 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div>
-  {#each data.result as item}
-    <PagePreviewListItem {...item} />
-  {/each}
-</div>
+<PagesList res={data} />

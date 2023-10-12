@@ -1,13 +1,16 @@
 <script lang="ts">
   import type {PageMetaData} from "$lib/types/PageMetaData";
+  import PagesList from '$lib/components/PagesList.svelte'
   import {
     Card,
     Pagination,
     PaginationItem
   } from 'flowbite-svelte';
   import {page} from "$app/stores";
+
+  export let data
+
 /*
-  //export let data: {meta: PageMetaData, html: string};
 
   $: activeUrl = $page?.url.searchParams.get('page');
   let pages = [
@@ -46,14 +49,4 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<Card href="/ru">
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-  <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-</Card>
-
-<!--
-<Pagination {pages} on:previous={previous} on:next={next} />
--->
-
-<style>
-</style>
+<PagesList res={data} />
