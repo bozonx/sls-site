@@ -15,7 +15,9 @@
   export let baseUrl
 
 
-  let localeDate = moment(date).locale($page.params.lang).format('LL')
+  let localeDate
+
+  $: localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <Card href={`${baseUrl}/${pathTrimExt(fileName)}`} class="mb-2" size="lg">

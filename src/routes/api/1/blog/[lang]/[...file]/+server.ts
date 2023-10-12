@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import {getBlogPage} from '$lib/server/getPage';
+import {getBlogPage} from '$lib/server/fileRequests';
 
 
 export const prerender = true

@@ -4,11 +4,10 @@
 
   export let tags
 
-  // href={`/${curLang($page.url.pathname)}/tag?t=${tag}`}
 </script>
 
 <span class="space-x-1">
   {#each tags as tag}
-    <Badge  large rounded>{tag}</Badge>
+    <Badge href={`/${$page.params.lang}/tag/${tag}`} large rounded>{tag}</Badge>
   {/each}
 </span>

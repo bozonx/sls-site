@@ -67,13 +67,13 @@ export function acceptLangHeaderToLand(acceptLang?: string) {
   return splat[0]
 }
 
-export function curLang(currentPathname: string = ''): string {
-  const splat = trimCharStart(currentPathname, '/').split('/')
-
-  if (!SUPPORTED_LANGS.includes(splat[0])) return ''
-
-  return splat[0]
-}
+// export function curLang(currentPathname: string = ''): string {
+//   const splat = trimCharStart(currentPathname, '/').split('/')
+//
+//   if (!SUPPORTED_LANGS.includes(splat[0])) return ''
+//
+//   return splat[0]
+// }
 
 // export function makePageUrl(newUrl: string, currentPathname: string): string {
 //   const splat = trimCharStart(currentPathname).split('/')

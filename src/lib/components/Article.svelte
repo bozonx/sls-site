@@ -10,8 +10,9 @@
   export let html
   export let tags
 
+  let localeDate
 
-  let localeDate = moment(date).locale($page.params.lang).format('LL')
+  $: localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <div>

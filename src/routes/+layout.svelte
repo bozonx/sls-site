@@ -113,7 +113,7 @@
           <slot />
         </div>
 
-        <div id="footer">
+        <div id="footer" class="mb-6">
           <Footer />
         </div>
       </div>
