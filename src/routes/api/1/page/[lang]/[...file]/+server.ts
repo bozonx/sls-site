@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import {getSitePage} from '$lib/server/getPage';
+import {getSitePage} from '$lib/server/fileRequests';
 import {get} from 'svelte/store';
 
 
