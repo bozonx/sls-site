@@ -66,7 +66,7 @@
 			on:click={toggleDrawer}
 	/>-->
 	<!--<Button on:click={toggleDrawer}>aaa</Button>-->
-	<NavBrand href="/" class="lg:ml-64">
+	<NavBrand href={`/${$page.params.lang}`} class="lg:ml-64">
 		<img src="/images/site_logo.svg" class="mr-3 h-6 sm:h-9" alt="Logo" />
 		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
 			Система личной свободы

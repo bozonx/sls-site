@@ -11,4 +11,4 @@ export const load: PageServerLoad = (event) => {
   if (event.url.pathname === '/') {
     throw redirect(307, '/' + lang)
   }
-};
+}

@@ -61,7 +61,7 @@
     </SidebarGroup>
 
     <SidebarGroup>
-      <SidebarItem label="Главная" href="/">
+      <SidebarItem label="Главная" href={`/${$page.params.lang}`}>
         <svelte:fragment slot="icon">
           <HomeSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
         </svelte:fragment>
