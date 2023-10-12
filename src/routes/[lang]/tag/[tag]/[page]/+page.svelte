@@ -1,5 +1,6 @@
 <script>
   import PagesList from '$lib/components/PagesList.svelte'
+  import {page} from "$app/stores";
 
   export let data
 
@@ -11,4 +12,4 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<PagesList res={data} />
+<PagesList header={`#${$page.params.tag}`} res={data} />

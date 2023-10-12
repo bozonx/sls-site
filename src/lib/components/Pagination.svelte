@@ -40,8 +40,6 @@
 
 </script>
 
-<!--<ChevronRightOutline class="w-2.5 h-2.5" />-->
-
 <ButtonGroup >
   {#each items as item}
     {#key item.name}
@@ -50,6 +48,7 @@
         href={(item.disabled) ? null : item.href}
         disabled={item.disabled}
         color={item.active ? 'blue' : 'light'}
+        class={item.disabled && 'bg-gray-200'}
       >{item.name}</Button>
     {/key}
   {/each}

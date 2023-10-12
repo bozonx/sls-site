@@ -43,6 +43,6 @@ export async function GET(event) {
     result: allFiles.slice(start, start + ITEM_PER_PAGE),
     page: pageNum,
     perPage: ITEM_PER_PAGE,
-    totalPages: Math.ceil(files.length / ITEM_PER_PAGE)
+    totalPages: Math.ceil(allFiles.length / ITEM_PER_PAGE)
   }));
 }

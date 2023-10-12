@@ -4,6 +4,7 @@
   export let data
 
   // TODO: translate meta
+  // TODO: перевод header
 </script>
 
 <svelte:head>
@@ -11,4 +12,4 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<PagesList res={data} />
+<PagesList header={'Most recent'} res={data} />
