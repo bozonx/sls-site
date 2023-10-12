@@ -25,3 +25,24 @@ export async function loadParsedPage(event: LoadEvent, dirName: string) {
     html: convertMdToHtml(md)
   }
 }
+
+export async function loadListItems(event: LoadEvent, url: string) {
+  let response
+
+  if (!Number.isInteger(Number(event.params.page))) {
+    throw error(400, 'Wrong page param')
+  }
+
+  response = await event.fetch(url, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
+
+  if (response.status >= 400) {
+    throw error(response.status, response.statusText)
+  }
+
+  return await response.json()
+}
