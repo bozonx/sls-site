@@ -10,15 +10,22 @@ export const prerender = true
 
 export async function GET(event) {
   const langStr = event.params.lang
+  let locYml
 
   if (!SUPPORTED_LANGS.includes(langStr)) {
     throw error(404, 'Lang not found')
   }
 
-  const locYml = await fs.readFile(
-      `${ROOT_DIR}/texts/${langStr}/${langStr}.yaml`,
-      'utf8'
-  )
+  try {
+    locYml = await fs.readFile(
+        `${ROOT_DIR}/texts/${langStr}/${langStr}.yaml`,
+        'utf8'
+    )
+  }
+  catch (e) {
+    throw error(404, 'Translation not found')
+  }
+
   const loc = yaml.parse(locYml)
 
   return new Response(JSON.stringify({result: loc}));

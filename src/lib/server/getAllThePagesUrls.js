@@ -23,11 +23,17 @@ export function getAllThePagesUrls() {
 
     res = [
       ...res,
+      // TODO: это не нужно для sitemap
       path.join('/', lang),
       path.join('/', lang, 'tag'),
       path.join('/', lang, 'recent'),
-      ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
+
       ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
+      ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
+
+      // TODO: это не нужно для sitemap
+      ...blogPages.map((item) => path.join('/api/1', blogDir, lang, pathTrimExt(item))),
+      ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),
     ]
 
   }
