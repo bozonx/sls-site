@@ -6,23 +6,7 @@ import {lang} from '$lib/store/lang';
 
 
 export const load: PageServerLoad = async (event) => {
-  //let rawContent: string
-
-  // try {
-  //   rawContent = await getBlogPage(get(lang), event.params.file)
-  // }
-  // catch (e) {
-  //
-  //   // TODO: use translate
-  //
-  //   throw error(404, 'Not found');
-  // }
-
-  // TODO: handle error
-
   let response
-
-  console.log(3333, get(lang), event.params.file)
 
   response = await event.fetch(`/api/1/blog/${get(lang)}/${event.params.file}`, {
     method: 'GET',

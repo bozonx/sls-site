@@ -1,16 +1,29 @@
+import {get} from 'svelte/store';
 import { error } from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
-
+import {lang} from '$lib/store/lang';
 
 
 export const load: PageServerLoad = async (event) => {
-  return {
-    meta: {
-      date: '2023-10-10',
-      title: 'title',
-      tags: ['tag1']
+  let response
+
+  response = await event.fetch(`/api/1/page/${get(lang)}/${event.params.file}`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
     },
-    html: '<div>test</div>'
+  })
+
+  if (response.status >= 400) {
+    throw error(response.status, response.statusText)
+  }
+
+  const rawContent = await response.json()
+  const [meta, md] = extractMetaDataFromMdPage(rawContent.result)
+
+  return {
+    meta,
+    html: convertMdToHtml(md)
   }
 }

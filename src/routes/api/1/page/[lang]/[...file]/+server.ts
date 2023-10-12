@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import {getSitePage} from '$lib/server/getPage';
+import {get} from 'svelte/store';
 
 
 export const prerender = true

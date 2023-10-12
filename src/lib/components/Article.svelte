@@ -32,9 +32,11 @@
     Author
   </div>
 
+  {#if tags}
   <div class="mt-10">
     <TagList tags={tags} />
   </div>
+  {/if}
 </div>
 
 <style>
