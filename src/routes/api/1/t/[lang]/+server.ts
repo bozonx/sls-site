@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import yaml from 'yaml';
 import {ROOT_DIR} from '$lib/server/constants.server';
-import {SUPPORTED_LANGS} from '../../../../../lib/constants';
+import {SUPPORTED_LANGS} from '$lib/constants';
 
 
 export const prerender = true

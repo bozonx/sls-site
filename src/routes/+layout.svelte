@@ -28,12 +28,7 @@
   import {lang} from '../lib/store/lang';
   import {tStore} from '../lib/store/t';
 
-  export let data: {loc: any}
-
-  //tStore.set(data.loc)
-
-
-  console.log(3333, data)
+  //export let data: {loc: any}
 
   let transitionParams = {
     x: -320,
@@ -113,7 +108,6 @@
       <div id="app-page">
 
         <div class="dark:text-gray-900">{$lang} {t('test.t')} {JSON.stringify($tStore)}</div>
-        <div class="dark:text-gray-900">{JSON.stringify(data.loc)}</div>
 
         <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />
