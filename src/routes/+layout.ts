@@ -29,6 +29,17 @@ export const load: LayoutServerLoad = async (event) => {
 
   tStore.set(loc.result)
 
+  /////////////
+
+
+  const allTags = await event.fetch(`/api/1/alltags/${langStr}`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
+
   return {
+    allTags: (await allTags.json()).result
   }
 }

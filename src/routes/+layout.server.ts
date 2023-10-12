@@ -1,11 +1,3 @@
-import yaml from 'yaml';
-import fs from 'node:fs/promises'
-import type { LayoutServerLoad } from './$types'
-import {DEFAULT_LANG} from '$lib/constants';
-//import { addMessages, init } from 'svelte-intl-precompile';
-import {ROOT_DIR} from '$lib/server/constants.server';
-import {tStore} from '$lib/store/t';
-import {SUPPORTED_LANGS} from '../lib/constants';
 
 
 export const prerender = true

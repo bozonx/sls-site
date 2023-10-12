@@ -6,7 +6,8 @@
     SidebarItem,
     SidebarWrapper,
     SidebarDropdownWrapper,
-    SidebarDropdownItem
+    SidebarDropdownItem,
+    Badge
   } from 'flowbite-svelte';
   import {
     HomeSolid,
@@ -19,6 +20,8 @@
     ChevronDoubleDownOutline,
   } from 'flowbite-svelte-icons';
 
+
+  export let allTags
 
   //let spanClass = 'flex-1 ml-3 whitespace-nowrap';
   $: activeUrl = $page.url.pathname;
@@ -55,7 +58,14 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <SidebarDropdownItem label="Tag1" href={`/${$page.params.lang}/tag/tag1`} />
+        <div class="space-x-1 ml-1">
+          {#each allTags as tagItem}
+            <Badge
+              rounded
+              href={`/${$page.params.lang}/tag/${tagItem}`}
+            >{tagItem}</Badge>
+          {/each}
+        </div>
       </SidebarDropdownWrapper>
 
     </SidebarGroup>

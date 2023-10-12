@@ -28,7 +28,7 @@
   import {lang} from '../lib/store/lang';
   import {tStore} from '../lib/store/t';
 
-  //export let data: {loc: any}
+  export let data: {allTags: string[]}
 
   let transitionParams = {
     x: -320,
@@ -99,7 +99,7 @@
       />
     </div>
 
-    <SideBar />
+    <SideBar allTags={data.allTags} />
   </Drawer>
 
   <div class="flex px-4 sm:px-8 mx-auto w-full">
