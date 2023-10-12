@@ -13,8 +13,8 @@ export async function GET(event) {
     rawContent = await getBlogPage(langStr, event.params.file)
   }
   catch (e) {
-    throw error(404, 'Not found');
+    throw error(404, 'Not found')
   }
 
-  return new Response(JSON.stringify({result: rawContent}));
+  return new Response(JSON.stringify({result: rawContent}))
 }

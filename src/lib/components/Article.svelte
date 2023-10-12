@@ -3,7 +3,6 @@
   import { Heading, P, A, Img } from 'flowbite-svelte';
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
-  import {lang} from '$lib/store/lang';
 
 
   export let title
@@ -12,7 +11,7 @@
   export let tags
 
 
-  let localeDate = moment(date).locale($lang).format('LL')
+  let localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <div>

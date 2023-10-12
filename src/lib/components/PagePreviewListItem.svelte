@@ -3,7 +3,6 @@
   import {Heading, P, A, Img, Card} from 'flowbite-svelte';
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
-  import {lang} from '$lib/store/lang';
   import {pathTrimExt} from 'squidlet-lib';
 
 
@@ -16,7 +15,7 @@
   export let baseUrl
 
 
-  let localeDate = moment(date).locale($lang).format('LL')
+  let localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <Card href={`${baseUrl}/${pathTrimExt(fileName)}`} class="mb-2" size="lg">
