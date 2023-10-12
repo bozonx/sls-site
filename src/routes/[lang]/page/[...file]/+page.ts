@@ -1,12 +1,16 @@
 import {get} from 'svelte/store';
 import { error } from '@sveltejs/kit';
-import type {PageServerLoad} from './$types';
+import type {PageLoad} from './$types';
 import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
 import {lang} from '$lib/store/lang';
 
 
-export const load: PageServerLoad = async (event) => {
+export const load: PageLoad = async (event) => {
   let response
+
+  if (!get(lang)) {
+    throw error(404, 'Language not set')
+  }
 
   response = await event.fetch(`/api/1/page/${get(lang)}/${event.params.file}`, {
     method: 'GET',
