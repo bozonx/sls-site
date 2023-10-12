@@ -8,8 +8,9 @@
 
   export let title
   export let date
-  export let html
+  export let thumb
   export let tags
+  export let content
 
 
   let localeDate = moment(date).locale($lang).format('LL')
@@ -25,11 +26,7 @@
   </div>
 
   <div class="mt-6 html-block">
-    {@html html}
-  </div>
-
-  <div class="mt-10">
-    Author
+    {content}
   </div>
 
   {#if tags && tags.length}
@@ -38,33 +35,3 @@
   </div>
   {/if}
 </div>
-
-<style>
-  /*    section {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          flex: 0.6;
-      }
-
-      h1 {
-          width: 100%;
-      }
-
-      .welcome {
-          display: block;
-          position: relative;
-          width: 100%;
-          height: 0;
-          padding: 0 0 calc(100% * 495 / 2048) 0;
-      }
-
-      .welcome img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          display: block;
-      }*/
-</style>

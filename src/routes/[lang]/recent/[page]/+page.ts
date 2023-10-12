@@ -1,12 +1,15 @@
 import { error } from '@sveltejs/kit';
 import type {PageLoad} from './$types';
-import {convertMdToHtml, extractMetaDataFromMdPage} from "$lib/helpers";
 
 
 export const load: PageLoad = async (event) => {
   let response
 
-  response = await event.fetch(`/api/1/blog/${event.params.lang}/${event.params.file}`, {
+  if (!Number.isInteger(Number(event.params.page))) {
+    throw error(400, 'Wrong page param')
+  }
+
+  response = await event.fetch(`/api/1/recent/${event.params.lang}/${event.params.page}`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
@@ -17,11 +20,5 @@ export const load: PageLoad = async (event) => {
     throw error(response.status, response.statusText)
   }
 
-  const rawContent = await response.json()
-  const [meta, md] = extractMetaDataFromMdPage(rawContent.result)
-
-  return {
-    meta,
-    html: convertMdToHtml(md)
-  }
+  return await response.json()
 }

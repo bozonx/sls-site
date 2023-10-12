@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import type {PageServerLoad} from './$types';
+import type {PageLoad} from './$types';
 import {SUPPORTED_LANGS} from '../../lib/constants';
 
 
-export const load: PageServerLoad = (event) => {
+export const load: PageLoad = (event) => {
   if (!SUPPORTED_LANGS.includes(event.params.lang)) {
 
     // TODO: translate !!!
