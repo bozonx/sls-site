@@ -1,14 +1,15 @@
 <script>
-  import { Heading, P, A, Img } from 'flowbite-svelte';
-  import {page} from "$app/stores";
+  import {Heading} from 'flowbite-svelte';
   import TagList from "$lib/components/TagList.svelte";
-
+  import PostCommentLink from "$lib/components/PostCommentLink.svelte";
+  import PostAuthor from "$lib/components/PostAuthor.svelte";
 
   export let title
   export let html
   export let date = null
   export let tags = []
-  export let descr = ''
+  export let commentUrl = null
+  export let descr = null
 </script>
 
 <div>
@@ -22,15 +23,25 @@
     </div>
   {/if}
 
-  <div class="mt-6 html-block">
+  {#if descr}
+    <div class="mt-6">
+      {descr}
+    </div>
+  {/if}
+
+  <div class="mt-2 html-block">
     {@html html}
   </div>
 
-<!--
   <div class="mt-10">
-    Author
+    <PostAuthor />
   </div>
--->
+
+  {#if commentUrl}
+    <div class="mt-10">
+      <PostCommentLink href={commentUrl}  />
+    </div>
+  {/if}
 
   {#if tags && tags.length}
   <div class="mt-10">
@@ -38,33 +49,3 @@
   </div>
   {/if}
 </div>
-
-<style>
-  /*    section {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          flex: 0.6;
-      }
-
-      h1 {
-          width: 100%;
-      }
-
-      .welcome {
-          display: block;
-          position: relative;
-          width: 100%;
-          height: 0;
-          padding: 0 0 calc(100% * 495 / 2048) 0;
-      }
-
-      .welcome img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          display: block;
-      }*/
-</style>

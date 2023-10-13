@@ -4,6 +4,8 @@ tags:
   - tg1
   - tag1
 title: Old
+commentUrl: https://t.me
+descr: short descr
 </meta>
 
 some text

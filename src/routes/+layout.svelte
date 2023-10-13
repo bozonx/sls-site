@@ -6,7 +6,6 @@
   import "../app.postcss";
   import "../styles/styles.css";
   import { page } from '$app/stores';
-  import {t} from '$lib/store/t'
   import {ALL_TAGS_CONTEXT, SUPPORTED_LANGS_CONTEXT} from '$lib/constants';
   import TopBar from './TopBar.svelte'
   import SideBar from "./SideBar.svelte";

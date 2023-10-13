@@ -1,9 +1,12 @@
 <script>
+	import {t} from '$lib/store/t'
+
+	// TODO: translate description
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>{$t('chunks.projectFullName')}</title>
+	<meta name="description" content="" />
 </svelte:head>
 
 <section>

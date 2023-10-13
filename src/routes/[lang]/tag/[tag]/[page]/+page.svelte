@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>{$t('header.tag')} #{$page.params.tag}</title>
+  <title>{$t('header.tag')} #{$page.params.tag} | {$t('chunks.projectFullName')}</title>
   <meta name="description" content={`${$t('descr.tag')} #${$page.params.tag}`} />
 </svelte:head>
 

@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>{$t('link.recent')}</title>
+  <title>{$t('link.recent')} | {$t('chunks.projectFullName')}</title>
   <meta name="description" content={$t('descr.recent')} />
 </svelte:head>
 

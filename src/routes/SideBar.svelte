@@ -55,13 +55,13 @@
   </div>
 </a>
 
-<Sidebar {activeUrl} class="">
-  <SidebarWrapper class="!p-0">
+<Sidebar {activeUrl}>
+  <SidebarWrapper class="!p-0 rounded-none">
     <SidebarGroup>
 
       <MySidebarItem label={$t('link.recent')} href="/recent/1" icon={RectangleListSolid} />
 
-      <SidebarDropdownWrapper label={$t('layout.tags')} isOpen={true}>
+      <SidebarDropdownWrapper label={$t('layout.tags')} isOpen={true} class="rounded-none">
         <svelte:fragment slot="icon">
           <TagSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
         </svelte:fragment>
@@ -97,6 +97,7 @@
         label={$t('link.telegramChannel')}
         href="https://t.me/slsfreedom"
         target="_blank"
+        class="rounded-none"
       >
         <svelte:fragment slot="icon">
           <LogoIcon icon="telegram" />

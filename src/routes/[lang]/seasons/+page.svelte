@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-  <title>{$t('link.onSeasons')}</title>
+  <title>{$t('link.onSeasons')} | {$t('chunks.projectFullName')}</title>
   <meta name="description" content={$t('descr.onSeasons')} />
 </svelte:head>
 

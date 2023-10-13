@@ -4,6 +4,13 @@ import {SUPPORTED_LANGS} from '$lib/constants';
 import {tStore} from '$lib/store/t';
 
 
+export const prerender = true
+export const ssr = true
+
+// TODO: если включить то не отображается левая панель
+//export const csr = false
+
+
 export const load: LayoutServerLoad = async (event) => {
   const langStr = event.params.lang || ''
 

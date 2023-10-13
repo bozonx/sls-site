@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-  <title>{$t('link.allTags')}</title>
+  <title>{$t('link.allTags')} | {$t('chunks.projectFullName')}</title>
   <meta name="description" content={$t('descr.allTags')} />
 </svelte:head>
 

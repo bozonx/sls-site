@@ -2,6 +2,7 @@ layout:
   copyWarn: Копирование разрешено только со ссылкой на источник
   links: Ссылки
   tags: Тэги
+  commentsLink: Комментировать в Telegram канале
 link:
   contacts: Контакты
   home: Главная
@@ -26,4 +27,6 @@ messages:
   wrongPage: Не верная страницы. Идите в
 chunks:
   projectFullName: Система Личной Свободы
+  author: Автор
+  authorName: Айван Кей
   listBeginning: начало списка

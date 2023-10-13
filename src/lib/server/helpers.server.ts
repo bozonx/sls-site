@@ -73,7 +73,7 @@ export function makePageItemData(
   fileName: string,
   lang: string
 ): PageItemData {
-  const [meta, md] = extractMetaDataFromMdPage(content, lang)
+  const [meta] = extractMetaDataFromMdPage(content, lang)
 
   return {
     fileName,
@@ -83,8 +83,6 @@ export function makePageItemData(
     // TODO: зарезолвить первую картинку
     thumb: '',
     tags: meta.tags,
-
-    // TODO: вычистить разметку
-    descr: md
+    descr: meta.descr
   }
 }
