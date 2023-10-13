@@ -1,6 +1,5 @@
 import type {LoadEvent} from '@sveltejs/kit';
 import {error} from '@sveltejs/kit';
-import {convertMdToHtml, extractMetaDataFromMdPage} from './helpers';
 
 
 export async function loadParsedPage(event: LoadEvent, dirName: string) {
@@ -18,12 +17,8 @@ export async function loadParsedPage(event: LoadEvent, dirName: string) {
   }
 
   const rawContent = await response.json()
-  const [meta, md] = extractMetaDataFromMdPage(rawContent.result)
 
-  return {
-    meta,
-    html: convertMdToHtml(md)
-  }
+  return JSON.parse(rawContent.result)
 }
 
 export async function loadListItems(event: LoadEvent, url: string) {

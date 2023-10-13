@@ -3,8 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {ROOT_DIR} from '$lib/server/constants.server';
 import {FILE_ENCODE} from '$lib/constants';
-import {readDirRecursively} from '$lib/server/helpers';
-import {makePageItemData} from '$lib/helpers';
+import {makePageItemData, readDirRecursively} from '$lib/server/helpers.server';
 
 
 export const prerender = true

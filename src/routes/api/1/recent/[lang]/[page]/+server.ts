@@ -4,9 +4,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {ROOT_DIR} from '$lib/server/constants.server';
 import {FILE_ENCODE} from '$lib/constants';
-import {readDirRecursively} from '$lib/server/helpers';
+import {readDirRecursively, makePageItemData} from '$lib/server/helpers.server';
 import type {PageItemData} from '$lib/types/PageItemData';
-import {makePageItemData} from '$lib/helpers';
 import {ITEM_PER_PAGE} from '$lib/constants';
 
 
