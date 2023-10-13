@@ -1,7 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types'
 import {SUPPORTED_LANGS} from '$lib/constants';
-import {lang} from '$lib/store/lang';
 import {tStore} from '$lib/store/t';
 
 
@@ -10,7 +9,7 @@ export const load: LayoutServerLoad = async (event) => {
 
   if (!SUPPORTED_LANGS.includes(langStr)) return {}
 
-  lang.set(langStr)
+  ///lang.set(langStr)
 
   // TODO: handle error
 

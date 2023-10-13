@@ -25,7 +25,6 @@
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
   import "../styles/styles.css";
-  import {lang} from '../lib/store/lang';
   import {tStore} from '../lib/store/t';
 
   export let data: {allTags: string[]}
@@ -107,7 +106,7 @@
 
       <div id="app-page">
 
-        <div class="dark:text-gray-900">{$lang} {t('test.t')} {JSON.stringify($tStore)}</div>
+        <div class="dark:text-gray-900">{$page.params.lang} {t('test.t')} {JSON.stringify($tStore)}</div>
 
         <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />
