@@ -1,5 +1,4 @@
 <script>
-  import { page } from '$app/stores';
   import {
     Sidebar,
     SidebarGroup,
@@ -21,6 +20,7 @@
     LayersOutline,
     CalendarMonthSolid,
   } from 'flowbite-svelte-icons';
+  import { page } from '$app/stores';
   import {t} from '$lib/store/t'
   import MySidebarItem from '$lib/components/MySidebarItem.svelte'
   import SidebarSubHeader from '$lib/components/SidebarSubHeader.svelte'
@@ -43,13 +43,15 @@
   />
 </div>
 
-<div class="bg-white flex items-center pt-5 pb-6 pl-7 mb-4">
+<a
+  href={`/${$page.params.lang}`}
+  class="bg-white flex items-center pt-5 pb-6 pl-7 mb-4"
+>
   <img src="/images/site_logo.svg" class="h-16" alt="Logo" />
-  <div
-    class="ml-7 text-xl font-semibold"
-  >Система<br />Личной<br />Свободы</div>
-</div>
-
+  <div class="ml-7 text-xl font-semibold text-black">
+    {$t('chunks.projectFullName')}
+  </div>
+</a>
 
 <Sidebar {activeUrl} class="">
   <SidebarWrapper class="!p-0">
