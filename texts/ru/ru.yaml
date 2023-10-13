@@ -1,2 +1,11 @@
-test:
-  t: 'тесе'
+layout:
+  copyWarn: Копирование разрешено только со ссылкой на источник
+  links: Ссылки
+link:
+  contacts: Контакты
+  home: Главная
+  recent: Последние
+  about: О проекте
+  donate: Донат
+  youtubeChannel: Канал на Youtube
+  telegramChannel: Канал в Telegram

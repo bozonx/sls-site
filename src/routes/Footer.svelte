@@ -1,21 +1,16 @@
 <script>
-  import {
-    Footer,
-    FooterCopyright,
-    FooterLink,
-    FooterLinkGroup
-  } from 'flowbite-svelte';
+  import { Footer, FooterLinkGroup } from 'flowbite-svelte';
   import MyFooterLink from "$lib/components/MyFooterLink.svelte"
-  import {page} from "$app/stores";
+  import {t} from '$lib/store/t'
 </script>
 
 <Footer class="!bg-transparent !p-0 shadow-none">
   <!--<FooterCopyright href="/" by="PFS™" year={2023} />-->
   <div class="text-gray-600 dark:text-gray-400 text-sm max-md:mb-5">
-    Копирование разрешено только со ссылкой на источник
+    {$t('layout.copyWarn')}
   </div>
 
-  <FooterLinkGroup ulClass="flex underline flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-    <MyFooterLink href="/page/contacts">Контакты</MyFooterLink>
+  <FooterLinkGroup ulClass="flex underline flex-wrap items-center text-sm text-gray-500 dark:text-gray-400">
+    <MyFooterLink href="/page/contacts">{$t('link.contacts')}</MyFooterLink>
   </FooterLinkGroup>
 </Footer>

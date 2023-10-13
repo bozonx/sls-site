@@ -21,8 +21,6 @@
     "moment": "^2.29.4",
     "squidlet-lib": "^0.1.5",
     "svelte-heros-v2": "^0.10.12",
-    "svelte-i18n": "^3.7.4",
-    "svelte-intl-precompile": "^0.12.3",
     "yaml": "^2.3.2"
   },
   "devDependencies": {

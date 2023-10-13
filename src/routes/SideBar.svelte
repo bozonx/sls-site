@@ -7,7 +7,7 @@
     SidebarWrapper,
     SidebarDropdownWrapper,
     SidebarDropdownItem,
-    Badge
+    Badge, CloseButton
   } from 'flowbite-svelte';
   import {
     HomeSolid,
@@ -19,6 +19,9 @@
     ChevronDoubleUpOutline,
     ChevronDoubleDownOutline,
   } from 'flowbite-svelte-icons';
+  import {t} from '$lib/store/t'
+  import MySidebarItem from '$lib/components/MySidebarItem.svelte'
+  import SidebarSubHeader from '$lib/components/SidebarSubHeader.svelte'
 
 
   export let allTags
@@ -28,6 +31,13 @@
 
   let spanClass = 'pl-2 self-center text-md text-gray-900 whitespace-nowrap dark:text-white';
 </script>
+
+<div class="flex items-center lg:hidden">
+  <CloseButton
+    on:click={() => (drawerHidden = true)}
+    class="mb-4 dark:text-white"
+  />
+</div>
 
 <div class="bg-white flex items-center pt-5 pb-6 pl-7 mb-4">
   <img src="/images/site_logo.svg" class="h-16" alt="Logo" />
@@ -41,11 +51,7 @@
   <SidebarWrapper class="!p-0">
     <SidebarGroup>
 
-      <SidebarItem label="Последние" href={`/${$page.params.lang}/recent`}>
-        <svelte:fragment slot="icon">
-          <RectangleListSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-        </svelte:fragment>
-      </SidebarItem>
+      <MySidebarItem label={$t('link.recent')} href="/recent" icon={RectangleListSolid} />
 
       <SidebarDropdownWrapper label="Тэги" isOpen={true}>
         <svelte:fragment slot="icon">
@@ -57,6 +63,12 @@
         <svelte:fragment slot="arrowdown">
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
+
+        <SidebarItem label="all tags" href={`/${$page.params.lang}/alltags`}>
+          <svelte:fragment slot="icon">
+            <InfoCircleSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+          </svelte:fragment>
+        </SidebarItem>
 
         <div class="space-x-1 ml-1">
           {#each allTags as tagItem}
@@ -71,40 +83,18 @@
     </SidebarGroup>
 
     <SidebarGroup>
-      <SidebarItem label="Главная" href={`/${$page.params.lang}`}>
-        <svelte:fragment slot="icon">
-          <HomeSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-        </svelte:fragment>
-      </SidebarItem>
-
-      <SidebarItem label="О проекте" href={`/${$page.params.lang}/page/about`}>
-        <svelte:fragment slot="icon">
-          <InfoCircleSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-        </svelte:fragment>
-      </SidebarItem>
-
-      <SidebarItem label="Донат" href={`/${$page.params.lang}/page/donate`}>
-        <svelte:fragment slot="icon">
-          <HeartSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-        </svelte:fragment>
-      </SidebarItem>
+      <MySidebarItem label={$t('link.home')} href="/" icon={HomeSolid} />
+      <MySidebarItem label={$t('link.about')} href="/page/about" icon={InfoCircleSolid} />
+      <MySidebarItem label={$t('link.donate')} href="/page/donate" icon={HeartSolid} />
     </SidebarGroup>
 
-    <SidebarGroup>
-      <SidebarItem
-        label="Youtube channel"
-        href="https://youtube.com/@slsfreedom"
-        target="_blank"
-      >
-        <svelte:fragment slot="icon">
-          <YoutubeSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-        </svelte:fragment>
-      </SidebarItem>
-    </SidebarGroup>
+    <SidebarSubHeader>{$t('layout.links')}</SidebarSubHeader>
 
     <SidebarGroup>
+      <MySidebarItem label={$t('link.youtubeChannel')} href="https://youtube.com/@slsfreedom" icon={YoutubeSolid} target="_blank" />
+
       <SidebarItem
-        label="Telegram channel"
+        label={$t('link.telegramChannel')}
         href="https://t.me/slsfreedom"
         target="_blank"
       >
