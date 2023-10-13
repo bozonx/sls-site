@@ -1,15 +1,14 @@
 <script>
   import PagesList from '$lib/components/PagesList.svelte'
   import {page} from "$app/stores";
+  import {t} from '$lib/store/t'
 
   export let data
-
-  // TODO: translate meta
 </script>
 
 <svelte:head>
-  <title>Blog page</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>{$t('header.tag')} #{$page.params.tag}</title>
+  <meta name="description" content={`${$t('descr.tag')} #${$page.params.tag}`} />
 </svelte:head>
 
-<PagesList header={`#${$page.params.tag}`} baseUrl={`/${$page.params.lang}/blog`} res={data} />
+<PagesList header={`${$t('header.tag')} #${$page.params.tag}`} baseUrl={`/${$page.params.lang}/blog`} res={data} />
