@@ -6,14 +6,14 @@
 
 
   export let title
-  export let date
   export let html
-  export let tags
-  export let descr
+  export let date = null
+  export let tags = []
+  export let descr = ''
 
-  let localeDate
+  //let localeDate
 
-  $: localeDate = moment(date).locale($page.params.lang).format('LL')
+  //$: localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <div>
@@ -21,9 +21,11 @@
     {title}
   </Heading>
 
-  <div class="text-gray-400 dark:text-gray-500 text-sm mt-2">
-    {localeDate}
-  </div>
+  {#if date}
+    <div class="text-gray-400 dark:text-gray-500 text-sm mt-2">
+      {date}
+    </div>
+  {/if}
 
   <div class="mt-6 html-block">
     {@html html}

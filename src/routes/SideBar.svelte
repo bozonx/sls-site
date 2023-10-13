@@ -19,6 +19,8 @@
     ChevronDoubleDownOutline,
     LayersOutline,
     CalendarMonthSolid,
+    MessagesOutline,
+    ForwardSolid,
   } from 'flowbite-svelte-icons';
   import { page } from '$app/stores';
   import {t} from '$lib/store/t'
@@ -100,6 +102,9 @@
           <LogoIcon icon="telegram" />
         </svelte:fragment>
       </SidebarItem>
+
+      <MySidebarItem label={$t('link.telegramChat')} href="https://t.me/slsfreedom_chat" icon={MessagesOutline} target="_blank" />
+      <MySidebarItem label={$t('link.allLinks')} href="/page/links" icon={ForwardSolid} />
     </SidebarGroup>
 
   </SidebarWrapper>

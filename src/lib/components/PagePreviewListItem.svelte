@@ -15,9 +15,9 @@
   export let baseUrl
 
 
-  let localeDate
+  //let localeDate
 
-  $: localeDate = moment(date).locale($page.params.lang).format('LL')
+  //$: localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <Card href={`${baseUrl}/${pathTrimExt(fileName)}`} class="mb-2" size="lg">
@@ -32,6 +32,9 @@
         <TagList tags={tags} />
       {/if}
     </div>
-    <div class="text-sm flex items-end">{localeDate}</div>
+
+    {#if date}
+      <div class="text-sm flex items-end">{date}</div>
+    {/if}
   </div>
 </Card>

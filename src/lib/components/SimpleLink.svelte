@@ -2,7 +2,7 @@
   import {page} from "$app/stores"
 
   export let href
-  export let target
+  export let target = null
 
 
   let resolvedHref

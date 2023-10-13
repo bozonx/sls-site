@@ -87,7 +87,7 @@
     bind:hidden={drawerHidden}
     bind:activateClickOutside
     width="w-64"
-    class="overflow-auto !p-0 pb-32 bg-gray-50"
+    class="overflow-auto !p-0 pb-32 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
     <SideBar allTags={$allTags} />
