@@ -1,6 +1,7 @@
 export interface PageMetaData {
   title: string
-  date: string
   tags: string[]
   descr: string
+  date?: string
+  commentUrl?: string
 }

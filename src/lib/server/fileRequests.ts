@@ -20,7 +20,7 @@ async function loadTextFile(lang: string, dir: string, fileName: string) {
       `texts/${lang}/${dir}/${fileName}`
   )
   const fileContent = await fs.readFile(fullFilePath, 'utf8')
-  const [meta, md] = extractMetaDataFromMdPage(fileContent)
+  const [meta, md] = extractMetaDataFromMdPage(fileContent, lang)
 
   return JSON.stringify({
     meta,

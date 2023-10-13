@@ -1,6 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import yaml from 'yaml';
+import moment from 'moment';
 import {fromMarkdown} from 'mdast-util-from-markdown';
 import {toHast} from 'mdast-util-to-hast';
 import {sanitize} from 'hast-util-sanitize';
@@ -41,7 +42,10 @@ export function convertMdToHtml(mdContent: string) {
   return  toHtml(safe)
 }
 
-export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, string] {
+export function extractMetaDataFromMdPage(
+    rawContent: string,
+    lang: string
+): [PageMetaData, string] {
   const splat = rawContent.split('</meta>')
 
   if (splat.length !== 2) {
@@ -50,19 +54,26 @@ export function extractMetaDataFromMdPage(rawContent: string): [PageMetaData, st
 
   const md = splat[1].trim()
   const yamlString = splat[0].replace('<meta>', '').trim()
+  const rawMetaData = yaml.parse(yamlString)
   const meta: PageMetaData = {
     title: '',
-    date: '',
     tags: [],
     descr: '',
-    ...yaml.parse(yamlString)
+    ...rawMetaData,
+    date: (rawMetaData.date)
+        ? moment(rawMetaData.date).locale(lang).format('LL')
+        : undefined,
   }
 
   return [meta, md]
 }
 
-export function makePageItemData(content: string, fileName: string): PageItemData {
-  const [meta, md] = extractMetaDataFromMdPage(content)
+export function makePageItemData(
+  content: string,
+  fileName: string,
+  lang: string
+): PageItemData {
+  const [meta, md] = extractMetaDataFromMdPage(content, lang)
 
   return {
     fileName,
