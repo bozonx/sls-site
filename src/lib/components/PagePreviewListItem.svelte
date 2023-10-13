@@ -1,5 +1,4 @@
 <script>
-  import moment from 'moment';
   import {Heading, P, A, Img, Card} from 'flowbite-svelte';
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
@@ -8,16 +7,11 @@
 
   export let fileName
   export let title
-  export let date = ''
+  export let date = null
   export let thumb = ''
   export let tags = []
   export let descr
   export let baseUrl
-
-
-  //let localeDate
-
-  //$: localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <Card href={`${baseUrl}/${pathTrimExt(fileName)}`} class="mb-2" size="lg">

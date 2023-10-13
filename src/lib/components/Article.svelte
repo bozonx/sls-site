@@ -1,5 +1,4 @@
 <script>
-  import moment from 'moment';
   import { Heading, P, A, Img } from 'flowbite-svelte';
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
@@ -10,10 +9,6 @@
   export let date = null
   export let tags = []
   export let descr = ''
-
-  //let localeDate
-
-  //$: localeDate = moment(date).locale($page.params.lang).format('LL')
 </script>
 
 <div>
