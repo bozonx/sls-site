@@ -1,25 +1,16 @@
 <script>
-	import { page } from '$app/stores';
 	import {
-		DarkMode,
 		Navbar,
 		NavBrand,
 		NavHamburger,
 		NavLi,
 		NavUl,
 		Button,
-		Dropdown,
-		DropdownItem,
-		Input
+		DarkMode,
 	} from "flowbite-svelte";
+	import { page } from '$app/stores';
 	//import {Cog} from "svelte-heros-v2";
-	import { ChevronDownSolid, GlobeSolid } from 'flowbite-svelte-icons'
-	import { getContext } from 'svelte';
-	import {SUPPORTED_LANGS_CONTEXT} from "../lib/constants";
-
-
-	const supportedLangs = getContext(SUPPORTED_LANGS_CONTEXT);
-
+	import SwitchLanguage from "$lib/components/SwitchLanguage.svelte";
 
 
 	export let toggleDrawer
@@ -52,12 +43,6 @@
 
 	// btnClass="xl:hidden focus:outline-none whitespace-normal rounded-lg focus:ring-2 p-1.5 focus:ring-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 m-0 mr-3"
 
-	const makeLangUrl = (lang) => {
-		const pathName = ($page.url.pathname || '')
-				.replace(/^\/\w{2}/, '')
-
-		return `/${lang}${pathName}`
-	}
 
 
 	// class="flex items-center ml-auto"
@@ -106,15 +91,7 @@
 	-->
 
 	<div class="mr-1">
-		<Button color="dark" class="!pl-3 !pr-3" size="lg">
-			<GlobeSolid class="w-5 h-5" />
-			<!--<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" />-->
-		</Button>
-		<Dropdown data-sveltekit-preload-data="tap">
-			{#each $supportedLangs as lang}
-				<DropdownItem href={makeLangUrl(lang)}>{lang}</DropdownItem>
-			{/each}
-		</Dropdown>
+		<SwitchLanguage />
 	</div>
 
 	<div>
@@ -124,6 +101,3 @@
 
 	<!--<NavHamburger on:click={toggle} btnClass="lg:hidden" />-->
 </Navbar>
-
-<style>
-</style>

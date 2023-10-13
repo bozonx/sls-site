@@ -10,6 +10,8 @@
   export let tags = []
   export let commentUrl = null
   export let descr = null
+  export let showAuthor = false
+  export let showDescr = false
 </script>
 
 <div>
@@ -23,7 +25,7 @@
     </div>
   {/if}
 
-  {#if descr}
+  {#if descr && showDescr}
     <div class="mt-6">
       {descr}
     </div>
@@ -33,9 +35,11 @@
     {@html html}
   </div>
 
-  <div class="mt-10">
-    <PostAuthor />
-  </div>
+  {#if showAuthor}
+    <div class="mt-10">
+      <PostAuthor />
+    </div>
+  {/if}
 
   {#if commentUrl}
     <div class="mt-10">

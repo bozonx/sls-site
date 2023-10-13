@@ -31,3 +31,11 @@ body {
     width: 840px
 	}
 }
+
+svg {
+	outline: 0;
+}
+
+button {
+	outline: 0;
+}

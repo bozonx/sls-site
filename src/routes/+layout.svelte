@@ -1,14 +1,15 @@
 <script lang="ts">
-  import { onMount, setContext } from 'svelte';
-  import { Drawer, CloseButton } from 'flowbite-svelte';
-  import { writable } from 'svelte/store';
-  import { sineIn } from 'svelte/easing';
-  import "../app.postcss";
-  import "../styles/styles.css";
-  import { page } from '$app/stores';
-  import {ALL_TAGS_CONTEXT, SUPPORTED_LANGS_CONTEXT} from '$lib/constants';
+  import { onMount, setContext } from 'svelte'
+  import { Drawer, CloseButton } from 'flowbite-svelte'
+  import { writable } from 'svelte/store'
+  import { sineIn } from 'svelte/easing'
+  import "../app.postcss"
+  import "../styles/styles.css"
+  import { page } from '$app/stores'
+  import {ALL_TAGS_CONTEXT, SUPPORTED_LANGS_CONTEXT} from '$lib/constants'
+  import SidebarFooter from '$lib/components/SidebarFooter.svelte'
   import TopBar from './TopBar.svelte'
-  import SideBar from "./SideBar.svelte";
+  import SideBar from "./SideBar.svelte"
   import Footer from './Footer.svelte'
 
   export let data: {
@@ -86,10 +87,15 @@
     bind:hidden={drawerHidden}
     bind:activateClickOutside
     width="w-64"
-    class="overflow-auto !p-0 pb-32 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+    class="overflow-auto flex flex-wrap !p-0 pb-32 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
-    <SideBar allTags={$allTags} />
+    <div>
+      <SideBar allTags={$allTags} />
+    </div>
+    <div class="pt-5 pb-3 w-full flex items-end">
+      <SidebarFooter />
+    </div>
   </Drawer>
 
   <div class="flex px-4 sm:px-8 mx-auto w-full">
