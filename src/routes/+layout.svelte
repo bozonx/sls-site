@@ -7,10 +7,10 @@
   import "../styles/styles.css";
   import { page } from '$app/stores';
   import {t} from '$lib/store/t'
+  import {ALL_TAGS_CONTEXT, SUPPORTED_LANGS_CONTEXT} from '$lib/constants';
   import TopBar from './TopBar.svelte'
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
-  import {SUPPORTED_LANGS_CONTEXT} from '../lib/constants';
 
   export let data: {
     allTags: string[]
@@ -19,10 +19,13 @@
   }
 
   const supportedLangs = writable()
+  const allTags = writable()
 
   $: supportedLangs.set(data.supportedLangs)
+  $: allTags.set(data.allTags)
 
   setContext(SUPPORTED_LANGS_CONTEXT, supportedLangs)
+  setContext(ALL_TAGS_CONTEXT, allTags)
 
 
 
@@ -87,7 +90,7 @@
     class="overflow-auto !p-0 pb-32 bg-gray-50"
     id="sidebar"
   >
-    <SideBar allTags={data.allTags} />
+    <SideBar allTags={$allTags} />
   </Drawer>
 
   <div class="flex px-4 sm:px-8 mx-auto w-full">

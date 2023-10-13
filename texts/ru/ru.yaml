@@ -4,8 +4,12 @@ layout:
 link:
   contacts: Контакты
   home: Главная
-  recent: Последние
+  recent: Самые свежие
   about: О проекте
   donate: Донат
   youtubeChannel: Канал на Youtube
   telegramChannel: Канал в Telegram
+  allTags: Все тэги
+descr:
+  allTags: Тэги со всех статей сайта
+  recent: Самые свежие статьи и посты

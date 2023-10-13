@@ -4,6 +4,7 @@
   import {page} from "$app/stores";
   import PagePreviewListItem from '$lib/components/PagePreviewListItem.svelte'
   import Pagination from '$lib/components/Pagination.svelte'
+  import PageHeader from '$lib/components/PageHeader.svelte'
   import {PAGINATION_MAX_ITEMS} from '$lib/constants'
 
   export let header
@@ -19,7 +20,7 @@
 </script>
 
 <div>
-  <Heading tag="h1" class="mb-10">{header}</Heading>
+  <PageHeader>{header}</PageHeader>
 
   {#if res.page === 1 && !res.result.length}
     <Alert color="dark">No items</Alert>

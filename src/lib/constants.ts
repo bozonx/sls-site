@@ -3,6 +3,7 @@ export const PAGINATION_MAX_ITEMS = 9
 export const FILE_ENCODE = 'utf8'
 export const DEFAULT_LANG = 'en'
 export const SUPPORTED_LANGS_CONTEXT = 'supportedLangs'
+export const ALL_TAGS_CONTEXT = 'allTags'
 //export const TRANSLATES_CONTEXT = 'translates'
 
 // TODO: может лучше считывать из директорий

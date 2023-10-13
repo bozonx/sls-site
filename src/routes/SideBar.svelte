@@ -6,8 +6,8 @@
     SidebarItem,
     SidebarWrapper,
     SidebarDropdownWrapper,
-    SidebarDropdownItem,
-    Badge, CloseButton
+    Badge,
+    CloseButton
   } from 'flowbite-svelte';
   import {
     HomeSolid,
@@ -18,10 +18,12 @@
     RectangleListSolid,
     ChevronDoubleUpOutline,
     ChevronDoubleDownOutline,
+    LayersOutline,
   } from 'flowbite-svelte-icons';
   import {t} from '$lib/store/t'
   import MySidebarItem from '$lib/components/MySidebarItem.svelte'
   import SidebarSubHeader from '$lib/components/SidebarSubHeader.svelte'
+  import TagList from '$lib/components/TagList.svelte'
 
 
   export let allTags
@@ -51,7 +53,7 @@
   <SidebarWrapper class="!p-0">
     <SidebarGroup>
 
-      <MySidebarItem label={$t('link.recent')} href="/recent" icon={RectangleListSolid} />
+      <MySidebarItem label={$t('link.recent')} href="/recent/1" icon={RectangleListSolid} />
 
       <SidebarDropdownWrapper label="Тэги" isOpen={true}>
         <svelte:fragment slot="icon">
@@ -64,25 +66,16 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <SidebarItem label="all tags" href={`/${$page.params.lang}/alltags`}>
-          <svelte:fragment slot="icon">
-            <InfoCircleSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          </svelte:fragment>
-        </SidebarItem>
-
-        <div class="space-x-1 ml-1">
-          {#each allTags as tagItem}
-            <Badge
-              rounded
-              href={`/${$page.params.lang}/tag/${tagItem}`}
-            >{tagItem}</Badge>
-          {/each}
+        <div class="ml-1">
+          <TagList tags={allTags} />
         </div>
       </SidebarDropdownWrapper>
 
+      <MySidebarItem label={$t('link.allTags')} href="/alltags" icon={LayersOutline} />
+
     </SidebarGroup>
 
-    <SidebarGroup>
+    <SidebarGroup class="lg:hidden">
       <MySidebarItem label={$t('link.home')} href="/" icon={HomeSolid} />
       <MySidebarItem label={$t('link.about')} href="/page/about" icon={InfoCircleSolid} />
       <MySidebarItem label={$t('link.donate')} href="/page/donate" icon={HeartSolid} />
