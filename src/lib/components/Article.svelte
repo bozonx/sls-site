@@ -29,9 +29,11 @@
     {@html html}
   </div>
 
+<!--
   <div class="mt-10">
     Author
   </div>
+-->
 
   {#if tags && tags.length}
   <div class="mt-10">

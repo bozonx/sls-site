@@ -8,9 +8,9 @@
 
   export let fileName
   export let title
-  export let date
-  export let thumb
-  export let tags
+  export let date = ''
+  export let thumb = ''
+  export let tags = []
   export let descr
   export let baseUrl
 

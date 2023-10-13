@@ -1,6 +1,7 @@
 layout:
   copyWarn: Копирование разрешено только со ссылкой на источник
   links: Ссылки
+  tags: Тэги
 link:
   contacts: Контакты
   home: Главная
@@ -18,6 +19,9 @@ descr:
   recent: Самые свежие статьи и посты
   tag: Самые свежие статьи и посты по тэгу
   onSeasons: Все выпуски и статьи по сезонам
+messages:
+  emptyList: Тут пусто
+  wrongPage: Не верная страницы. Идите в
 chunks:
   projectFullName: Система Личной Свободы
-
+  listBeginning: начало списка

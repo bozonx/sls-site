@@ -6,28 +6,27 @@
   import Pagination from '$lib/components/Pagination.svelte'
   import PageHeader from '$lib/components/PageHeader.svelte'
   import {PAGINATION_MAX_ITEMS} from '$lib/constants'
+  import {t} from '$lib/store/t'
 
   export let header
   export let res
   export let baseUrl
 
 
-  const paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
+  let paginationBaseUrl
 
-
-  // TODO: translate
-
+  $: paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
 </script>
 
 <div>
   <PageHeader>{header}</PageHeader>
 
   {#if res.page === 1 && !res.result.length}
-    <Alert color="dark">No items</Alert>
+    <Alert color="dark">{$t('messages.emptyList')}</Alert>
   {:else if res.page <= 0 || res.page > res.totalPages}
     <Alert color="red">
-      <span>Wrong page. Go to </span>
-      <a href={paginationBaseUrl} class="underline">list beginning</a>
+      <span>{$t('messages.wrongPage')}</span>
+      <a href={paginationBaseUrl} class="underline">{$t('chunks.listBeginning')}</a>
     </Alert>
   {:else}
     {#each res.result as item}

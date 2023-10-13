@@ -59,7 +59,7 @@
 
       <MySidebarItem label={$t('link.recent')} href="/recent/1" icon={RectangleListSolid} />
 
-      <SidebarDropdownWrapper label="Тэги" isOpen={true}>
+      <SidebarDropdownWrapper label={$t('layout.tags')} isOpen={true}>
         <svelte:fragment slot="icon">
           <TagSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
         </svelte:fragment>
