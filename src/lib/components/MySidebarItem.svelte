@@ -6,7 +6,7 @@
   export let label
   export let href
   export let icon
-  export let target
+  export let target = null
 
 
   let resolvedHref

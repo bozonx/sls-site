@@ -7,7 +7,7 @@
     SidebarWrapper,
     SidebarDropdownWrapper,
     Badge,
-    CloseButton
+    CloseButton,
   } from 'flowbite-svelte';
   import {
     HomeSolid,
@@ -19,11 +19,13 @@
     ChevronDoubleUpOutline,
     ChevronDoubleDownOutline,
     LayersOutline,
+    CalendarMonthSolid,
   } from 'flowbite-svelte-icons';
   import {t} from '$lib/store/t'
   import MySidebarItem from '$lib/components/MySidebarItem.svelte'
   import SidebarSubHeader from '$lib/components/SidebarSubHeader.svelte'
   import TagList from '$lib/components/TagList.svelte'
+  import LogoIcon from '$lib/components/LogoIcon.svelte'
 
 
   export let allTags
@@ -72,6 +74,7 @@
       </SidebarDropdownWrapper>
 
       <MySidebarItem label={$t('link.allTags')} href="/alltags" icon={LayersOutline} />
+      <MySidebarItem label={$t('link.onSeasons')} href="/seasons" icon={CalendarMonthSolid} />
 
     </SidebarGroup>
 
@@ -92,7 +95,7 @@
         target="_blank"
       >
         <svelte:fragment slot="icon">
-          <YoutubeSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+          <LogoIcon icon="telegram" />
         </svelte:fragment>
       </SidebarItem>
     </SidebarGroup>
