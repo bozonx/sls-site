@@ -26,8 +26,24 @@
   import Footer from './Footer.svelte'
   import "../styles/styles.css";
   import {tStore} from '../lib/store/t';
+  import { setContext } from 'svelte';
+  import { writable } from 'svelte/store';
+  import {SUPPORTED_LANGS_CONTEXT} from '../lib/constants';
 
   export let data: {allTags: string[]}
+
+
+  // Create a store and update it when necessary...
+  const supportedLangs = writable()
+
+  $: supportedLangs.set(data.supportedLangs)
+
+  setContext(SUPPORTED_LANGS_CONTEXT, supportedLangs);
+
+
+
+  
+  /////////
 
   let transitionParams = {
     x: -320,
