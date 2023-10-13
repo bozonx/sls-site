@@ -25,8 +25,10 @@ export function getAllThePagesUrls() {
       ...res,
       // TODO: это не нужно для sitemap
       path.join('/', lang),
+
+      // TODO: remake - count pages
       //path.join('/', lang, 'tag'),
-      //path.join('/', lang, 'recent'),
+      path.join('/', lang, 'recent/1'),
 
       ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
       ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
