@@ -25,24 +25,33 @@
   import SideBar from "./SideBar.svelte";
   import Footer from './Footer.svelte'
   import "../styles/styles.css";
-  import {tStore} from '../lib/store/t';
+  import {tStore} from '$lib/store/t';
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
-  import {SUPPORTED_LANGS_CONTEXT} from '../lib/constants';
+  import {SUPPORTED_LANGS_CONTEXT, TRANSLATES_CONTEXT} from '../lib/constants';
 
-  export let data: {allTags: string[]}
+  export let data: {
+    allTags: string[],
+    supportedLangs: string[],
+    translates: Record<string, any>
+  }
 
 
   // Create a store and update it when necessary...
   const supportedLangs = writable()
+  //const translates = writable()
 
   $: supportedLangs.set(data.supportedLangs)
+  //$: translates.set(data.translates)
 
-  setContext(SUPPORTED_LANGS_CONTEXT, supportedLangs);
+  setContext(SUPPORTED_LANGS_CONTEXT, supportedLangs)
+  //setContext(TRANSLATES_CONTEXT, translates)
+
+  //tStore.set(data.translates)
 
 
 
-  
+
   /////////
 
   let transitionParams = {
@@ -122,7 +131,9 @@
 
       <div id="app-page">
 
-        <div class="dark:text-gray-900">{$page.params.lang} {t('test.t')} {JSON.stringify($tStore)}</div>
+        <div class="dark:text-gray-900">
+          {$page.params.lang} {$t('test.t')} {JSON.stringify(data.translates)}
+        </div>
 
         <div class="text-gray-900 dark:text-gray-200 text-lg mt-10">
           <slot />

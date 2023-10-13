@@ -26,7 +26,7 @@ export async function GET(event) {
     throw error(404, 'Translation not found')
   }
 
-  const loc = yaml.parse(locYml)
-
-  return new Response(JSON.stringify({result: loc}));
+  return new Response(JSON.stringify({
+    result: yaml.parse(locYml)
+  }));
 }

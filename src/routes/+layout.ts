@@ -9,39 +9,39 @@ export const load: LayoutServerLoad = async (event) => {
 
   if (!SUPPORTED_LANGS.includes(langStr)) return {}
 
-  ///lang.set(langStr)
+  // TODO: handle error - translate error
 
-  // TODO: handle error
-
-  const response = await event.fetch(`/api/1/t/${langStr}`, {
+  const translateResp = await event.fetch(`/api/1/translates/${langStr}`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
     },
   })
 
-  if (response.status >= 400) {
-    throw error(response.status, response.statusText)
+  if (translateResp.status >= 400) {
+    throw error(translateResp.status, translateResp.statusText)
   }
 
-  const loc = await response.json();
+  const translates = (await translateResp.json()).result
 
-  tStore.set(loc.result)
+  tStore.set(translates)
 
-  /////////////
-
-
-  const allTags = await event.fetch(`/api/1/alltags/${langStr}`, {
+  const allTagsResp = await event.fetch(`/api/1/alltags/${langStr}`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
     },
   })
 
+  if (allTagsResp.status >= 400) {
+    throw error(allTagsResp.status, allTagsResp.statusText)
+  }
+
   return {
-    allTags: (await allTags.json()).result,
+    allTags: (await allTagsResp.json()).result,
 
     // TODO: load from server
     supportedLangs: SUPPORTED_LANGS,
+    translates,
   }
 }
