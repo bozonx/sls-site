@@ -41,3 +41,20 @@ export async function loadListItems(event: LoadEvent, url: string) {
 
   return await response.json()
 }
+
+export async function loadFullList(event: LoadEvent, url: string) {
+  let response
+
+  response = await event.fetch(url, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
+
+  if (response.status >= 400) {
+    throw error(response.status, response.statusText)
+  }
+
+  return await response.json()
+}

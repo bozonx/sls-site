@@ -15,6 +15,7 @@ link:
   allLinks: Все наши ссылки
   allTags: Все тэги
   onSeasons: По сезонам
+  allSeasons: Все сезоны
 header:
   tag: Все посты по тэгу
 descr:
@@ -22,6 +23,7 @@ descr:
   recent: Самые свежие статьи и посты
   tag: Самые свежие статьи и посты по тэгу
   onSeasons: Все выпуски и статьи по сезонам
+  season: Все выпуски и статьи по сезону
 messages:
   emptyList: Тут пусто
   wrongPage: Не верная страницы. Идите в
@@ -30,3 +32,4 @@ chunks:
   author: Автор
   authorName: Айван Кей
   listBeginning: начало списка
+  season: Сезон

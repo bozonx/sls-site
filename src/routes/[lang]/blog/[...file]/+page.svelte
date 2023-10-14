@@ -11,4 +11,10 @@
   <meta name="description" content={data.meta.descr} />
 </svelte:head>
 
-<Article showAuthor={true} showDescr={true} {...data.meta} html={data.html} />
+<Article
+  showAuthor={true}
+  showDescr={true}
+  season={data.meta.name.split('/')[0]}
+  {...data.meta}
+  html={data.html}
+/>

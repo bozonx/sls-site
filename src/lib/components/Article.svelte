@@ -3,6 +3,11 @@
   import TagList from "$lib/components/TagList.svelte";
   import PostCommentLink from "$lib/components/PostCommentLink.svelte";
   import PostAuthor from "$lib/components/PostAuthor.svelte";
+  import PodcastSelect from "$lib/components/PodcastSelect.svelte";
+  import VideoLink from "$lib/components/VideoLink.svelte";
+  import { page } from '$app/stores'
+  import {t} from '$lib/store/t'
+
 
   export let title
   export let html
@@ -12,6 +17,7 @@
   export let descr = null
   export let showAuthor = false
   export let showDescr = false
+  export let season = null
 </script>
 
 <div>
@@ -19,11 +25,18 @@
     {title}
   </Heading>
 
-  {#if date}
-    <div class="text-gray-400 dark:text-gray-500 text-sm mt-2">
-      {date}
+  {#if date || season}
+    <div class="mt-2">
+      <span class="text-gray-400 dark:text-gray-500 text-sm">{date}</span>
+      <span class="text-sm ml-5">
+        (<a class="underline" href={`/${$page.params.lang}/seasons/${season}`}>
+          {$t('chunks.season')} {season.replace(/\-/, ' - ')}</a>)
+      </span>
     </div>
   {/if}
+
+  <VideoLink />
+  <PodcastSelect />
 
   {#if descr && showDescr}
     <div class="mt-6">

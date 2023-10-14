@@ -8,7 +8,6 @@
   import {PAGINATION_MAX_ITEMS} from '$lib/constants'
   import {t} from '$lib/store/t'
 
-  export let header
   export let res
   export let baseUrl
 
@@ -19,7 +18,7 @@
 </script>
 
 <div>
-  <PageHeader>{header}</PageHeader>
+  <PageHeader><slot /></PageHeader>
 
   {#if res.page === 1 && !res.result.length}
     <Alert color="dark">{$t('messages.emptyList')}</Alert>
