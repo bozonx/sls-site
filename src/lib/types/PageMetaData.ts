@@ -1,3 +1,6 @@
+import type {PoscastServces} from './PoscastServces';
+
+
 export interface PageMetaData {
   // url friendly name. Without slash at the start
   name: string
@@ -7,4 +10,5 @@ export interface PageMetaData {
   date?: string
   commentUrl?: string
   videoLink?: string
+  podcasts?: PoscastServces
 }

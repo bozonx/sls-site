@@ -4,6 +4,7 @@ layout:
   tags: Тэги
   commentsLink: Комментировать в Telegram канале
   videoLink: Смотреть видео
+  podcasts: Слушать подкаст
 link:
   contacts: Контакты
   home: Главная
@@ -39,3 +40,13 @@ chunks:
 httpErrors:
   404: Страница не найдена
   500: Ошибка сервера
+podcasts:
+  applePodcast: Apple podcast
+  castbox: Castbox
+  deezer: Deezer
+  pocketCasts: Pocket Casts
+  podcastAddict: Podcast Addict
+  soundstream: Sound stream
+  spotify: Spotify
+  vk: VK
+  yandexMusic: Яндекс Музыка
