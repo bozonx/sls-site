@@ -26,7 +26,7 @@
 
 {#if data.similar.result.length}
   <secion>
-    <PagesList class="mt-20" baseUrl={`/${$page.params.lang}/blog`} res={data.similar}>
+    <PagesList class="mt-16" baseUrl={`/${$page.params.lang}/blog`} res={data.similar}>
       {$t('header.similar')}
     </PagesList>
   </secion>

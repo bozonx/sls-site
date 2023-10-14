@@ -90,7 +90,7 @@
     id="sidebar"
   >
     <div>
-      <SideBar allTags={$allTags} {toggleDrawer} />
+      <SideBar allTags={$allTags || []} {toggleDrawer} />
     </div>
     <div class="pt-5 pb-3 w-full flex items-end lg:hidden">
       <SidebarFooter />

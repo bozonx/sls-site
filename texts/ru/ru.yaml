@@ -34,3 +34,5 @@ chunks:
   authorName: Айван Кей
   listBeginning: начало списка
   season: Сезон
+httpErrors:
+  404: Страница не найдена

@@ -14,7 +14,7 @@ export async function GET(event) {
     result = await getSitePage(langStr, event.params.file)
   }
   catch (e) {
-    throw error(404, 'Not found');
+    throw error(404);
   }
 
   return new Response(JSON.stringify({ result }));

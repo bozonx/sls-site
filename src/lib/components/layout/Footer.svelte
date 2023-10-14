@@ -10,7 +10,7 @@
     {$t('layout.copyWarn')}
   </div>
 
-  <FooterLinkGroup ulClass="flex underline flex-wrap items-center text-sm text-gray-500 dark:text-gray-400">
+  <FooterLinkGroup ulClass="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400">
     <MyFooterLink href="/page/about">{$t('link.about')}</MyFooterLink>
     <MyFooterLink href="/page/contacts">{$t('link.contacts')}</MyFooterLink>
   </FooterLinkGroup>

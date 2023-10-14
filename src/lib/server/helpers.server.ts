@@ -26,11 +26,6 @@ export async function readAllFilesRecursively(
   }
 
   const rootPath = path.join(ROOT_DIR, 'texts', langStr, subPath)
-
-
-  console.log(1111, rootPath)
-
-
   const fileNames = await readDirRecursively(rootPath)
 
   return [rootPath, fileNames]

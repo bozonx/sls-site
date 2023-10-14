@@ -1,7 +1,9 @@
-import { error } from '@sveltejs/kit';
-import type { LayoutServerLoad } from './$types'
+import {trimCharStart} from 'squidlet-lib';
+import {error, redirect} from '@sveltejs/kit';
+import type { LayoutLoad } from './$types'
 import {SUPPORTED_LANGS} from '$lib/constants';
 import {tStore} from '$lib/store/t';
+import {DEFAULT_LANG} from '../lib/constants';
 
 
 export const prerender = true
@@ -11,10 +13,21 @@ export const ssr = true
 //export const csr = false
 
 
-export const load: LayoutServerLoad = async (event) => {
-  const langStr = event.params.lang || ''
+export const load: LayoutLoad = async (event) => {
+  let langStr = event.params.lang || ''
 
-  if (!SUPPORTED_LANGS.includes(langStr)) return {}
+  if (!SUPPORTED_LANGS.includes(langStr)) {
+    const splat = trimCharStart(event.url.pathname, '/').split('/')
+
+    if (SUPPORTED_LANGS.includes(splat[0])) {
+      langStr = splat[0]
+      event.params.lang = splat[0]
+    }
+    else {
+      // can't recognize an language
+      throw redirect(307, '/' + DEFAULT_LANG)
+    }
+  }
 
   // TODO: handle error - translate error
 
