@@ -8,7 +8,7 @@
 	} from "flowbite-svelte";
 	import {HeartSolid, BarsSolid} from "flowbite-svelte-icons";
 	import { page } from '$app/stores';
-	import SwitchLanguage from "$lib/components/SwitchLanguage.svelte";
+	import SwitchLanguage from "$lib/components/layout/SwitchLanguage.svelte";
 	import {t} from '$lib/store/t'
 
 

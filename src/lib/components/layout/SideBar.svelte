@@ -22,8 +22,8 @@
   } from 'flowbite-svelte-icons';
   import { page } from '$app/stores';
   import {t} from '$lib/store/t'
-  import MySidebarItem from '$lib/components/MySidebarItem.svelte'
-  import SidebarSubHeader from '$lib/components/SidebarSubHeader.svelte'
+  import MySidebarItem from '$lib/components/layout/MySidebarItem.svelte'
+  import SidebarSubHeader from '$lib/components/layout/SidebarSubHeader.svelte'
   import TagList from '$lib/components/TagList.svelte'
   import LogoIcon from '$lib/components/LogoIcon.svelte'
 

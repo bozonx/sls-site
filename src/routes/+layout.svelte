@@ -7,7 +7,7 @@
   import "../styles/styles.css"
   import { page } from '$app/stores'
   import {ALL_TAGS_CONTEXT} from '$lib/constants'
-  import SidebarFooter from '$lib/components/SidebarFooter.svelte'
+  import SidebarFooter from '$lib/components/layout/SidebarFooter.svelte'
   import TopBar from '$lib/components/layout/TopBar.svelte'
   import SideBar from "$lib/components/layout/SideBar.svelte"
   import Footer from '$lib/components/layout/Footer.svelte'

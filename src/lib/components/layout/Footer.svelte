@@ -1,6 +1,6 @@
 <script>
   import { Footer, FooterLinkGroup } from 'flowbite-svelte';
-  import MyFooterLink from '$lib/components/MyFooterLink.svelte'
+  import MyFooterLink from '$lib/components/layout/MyFooterLink.svelte'
   import {t} from '$lib/store/t'
 </script>
 
