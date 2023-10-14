@@ -13,9 +13,11 @@ export const prerender = true
 
 export async function GET(event) {
   const pageNum = Number(event.params.page)
+  const season = event.params.season
   const [rootPath, fileNames] = await readAllFilesRecursively(
     event,
-    path.join('blog', event.params.season)
+    //'blog'
+    path.join('blog', season)
   )
   let allFiles: PageItemData[] = []
 
@@ -24,7 +26,7 @@ export async function GET(event) {
 
     allFiles.push(makePageItemData(
       content,
-      filePath.replace(/\/index.md$/, ''),
+      path.join(season, filePath.replace(/\/index.md$/, '')),
       event.params.lang
     ))
   }
