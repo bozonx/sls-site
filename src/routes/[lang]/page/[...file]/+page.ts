@@ -3,5 +3,5 @@ import {loadParsedPage} from '$lib/requests'
 
 
 export const load: PageLoad = async (event) => {
-  return await loadParsedPage(event, 'page')
+  return (await loadParsedPage(event, 'page')).result
 }

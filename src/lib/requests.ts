@@ -5,7 +5,10 @@ import {error} from '@sveltejs/kit';
 export async function loadParsedPage(event: LoadEvent, dirName: string) {
   const rawContent = await loadJustData(event, `/api/1/${dirName}/${event.params.lang}/${event.params.file}`)
 
-  return JSON.parse(rawContent.result)
+  return {
+    result: JSON.parse(rawContent.result),
+    noTranslation: rawContent.noTranslation,
+  }
 
   // let response
   //

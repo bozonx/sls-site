@@ -28,6 +28,7 @@ descr:
 messages:
   emptyList: Тут пусто
   wrongPage: Не верная страницы. Идите в
+  noTranslation: Для этой страницы отсутствует перевод на ваш язык.
 chunks:
   projectFullName: Система Личной Свободы
   author: Автор

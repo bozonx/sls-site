@@ -15,14 +15,34 @@ export const prerender = true
 export async function GET(event) {
   const langStr = event.params.lang
   const fileName = event.params.file
-  const [rootPath, fileNames] = await readAllFilesRecursively(
-    event,
-    'blog'
-  )
-  const articleString = await fs.readFile(
-    path.join(rootPath, fileName, 'index.md'),
-    FILE_ENCODE
-  )
+  let articleString
+  let rootPath
+  let fileNames
+
+  try {
+    [rootPath, fileNames] = await readAllFilesRecursively(
+      event,
+      'blog'
+    )
+  }
+  catch (e) {
+    return new Response(JSON.stringify({
+      result: [],
+    }))
+  }
+
+  try {
+    articleString = await fs.readFile(
+      path.join(rootPath, fileName, 'index.md'),
+      FILE_ENCODE
+    )
+  }
+  catch (e) {
+    return new Response(JSON.stringify({
+      result: [],
+    }))
+  }
+
   const articleMeta = makePageItemData(
     articleString,
     fileName,
