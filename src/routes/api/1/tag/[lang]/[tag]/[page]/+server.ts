@@ -27,7 +27,11 @@ export async function GET(event) {
 
   for (const filePath of files) {
     const content = await fs.readFile(path.join(textsDir, filePath), FILE_ENCODE)
-    const pageData = makePageItemData(content, filePath, langStr)
+    const pageData = makePageItemData(
+        content,
+        filePath.replace(/\/index.md$/, ''),
+        langStr
+    )
 
     if (pageData.tags.includes(tagName)) allFiles.push(pageData)
   }

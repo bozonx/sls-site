@@ -5,22 +5,34 @@ import {convertMdToHtml, extractMetaDataFromMdPage} from './helpers.server';
 
 
 export async function getBlogPage(lang: string, pageName: string): Promise<string> {
-  return loadTextFile(lang, 'blog', pageName + '.md')
+  const fullFilePath = path.resolve(
+      ROOT_DIR,
+      `texts/${lang}/blog/${pageName}/index.md`
+  )
+  const fileContent = await fs.readFile(fullFilePath, 'utf8')
+  const [meta, md] = extractMetaDataFromMdPage(
+    fileContent,
+    lang,
+    pageName
+  )
+
+  return JSON.stringify({
+    meta,
+    html: convertMdToHtml(md)
+  })
 }
 
 export async function getSitePage(lang: string, pageName: string): Promise<string> {
-  return loadTextFile(lang, 'page', pageName + '.md')
-}
-
-
-
-async function loadTextFile(lang: string, dir: string, fileName: string) {
   const fullFilePath = path.resolve(
       ROOT_DIR,
-      `texts/${lang}/${dir}/${fileName}`
+      `texts/${lang}/page/${pageName}.md`
   )
   const fileContent = await fs.readFile(fullFilePath, 'utf8')
-  const [meta, md] = extractMetaDataFromMdPage(fileContent, lang)
+  const [meta, md] = extractMetaDataFromMdPage(
+      fileContent,
+      lang,
+      pageName
+  )
 
   return JSON.stringify({
     meta,

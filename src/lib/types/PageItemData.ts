@@ -1,8 +1,8 @@
 export interface PageItemData {
-  fileName: string
+  name: string
   title: string
   date?: string
-  thumb?: string
   tags: string[]
   descr: string
+  thumb?: string
 }

@@ -2,10 +2,10 @@
   import {Heading, P, A, Img, Card} from 'flowbite-svelte';
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
-  import {pathTrimExt} from 'squidlet-lib';
+  //import {pathTrimExt} from 'squidlet-lib';
 
 
-  export let fileName
+  export let name
   export let title
   export let date = null
   export let thumb = ''
@@ -14,7 +14,7 @@
   export let baseUrl
 </script>
 
-<Card href={`${baseUrl}/${pathTrimExt(fileName)}`} class="mb-2" size="lg">
+<Card href={`${baseUrl}/${name}`} class="mb-2" size="lg">
   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
     {title}
   </h5>

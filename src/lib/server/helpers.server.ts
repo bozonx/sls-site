@@ -44,7 +44,8 @@ export function convertMdToHtml(mdContent: string) {
 
 export function extractMetaDataFromMdPage(
     rawContent: string,
-    lang: string
+    lang: string,
+    name: string
 ): [PageMetaData, string] {
   const splat = rawContent.split('</meta>')
 
@@ -56,6 +57,7 @@ export function extractMetaDataFromMdPage(
   const yamlString = splat[0].replace('<meta>', '').trim()
   const rawMetaData = yaml.parse(yamlString)
   const meta: PageMetaData = {
+    name,
     title: '',
     tags: [],
     descr: '',
@@ -73,16 +75,13 @@ export function makePageItemData(
   fileName: string,
   lang: string
 ): PageItemData {
-  const [meta] = extractMetaDataFromMdPage(content, lang)
+  const [meta] = extractMetaDataFromMdPage(content, lang, fileName)
 
   return {
-    fileName,
-    title: meta.title,
-    date: meta.date,
+    ...meta,
 
     // TODO: зарезолвить первую картинку
-    thumb: '',
-    tags: meta.tags,
-    descr: meta.descr
+    //thumb: '',
+
   }
 }

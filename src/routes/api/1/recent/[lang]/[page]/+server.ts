@@ -27,7 +27,7 @@ export async function GET(event) {
   for (const filePath of files) {
     const content = await fs.readFile(path.join(textsDir, filePath), FILE_ENCODE)
 
-    allFiles.push(makePageItemData(content, filePath, langStr))
+    allFiles.push(makePageItemData(content, filePath.replace(/\/index.md$/, ''), langStr))
   }
 
   allFiles.sort((a: PageItemData, b: PageItemData) => {
