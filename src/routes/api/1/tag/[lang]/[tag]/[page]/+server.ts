@@ -6,6 +6,7 @@ import {makePageItemData} from '$lib/server/helpers.server';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {ITEM_PER_PAGE} from '$lib/constants';
 import {readAllFilesRecursively} from '$lib/server/helpers.server';
+import {error} from '@sveltejs/kit';
 
 
 export const prerender = true
@@ -30,6 +31,10 @@ export async function GET(event) {
     )
 
     if (pageData.tags.includes(tagName)) allFiles.push(pageData)
+  }
+
+  if (!allFiles.length) {
+    throw error(404)
   }
 
   allFiles.sort((a: PageItemData, b: PageItemData) => {

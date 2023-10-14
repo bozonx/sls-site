@@ -33,7 +33,15 @@ export async function readAllFilesRecursively(
 
 export async function readDirRecursively(rootDir: string, subDir = ''): Promise<string[]> {
   const fullDirPath = path.join(rootDir, subDir)
-  const files = await fs.readdir(fullDirPath, FILE_ENCODE)
+  let files
+
+  try {
+    files = await fs.readdir(fullDirPath, FILE_ENCODE)
+  }
+  catch (e) {
+    throw error(404, 'File not found ' + fullDirPath)
+  }
+
   let res: string[] = []
 
   for (const file of files) {

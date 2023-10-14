@@ -16,7 +16,11 @@ export const ssr = true
 export const load: LayoutLoad = async (event) => {
   let langStr = event.params.lang || ''
 
-  if (!SUPPORTED_LANGS.includes(langStr)) {
+  if (event.url.pathname === '/') {
+    // TODO: what to do ???
+    // navigator.language
+  }
+  else if (!SUPPORTED_LANGS.includes(langStr)) {
     const splat = trimCharStart(event.url.pathname, '/').split('/')
 
     if (SUPPORTED_LANGS.includes(splat[0])) {
