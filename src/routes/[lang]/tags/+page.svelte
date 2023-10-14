@@ -17,7 +17,7 @@
   <meta name="description" content={$t('descr.allTags')} />
 </svelte:head>
 
-<div>
+<section>
   <PageHeader>{$t('link.allTags')}</PageHeader>
 
   <ul>
@@ -27,4 +27,4 @@
       </li>
     {/each}
   </ul>
-</div>
+</section>

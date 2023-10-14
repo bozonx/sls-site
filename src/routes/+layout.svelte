@@ -101,9 +101,7 @@
     <main class="lg:ml-72 w-full mx-auto flex justify-center">
 
       <div id="app-page" class="mt-10">
-        <section>
-          <slot />
-        </section>
+        <slot />
 
         <div class="mt-24 mb-6">
           <Footer />

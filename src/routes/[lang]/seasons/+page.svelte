@@ -15,7 +15,7 @@
   <meta name="description" content={$t('descr.onSeasons')} />
 </svelte:head>
 
-<div>
+<section>
   <PageHeader>{$t('link.allSeasons')}</PageHeader>
 
   <ul class="space-y-2">
@@ -25,4 +25,4 @@
       </li>
     {/each}
   </ul>
-</div>
+</section>

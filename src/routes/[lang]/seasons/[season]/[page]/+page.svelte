@@ -15,13 +15,15 @@
   <meta name="description" content={`${$t('descr.season')} ${season}`} />
 </svelte:head>
 
-<PagesList baseUrl={`/${$page.params.lang}/blog/${$page.params.season}`} res={data}>
-  <div class="flex w-full">
-    <div class="flex-1">{`${$t('chunks.season')} ${season}`}</div>
-    <div>
-      <a class="underline font-normal text-sm" href={`/${$page.params.lang}/seasons`}>
-        {$t('link.allSeasons')}
-      </a>
+<secion>
+  <PagesList baseUrl={`/${$page.params.lang}/blog/${$page.params.season}`} res={data}>
+    <div class="flex w-full">
+      <div class="flex-1">{`${$t('chunks.season')} ${season}`}</div>
+      <div>
+        <a class="underline font-normal text-sm" href={`/${$page.params.lang}/seasons`}>
+          {$t('link.allSeasons')}
+        </a>
+      </div>
     </div>
-  </div>
-</PagesList>
+  </PagesList>
+</secion>

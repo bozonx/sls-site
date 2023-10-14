@@ -11,13 +11,15 @@
   <meta name="description" content={`${$t('descr.tag')} #${$page.params.tag}`} />
 </svelte:head>
 
-<PagesList baseUrl={`/${$page.params.lang}/blog`} res={data}>
-  <div class="flex w-full">
-    <div class="flex-1">{`${$t('header.tag')} #${$page.params.tag}`}</div>
-    <div>
-      <a class="underline font-normal text-sm" href={`/${$page.params.lang}/tags`}>
-        {$t('link.allTags')}
-      </a>
+<secion>
+  <PagesList baseUrl={`/${$page.params.lang}/blog`} res={data}>
+    <div class="flex w-full">
+      <div class="flex-1">{`${$t('header.tag')} #${$page.params.tag}`}</div>
+      <div>
+        <a class="underline font-normal text-sm" href={`/${$page.params.lang}/tags`}>
+          {$t('link.allTags')}
+        </a>
+      </div>
     </div>
-  </div>
-</PagesList>
+  </PagesList>
+</secion>

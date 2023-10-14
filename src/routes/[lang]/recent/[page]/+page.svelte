@@ -11,4 +11,6 @@
   <meta name="description" content={$t('descr.recent')} />
 </svelte:head>
 
-<PagesList baseUrl={`/${$page.params.lang}/blog`} res={data}>{$t('link.recent')}</PagesList>
+<secion>
+  <PagesList baseUrl={`/${$page.params.lang}/blog`} res={data}>{$t('link.recent')}</PagesList>
+</secion>
