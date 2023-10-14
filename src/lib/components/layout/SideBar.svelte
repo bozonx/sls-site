@@ -68,7 +68,7 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <div class="ml-1"><TagList tags={allTags} /></div>
+        <TagList class="ml-2" tags={allTags} />
       </SidebarDropdownWrapper>
 
       <MySidebarItem label={$t('link.allTags')} href="/tags" icon={LayersOutline} />
