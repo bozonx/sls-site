@@ -14,6 +14,7 @@
   export let date = null
   export let tags = []
   export let commentUrl = null
+  export let videoLink = null
   export let descr = null
   export let showAuthor = false
   export let showDescr = false
@@ -35,11 +36,17 @@
     </div>
   {/if}
 
-  <VideoLink />
-  <PodcastSelect />
+  {#if videoLink}
+    <div class="flex space-x-5 mt-4">
+      {#if videoLink}
+        <VideoLink href={videoLink} />
+      {/if}
+      <PodcastSelect />
+    </div>
+  {/if}
 
   {#if descr && showDescr}
-    <div class="mt-6">
+    <div class="mt-7">
       {descr}
     </div>
   {/if}

@@ -6,4 +6,5 @@ export interface PageMetaData {
   descr: string
   date?: string
   commentUrl?: string
+  videoLink?: string
 }
