@@ -8,6 +8,6 @@
 
 <span class="space-x-1">
   {#each tags as tag}
-    <Badge href={`/${$page.params.lang}/tag/${tag}`} large rounded>{tag}</Badge>
+    <Badge href={`/${$page.params.lang}/tags/${tag}`} large rounded>{tag}</Badge>
   {/each}
 </span>

@@ -23,7 +23,7 @@
   <ul>
     {#each $allTags as tag}
       <li>
-        <SimpleLink href={`/tag/${tag}`}>#{tag}</SimpleLink>
+        <SimpleLink href={`/tags/${tag}`}>#{tag}</SimpleLink>
       </li>
     {/each}
   </ul>

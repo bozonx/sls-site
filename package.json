@@ -20,7 +20,6 @@
     "mdast-util-to-hast": "^13.0.2",
     "moment": "^2.29.4",
     "squidlet-lib": "^0.1.5",
-    "svelte-heros-v2": "^0.10.12",
     "yaml": "^2.3.2"
   },
   "devDependencies": {

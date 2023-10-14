@@ -6,7 +6,7 @@
   import "../app.postcss"
   import "../styles/styles.css"
   import { page } from '$app/stores'
-  import {ALL_TAGS_CONTEXT, SUPPORTED_LANGS_CONTEXT} from '$lib/constants'
+  import {ALL_TAGS_CONTEXT} from '$lib/constants'
   import SidebarFooter from '$lib/components/SidebarFooter.svelte'
   import TopBar from './TopBar.svelte'
   import SideBar from "./SideBar.svelte"
@@ -18,13 +18,10 @@
     translates: Record<string, any>
   }
 
-  const supportedLangs = writable()
   const allTags = writable()
 
-  $: supportedLangs.set(data.supportedLangs)
   $: allTags.set(data.allTags)
 
-  setContext(SUPPORTED_LANGS_CONTEXT, supportedLangs)
   setContext(ALL_TAGS_CONTEXT, allTags)
 
 
@@ -39,15 +36,18 @@
   };
   let breakPoint: number = 1024;
   let windowWidth: number;
+  let breakPointReached = false
   let showBackdrop: boolean = false
   let activateClickOutside = true;
   let drawerHidden: boolean = false;
 
   $: if (windowWidth >= breakPoint) {
     drawerHidden = false
+    breakPointReached = false
     activateClickOutside = false
   } else {
     drawerHidden = true
+    breakPointReached = true
     activateClickOutside = true
   }
   $: activeUrl = $page.url.pathname
@@ -77,7 +77,7 @@
 
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
   <header>
-    <TopBar toggleDrawer={toggleDrawer} />
+    <TopBar {toggleDrawer} {breakPointReached} />
   </header>
 
   <Drawer
@@ -91,9 +91,9 @@
     id="sidebar"
   >
     <div>
-      <SideBar allTags={$allTags} />
+      <SideBar allTags={$allTags} {toggleDrawer} />
     </div>
-    <div class="pt-5 pb-3 w-full flex items-end">
+    <div class="pt-5 pb-3 w-full flex items-end lg:hidden">
       <SidebarFooter />
     </div>
   </Drawer>

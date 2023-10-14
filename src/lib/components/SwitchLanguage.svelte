@@ -1,13 +1,10 @@
 <script>
   import {Button, Dropdown, DropdownItem} from "flowbite-svelte"
   import {GlobeSolid} from "flowbite-svelte-icons"
-  import {getContext} from "svelte"
-  import {SUPPORTED_LANGS_CONTEXT} from "$lib/constants";
   import {page} from "$app/stores";
-  import {LANG_NAMES} from "$lib/constants";
+  import {LANG_NAMES, SUPPORTED_LANGS} from "$lib/constants";
 
 
-  const supportedLangs = getContext(SUPPORTED_LANGS_CONTEXT);
   const makeLangUrl = (lang) => {
     return ($page.url.pathname || '').replace(/^\/\w+/, `/${lang}`)
   }
@@ -19,7 +16,7 @@
   <span class="ml-2 text-xs">{$page.params.lang.toUpperCase()}</span>
 </Button>
 <Dropdown data-sveltekit-preload-data="tap" activeUrl={makeLangUrl($page.params.lang)}>
-  {#each $supportedLangs as lang}
+  {#each SUPPORTED_LANGS as lang}
     <DropdownItem href={makeLangUrl(lang)}>{LANG_NAMES[lang]}</DropdownItem>
   {/each}
 </Dropdown>

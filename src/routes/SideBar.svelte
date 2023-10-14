@@ -5,18 +5,16 @@
     SidebarItem,
     SidebarWrapper,
     SidebarDropdownWrapper,
-    Badge,
     CloseButton,
   } from 'flowbite-svelte';
   import {
+    ChevronDoubleUpOutline,
+    ChevronDoubleDownOutline,
     HomeSolid,
-    InfoCircleSolid,
     HeartSolid,
     TagSolid,
     YoutubeSolid,
     RectangleListSolid,
-    ChevronDoubleUpOutline,
-    ChevronDoubleDownOutline,
     LayersOutline,
     CalendarMonthSolid,
     MessagesOutline,
@@ -31,16 +29,14 @@
 
 
   export let allTags
+  export let toggleDrawer
 
-  //let spanClass = 'flex-1 ml-3 whitespace-nowrap';
   $: activeUrl = $page.url.pathname;
-
-  let spanClass = 'pl-2 self-center text-md text-gray-900 whitespace-nowrap dark:text-white';
 </script>
 
 <div class="flex items-center lg:hidden">
   <CloseButton
-    on:click={() => (drawerHidden = true)}
+    on:click={toggleDrawer}
     class="mb-4 dark:text-white"
   />
 </div>
@@ -72,19 +68,17 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <div class="ml-1">
-          <TagList tags={allTags} />
-        </div>
+        <div class="ml-1"><TagList tags={allTags} /></div>
       </SidebarDropdownWrapper>
 
-      <MySidebarItem label={$t('link.allTags')} href="/alltags" icon={LayersOutline} />
+      <MySidebarItem label={$t('link.allTags')} href="/tags" icon={LayersOutline} />
       <MySidebarItem label={$t('link.onSeasons')} href="/seasons" icon={CalendarMonthSolid} />
 
     </SidebarGroup>
 
-    <SidebarGroup class="lg:hidden">
+    <SidebarGroup class="mt-5 lg:hidden">
       <MySidebarItem label={$t('link.home')} href="/" icon={HomeSolid} />
-      <MySidebarItem label={$t('link.about')} href="/page/about" icon={InfoCircleSolid} />
+      <!--<MySidebarItem label={$t('link.about')} href="/page/about" icon={InfoCircleSolid} />-->
       <MySidebarItem label={$t('link.donate')} href="/page/donate" icon={HeartSolid} />
     </SidebarGroup>
 
