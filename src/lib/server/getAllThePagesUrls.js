@@ -18,24 +18,26 @@ export function getAllThePagesUrls() {
   const langs = fs.readdirSync(textsDir, enc)
 
   for (const lang of langs) {
-    const blogPages = readDirRecursivelySync(path.join(textsDir, lang, blogDir))
-    const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
+    // const blogPages = readDirRecursivelySync(path.join(textsDir, lang, blogDir))
+    // const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
 
     res = [
       ...res,
       // TODO: это не нужно для sitemap
       path.join('/', lang),
+      path.join('/', lang, 'recent'),
+      path.join('/', lang, 'seasons'),
 
-      // TODO: remake - count pages
-      //path.join('/', lang, 'tag'),
-      path.join('/', lang, 'recent/1'),
-
-      ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
-      ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
-
-      // TODO: это не нужно для sitemap
-      ...blogPages.map((item) => path.join('/api/1', blogDir, lang, pathTrimExt(item))),
-      ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),
+      // // TODO: remake - count pages
+      // //path.join('/', lang, 'tag'),
+      // path.join('/', lang, 'recent/1'),
+      //
+      // ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
+      // ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
+      //
+      // // TODO: это не нужно для sitemap
+      // ...blogPages.map((item) => path.join('/api/1', blogDir, lang, pathTrimExt(item))),
+      // ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),
     ]
 
   }

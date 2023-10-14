@@ -1,8 +1,8 @@
 <meta>
 date: 2023-10-10
 tags:
-  - tg1
-  - tg2
+  - tg3
+  - tg4
 title: Test 1 header
 commentUrl: https://t.me
 descr: short descr

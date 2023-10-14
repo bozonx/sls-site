@@ -8,8 +8,7 @@ export const prerender = true
 
 
 export async function GET(event) {
-  const langStr = event.params.lang
-  const blogDir = path.join(ROOT_DIR, 'texts', langStr, 'blog')
+  const blogDir = path.join(ROOT_DIR, 'texts', event.params.lang, 'blog')
   const result = await fs.readdir(blogDir, FILE_ENCODE)
 
   result.sort()

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { error } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import yaml from 'yaml';
 import moment from 'moment';
@@ -9,7 +10,31 @@ import {toHtml} from 'hast-util-to-html';
 import {FILE_ENCODE} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
+import {ROOT_DIR} from './constants.server';
 
+
+export async function readAllFilesRecursively(
+  event,
+  subPath: string
+): Promise<[string, string[]]> {
+  const langStr = event.params.lang
+  if (
+    typeof event.params.page !== 'undefined'
+    && Number.isNaN(Number(event.params.page))
+  ) {
+    throw error(400, 'Wrong page number')
+  }
+
+  const rootPath = path.join(ROOT_DIR, 'texts', langStr, subPath)
+
+
+  console.log(1111, rootPath)
+
+
+  const fileNames = await readDirRecursively(rootPath)
+
+  return [rootPath, fileNames]
+}
 
 export async function readDirRecursively(rootDir: string, subDir = ''): Promise<string[]> {
   const fullDirPath = path.join(rootDir, subDir)

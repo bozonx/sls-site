@@ -103,7 +103,7 @@
       <div id="app-page" class="mt-10">
         <slot />
 
-        <div class="mt-24 mb-6">
+        <div class="mt-24 mb-8">
           <Footer />
         </div>
       </div>

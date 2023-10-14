@@ -1,12 +1,11 @@
 import moment from 'moment'
-import { error } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {ROOT_DIR} from '$lib/server/constants.server';
 import {FILE_ENCODE} from '$lib/constants';
-import {readDirRecursively, makePageItemData} from '$lib/server/helpers.server';
+import {makePageItemData} from '$lib/server/helpers.server';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {ITEM_PER_PAGE} from '$lib/constants';
+import {readAllFilesRecursively} from '$lib/server/helpers.server';
 
 
 export const prerender = true
@@ -16,17 +15,14 @@ export async function GET(event) {
   const langStr = event.params.lang
   const tagName = event.params.tag
   const pageNum = Number(event.params.page)
-
-  if (!Number.isInteger(pageNum)) {
-    throw error(400, 'Wrong page number')
-  }
-
-  const textsDir = path.join(ROOT_DIR, 'texts', langStr, 'blog')
-  const files = await readDirRecursively(textsDir)
+  const [rootPath, fileNames] = await readAllFilesRecursively(
+    event,
+    path.join('blog')
+  )
   let allFiles: PageItemData[] = []
 
-  for (const filePath of files) {
-    const content = await fs.readFile(path.join(textsDir, filePath), FILE_ENCODE)
+  for (const filePath of fileNames) {
+    const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
     const pageData = makePageItemData(
         content,
         filePath.replace(/\/index.md$/, ''),

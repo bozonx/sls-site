@@ -19,16 +19,16 @@
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-to-hast": "^13.0.2",
     "moment": "^2.29.4",
-    "squidlet-lib": "^0.1.5",
-    "yaml": "^2.3.2"
+    "squidlet-lib": "^0.1.6",
+    "yaml": "^2.3.3"
   },
   "devDependencies": {
-    "@fontsource/fira-mono": "^4.5.10",
+    "@fontsource/fira-mono": "^5.0.8",
     "@sveltejs/adapter-static": "^2.0.3",
-    "@sveltejs/kit": "^1.20.4",
+    "@sveltejs/kit": "^1.25.2",
     "@types/cookie": "^0.5.1",
     "@types/mdast": "^4.0.1",
-    "@types/node": "^20.8.3",
+    "@types/node": "^20.8.6",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.24",
     "postcss-load-config": "^4.0.1",
