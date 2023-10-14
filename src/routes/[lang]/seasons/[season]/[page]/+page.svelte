@@ -15,7 +15,7 @@
   <meta name="description" content={`${$t('descr.season')} ${season}`} />
 </svelte:head>
 
-<PagesList baseUrl={`/${$page.params.lang}/blog`} res={data}>
+<PagesList baseUrl={`/${$page.params.lang}/blog/${$page.params.season}`} res={data}>
   <div class="flex w-full">
     <div class="flex-1">{`${$t('chunks.season')} ${season}`}</div>
     <div>

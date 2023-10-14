@@ -14,13 +14,14 @@ export const prerender = true
 
 export async function GET(event) {
   const langStr = event.params.lang
+  const season = event.params.season
   const pageNum = Number(event.params.page)
 
   if (!Number.isInteger(pageNum)) {
     throw error(400, 'Wrong page number')
   }
 
-  const textsDir = path.join(ROOT_DIR, 'texts', langStr, 'blog')
+  const textsDir = path.join(ROOT_DIR, 'texts', langStr, 'blog', season)
   const files = await readDirRecursively(textsDir)
   let allFiles: PageItemData[] = []
 

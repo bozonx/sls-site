@@ -3,7 +3,9 @@ import {error} from '@sveltejs/kit';
 
 
 export async function loadParsedPage(event: LoadEvent, dirName: string) {
-  return loadJustData(event, `/api/1/${dirName}/${event.params.lang}/${event.params.file}`)
+  const rawContent = await loadJustData(event, `/api/1/${dirName}/${event.params.lang}/${event.params.file}`)
+
+  return JSON.parse(rawContent.result)
 
   // let response
   //

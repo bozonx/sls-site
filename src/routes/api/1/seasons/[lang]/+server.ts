@@ -10,12 +10,10 @@ export const prerender = true
 export async function GET(event) {
   const langStr = event.params.lang
   const blogDir = path.join(ROOT_DIR, 'texts', langStr, 'blog')
-  const dirs = await fs.readdir(blogDir, FILE_ENCODE)
+  const result = await fs.readdir(blogDir, FILE_ENCODE)
 
-  dirs.sort()
-  dirs.reverse()
+  result.sort()
+  result.reverse()
 
-  return new Response(JSON.stringify({
-    result: dirs,
-  }))
+  return new Response(JSON.stringify({ result }))
 }

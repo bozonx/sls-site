@@ -18,7 +18,7 @@
 <div>
   <PageHeader>{$t('link.allSeasons')}</PageHeader>
 
-  <ul>
+  <ul class="space-y-2">
     {#each data.result as item}
       <li>
         <SimpleLink href={`/seasons/${item}/1`}>{item.replace(/\-/, ' - ')}</SimpleLink>
