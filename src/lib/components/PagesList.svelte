@@ -11,13 +11,16 @@
   export let res
   export let baseUrl
 
+  let className = ''
+
+  export { className as class }
 
   let paginationBaseUrl
 
   $: paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
 </script>
 
-<div>
+<div class="{className}">
   <PageHeader><slot /></PageHeader>
 
   {#if res.page === 1 && !res.result.length}

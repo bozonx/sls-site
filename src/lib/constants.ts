@@ -1,5 +1,6 @@
 export const ITEM_PER_PAGE = 10
 export const PAGINATION_MAX_ITEMS = 9
+export const SIMILAR_COUNT = 5
 export const FILE_ENCODE = 'utf8'
 export const DEFAULT_LANG = 'en'
 export const ALL_TAGS_CONTEXT = 'allTags'

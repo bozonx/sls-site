@@ -1,7 +1,16 @@
 import type {PageLoad} from './$types'
-import {loadParsedPage} from '$lib/requests'
+import {loadParsedPage, loadJustData} from '$lib/requests'
 
 
 export const load: PageLoad = async (event) => {
-  return await loadParsedPage(event, 'blog')
+  const page = await loadParsedPage(event, 'blog')
+  const similar =  loadJustData(
+      event,
+      `/api/1/similar/${event.params.lang}/${event.params.file}`
+  )
+
+  return {
+    page,
+    similar,
+  }
 }
