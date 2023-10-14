@@ -1,10 +1,8 @@
-import type {PageLoad} from './$types'
-import {loadFullList} from '$lib/requests'
+import {redirect} from '@sveltejs/kit';
+import type {PageLoad} from './$types';
 
 
-export const load: PageLoad = async (event) => {
-  return loadFullList(
-      event,
-      `/api/1/seasons/${event.params.lang}/${event.params.season}`
-  )
-}
+// redirect to the first page
+export const load: PageLoad = (event) => {
+  throw redirect(307, event.url.pathname + '/1')
+};

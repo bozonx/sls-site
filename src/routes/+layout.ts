@@ -46,9 +46,6 @@ export const load: LayoutServerLoad = async (event) => {
 
   return {
     allTags: (await allTagsResp.json()).result,
-
-    // TODO: load from server
-    supportedLangs: SUPPORTED_LANGS,
     translates,
   }
 }

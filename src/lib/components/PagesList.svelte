@@ -28,9 +28,11 @@
       <a href={paginationBaseUrl} class="underline">{$t('chunks.listBeginning')}</a>
     </Alert>
   {:else}
-    {#each res.result as item}
-      <PagePreviewListItem baseUrl={baseUrl} {...item} />
-    {/each}
+    <div>
+      {#each res.result as item}
+        <PagePreviewListItem baseUrl={baseUrl} {...item} />
+      {/each}
+    </div>
 
     {#if res.totalPages > 1}
       <div class="mt-14">

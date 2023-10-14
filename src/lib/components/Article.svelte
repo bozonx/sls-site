@@ -29,7 +29,7 @@
     <div class="mt-2">
       <span class="text-gray-400 dark:text-gray-500 text-sm">{date}</span>
       <span class="text-sm ml-5">
-        (<a class="underline" href={`/${$page.params.lang}/seasons/${season}`}>
+        (<a class="underline" href={`/${$page.params.lang}/seasons/${season}/1`}>
           {$t('chunks.season')} {season.replace(/\-/, ' - ')}</a>)
       </span>
     </div>

@@ -14,6 +14,11 @@ export const prerender = true
 
 export async function GET(event) {
   const langStr = event.params.lang
+  const pageNum = Number(event.params.page)
+
+  if (!Number.isInteger(pageNum)) {
+    throw error(400, 'Wrong page number')
+  }
 
   const textsDir = path.join(ROOT_DIR, 'texts', langStr, 'blog')
   const files = await readDirRecursively(textsDir)
@@ -29,7 +34,12 @@ export async function GET(event) {
     return (moment(a.date).isBefore(b.date)) ? 1 : -1
   })
 
+  const start = (pageNum - 1) * ITEM_PER_PAGE
+
   return new Response(JSON.stringify({
-    result: allFiles
-  }));
+    result: allFiles.slice(start, start + ITEM_PER_PAGE),
+    page: pageNum,
+    perPage: ITEM_PER_PAGE,
+    totalPages: Math.ceil(files.length / ITEM_PER_PAGE)
+  }))
 }

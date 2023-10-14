@@ -6,14 +6,23 @@
   import PageHeader from '$lib/components/PageHeader.svelte'
   import {t} from '$lib/store/t'
 
+
+  export let data
 </script>
 
 <svelte:head>
-  <title>{$t('link.onSeasons')} | {$t('chunks.projectFullName')}</title>
+  <title>{$t('link.allSeasons')} | {$t('chunks.projectFullName')}</title>
   <meta name="description" content={$t('descr.onSeasons')} />
 </svelte:head>
 
 <div>
-  <PageHeader>{$t('link.onSeasons')}</PageHeader>
+  <PageHeader>{$t('link.allSeasons')}</PageHeader>
 
+  <ul>
+    {#each data.result as item}
+      <li>
+        <SimpleLink href={`/seasons/${item}/1`}>{item.replace(/\-/, ' - ')}</SimpleLink>
+      </li>
+    {/each}
+  </ul>
 </div>

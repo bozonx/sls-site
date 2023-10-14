@@ -14,7 +14,6 @@
 
   export let data: {
     allTags: string[]
-    supportedLangs: string[]
     translates: Record<string, any>
   }
 
