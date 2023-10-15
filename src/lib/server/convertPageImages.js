@@ -43,7 +43,6 @@ export async function convertPageImagesSync(rootPath) {
       convertImage(
         rootPath,
         path.join(pagePath, fileName),
-        `page_${pathTrimExt(fileName)}`,
         `page_${pathTrimExt(fileName)}`
       )
     }
@@ -70,5 +69,6 @@ function convertImage(
   const convertThumbCmd = `convert ${inputPath} -adaptive-resize ${THUMB_WIDTH} -quality 80 ${thumbOutputPath}`
 
   child_process.execSync(convertArticleCmd)
-  child_process.execSync(convertThumbCmd)
+
+  if (outputThumbFileName) child_process.execSync(convertThumbCmd)
 }

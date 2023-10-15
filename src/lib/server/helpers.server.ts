@@ -72,7 +72,9 @@ export async function readDirRecursively(rootDir: string, subDir = ''): Promise<
 export async function convertMdToHtml(
   mdContent: string,
   pageName: string,
-  lang: string
+  lang: string,
+  // false = blog, true = page
+  isPage = false
 ) {
   const result = await unified()
     .use(remarkParse)
@@ -95,9 +97,16 @@ export async function convertMdToHtml(
     else if (node.tagName === 'img' && !url.host) {
       const imgName = path.basename(url.pathname)
 
-      return `/images/pages`
-        + `/${pageName.replace('/', '_')}`
-        + `_${replaceExt(imgName, 'jpg')}`
+      if (isPage) {
+        // page
+        return `/images/pages/page_${replaceExt(imgName, 'jpg')}`
+      }
+      else {
+        // blog
+        return `/images/pages`
+          + `/${pageName.replace('/', '_')}`
+          + `_${replaceExt(imgName, 'jpg')}`
+      }
     }
   }
 
