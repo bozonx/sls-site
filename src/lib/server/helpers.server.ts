@@ -46,8 +46,6 @@ export async function readDirRecursively(rootDir: string, subDir = ''): Promise<
   let res: string[] = []
 
   for (const file of files) {
-    if (!file.endsWith('.md')) continue
-
     const stat = await fs.lstat(path.join(fullDirPath, file))
 
     if (stat.isDirectory()) {
@@ -57,6 +55,8 @@ export async function readDirRecursively(rootDir: string, subDir = ''): Promise<
       ]
     }
     else {
+      if (!file.endsWith('.md')) continue
+
       res.push(path.join(subDir, file))
     }
   }
