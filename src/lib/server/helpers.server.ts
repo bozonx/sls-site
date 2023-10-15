@@ -18,6 +18,7 @@ export async function readAllFilesRecursively(
   subPath: string
 ): Promise<[string, string[]]> {
   const langStr = event.params.lang
+
   if (
     typeof event.params.page !== 'undefined'
     && Number.isNaN(Number(event.params.page))
@@ -45,6 +46,8 @@ export async function readDirRecursively(rootDir: string, subDir = ''): Promise<
   let res: string[] = []
 
   for (const file of files) {
+    if (!file.endsWith('.md')) continue
+
     const stat = await fs.lstat(path.join(fullDirPath, file))
 
     if (stat.isDirectory()) {

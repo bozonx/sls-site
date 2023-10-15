@@ -1,7 +1,15 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/kit/vite";
 import {getAllThePagesUrls} from "./src/lib/server/getAllThePagesUrls.js";
+import {convertPageImagesSync} from "./src/lib/server/convertPageImages.js";
+import {fileURLToPath} from "node:url";
+import path from "node:path";
 
+
+const filename = fileURLToPath(import.meta.url);
+const myDirname = path.dirname(filename)
+
+convertPageImagesSync(myDirname)
 
 const pagesUrls = getAllThePagesUrls()
 
