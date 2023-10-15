@@ -54,6 +54,15 @@
   color: #9863c4;
 }
 
+.html-block figure {
+  margin-bottom: 2rem;
+}
+
+.html-block figcaption {
+  color: #999;
+  font-size: 90%;
+}
+
 .html-block blockquote {
   margin-top: 1rem;
   margin-bottom: 1.25rem;
@@ -65,6 +74,8 @@
 .dark .html-block blockquote {
   border-color: #555
 }
+
+
 
 
 /*

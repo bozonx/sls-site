@@ -1,12 +1,16 @@
 import path from 'node:path';
+import {replaceExt} from 'squidlet-lib';
 import { error } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import yaml from 'yaml';
 import moment from 'moment';
-import {fromMarkdown} from 'mdast-util-from-markdown';
-import {toHast} from 'mdast-util-to-hast';
-import {sanitize} from 'hast-util-sanitize';
-import {toHtml} from 'hast-util-to-html';
+import {unified} from 'unified';
+import rehypeStringify from 'rehype-stringify';
+import urls from 'rehype-urls';
+import remarkParse from 'remark-parse';
+import remark2rehype from 'remark-rehype';
+import rehypeSanitize from 'rehype-sanitize'
+import rehypeFigure from 'rehype-figure';
 import {FILE_ENCODE} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
@@ -65,12 +69,33 @@ export async function readDirRecursively(rootDir: string, subDir = ''): Promise<
 }
 
 
-export function convertMdToHtml(mdContent: string) {
-  const mdastTree = fromMarkdown(mdContent)
-  const hastTree = toHast(mdastTree)
-  const safe = sanitize(hastTree)
+export async function convertMdToHtml(mdContent: string, pageName: string) {
+  const result = await unified()
+    .use(remarkParse)
+    .use(remark2rehype)
+    .use(rehypeSanitize)
+    .use(urls, makeImgSrc)
+    .use(rehypeFigure, { className: "img-figure" })
+    .use(rehypeStringify)
+    .process(mdContent)
 
-  return  toHtml(safe)
+  function makeImgSrc (url: any, node: any) {
+    if (node.tagName === 'a' && url.host) {
+      node.properties.target = '_blank'
+
+      return
+    }
+
+    if (node.tagName === 'img' && !url.host) {
+      const imgName = path.basename(url.pathname)
+
+      return `/images/pages`
+        + `/${pageName.replace('/', '_')}`
+        + `_${replaceExt(imgName, 'jpg')}`
+    }
+  }
+
+  return String(result)
 }
 
 export function extractMetaDataFromMdPage(

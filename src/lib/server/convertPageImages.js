@@ -4,7 +4,7 @@ import child_process from 'node:child_process'
 import {pathTrimExt} from 'squidlet-lib';
 
 
-const MAX_ARTICLE_WIDTH = 720
+const MAX_ARTICLE_WIDTH = 800
 const THUMB_WIDTH = 320
 const filterImageRegExp = /\.(avif|jpeg|jpg|png|webp)$/i
 

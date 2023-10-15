@@ -35,7 +35,7 @@
         <TagList tags={tags} class="mt-2" />
       {/if}
     </div>
-    <div class="md:ml-4 flex-1">
+    <div class="md:ml-4 max-md:mt-5 flex-1">
       <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{descr}</p>
     </div>
   </div>
