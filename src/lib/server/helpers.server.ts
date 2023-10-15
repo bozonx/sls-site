@@ -69,24 +69,30 @@ export async function readDirRecursively(rootDir: string, subDir = ''): Promise<
 }
 
 
-export async function convertMdToHtml(mdContent: string, pageName: string) {
+export async function convertMdToHtml(
+  mdContent: string,
+  pageName: string,
+  lang: string
+) {
   const result = await unified()
     .use(remarkParse)
     .use(remark2rehype)
     .use(rehypeSanitize)
-    .use(urls, makeImgSrc)
+    .use(urls, handleUrlsInHtml)
     .use(rehypeFigure, { className: "img-figure" })
     .use(rehypeStringify)
     .process(mdContent)
 
-  function makeImgSrc (url: any, node: any) {
-    if (node.tagName === 'a' && url.host) {
-      node.properties.target = '_blank'
-
-      return
+  function handleUrlsInHtml (url: any, node: any) {
+    if (node.tagName === 'a') {
+      if (url.host) {
+        node.properties.target = '_blank'
+      }
+      else {
+        return `/${lang}${url.pathname}`
+      }
     }
-
-    if (node.tagName === 'img' && !url.host) {
+    else if (node.tagName === 'img' && !url.host) {
       const imgName = path.basename(url.pathname)
 
       return `/images/pages`

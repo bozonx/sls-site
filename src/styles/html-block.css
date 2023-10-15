@@ -37,21 +37,34 @@
 .html-block ul {
   list-style: disc;
   padding-left: 1.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   margin-bottom: 1rem;
 }
 
 .html-block a {
   text-decoration: underline;
-  color: #538fc9;
+  color: #1d50c4;
 }
-
 .html-block a:hover {
-  color: #89bce7;
+  color: #436dcd;
 }
-
 .html-block a:visited {
-  color: #9863c4;
+  color: #9c20be;
+}
+.html-block a:visited:hover {
+  color: #b94bd7;
+}
+.dark .html-block a {
+  color: #85aaff;
+}
+.dark .html-block a:hover {
+  color: #b2c9ff;
+}
+.dark .html-block a:visited {
+  color: #ca64e6;
+}
+.dark .html-block a:visited:hover {
+  color: #d785ed;
 }
 
 .html-block figure {
@@ -96,16 +109,6 @@ body {
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
 
-h1,
-h2,
-p {
-	font-weight: 400;
-}
-
-p {
-	line-height: 1.5;
-}
-
 a {
 	color: var(--color-theme-1);
 	text-decoration: none;
@@ -113,15 +116,6 @@ a {
 
 a:hover {
 	text-decoration: underline;
-}
-
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
 }
 
 pre {
@@ -135,40 +129,8 @@ pre {
 	color: var(--color-text);
 }
 
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-}
-
-input,
-button {
-	font-size: inherit;
-	font-family: inherit;
-}
-
 button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
-}
-
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: auto;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
-}
 */

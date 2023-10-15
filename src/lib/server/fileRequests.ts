@@ -18,7 +18,7 @@ export async function getBlogPage(lang: string, pageName: string): Promise<strin
 
   return JSON.stringify({
     meta,
-    html: await convertMdToHtml(md, pageName)
+    html: await convertMdToHtml(md, pageName, lang)
   })
 }
 
@@ -36,6 +36,6 @@ export async function getSitePage(lang: string, pageName: string): Promise<strin
 
   return JSON.stringify({
     meta,
-    html: await convertMdToHtml(md, pageName)
+    html: await convertMdToHtml(md, pageName, lang)
   })
 }
