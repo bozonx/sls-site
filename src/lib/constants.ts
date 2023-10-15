@@ -20,13 +20,9 @@ export const LANG_NAMES = {
 
 export const SUPPORTED_LANGS = Object.keys(LANG_NAMES)
 export const PODCAST_ICONS_FILE_NAMES = {
-  applePodcast: 'apple-podcasts',
-  castbox: 'castbox',
-  deezer: 'deezer',
-  pocketCasts: 'pocket-casts',
-  podcastAddict: 'podcast-addict',
+  yandexMusic: 'yandex-music',
   soundstream: 'soundstream',
+  castbox: 'castbox',
   spotify: 'spotify',
   vk: 'vk',
-  yandexMusic: 'yandex-music',
 }

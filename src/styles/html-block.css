@@ -1,11 +1,37 @@
+.html-block {
+  font-size: 1.125rem;
+}
+
 .html-block h1 {
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: bold;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .html-block h2 {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.html-block h3 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.html-block h4, .html-block h5, .html-block h6 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .html-block ul {
@@ -20,10 +46,11 @@
 }
 
 .html-block blockquote {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
   border-left: 3px solid #ccc;
   padding-left: 1rem;
+  font-style: italic;
 }
 
 .dark .html-block blockquote {

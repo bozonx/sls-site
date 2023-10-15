@@ -41,11 +41,8 @@ httpErrors:
   404: Страница не найдена
   500: Ошибка сервера
 podcasts:
-  applePodcast: Apple podcast
+  site: Слушать на странице выпуска
   castbox: Castbox
-  deezer: Deezer
-  pocketCasts: Pocket Casts
-  podcastAddict: Podcast Addict
   soundstream: Sound stream
   spotify: Spotify
   vk: VK

@@ -9,6 +9,7 @@
   import {t} from '$lib/store/t'
 
 
+  export let name
   export let title
   export let html
   export let date = null
@@ -23,7 +24,7 @@
 </script>
 
 <div>
-  <Heading tag="h1">
+  <Heading tag="h1" class="text-4xl max-md:text-2xl mb-5">
     {title}
   </Heading>
 
@@ -49,12 +50,12 @@
   {/if}
 
   {#if descr && showDescr}
-    <div class="mt-7">
+    <div class="mt-10 italic">
       {descr}
     </div>
   {/if}
 
-  <div class="mt-2 html-block">
+  <div class="mt-8 html-block">
     {@html html}
   </div>
 
@@ -65,7 +66,7 @@
   {/if}
 
   {#if commentUrl}
-    <div class="mt-10">
+    <div class="mt-24">
       <PostCommentLink href={commentUrl}  />
     </div>
   {/if}
