@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "path";
 import child_process from 'node:child_process'
+import {pathTrimExt} from 'squidlet-lib';
 
 
 const MAX_ARTICLE_WIDTH = 720
@@ -31,7 +32,8 @@ export async function convertPageImagesSync(rootPath) {
           convertImage(
             rootPath,
             path.join(articlePath, fileName),
-            `${season}_${articleName}_${fileName}`
+            `${season}_${articleName}_${pathTrimExt(fileName)}`,
+            `${season}_${articleName}`
           )
         }
       }
@@ -41,16 +43,22 @@ export async function convertPageImagesSync(rootPath) {
       convertImage(
         rootPath,
         path.join(pagePath, fileName),
-        `page_${fileName}`
+        `page_${pathTrimExt(fileName)}`,
+        `page_${pathTrimExt(fileName)}`
       )
     }
   }
 }
 
 
-function convertImage(rootPath, inputPath, outputFileName) {
-  const articleOutputPath = path.join(rootPath, `static/images/pages/${outputFileName}.jpg`)
-  const thumbOutputPath = path.join(rootPath, `static/images/thumbs/${outputFileName}.jpg`)
+function convertImage(
+  rootPath,
+  inputPath,
+  outputArticleFileName,
+  outputThumbFileName
+) {
+  const articleOutputPath = path.join(rootPath, `static/images/pages/${outputArticleFileName}.jpg`)
+  const thumbOutputPath = path.join(rootPath, `static/images/thumbs/${outputThumbFileName}.jpg`)
   const identifyCmd = `identify ${inputPath}`
   const identifyRes = child_process.execSync(identifyCmd, {encoding: 'utf8'})
   const fullSizeString = identifyRes.split(' ')[2]

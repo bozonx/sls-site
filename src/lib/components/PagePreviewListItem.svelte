@@ -14,7 +14,13 @@
   export let baseUrl
 </script>
 
-<Card href={`${baseUrl}/${name}`} class="mb-2" size="base">
+<Card
+  href={`${baseUrl}/${name}`}
+  img="/images/thumbs/{name.replace('/', '_')}.jpg"
+  horizontal
+  class="mb-2"
+  size="base"
+>
   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
     {title}
   </h5>
