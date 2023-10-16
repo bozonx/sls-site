@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {arraySimilar} from 'squidlet-lib';
-import {FILE_ENCODE} from '$lib/constants';
+import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {SIMILAR_COUNT} from '$lib/constants';
 import {
@@ -24,7 +24,7 @@ export async function GET(event) {
   try {
     [rootPath, fileNames] = await readAllFilesRecursively(
       event,
-      'blog'
+      BLOG_DIR
     )
   }
   catch (e) {

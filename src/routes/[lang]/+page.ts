@@ -1,13 +1,13 @@
 import {error, redirect} from '@sveltejs/kit';
 import type {PageLoad} from './$types';
-import {DEFAULT_LANG, SUPPORTED_LANGS} from '../../lib/constants';
+import {DEFAULT_LANG, SUPPORTED_LANGS, PAGE_DIR} from '../../lib/constants';
 import {loadJustData} from '../../lib/requests';
 
 
 export const load: PageLoad = async (event) => {
   const rawContent = await loadJustData(
     event,
-    `/api/1/page/${event.params.lang}/main`
+    `/api/1/${PAGE_DIR}/${event.params.lang}/main`
   )
 
   return {

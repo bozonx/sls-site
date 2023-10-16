@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {FILE_ENCODE} from '$lib/constants';
+import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {ITEM_PER_PAGE} from '$lib/constants';
 import {
@@ -17,7 +17,7 @@ export async function GET(event) {
   const pageNum = Number(event.params.page)
   const [rootPath, fileNames] = await readAllFilesRecursively(
     event,
-    'blog'
+    BLOG_DIR
   )
   let allFiles: PageItemData[] = []
 

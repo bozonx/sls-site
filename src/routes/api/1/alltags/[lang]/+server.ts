@@ -1,7 +1,7 @@
 import {deduplicate} from 'squidlet-lib';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {FILE_ENCODE} from '$lib/constants';
+import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
 import {
   readAllFilesRecursively,
   extractMetaDataFromMdPage
@@ -14,7 +14,7 @@ export const prerender = true
 export async function GET(event) {
   const [rootPath, fileNames] = await readAllFilesRecursively(
     event,
-    'blog'
+    BLOG_DIR
   )
   let tags: string[] = []
 
