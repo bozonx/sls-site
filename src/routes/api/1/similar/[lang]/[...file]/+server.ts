@@ -1,12 +1,14 @@
-import moment from 'moment'
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {arraySimilar} from 'squidlet-lib';
 import {FILE_ENCODE} from '$lib/constants';
-import {makePageItemData} from '$lib/server/helpers.server';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {SIMILAR_COUNT} from '$lib/constants';
-import {readAllFilesRecursively} from '$lib/server/helpers.server';
+import {
+  readAllFilesRecursively,
+  sortPageItemsByDateDesc,
+  extractMetaDataFromMdPage
+} from '$lib/server/helpers.server';
 
 
 export const prerender = true
@@ -43,20 +45,21 @@ export async function GET(event) {
     }))
   }
 
-  const articleMeta = makePageItemData(
+  const extractedArticle = extractMetaDataFromMdPage(
     articleString,
-    fileName,
-    langStr
+    langStr,
+    fileName
   )
+  const articleMeta = extractedArticle[0]
   let allFiles: PageItemData[] = []
 
   for (const filePath of fileNames) {
     const clearFilePath = filePath.replace(/\/index.md$/, '')
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
-    const meta = makePageItemData(
+    const [meta] = extractMetaDataFromMdPage(
       content,
-      clearFilePath,
-      langStr
+      langStr,
+      clearFilePath
     )
     // skip the same article
     if (clearFilePath === fileName) continue
@@ -64,9 +67,7 @@ export async function GET(event) {
     else if (arraySimilar(meta.tags, articleMeta.tags).length) allFiles.push(meta)
   }
   // sort by date
-  allFiles.sort((a: PageItemData, b: PageItemData) => {
-    return (moment(a.date).isBefore(b.date)) ? 1 : -1
-  })
+  allFiles = sortPageItemsByDateDesc(allFiles)
   // sort by similarity
   allFiles.sort((a: PageItemData, b: PageItemData) => {
     return (

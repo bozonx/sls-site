@@ -17,6 +17,13 @@ import type {PageMetaData} from '../types/PageMetaData';
 import {ROOT_DIR} from './constants.server';
 
 
+export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
+  return [...allFiles].sort((a: PageItemData, b: PageItemData) => {
+    console.log(111 , a.date, b.date, moment(a.date).isBefore(b.date))
+    return (moment(a.date).isBefore(b.date)) ? 1 : -1
+  })
+}
+
 export async function readAllFilesRecursively(
   event,
   subPath: string
@@ -139,20 +146,4 @@ export function extractMetaDataFromMdPage(
   }
 
   return [meta, md]
-}
-
-export function makePageItemData(
-  content: string,
-  fileName: string,
-  lang: string
-): PageItemData {
-  const [meta] = extractMetaDataFromMdPage(content, lang, fileName)
-
-  return {
-    ...meta,
-
-    // TODO: зарезолвить первую картинку
-    //thumb: '',
-
-  }
 }

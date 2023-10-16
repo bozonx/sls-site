@@ -29,9 +29,9 @@ export async function getSitePage(lang: string, pageName: string): Promise<strin
   )
   const fileContent = await fs.readFile(fullFilePath, 'utf8')
   const [meta, md] = extractMetaDataFromMdPage(
-      fileContent,
-      lang,
-      pageName
+    fileContent,
+    lang,
+    pageName
   )
 
   return JSON.stringify({

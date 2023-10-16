@@ -1,5 +1,6 @@
 <script>
   import { Heading, Alert } from 'flowbite-svelte';
+  import { pickObj } from 'squidlet-lib';
   import {error} from '@sveltejs/kit';
   import {page} from "$app/stores";
   import PagePreviewListItem from '$lib/components/PagePreviewListItem.svelte'
@@ -33,7 +34,10 @@
   {:else}
     <div>
       {#each res.result as item}
-        <PagePreviewListItem baseUrl={baseUrl} {...item} />
+        <PagePreviewListItem
+          baseUrl={baseUrl}
+          {...pickObj(item, 'name', 'title', 'date', 'tags', 'descr')}
+        />
       {/each}
     </div>
 

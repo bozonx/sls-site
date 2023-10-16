@@ -1,11 +1,13 @@
-import moment from 'moment'
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {FILE_ENCODE} from '$lib/constants';
-import {makePageItemData} from '$lib/server/helpers.server';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {ITEM_PER_PAGE} from '$lib/constants';
-import {readAllFilesRecursively} from '$lib/server/helpers.server';
+import {
+  readAllFilesRecursively,
+  sortPageItemsByDateDesc,
+  extractMetaDataFromMdPage
+} from '$lib/server/helpers.server';
 
 
 export const prerender = true
@@ -23,17 +25,16 @@ export async function GET(event) {
 
   for (const filePath of fileNames) {
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
-
-    allFiles.push(makePageItemData(
+    const [meta] = extractMetaDataFromMdPage(
       content,
-      path.join(season, filePath.replace(/\/index.md$/, '')),
-      event.params.lang
-    ))
+      event.params.lang,
+      path.join(season, filePath.replace(/\/index.md$/, ''))
+    )
+
+    allFiles.push(meta)
   }
 
-  allFiles.sort((a: PageItemData, b: PageItemData) => {
-    return (moment(a.date).isBefore(b.date)) ? 1 : -1
-  })
+  allFiles = sortPageItemsByDateDesc(allFiles)
 
   const start = (pageNum - 1) * ITEM_PER_PAGE
 

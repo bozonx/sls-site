@@ -1,12 +1,14 @@
-import moment from 'moment'
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {FILE_ENCODE} from '$lib/constants';
-import {makePageItemData} from '$lib/server/helpers.server';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {ITEM_PER_PAGE} from '$lib/constants';
 import {readAllFilesRecursively} from '$lib/server/helpers.server';
 import {error} from '@sveltejs/kit';
+import {
+  sortPageItemsByDateDesc,
+  extractMetaDataFromMdPage
+} from '$lib/server/helpers.server';
 
 
 export const prerender = true
@@ -24,22 +26,21 @@ export async function GET(event) {
 
   for (const filePath of fileNames) {
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
-    const pageData = makePageItemData(
-        content,
-        filePath.replace(/\/index.md$/, ''),
-        langStr
+    const [meta] = extractMetaDataFromMdPage(
+      content,
+      langStr,
+      filePath.replace(/\/index.md$/, '')
     )
 
-    if (pageData.tags.includes(tagName)) allFiles.push(pageData)
+    if (meta.tags.includes(tagName)) allFiles.push(meta)
   }
 
   if (!allFiles.length) {
     throw error(404)
   }
 
-  allFiles.sort((a: PageItemData, b: PageItemData) => {
-    return (moment(a.date).isBefore(b.date)) ? 1 : -1
-  })
+  // sort by date
+  allFiles = sortPageItemsByDateDesc(allFiles)
 
   const start = (pageNum - 1) * ITEM_PER_PAGE
 

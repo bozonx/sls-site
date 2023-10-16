@@ -2,8 +2,10 @@ import {deduplicate} from 'squidlet-lib';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {FILE_ENCODE} from '$lib/constants';
-import {makePageItemData} from '$lib/server/helpers.server';
-import {readAllFilesRecursively} from '$lib/server/helpers.server';
+import {
+  readAllFilesRecursively,
+  extractMetaDataFromMdPage
+} from '$lib/server/helpers.server';
 
 
 export const prerender = true
@@ -18,11 +20,15 @@ export async function GET(event) {
 
   for (const filePath of fileNames) {
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
-    const pageData = makePageItemData(content, filePath, event.params.lang)
+    const [meta] = extractMetaDataFromMdPage(
+      content,
+      event.params.lang,
+      filePath
+    )
 
     tags = [
       ...tags,
-      ...pageData.tags,
+      ...meta.tags,
     ]
   }
 
