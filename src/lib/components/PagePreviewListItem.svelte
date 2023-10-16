@@ -5,7 +5,7 @@
 
   export let name
   export let title
-  export let date = null
+  export let dateLocal = null
   export let tags = []
   export let descr
   export let baseUrl
@@ -27,8 +27,8 @@
         alt="{title} thumbnail"
       />
 
-      {#if date}
-        <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{date}</div>
+      {#if dateLocal}
+        <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{dateLocal}</div>
       {/if}
 
       {#if tags && tags.length}

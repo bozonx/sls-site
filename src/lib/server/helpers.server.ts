@@ -19,7 +19,6 @@ import {ROOT_DIR} from './constants.server';
 
 export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
   return [...allFiles].sort((a: PageItemData, b: PageItemData) => {
-    console.log(111 , a.date, b.date, moment(a.date).isBefore(b.date))
     return (moment(a.date).isBefore(b.date)) ? 1 : -1
   })
 }
@@ -137,10 +136,9 @@ export function extractMetaDataFromMdPage(
   const meta: PageMetaData = {
     name,
     title: '',
-    tags: [],
     descr: '',
     ...rawMetaData,
-    date: (rawMetaData.date)
+    dateLocal: (rawMetaData.date)
         ? moment(rawMetaData.date).locale(lang).format('LL')
         : undefined,
   }

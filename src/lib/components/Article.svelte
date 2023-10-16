@@ -13,6 +13,7 @@
   export let title
   export let html
   export let date = null
+  export let dateLocal = null
   export let tags = []
   export let commentUrl = null
   export let videoLink = null
@@ -28,9 +29,9 @@
     {title}
   </Heading>
 
-  {#if date || season}
+  {#if dateLocal || season}
     <div class="mt-2">
-      <span class="text-gray-400 dark:text-gray-500 text-sm">{date}</span>
+      <span class="text-gray-400 dark:text-gray-500 text-sm">{dateLocal}</span>
       <span class="text-sm ml-5">
         (<a class="underline" href={`/${$page.params.lang}/seasons/${season}/1`}>
           {$t('chunks.season')} {season.replace(/\-/, ' - ')}</a>)

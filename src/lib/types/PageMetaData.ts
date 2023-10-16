@@ -8,6 +8,7 @@ export interface PageMetaData {
   tags: string[]
   descr: string
   date?: string
+  dateLocal?: string
   commentUrl?: string
   videoLink?: string
   podcasts?: PoscastServces
