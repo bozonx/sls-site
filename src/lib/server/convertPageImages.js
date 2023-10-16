@@ -1,12 +1,15 @@
 import fs from "node:fs";
 import path from "path";
 import child_process from 'node:child_process'
-import {pathTrimExt} from 'squidlet-lib';
+import {pathTrimExt, getExt} from 'squidlet-lib';
 
 
 const MAX_ARTICLE_WIDTH = 840
 const THUMB_WIDTH = 320
 const filterImageRegExp = /\.(avif|jpeg|jpg|png|webp)$/i
+const PAGES_FULL_DIR = 'pages-full'
+const PAGES_DIR = 'pages'
+const THUMBS_DIR = 'thumbs'
 
 
 export async function convertPageImagesSync(rootPath) {
@@ -56,8 +59,9 @@ function convertImage(
   outputArticleFileName,
   outputThumbFileName
 ) {
-  const articleOutputPath = path.join(rootPath, `static/images/pages/${outputArticleFileName}.jpg`)
-  const thumbOutputPath = path.join(rootPath, `static/images/thumbs/${outputThumbFileName}.jpg`)
+  const fullOutputPath = path.join(rootPath, `static/images/${PAGES_FULL_DIR}/${outputArticleFileName}.${getExt(inputPath)}`)
+  const articleOutputPath = path.join(rootPath, `static/images/${PAGES_DIR}/${outputArticleFileName}.jpg`)
+  const thumbOutputPath = path.join(rootPath, `static/images/${THUMBS_DIR}/${outputThumbFileName}.jpg`)
   const identifyCmd = `identify ${inputPath}`
   const identifyRes = child_process.execSync(identifyCmd, {encoding: 'utf8'})
   const fullSizeString = identifyRes.split(' ')[2]
@@ -65,9 +69,11 @@ function convertImage(
     .split('x')
     .map((el) => Number(el))
   const articleWidth = (width > MAX_ARTICLE_WIDTH) ? MAX_ARTICLE_WIDTH : width
+  const fullImgCmd = `cp ${inputPath} ${fullOutputPath}`
   const convertArticleCmd = `convert ${inputPath} -adaptive-resize ${articleWidth} -quality 85 ${articleOutputPath}`
   const convertThumbCmd = `convert ${inputPath} -adaptive-resize ${THUMB_WIDTH} -quality 80 ${thumbOutputPath}`
 
+  child_process.execSync(fullImgCmd)
   child_process.execSync(convertArticleCmd)
 
   if (outputThumbFileName) child_process.execSync(convertThumbCmd)
