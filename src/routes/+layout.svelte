@@ -12,7 +12,8 @@
   import SideBar from "$lib/components/layout/SideBar.svelte"
   import Footer from '$lib/components/layout/Footer.svelte'
   import ToTheTop from '$lib/components/layout/ToTheTop.svelte'
-  import { pwaInfo } from 'virtual:pwa-info';
+  import {t} from '$lib/store/t'
+  import { pwaInfo } from 'virtual:pwa-info'
 
 
   $: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
@@ -126,7 +127,11 @@
   <div class="flex px-4 sm:px-8 mx-auto w-full">
     <main class="lg:ml-72 w-full mx-auto flex justify-center">
 
-      <div id="app-page" class="mt-10">
+      <div id="app-page" class="mt-4">
+        <div class="lg:hidden mb-12 text-center text-2xl text-gray-600 dark:text-gray-300">
+          {$t('chunks.projectFullName')}
+        </div>
+
         <slot />
 
         <div class="mt-24 mb-8">

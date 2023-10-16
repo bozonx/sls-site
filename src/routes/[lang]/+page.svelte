@@ -10,7 +10,7 @@
 </svelte:head>
 
 <section>
-	<div class="mt-8 html-block">
+	<div class="html-block">
 		{@html data.result.html}
 	</div>
 </section>
