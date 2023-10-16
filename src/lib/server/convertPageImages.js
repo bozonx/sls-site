@@ -1,9 +1,10 @@
 import fs from "node:fs";
 import path from "path";
 import child_process from 'node:child_process'
-import {pathTrimExt, getExt} from 'squidlet-lib';
+import {pathTrimExt, getExt, clearRelPathLeft} from 'squidlet-lib';
 
 
+const FILE_ENCODE = 'utf8'
 const MAX_ARTICLE_WIDTH = 840
 const THUMB_WIDTH = 320
 const filterImageRegExp = /\.(avif|jpeg|jpg|png|webp)$/i
@@ -12,31 +13,33 @@ const PAGES_DIR = 'pages'
 const THUMBS_DIR = 'thumbs'
 
 
-export async function convertPageImagesSync(rootPath) {
+export function convertPageImagesSync(rootPath) {
   const textsDir = path.join(rootPath, 'texts')
-  const langs = fs.readdirSync(textsDir, 'utf8')
+  const langs = fs.readdirSync(textsDir, FILE_ENCODE)
 
   for (const lang of langs) {
     const blogPath = path.join(textsDir, lang, 'blog')
     const pagePath = path.join(textsDir, lang, 'page')
-    const seasons = fs.readdirSync(blogPath, 'utf8')
-    const pageImages = fs.readdirSync(pagePath, 'utf8')
+    const seasons = fs.readdirSync(blogPath, FILE_ENCODE)
+    const pageImages = fs.readdirSync(pagePath, FILE_ENCODE)
       .filter(el => el.match(filterImageRegExp))
 
     for (const season of seasons) {
       const articles = fs.readdirSync(path.join(blogPath, season), 'utf8')
 
       for (const articleName of articles) {
-        const articlePath = path.join(blogPath, season, articleName)
-        const articleImages = fs.readdirSync(articlePath, 'utf8')
+        const articleDirPath = path.join(blogPath, season, articleName)
+        const articleFirstImageName = getFirstImageFromMd(articleDirPath)
+        const articleImages = fs.readdirSync(articleDirPath, FILE_ENCODE)
           .filter(el => el.match(filterImageRegExp))
 
         for (const fileName of articleImages) {
           convertImage(
             rootPath,
-            path.join(articlePath, fileName),
+            path.join(articleDirPath, fileName),
             `${season}_${articleName}_${pathTrimExt(fileName)}`,
-            `${season}_${articleName}`
+            // make only the first image thumb
+            (fileName === articleFirstImageName) ? `${season}_${articleName}` : undefined
           )
         }
       }
@@ -77,4 +80,15 @@ function convertImage(
   child_process.execSync(convertArticleCmd)
 
   if (outputThumbFileName) child_process.execSync(convertThumbCmd)
+}
+
+export function getFirstImageFromMd(articleDirPath) {
+  const articlePath = `${articleDirPath}/index.md`
+  const articleContent = fs.readFileSync(articlePath, FILE_ENCODE)
+  const firstImgMatch = articleContent
+    .match(/\!\[[^\]]*\]\(([^\)]+)\)/)
+
+  if (!firstImgMatch?.[1]) return
+
+  return clearRelPathLeft(firstImgMatch[1])
 }
