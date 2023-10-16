@@ -104,10 +104,13 @@ export async function convertMdToHtml(
       const imgName = path.basename(url.pathname)
 
       if (isPage) {
+        node.properties['data-full'] = `/images/pages-full/page_${imgName}`
         // page
         return `/images/pages/page_${replaceExt(imgName, 'jpg')}`
       }
       else {
+        node.properties['data-full'] = `/images/pages-full`
+          + `/${pageName.replace('/', '_')}_${imgName}`
         // blog
         return `/images/pages`
           + `/${pageName.replace('/', '_')}`
