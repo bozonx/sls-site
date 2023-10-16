@@ -1,5 +1,6 @@
 <script>
   import PagesList from '$lib/components/PagesList.svelte'
+  import HeaderSubLink from '$lib/components/HeaderSubLink.svelte'
   import {page} from "$app/stores";
   import {t} from '$lib/store/t'
 
@@ -16,9 +17,7 @@
     <div class="flex w-full">
       <div class="flex-1">{`${$t('header.tag')} #${$page.params.tag}`}</div>
       <div>
-        <a class="underline font-normal text-sm" href={`/${$page.params.lang}/tags`}>
-          {$t('link.allTags')}
-        </a>
+        <HeaderSubLink href={`/${$page.params.lang}/tags`}>{$t('link.allTags')}</HeaderSubLink>
       </div>
     </div>
   </PagesList>

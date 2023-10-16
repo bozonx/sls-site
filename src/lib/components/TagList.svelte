@@ -22,7 +22,7 @@
     {#key `${$page.url.pathname} ${tag}`}
       <Button
         on:click={() => dispatch('selected')}
-        href={`/${$page.params.lang}/tags/${tag}`}
+        href={`/${$page.params.lang}/tags/${tag}/1`}
         pill
         size="sm"
         color={(isActive(tag)) ? 'purple' : 'blue'}

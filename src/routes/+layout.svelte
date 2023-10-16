@@ -12,6 +12,10 @@
   import SideBar from "$lib/components/layout/SideBar.svelte"
   import Footer from '$lib/components/layout/Footer.svelte'
   import ToTheTop from '$lib/components/layout/ToTheTop.svelte'
+  import { pwaInfo } from 'virtual:pwa-info';
+
+
+  $: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
 
   export let data: {
     allTags: string[]
@@ -76,6 +80,10 @@
     }
   })
 </script>
+
+<svelte:head>
+  {@html webManifestLink}
+</svelte:head>
 
 <svelte:window
   bind:innerWidth={windowWidth}

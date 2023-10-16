@@ -20,10 +20,10 @@
 <section>
   <PageHeader>{$t('link.allTags')}</PageHeader>
 
-  <ul>
+  <ul class="space-y-3">
     {#each $allTags as tag}
       <li>
-        <SimpleLink href={`/tags/${tag}`}>#{tag}</SimpleLink>
+        <SimpleLink href={`/tags/${tag}/1`}>#{tag}</SimpleLink>
       </li>
     {/each}
   </ul>
