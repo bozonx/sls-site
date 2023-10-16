@@ -116,7 +116,7 @@
     bind:activateClickOutside
     position={(breakPointReached) ? "fixed" : "absolute"}
     width={(breakPointReached) ? 'w-80' : 'w-72'}
-    class="max-lg:overflow-y-auto z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+    class="max-lg:overflow-y-auto lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
     <div>
