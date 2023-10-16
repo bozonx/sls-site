@@ -1,66 +1,58 @@
 <script>
-	import {
-		Navbar,
-		NavBrand,
-		NavLi,
-		NavUl,
-		DarkMode,
-	} from "flowbite-svelte";
+	import {DarkMode} from "flowbite-svelte";
 	import {HeartSolid, BarsSolid} from "flowbite-svelte-icons";
 	import { page } from '$app/stores';
 	import SwitchLanguage from "$lib/components/layout/SwitchLanguage.svelte";
+	import TopBarLink from "./TopBarLink.svelte";
 	import {t} from '$lib/store/t'
 
 
 	export let toggleDrawer
 	export let breakPointReached
-
-	$: activeUrl = $page.url.pathname
 </script>
 
-<Navbar>
-	{#if breakPointReached}
-		<NavBrand href={`/${$page.params.lang}`} class="lg:ml-64">
-			<img src="/images/site_logo.svg" class="mr-3 h-6 sm:h-9" alt="Logo" />
-			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-				{$t('chunks.projectFullName')}
-			</span>
-		</NavBrand>
+<div class="flex w-full py-2 px-2">
+	<div class="flex-1">
+		{#if breakPointReached}
+			<ul class="flex pl-2 pr-1">
+				<li on:click={toggleDrawer}>
+					<TopBarLink isIcon={true}><BarsSolid /></TopBarLink>
+				</li>
+			</ul>
+		{/if}
 
-		<span on:click={toggleDrawer}>
-			<BarsSolid />
-		</span>
-	{/if}
+		<!--
+		{#if breakPointReached}
+			<a href={`/${$page.params.lang}`} class="flex items-center">
+				<span class="bg-white mr-2 pb-1 pr-1">
+					<img src="/images/site_logo.svg" class="h-6 sm:h-9" alt="Logo" />
+				</span>
+				<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+					{$t('chunks.projectFullName')}
+				</span>
+			</a>
+		{/if}
+		-->
+	</div>
 
 	<!--
-	<div class="hidden relative md:block">
+	<div class="hidden relative md:block lg:ml-64">
 		<Input id="search-navbar" class="pl-10" placeholder="Search..." />
 	</div>
 	-->
 
-	{#if !breakPointReached}
-		<NavUl divClass="ml-auto block" activeUrl={activeUrl}>
-			<NavLi href={`/${$page.params.lang}`}>{$t('link.home')}</NavLi>
-			<NavLi href={`/${$page.params.lang}/page/donate`}>
-				<span class="flex space-x-1"><HeartSolid /><span>{$t('link.donate')}</span></span>
-			</NavLi>
-			<!--<NavLi href={`/${$page.params.lang}/page/about`}>{$t('link.about')}</NavLi>-->
-			<!--
-      <NavLi href="https://youtube.com/@slsfreedom" title={$t('link.youtubeChannel')} target="_blank">
-        <YoutubeSolid />
-      </NavLi>
-      -->
-		</NavUl>
-
-		<div class="mr-1">
-			<SwitchLanguage />
-		</div>
-
-		<div>
-			<DarkMode size="lg" />
-		</div>
-	{/if}
-
-
-	<!--<NavHamburger on:click={toggle} btnClass="lg:hidden" />-->
-</Navbar>
+	<ul class="flex">
+		{#if !breakPointReached}
+		<li><TopBarLink href={`/${$page.params.lang}`}>{$t('link.home')}</TopBarLink></li>
+		{/if}
+		<li>
+			<TopBarLink href={`/${$page.params.lang}/page/donate`}>
+				<HeartSolid /><span>{$t('link.donate')}</span>
+			</TopBarLink>
+		</li>
+		{#if !breakPointReached}
+		<li><SwitchLanguage /></li>
+		{/if}
+		<li><DarkMode size="lg" /></li>
+	</ul>
+</div>
