@@ -11,6 +11,7 @@
   import TopBar from '$lib/components/layout/TopBar.svelte'
   import SideBar from "$lib/components/layout/SideBar.svelte"
   import Footer from '$lib/components/layout/Footer.svelte'
+  import ToTheTop from '$lib/components/layout/ToTheTop.svelte'
 
   export let data: {
     allTags: string[]
@@ -24,10 +25,6 @@
   setContext(ALL_TAGS_CONTEXT, allTags)
 
 
-
-
-  /////////
-
   let transitionParams = {
     x: -320,
     duration: 200,
@@ -35,6 +32,8 @@
   };
   let breakPoint: number = 1024;
   let windowWidth: number;
+  let windowHeight: number;
+  let scrollY: number;
   let breakPointReached = false
   let showBackdrop: boolean = false
   let activateClickOutside = true;
@@ -44,35 +43,45 @@
     drawerHidden = false
     breakPointReached = false
     activateClickOutside = false
+    showBackdrop = false
   } else {
     drawerHidden = true
     breakPointReached = true
     activateClickOutside = true
+    showBackdrop = true
   }
   $: activeUrl = $page.url.pathname
 
-  // const toggleSide = () => {
-  //   if (windowWidth < breakPoint) {
-  //     drawerHidden = !drawerHidden
-  //   }
-  // };
   const toggleDrawer = () => {
-    //drawerHidden = false;
     drawerHidden = !drawerHidden
   };
+
+  const closeDrawer = () => {
+    if (!breakPointReached) return
+
+    drawerHidden = true
+  }
 
   onMount(() => {
     if (windowWidth >= breakPoint) {
       drawerHidden = false;
+      breakPointReached = false
       activateClickOutside = false;
+      showBackdrop = false;
     } else {
       drawerHidden = true;
+      breakPointReached = true
       activateClickOutside = true;
+      showBackdrop = true;
     }
   })
 </script>
 
-<svelte:window bind:innerWidth={windowWidth} />
+<svelte:window
+  bind:innerWidth={windowWidth}
+  bind:innerHeight={windowHeight}
+  bind:scrollY={scrollY}
+/>
 
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
   <header>
@@ -80,22 +89,31 @@
   </header>
 
   <Drawer
-    transitionType="fly"
+    transitionType={(breakPointReached) ? undefined : "fly"}
     backdrop={showBackdrop}
-    {transitionParams}
+    transitionParams={(breakPointReached) ? transitionParams : undefined}
     bind:hidden={drawerHidden}
     bind:activateClickOutside
-    width="w-64"
-    class="overflow-auto flex flex-wrap !p-0 pb-32 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+    position={(breakPointReached) ? "fixed" : "absolute"}
+    width={(breakPointReached) ? 'w-80' : 'w-72'}
+    class="max-lg:overflow-y-auto lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
     <div>
-      <SideBar allTags={$allTags || []} {toggleDrawer} />
+      <SideBar allTags={$allTags || []} {closeDrawer} />
     </div>
     <div class="pt-5 pb-3 w-full flex items-end lg:hidden">
-      <SidebarFooter />
+      <SidebarFooter on:langSelect={closeDrawer} />
     </div>
   </Drawer>
+
+  {#if scrollY > windowHeight / 2}
+    <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden">
+      <span on:click={() => scrollY = 0}>
+        <ToTheTop />
+      </span>
+    </div>
+  {/if}
 
   <div class="flex px-4 sm:px-8 mx-auto w-full">
     <main class="lg:ml-72 w-full mx-auto flex justify-center">

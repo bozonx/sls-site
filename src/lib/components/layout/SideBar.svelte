@@ -29,20 +29,21 @@
 
 
   export let allTags
-  export let toggleDrawer
+  export let closeDrawer
 
   $: activeUrl = $page.url.pathname;
 </script>
 
 <div class="flex items-center lg:hidden">
   <CloseButton
-    on:click={toggleDrawer}
+    on:click={closeDrawer}
     class="mb-4 dark:text-white"
   />
 </div>
 
 <a
   href={`/${$page.params.lang}`}
+  on:click={closeDrawer}
   class="bg-white flex items-center pt-5 pb-6 pl-7 mb-4"
 >
   <img src="/images/site_logo.svg" class="h-16" alt="Logo" />
@@ -51,11 +52,11 @@
   </div>
 </a>
 
-<Sidebar {activeUrl}>
+<Sidebar {activeUrl} class="w-auto">
   <SidebarWrapper class="!p-0 rounded-none">
     <SidebarGroup>
 
-      <MySidebarItem label={$t('link.recent')} href="/recent/1" icon={RectangleListSolid} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.recent')} href="/recent/1" icon={RectangleListSolid} />
 
       <SidebarDropdownWrapper label={$t('layout.tags')} isOpen={true} class="rounded-none">
         <svelte:fragment slot="icon">
@@ -68,26 +69,27 @@
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <TagList class="ml-2" tags={allTags} />
+        <TagList on:selected={closeDrawer} class="ml-2" tags={allTags} />
       </SidebarDropdownWrapper>
 
-      <MySidebarItem label={$t('link.allTags')} href="/tags" icon={LayersOutline} />
-      <MySidebarItem label={$t('link.onSeasons')} href="/seasons" icon={CalendarMonthSolid} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.allTags')} href="/tags" icon={LayersOutline} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.onSeasons')} href="/seasons" icon={CalendarMonthSolid} />
 
     </SidebarGroup>
 
     <SidebarGroup class="mt-5 lg:hidden">
-      <MySidebarItem label={$t('link.home')} href="/" icon={HomeSolid} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.home')} href="/" icon={HomeSolid} />
       <!--<MySidebarItem label={$t('link.about')} href="/page/about" icon={InfoCircleSolid} />-->
-      <MySidebarItem label={$t('link.donate')} href="/page/donate" icon={HeartSolid} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.donate')} href="/page/donate" icon={HeartSolid} />
     </SidebarGroup>
 
     <SidebarSubHeader>{$t('layout.links')}</SidebarSubHeader>
 
     <SidebarGroup>
-      <MySidebarItem label={$t('link.youtubeChannel')} href="https://youtube.com/@slsfreedom" icon={YoutubeSolid} target="_blank" />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.youtubeChannel')} href="https://youtube.com/@slsfreedom" icon={YoutubeSolid} target="_blank" />
 
       <SidebarItem
+        on:click={closeDrawer}
         label={$t('link.telegramChannel')}
         href="https://t.me/slsfreedom"
         target="_blank"
@@ -98,8 +100,8 @@
         </svelte:fragment>
       </SidebarItem>
 
-      <MySidebarItem label={$t('link.telegramChat')} href="https://t.me/slsfreedom_chat" icon={MessagesOutline} target="_blank" />
-      <MySidebarItem label={$t('link.allLinks')} href="/page/links" icon={ForwardSolid} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.telegramChat')} href="https://t.me/slsfreedom_chat" icon={MessagesOutline} target="_blank" />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.allLinks')} href="/page/links" icon={ForwardSolid} />
     </SidebarGroup>
 
   </SidebarWrapper>

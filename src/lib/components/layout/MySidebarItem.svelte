@@ -14,7 +14,7 @@
   $: resolvedHref = (href.startsWith('/')) ? `/${$page.params.lang}${href}` : href
 </script>
 
-<SidebarItem {label} {target} href={resolvedHref} class="rounded-none">
+<SidebarItem on:click {label} {target} href={resolvedHref} class="rounded-none">
   <svelte:fragment slot="icon">
     <IconSolid icon={icon} class="text-gray-500 dark:text-gray-400" />
   </svelte:fragment>

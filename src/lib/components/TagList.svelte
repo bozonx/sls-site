@@ -1,6 +1,9 @@
 <script>
   import {Button} from "flowbite-svelte"
   import {page} from "$app/stores";
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
 
   export let tags = []
 
@@ -18,6 +21,7 @@
   {#each tags as tag}
     {#key `${$page.url.pathname} ${tag}`}
       <Button
+        on:click={() => dispatch('selected')}
         href={`/${$page.params.lang}/tags/${tag}`}
         pill
         size="sm"
