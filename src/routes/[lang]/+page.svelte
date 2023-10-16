@@ -1,5 +1,6 @@
 <script>
 	import {t} from '$lib/store/t'
+	import RenderHtml from "$lib/components/RenderHtml.svelte";
 
 	export let data
 </script>
@@ -11,6 +12,6 @@
 
 <section>
 	<div class="html-block">
-		{@html data.result.html}
+		<RenderHtml html={data.result.html} />
 	</div>
 </section>

@@ -1,10 +1,12 @@
 <script>
+  import {getContext} from "svelte";
   import {Heading} from 'flowbite-svelte';
   import TagList from "$lib/components/TagList.svelte";
   import PostCommentLink from "$lib/components/PostCommentLink.svelte";
   import PostAuthor from "$lib/components/PostAuthor.svelte";
   import PodcastSelect from "$lib/components/PodcastSelect.svelte";
   import VideoLink from "$lib/components/VideoLink.svelte";
+  import RenderHtml from "$lib/components/RenderHtml.svelte";
   import { page } from '$app/stores'
   import {t} from '$lib/store/t'
 
@@ -56,9 +58,7 @@
     </div>
   {/if}
 
-  <div class="mt-8 html-block">
-    {@html html}
-  </div>
+  <RenderHtml class="mt-8" {html} />
 
   {#if showAuthor}
     <div class="mt-10">

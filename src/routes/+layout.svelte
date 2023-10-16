@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount, setContext } from 'svelte'
-  import { Drawer, CloseButton } from 'flowbite-svelte'
+  import { Drawer, CloseButton, Modal } from 'flowbite-svelte'
   import { writable } from 'svelte/store'
   import { sineIn } from 'svelte/easing'
   import "../app.postcss"
   import "../styles/styles.css"
   import { page } from '$app/stores'
-  import {ALL_TAGS_CONTEXT} from '$lib/constants'
+  import {ALL_TAGS_CONTEXT, OPEN_IMG_MODAL_CONTEXT} from '$lib/constants'
   import SidebarFooter from '$lib/components/layout/SidebarFooter.svelte'
   import TopBar from '$lib/components/layout/TopBar.svelte'
   import SideBar from "$lib/components/layout/SideBar.svelte"
@@ -29,7 +29,6 @@
 
   setContext(ALL_TAGS_CONTEXT, allTags)
 
-
   let transitionParams = {
     x: -320,
     duration: 200,
@@ -43,6 +42,13 @@
   let showBackdrop: boolean = false
   let activateClickOutside = true;
   let drawerHidden: boolean = false;
+  let modalOpened: boolean = false
+  let modalImgSrc: string | null = null
+
+  setContext(OPEN_IMG_MODAL_CONTEXT, (imgSrc: string) => {
+    modalImgSrc = imgSrc
+    modalOpened = true
+  })
 
   $: if (windowWidth >= breakPoint) {
     drawerHidden = false
@@ -92,6 +98,11 @@
   bind:scrollY={scrollY}
 />
 
+
+<Modal dialogClass="fixed top-0 left-0 right-0 h-modal md:inset-0 md:h-full z-50 w-full lg:p-2 flex justify-center items-center img-modal" bind:open={modalOpened} autoclose outsideclose size="xl">
+  <img src={modalImgSrc} />
+</Modal>
+
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
   <header>
     <TopBar {toggleDrawer} {breakPointReached} />
@@ -105,7 +116,7 @@
     bind:activateClickOutside
     position={(breakPointReached) ? "fixed" : "absolute"}
     width={(breakPointReached) ? 'w-80' : 'w-72'}
-    class="max-lg:overflow-y-auto lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+    class="max-lg:overflow-y-auto z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
     <div>

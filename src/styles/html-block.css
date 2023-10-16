@@ -72,3 +72,7 @@
 .dark .html-block blockquote {
   border-color: #555
 }
+
+.html-block img {
+  cursor: pointer;
+}

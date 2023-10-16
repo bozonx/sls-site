@@ -49,6 +49,19 @@ button {
 	outline: 0;
 }
 
+.img-modal > div > div {
+	background: none !important;
+}
+.img-modal div[role="document"] {
+	padding: 0 !important;
+	display: flex;
+	justify-content: center;
+}
+.img-modal button {
+	margin-top: -3.5rem;
+	margin-right: -0.25rem;
+}
+
 
 /*
 
