@@ -1,5 +1,6 @@
 import path from 'path';
 import {pathTrimExt} from 'squidlet-lib';
+import { DOMAIN_NAME } from '$env/static/private';
 import {readDirRecursively} from '$lib/server/helpers.server';
 import {ROOT_DIR} from '$lib/server/constants.server';
 import {BLOG_DIR, PAGE_DIR, FILE_ENCODE} from '$lib/constants';
@@ -9,10 +10,7 @@ export const prerender = true
 
 
 export async function GET() {
-
-  // TODO: взять домен из конфига
-  const domain = 'some.com'
-  
+  const domain = DOMAIN_NAME
   const textsDir = path.join(ROOT_DIR, 'texts')
   const langs = fs.readdirSync(textsDir, FILE_ENCODE)
   let urls: [string, string | undefined][] = []
