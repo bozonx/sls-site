@@ -15,6 +15,7 @@ import {FILE_ENCODE} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
 import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
+import {PAGES_FULL_DIR, PAGES_DIR} from "$lib/constants"
 
 
 export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
@@ -104,16 +105,16 @@ export async function convertMdToHtml(
       const imgName = path.basename(url.pathname)
 
       if (isPage) {
-        node.properties['data-full'] = `/images/pages-full/page_${imgName}`
+        node.properties['data-full'] = `/images/${PAGES_FULL_DIR}/${lang}_page_${imgName}`
         // page
-        return `/images/pages/page_${replaceExt(imgName, 'jpg')}`
+        return `/images/${PAGES_DIR}/${lang}_page_${replaceExt(imgName, 'jpg')}`
       }
       else {
         node.properties['data-full'] = `/images/pages-full`
-          + `/${pageName.replace('/', '_')}_${imgName}`
+          + `/${lang}_${pageName.replace('/', '_')}_${imgName}`
         // blog
-        return `/images/pages`
-          + `/${pageName.replace('/', '_')}`
+        return `/images/${PAGES_DIR}`
+          + `/${lang}_${pageName.replace('/', '_')}`
           + `_${replaceExt(imgName, 'jpg')}`
       }
     }

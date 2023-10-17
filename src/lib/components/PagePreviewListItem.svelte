@@ -2,6 +2,8 @@
   import {Img} from 'flowbite-svelte';
   import {page} from "$app/stores";
   import TagList from "$lib/components/TagList.svelte";
+  import {THUMBS_DIR} from "$lib/constants";
+
 
   export let name
   export let title
@@ -24,7 +26,7 @@
       <div class="md:mr-4">
         <Img
           class="w-80"
-          src="/images/thumbs/{name.replace('/', '_')}.jpg"
+          src="/images/{THUMBS_DIR}/{$page.params.lang}_{name.replace('/', '_')}.jpg"
           loading="lazy"
           alt="{title} thumbnail"
         />

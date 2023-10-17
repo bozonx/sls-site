@@ -2,9 +2,9 @@ import fs from "node:fs";
 import path from "path";
 import child_process from 'node:child_process'
 import {pathTrimExt, getExt, clearRelPathLeft} from 'squidlet-lib';
-import {FIND_MD_IMAGE_REGEX} from "./constants.server.js";
 
 
+const FIND_MD_IMAGE_REGEX = /\!\[[^\]]*\]\(([^\)]+)\)/
 const FILE_ENCODE = 'utf8'
 const MAX_ARTICLE_WIDTH = 840
 const THUMB_WIDTH = 320
@@ -38,9 +38,11 @@ export function convertPageImagesSync(rootPath) {
           convertImage(
             rootPath,
             path.join(articleDirPath, fileName),
-            `${season}_${articleName}_${pathTrimExt(fileName)}`,
+            `${lang}_${season}_${articleName}_${pathTrimExt(fileName)}`,
             // make only the first image thumb
-            (fileName === articleFirstImageName) ? `${season}_${articleName}` : undefined
+            (fileName === articleFirstImageName)
+              ? `${lang}_${season}_${articleName}`
+              : undefined
           )
         }
       }
@@ -50,7 +52,7 @@ export function convertPageImagesSync(rootPath) {
       convertImage(
         rootPath,
         path.join(pagePath, fileName),
-        `page_${pathTrimExt(fileName)}`
+        `${lang}_page_${pathTrimExt(fileName)}`
       )
     }
   }

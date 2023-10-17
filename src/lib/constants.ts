@@ -7,6 +7,10 @@ export const ALL_TAGS_CONTEXT = 'allTags'
 export const OPEN_IMG_MODAL_CONTEXT = 'openImgModal'
 export const BLOG_DIR = 'blog'
 export const PAGE_DIR = 'page'
+export const PAGES_FULL_DIR = 'pages-full'
+export const PAGES_DIR = 'pages'
+export const THUMBS_DIR = 'thumbs'
+
 //export const TRANSLATES_CONTEXT = 'translates'
 
 export const LANG_NAMES = {
