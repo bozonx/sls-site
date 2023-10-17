@@ -150,9 +150,6 @@ export function extractMetaDataFromMdPage(
   if (md.match(FIND_MD_IMAGE_REGEX)) {
     meta.thumbUrl = `/images/${THUMBS_DIR}/${lang}_${name.replace('/', '_')}.jpg`
   }
-  else {
-    meta.noPicture = true
-  }
 
   return [meta, md]
 }

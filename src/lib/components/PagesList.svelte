@@ -36,7 +36,7 @@
       {#each res.result as item}
         <PagePreviewListItem
           baseUrl={baseUrl}
-          {...pickObj(item, 'name', 'title', 'dateLocal', 'tags', 'descr', 'noPicture', 'thumbUrl')}
+          {...pickObj(item, 'name', 'title', 'dateLocal', 'tags', 'descr', 'thumbUrl')}
         />
       {/each}
     </div>

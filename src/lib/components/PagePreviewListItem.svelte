@@ -12,7 +12,6 @@
   export let descr
   export let baseUrl
   export let thumbUrl = null
-  export let noPicture
 </script>
 
 <a
@@ -23,7 +22,7 @@
     {title}
   </h5>
   <div class="md:flex w-full">
-    {#if !noPicture}
+    {#if thumbUrl}
       <div class="md:mr-4">
         <Img
           class="w-80"
@@ -47,7 +46,7 @@
     </div>
   </div>
 
-  {#if noPicture}
+  {#if !thumbUrl}
     <div class="flex items-end mt-4">
       {#if tags && tags.length}
         <TagList tags={tags} class="flex-1 mr-2" />
