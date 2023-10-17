@@ -25,7 +25,6 @@ descr:
   allTags: Etiquetas de todas las publicaciones del sitio
   recent: Artículos y publicaciones más recientes
   tag: Los artículos y publicaciones más recientes de la etiqueta
-  onSeasons: Todos los episodios y artículos por temporada
   season: Todos los episodios y artículos por temporada
 messages:
   emptyList: Lista vacía

@@ -1,2 +1,49 @@
-test:
-  t: 'тесе'
+layout:
+  copyWarn: Копіювання дозволено тільки з посиланням на джерело
+  links: Посилання
+  tags: Теги
+  commentsLink: Коментувати в Telegram каналі
+  videoLink: Дивитися відео
+  podcasts: Слухати подкаст
+link:
+  contacts: Контакт
+  home: Головний
+  recent: Найсвіжіші
+  about: Про проект
+  donate: Пожертвування
+  youtubeChannel: Канал на Youtube (Рос)
+  telegramChannel: Канал в Telegram (Рос)
+  telegramChat: Наш чат в Telegram (Рос)
+  allLinks: Всі наші посилання
+  allTags: Всі теги
+  onSeasons: По сезонах
+  allSeasons: Всі сезони
+header:
+  tag: Всі пости по тегу
+  similar: Схожий
+descr:
+  allTags: Теги з усіх постів сайту
+  recent: Найсвіжіші статті та пости
+  tag: Найсвіжіші статті та пости по тегу
+  season: Всі випуски та статті по сезону
+messages:
+  emptyList: Тут порожньо
+  wrongPage: Невірна сторінки. Ідіть в
+  noTranslation: Для цієї сторінки відсутній переклад на вашу мову.
+chunks:
+  projectFullName: Система Особистої Свободи
+  author: Автор
+  authorName: Айван Кей
+  listBeginning: початок списку
+  season: Сезон
+  toTheTop: Догори
+httpErrors:
+  404: Сторінку не знайдено
+  500: Помилка сервера
+podcasts:
+  site: Слухати на сторінці випуску
+  castbox: Castbox
+  soundstream: Sound stream
+  spotify: Spotify
+  vk: VK
+  yandexMusic: Yandex Music
