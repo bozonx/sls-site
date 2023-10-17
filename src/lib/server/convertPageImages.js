@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "path";
 import child_process from 'node:child_process'
 import {pathTrimExt, getExt, clearRelPathLeft} from 'squidlet-lib';
+import {FIND_MD_IMAGE_REGEX} from "./constants.server.js";
 
 
 const FILE_ENCODE = 'utf8'
@@ -86,7 +87,7 @@ export function getFirstImageFromMd(articleDirPath) {
   const articlePath = `${articleDirPath}/index.md`
   const articleContent = fs.readFileSync(articlePath, FILE_ENCODE)
   const firstImgMatch = articleContent
-    .match(/\!\[[^\]]*\]\(([^\)]+)\)/)
+    .match(FIND_MD_IMAGE_REGEX)
 
   if (!firstImgMatch?.[1]) return
 

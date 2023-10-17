@@ -14,7 +14,7 @@ import rehypeFigure from 'rehype-figure';
 import {FILE_ENCODE} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
-import {ROOT_DIR} from './constants.server';
+import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
 
 
 export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
@@ -145,6 +145,8 @@ export function extractMetaDataFromMdPage(
         ? moment(rawMetaData.date).locale(lang).format('LL')
         : undefined,
   }
+
+  if (!md.match(FIND_MD_IMAGE_REGEX)) meta.noPicture = true
 
   return [meta, md]
 }

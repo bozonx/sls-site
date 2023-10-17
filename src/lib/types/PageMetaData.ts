@@ -12,4 +12,5 @@ export interface PageMetaData {
   commentUrl?: string
   videoLink?: string
   podcasts?: PoscastServces
+  noPicture?: boolean
 }

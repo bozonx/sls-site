@@ -9,6 +9,7 @@
   export let tags = []
   export let descr
   export let baseUrl
+  export let noPicture
 </script>
 
 <a
@@ -19,24 +20,39 @@
     {title}
   </h5>
   <div class="md:flex w-full">
-    <div>
-      <Img
-        class="w-80"
-        src="/images/thumbs/{name.replace('/', '_')}.jpg"
-        loading="lazy"
-        alt="{title} thumbnail"
-      />
+    {#if !noPicture}
+      <div class="md:mr-4">
+        <Img
+          class="w-80"
+          src="/images/thumbs/{name.replace('/', '_')}.jpg"
+          loading="lazy"
+          alt="{title} thumbnail"
+        />
 
-      {#if dateLocal}
-        <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{dateLocal}</div>
-      {/if}
+        {#if dateLocal}
+          <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{dateLocal}</div>
+        {/if}
 
-      {#if tags && tags.length}
-        <TagList tags={tags} class="mt-2" />
-      {/if}
-    </div>
-    <div class="md:ml-4 max-md:mt-5 flex-1">
+        {#if tags && tags.length}
+          <TagList tags={tags} class="mt-2" />
+        {/if}
+      </div>
+    {/if}
+
+    <div class="max-md:mt-5 flex-1">
       <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{descr}</p>
     </div>
   </div>
+
+  {#if noPicture}
+    <div class="flex items-end mt-4">
+      {#if tags && tags.length}
+        <TagList tags={tags} class="flex-1 mr-2" />
+      {/if}
+
+      {#if dateLocal}
+        <div class="text-sm text-gray-500 dark:text-gray-400">{dateLocal}</div>
+      {/if}
+    </div>
+  {/if}
 </a>
