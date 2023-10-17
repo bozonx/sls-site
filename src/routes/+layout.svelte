@@ -116,7 +116,7 @@
     bind:activateClickOutside
     position={(breakPointReached) ? "fixed" : "absolute"}
     width={(breakPointReached) ? 'w-80' : 'w-72'}
-    class="max-lg:overflow-y-auto lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+    class="max-lg:overflow-y-auto lg:overflow-y-visible lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
     <div>
@@ -125,6 +125,8 @@
     <div class="pt-5 pb-3 w-full flex items-end lg:hidden">
       <SidebarFooter on:langSelect={closeDrawer} />
     </div>
+
+    <div class="sidebar-gradient max-lg:hidden"><div></div></div>
   </Drawer>
 
   {#if scrollY > windowHeight / 2}
@@ -139,7 +141,7 @@
     <main class="lg:ml-72 w-full mx-auto flex justify-center">
 
       <div id="app-page" class="mt-4">
-        <div class="lg:hidden mb-12 text-center text-2xl text-gray-600 dark:text-gray-300">
+        <div class="lg:hidden mb-6 text-center text-2xl text-gray-600 dark:text-gray-300">
           {$t('chunks.projectFullName')}
         </div>
 
@@ -154,3 +156,22 @@
   </div>
 
 </div>
+
+<style>
+  .sidebar-gradient {
+    width: 100%;
+    position: relative;
+    height: 200px;
+  }
+  .sidebar-gradient div {
+    width: calc(100% + 1px);
+    height: 200px;
+    position: absolute;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+  .dark .sidebar-gradient div {
+    background: rgb(17,24,39);
+    background: linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(17,24,39,0) 100%);
+  }
+</style>
