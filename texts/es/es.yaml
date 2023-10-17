@@ -1,2 +1,50 @@
-test:
-  t: 'тесе'
+layout:
+  copyWarn: Solo se permite copiar con referencia a la fuente
+  links: Referencias
+  tags: Etiquetas
+  commentsLink: Comentar en el canal de Telegram
+  videoLink: Ver video
+  podcasts: Escuchar el podcast
+link:
+  contacts: Contactos
+  home: Cabeza
+  recent: Los más frescos
+  about: Sobre el proyecto
+  donate: Donación
+  youtubeChannel: Canal en Youtube (Rusa)
+  telegramChannel: Canal en Telegram (Rusa)
+  telegramChat: Nuestro chat en Telegram (Rusa)
+  allLinks: Todos nuestros enlaces
+  allTags: Todas las etiquetas
+  onSeasons: Por temporadas
+  allSeasons: Todas las temporadas
+header:
+  tag: Todos los posts por Tag
+  similar: Parecido
+descr:
+  allTags: Etiquetas de todas las publicaciones del sitio
+  recent: Artículos y publicaciones más recientes
+  tag: Los artículos y publicaciones más recientes de la etiqueta
+  onSeasons: Todos los episodios y artículos por temporada
+  season: Todos los episodios y artículos por temporada
+messages:
+  emptyList: Lista vacía
+  wrongPage: Página incorrecta. Ir a
+  noTranslation: No hay traducción a su idioma para esta página.
+chunks:
+  projectFullName: Sistema De Libertad Personal
+  author: Autor
+  authorName: Ivan Kay
+  listBeginning: inicio de la lista
+  season: Temporada
+  toTheTop: Hacia arriba
+httpErrors:
+  404: Página no encontrada
+  500: Error del servidor
+podcasts:
+  site: Escuchar en la página de lanzamiento
+  castbox: Castbox
+  soundstream: Sound stream
+  spotify: Spotify
+  vk: VK
+  yandexMusic: Yandex Music

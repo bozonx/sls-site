@@ -1,2 +1,49 @@
-test:
-  t: 'test'
+layout:
+  copyWarn: Copying is allowed only with a link to the source
+  links: Links
+  tags: Tags
+  commentsLink: Comment in the Telegram channel
+  videoLink: Watch the video
+  podcasts: Listen to the podcast
+link:
+  contacts: Contacts
+  home: Home
+  recent: Recent
+  about: About
+  donate: Donate
+  youtubeChannel: Youtube channel (Rus)
+  telegramChannel: Telegram channel (Rus)
+  telegramChat: Telegram chat (Rus)
+  allLinks: All our links
+  allTags: All tabs
+  onSeasons: By seasons
+  allSeasons: All seasons
+header:
+  tag: All posts by tag
+  similar: Similar
+descr:
+  allTags: Tags from all posts of the site
+  recent: The latest articles and posts
+  tag: The latest articles and posts by tag
+  season: All episodes and articles by season
+messages:
+  emptyList: Empty list
+  wrongPage: Invalid page. Go to
+  noTranslation: There is no translation into your language for this page.
+chunks:
+  projectFullName: System of Personal Freedom
+  author: Author
+  authorName: Ivan K
+  listBeginning: start of the list
+  season: Season
+  toTheTop: To the top
+httpErrors:
+  404: Page not found
+  500: Server error
+podcasts:
+  site: Listen on the release page
+  castbox: Castbox
+  soundstream: Sound stream
+  spotify: Spotify
+  vk: VK
+  yandexMusic: Yandex Music

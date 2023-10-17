@@ -41,6 +41,10 @@ body {
 	}
 }
 
+#sidebar > div {
+	width: 100%;
+}
+
 svg {
 	outline: 0;
 }
