@@ -11,7 +11,7 @@ import remarkParse from 'remark-parse';
 import remark2rehype from 'remark-rehype';
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeFigure from 'rehype-figure';
-import {FILE_ENCODE} from '../constants';
+import {FILE_ENCODE, THUMBS_DIR} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
 import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
@@ -147,7 +147,12 @@ export function extractMetaDataFromMdPage(
         : undefined,
   }
 
-  if (!md.match(FIND_MD_IMAGE_REGEX)) meta.noPicture = true
+  if (md.match(FIND_MD_IMAGE_REGEX)) {
+    meta.thumbUrl = `/images/${THUMBS_DIR}/${lang}_${name.replace('/', '_')}.jpg`
+  }
+  else {
+    meta.noPicture = true
+  }
 
   return [meta, md]
 }

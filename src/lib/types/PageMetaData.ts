@@ -13,4 +13,5 @@ export interface PageMetaData {
   videoLink?: string
   podcasts?: PoscastServces
   noPicture?: boolean
+  thumbUrl?: string
 }

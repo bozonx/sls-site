@@ -11,6 +11,7 @@
   export let tags = []
   export let descr
   export let baseUrl
+  export let thumbUrl = null
   export let noPicture
 </script>
 
@@ -26,7 +27,7 @@
       <div class="md:mr-4">
         <Img
           class="w-80"
-          src="/images/{THUMBS_DIR}/{$page.params.lang}_{name.replace('/', '_')}.jpg"
+          src={thumbUrl}
           loading="lazy"
           alt="{title} thumbnail"
         />
