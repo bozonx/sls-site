@@ -23,7 +23,8 @@ const config = {
   kit: {
     prerender: {
       entries: [
-        //...pagesUrls,
+        ...pagesUrls,
+        '/sitemap.xml',
         '*',
       ],
     },
@@ -38,11 +39,12 @@ const config = {
       assets: "build",
       fallback: undefined,
       precompress: false,
-      strict: false,
+      strict: true,
     }),
   },
 
-  paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH },
+  paths: { base: process.argv.includes('dev') ? '' : 'https://bozonx8.github.io/sls-site' },
+  //  process.env.BASE_PATH
 
   concurrency: 3,
 };

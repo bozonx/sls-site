@@ -18,26 +18,32 @@ export function getAllThePagesUrls() {
   const langs = fs.readdirSync(textsDir, enc)
 
   for (const lang of langs) {
-    // const blogPages = readDirRecursivelySync(path.join(textsDir, lang, blogDir))
+    const blogPath = path.join(textsDir, lang, blogDir)
+    const seasons = fs.readdirSync(blogPath, enc)
+    const blogPages = readDirRecursivelySync(blogPath)
+    const collectedTags = collectTagsSync(blogPath, blogPages)
     // const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
+
+    console.log(111, blogPages)
 
     res = [
       ...res,
-      // TODO: это не нужно для sitemap
       path.join('/', lang),
-      // path.join('/', lang, 'recent'),
-      // path.join('/', lang, 'tags'),
-      // path.join('/', lang, 'seasons'),
-      //path.join('/api/1/seasons/ru/2023-1/1'),
+      path.join('/', lang, 'tags'),
+      path.join('/', lang, 'seasons'),
+
+      // TODO: remake - count pages
+      ...seasons.map((el) => path.join('/api/1/seasons', lang, el, '1')),
+      ...seasons.map((el) => path.join('/', lang, 'seasons', el)),
+      path.join('/api/1/recent', lang, '1'),
+      path.join('/', lang, 'recent'),
 
       // // TODO: remake - count pages
       // //path.join('/', lang, 'tag'),
-      // path.join('/', lang, 'recent/1'),
       //
       // ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
       // ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
       //
-      // // TODO: это не нужно для sitemap
       // ...blogPages.map((item) => path.join('/api/1', blogDir, lang, pathTrimExt(item))),
       // ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),
     ]
@@ -68,4 +74,20 @@ function readDirRecursivelySync(rootDir, subDir = '') {
   }
 
   return res
+}
+
+function collectTagsSync(blogPath, blogPages) {
+  let tags = []
+
+  for (const mdPath of blogPages) {
+    const filePath = path.join(blogPath, mdPath)
+    const content = fs.readFileSync(filePath, enc)
+
+    // tags = [
+    //   ...tags,
+    //   ...meta.tags,
+    // ]
+  }
+
+  return tags
 }
