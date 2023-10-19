@@ -29,33 +29,19 @@ export function getAllThePagesUrls() {
     res = [
       ...res,
 
-      // TODO: remake - count pages
       ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
       ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
       ...collectedTags.map((el) => `/${lang}/tags/${el}`),
 
       `/api/1/seasons/${lang}`,
       `/${lang}/seasons`,
+      //`/${lang}/tags`,
       `/${lang}/recent`,
       `/${lang}/page/links`,
       `/${lang}`,
 
-
-      // `/api/1/recent/${lang}/1`,
-
-      // //
-      // `/${lang}/tags`,
-      // //
-
-
-      //`/${lang}/sitemap`,
-
-
       // ...blogPages.map((item) => path.join('/', lang, blogDir, item.replace(/\/index.md$/, ''))),
       // ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
-      //
-      //
-
       // ...blogPages.map((item) => path.join('/api/1', blogDir, lang, item.replace(/\/index.md$/, ''))),
       // ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),
     ]

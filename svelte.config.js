@@ -23,13 +23,9 @@ const config = {
   kit: {
     prerender: {
       entries: [
-        '/sitemap.xml',
-        //'/site-map',
-
         ...pagesUrls,
-
+        '/sitemap.xml',
         '/',
-        //'*',
       ],
 
       crawl: true,
