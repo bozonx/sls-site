@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
+import type {EntryGenerator} from './$types'
+import {FILE_ENCODE, BLOG_DIR, SUPPORTED_LANGS} from '$lib/constants';
 import type {PageItemData} from '$lib/types/PageItemData';
 import {ITEM_PER_PAGE} from '$lib/constants';
 import {
@@ -8,6 +9,31 @@ import {
   sortPageItemsByDateDesc,
   extractMetaDataFromMdPage
 } from '$lib/server/helpers.server';
+import {ROOT_DIR} from '$lib/server/constants.server';
+
+
+export const prerender = true
+
+export const entries: EntryGenerator = async () => {
+  const res: {lang: string, season: string, page: string}[] = []
+
+  for (const lang of SUPPORTED_LANGS) {
+    const blogsPath = path.resolve(
+      ROOT_DIR,
+      `texts/${lang}/${BLOG_DIR}`
+    )
+    const seasons = await fs.readdir(blogsPath, FILE_ENCODE)
+
+    for (const season of seasons) {
+
+      // TODO: pages
+
+      res.push({ lang, season, page: '1' })
+    }
+  }
+
+  return res
+};
 
 
 export async function GET(event) {

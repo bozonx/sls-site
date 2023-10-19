@@ -34,16 +34,18 @@ export function getAllThePagesUrls() {
       //`/api/1/seasons/${lang}`,
 
 
-      // ...seasons.map((el) => `/${lang}/seasons/${el}`),
-      // // ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
+      //...seasons.map((el) => `/${lang}/seasons/${el}`),
+      //...seasons.map((el) => `/${lang}/seasons/${el}/1`),
       // // //
       // // // `/api/1/recent/${lang}/1`,
-      // `/${lang}/recent`,
-      // // ...collectedTags.map((el) => `/${lang}/tags/${el}`),
+      `/${lang}/recent`,
+      ...collectedTags.map((el) => `/${lang}/tags/${el}`),
       // //
       // `/${lang}/tags`,
       // //
-      // `/${lang}/seasons`,
+      `/${lang}/seasons`,
+
+      `/${lang}/page/links`,
 
       `/${lang}`,
 

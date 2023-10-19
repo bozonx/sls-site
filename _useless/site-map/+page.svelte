@@ -1,8 +1,8 @@
 <script>
   import PagesList from '$lib/components/PagesList.svelte'
   import {page} from "$app/stores";
-  import {t} from '$lib/store/t'
-  import {SUPPORTED_LANGS} from "$lib/constants";
+  import {t} from '$lib/store/t.js'
+  import {SUPPORTED_LANGS} from "$lib/constants.js";
 
   // export let data
   //

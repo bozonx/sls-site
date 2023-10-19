@@ -24,7 +24,7 @@ const config = {
     prerender: {
       entries: [
         '/sitemap.xml',
-        '/site-map',
+        //'/site-map',
 
         ...pagesUrls,
 
