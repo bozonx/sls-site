@@ -23,8 +23,8 @@ const config = {
   kit: {
     prerender: {
       entries: [
-        ...pagesUrls,
         '/sitemap.xml',
+        ...pagesUrls,
         '*',
       ],
     },

@@ -3,9 +3,7 @@ import {error, redirect} from '@sveltejs/kit';
 import type { LayoutLoad } from './$types'
 import {SUPPORTED_LANGS} from '$lib/constants';
 import {tStore} from '$lib/store/t';
-import {DEFAULT_LANG} from '../lib/constants';
-import {browser} from '$app/environment';
-import {acceptLangHeaderToLand} from '$lib/helpers';
+import {DEFAULT_LANG} from '$lib/constants';
 
 
 export const prerender = true
@@ -16,15 +14,19 @@ export const ssr = true
 
 
 export const load: LayoutLoad = async (event) => {
+  //if (event.url.pathname.startsWith('/api/')) return {}
+
   let langStr = event.params.lang || ''
 
-  if (event.url.pathname === '/') {
-    if (browser) {
-      throw redirect(307, '/' + navigator.language)
-    }
-    // if there is a server then +layout.server.ts will be called
-  }
-  else if (!SUPPORTED_LANGS.includes(langStr)) {
+  // if (event.url.pathname === '/') {
+  //   if (browser) {
+  //     throw redirect(307, '/' + navigator.language)
+  //   }
+  //   // if there is a server then +layout.server.ts will be called
+  // }
+  // else
+
+  if (!SUPPORTED_LANGS.includes(langStr)) {
     const splat = trimCharStart(event.url.pathname, '/').split('/')
 
     if (SUPPORTED_LANGS.includes(splat[0])) {

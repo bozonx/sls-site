@@ -1,14 +1,16 @@
 import fs from 'node:fs'
 import path from 'node:path';
+import {deduplicate} from 'squidlet-lib';
 import {fileURLToPath} from 'node:url';
 import {pathTrimExt} from 'squidlet-lib';
+import yaml from "yaml";
 
 
 const filename = fileURLToPath(import.meta.url);
 const myDirname = path.dirname(filename)
 const prjRootDir = path.resolve(myDirname, '../../../')
 const textsDir = path.join(prjRootDir, 'texts')
-const enc = {encoding: 'utf8'}
+const enc = 'utf8'
 const blogDir = 'blog'
 const pageDir = 'page'
 
@@ -24,23 +26,22 @@ export function getAllThePagesUrls() {
     const collectedTags = collectTagsSync(blogPath, blogPages)
     // const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
 
-    console.log(111, blogPages)
-
     res = [
       ...res,
-      path.join('/', lang),
-      path.join('/', lang, 'tags'),
-      path.join('/', lang, 'seasons'),
 
       // TODO: remake - count pages
-      ...seasons.map((el) => path.join('/api/1/seasons', lang, el, '1')),
-      ...seasons.map((el) => path.join('/', lang, 'seasons', el)),
-      path.join('/api/1/recent', lang, '1'),
-      path.join('/', lang, 'recent'),
+      //...seasons.map((el) => `/api/1/seasons/${lang}/${el}'`),
+      //path.join('/api/1/seasons', lang),
+      ...seasons.map((el) => `/${lang}/seasons/${el}`),
 
-      // // TODO: remake - count pages
-      // //path.join('/', lang, 'tag'),
-      //
+      //path.join('/api/1/recent', lang, '1'),
+      `/${lang}/recent`,
+      ...collectedTags.map((el) => `/${lang}/tags/${el}`),
+
+      `/${lang}/tags`,
+      `/${lang}/seasons`,
+      `/${lang}`,
+
       // ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
       // ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
       //
@@ -69,6 +70,8 @@ function readDirRecursivelySync(rootDir, subDir = '') {
       ]
     }
     else {
+      if (!file.endsWith('.md')) continue
+
       res.push(path.join(subDir, file))
     }
   }
@@ -82,12 +85,17 @@ function collectTagsSync(blogPath, blogPages) {
   for (const mdPath of blogPages) {
     const filePath = path.join(blogPath, mdPath)
     const content = fs.readFileSync(filePath, enc)
+    const splat = content.split('</meta>')
+    const yamlString = splat[0].replace('<meta>', '').trim()
+    const metaData = yaml.parse(yamlString)
 
-    // tags = [
-    //   ...tags,
-    //   ...meta.tags,
-    // ]
+    tags = [
+      ...tags,
+      ...metaData.tags,
+    ]
   }
+
+  tags = deduplicate(tags)
 
   return tags
 }

@@ -3,8 +3,8 @@
   import { Drawer, CloseButton, Modal } from 'flowbite-svelte'
   import { writable } from 'svelte/store'
   import { sineIn } from 'svelte/easing'
-  import "../app.postcss"
-  import "../styles/styles.css"
+  import "../../app.postcss"
+  import "../../styles/styles.css"
   import { page } from '$app/stores'
   import {ALL_TAGS_CONTEXT, OPEN_IMG_MODAL_CONTEXT} from '$lib/constants'
   import SidebarFooter from '$lib/components/layout/SidebarFooter.svelte'
@@ -13,10 +13,10 @@
   import Footer from '$lib/components/layout/Footer.svelte'
   import ToTheTop from '$lib/components/layout/ToTheTop.svelte'
   import {t} from '$lib/store/t'
-  import { pwaInfo } from 'virtual:pwa-info'
+  //import { pwaInfo } from 'virtual:pwa-info'
 
 
-  $: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
+  //$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
 
   export let data: {
     allTags: string[]
@@ -88,9 +88,11 @@
   })
 </script>
 
+<!--
 <svelte:head>
   {@html webManifestLink}
 </svelte:head>
+-->
 
 <svelte:window
   bind:innerWidth={windowWidth}

@@ -41,6 +41,7 @@
   "devDependencies": {
     "@types/cookie": "^0.5.1",
     "@types/mdast": "^4.0.1",
-    "@types/node": "^20.8.6"
+    "@types/node": "^20.8.6",
+    "kolorist": "^1.8.0"
   }
 }

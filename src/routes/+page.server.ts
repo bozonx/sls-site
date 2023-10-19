@@ -1,9 +1,9 @@
 import { redirect } from '@sveltejs/kit';
-import type {LayoutServerLoad, LayoutServerLoadEvent} from './$types';
+import type {PageServerLoad, PageServerLoadEvent} from './$types';
 import {acceptLangHeaderToLand} from '$lib/helpers';
 
 
-export const load: LayoutServerLoad = (event: LayoutServerLoadEvent) => {
+export const load: PageServerLoad = (event: PageServerLoadEvent) => {
   if (event.url.pathname === '/') {
     const acceptLang = event.request.headers
       .get('accept-language') || undefined
