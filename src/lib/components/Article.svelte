@@ -11,10 +11,8 @@
   import {t} from '$lib/store/t'
 
 
-  export let name
   export let title
   export let html
-  export let date = null
   export let dateLocal = null
   export let tags = []
   export let commentUrl = null

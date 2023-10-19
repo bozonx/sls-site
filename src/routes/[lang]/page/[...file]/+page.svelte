@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {omitObj} from 'squidlet-lib'
   import type {PageMetaData} from "$lib/types/PageMetaData";
   import Article from '$lib/components/Article.svelte'
   import {t} from '$lib/store/t'
@@ -12,5 +13,5 @@
 </svelte:head>
 
 <secion>
-  <Article {...data.meta} html={data.html} />
+  <Article {...omitObj(data.meta, 'date', 'name')} html={data.html} />
 </secion>

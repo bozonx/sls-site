@@ -12,4 +12,4 @@
   $: fileName = PODCAST_ICONS_FILE_NAMES[icon]
 </script>
 
-<img class={className} src={`/images/podcasts/${fileName}.svg`} />
+<img class={className} src={`/images/podcasts/${fileName}.svg`} alt="{icon} podcast service icon" />

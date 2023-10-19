@@ -100,7 +100,7 @@
 
 
 <Modal dialogClass="fixed top-0 left-0 right-0 h-modal md:inset-0 md:h-full z-50 w-full lg:p-2 flex justify-center items-center img-modal" bind:open={modalOpened} autoclose outsideclose size="xl">
-  <img src={modalImgSrc} />
+  <img src={modalImgSrc} alt="Enlarged image" />
 </Modal>
 
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">

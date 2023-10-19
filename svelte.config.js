@@ -20,17 +20,10 @@ const config = {
   // for more information about preprocessors
   preprocess: [vitePreprocess({})],
 
-  customVariables: {
-    myCustomVariable: 'my custom value',
-  },
-
   kit: {
-    // alias: {
-    //   's': path.resolve('.')
-    // },
     prerender: {
       entries: [
-        ...pagesUrls,
+        //...pagesUrls,
         '*',
       ],
     },
@@ -45,10 +38,13 @@ const config = {
       assets: "build",
       fallback: undefined,
       precompress: false,
-      strict: true,
+      strict: false,
     }),
   },
-  paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH }
+
+  paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH },
+
+  concurrency: 3,
 };
 
 export default config;

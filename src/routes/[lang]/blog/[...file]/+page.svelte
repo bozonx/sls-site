@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {omitObj} from 'squidlet-lib'
   import { Heading, Alert } from 'flowbite-svelte';
   import type {PageMetaData} from "$lib/types/PageMetaData";
   import Article from '$lib/components/Article.svelte'
@@ -25,7 +26,7 @@
     showAuthor={true}
     showDescr={true}
     season={data.page.result.meta.name.split('/')[0]}
-    {...data.page.result.meta}
+    {...omitObj(data.page.result.meta, 'date', 'name')}
     html={data.page.result.html}
   />
 </secion>
