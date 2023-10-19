@@ -30,7 +30,7 @@ export function getAllThePagesUrls() {
       ...res,
 
       // TODO: remake - count pages
-      //...seasons.map((el) => `/api/1/seasons/${lang}/${el}'`),
+      ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
       //path.join('/api/1/seasons', lang),
       ...seasons.map((el) => `/${lang}/seasons/${el}`),
 
