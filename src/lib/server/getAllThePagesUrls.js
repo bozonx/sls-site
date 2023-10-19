@@ -44,6 +44,7 @@ export function getAllThePagesUrls() {
       // `/${lang}/tags`,
       // //
       // `/${lang}/seasons`,
+
       `/${lang}`,
 
       //`/${lang}/sitemap`,

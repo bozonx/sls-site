@@ -7,6 +7,9 @@ export const prerender = true
 export const ssr = true
 
 
+
+
+
 export const load: PageLoad = async (event) => {
   //throw redirect(307, `/${DEFAULT_LANG}`)
   if (browser) {

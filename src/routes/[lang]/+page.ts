@@ -1,6 +1,7 @@
-import type {PageLoad} from './$types';
+import type {PageLoad, EntryGenerator} from './$types';
 import {PAGE_DIR} from '$lib/constants';
 import {loadJustData} from '$lib/requests';
+
 
 
 export const load: PageLoad = async (event) => {

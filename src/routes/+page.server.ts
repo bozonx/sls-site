@@ -2,7 +2,6 @@ import { redirect } from '@sveltejs/kit';
 import type {PageServerLoad, PageServerLoadEvent} from './$types';
 import {acceptLangHeaderToLand} from '$lib/helpers';
 
-
 export const prerender = true
 export const ssr = true
 
