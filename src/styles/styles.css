@@ -67,6 +67,68 @@ button {
 }
 
 
+/******** Layout */
+.sidebar-gradient {
+	width: 100%;
+	position: relative;
+	height: 200px;
+}
+.sidebar-gradient div {
+	width: calc(100% + 1px);
+	height: 200px;
+	position: absolute;
+	background: rgb(255,255,255);
+	background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+.dark .sidebar-gradient div {
+	background: rgb(17,24,39);
+	background: linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(17,24,39,0) 100%);
+}
+
+/******** PagePreviewListItem */
+.page-list-item:hover {
+	filter: brightness(99%);
+}
+.dark .page-list-item:hover {
+	filter: brightness(110%);
+}
+.page-list-item:visited h5 {
+	color: var(--color-a-light-visited);
+}
+
+/******** SimpleLink */
+.simple-link {
+	text-decoration: underline;
+	color: var(--color-a-light-link);
+}
+.simple-link:hover {
+	filter: brightness(130%);
+}
+.simple-link:visited {
+	color: var(--color-a-light-visited);
+}
+.dark .simple-link {
+	color: var(--color-a-dark-link);
+}
+.dark .simple-link:visited {
+	color: var(--color-a-dark-visited);
+}
+
+/******** SidebarLogo */
+ .sidebar-logo {
+	 padding: 1.25rem 0 1.3rem 2.75rem;
+	 background-color: rgb(249 250 251);
+ }
+.dark .sidebar-logo {
+	background-color: #f7f7f7;
+}
+.sidebar-logo__text {
+	margin-left: 1.15rem;
+	line-height: 1.4rem;
+}
+
+
+
 /*
 
 body {

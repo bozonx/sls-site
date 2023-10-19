@@ -158,22 +158,3 @@
   </div>
 
 </div>
-
-<style>
-  .sidebar-gradient {
-    width: 100%;
-    position: relative;
-    height: 200px;
-  }
-  .sidebar-gradient div {
-    width: calc(100% + 1px);
-    height: 200px;
-    position: absolute;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-  }
-  .dark .sidebar-gradient div {
-    background: rgb(17,24,39);
-    background: linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(17,24,39,0) 100%);
-  }
-</style>

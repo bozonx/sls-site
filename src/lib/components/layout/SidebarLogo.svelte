@@ -17,17 +17,3 @@ export let closeDrawer
     {@html $t('chunks.projectFullName')}
   </div>
 </a>
-
-<style>
-  .sidebar-logo {
-    padding: 1.25rem 0 1.3rem 2.75rem;
-    background-color: rgb(249 250 251);
-  }
-  .dark .sidebar-logo {
-    background-color: #f7f7f7;
-  }
-  .sidebar-logo__text {
-    margin-left: 1.15rem;
-    line-height: 1.4rem;
-  }
-</style>
