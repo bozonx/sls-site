@@ -4,6 +4,8 @@ import type { LayoutLoad } from './$types'
 import {SUPPORTED_LANGS} from '$lib/constants';
 import {tStore} from '$lib/store/t';
 import {DEFAULT_LANG} from '../lib/constants';
+import {browser} from '$app/environment';
+import {acceptLangHeaderToLand} from '$lib/helpers';
 
 
 export const prerender = true
@@ -17,8 +19,10 @@ export const load: LayoutLoad = async (event) => {
   let langStr = event.params.lang || ''
 
   if (event.url.pathname === '/') {
-    // TODO: what to do ???
-    // navigator.language
+    if (browser) {
+      throw redirect(307, '/' + navigator.language)
+    }
+    // if there is a server then +layout.server.ts will be called
   }
   else if (!SUPPORTED_LANGS.includes(langStr)) {
     const splat = trimCharStart(event.url.pathname, '/').split('/')
