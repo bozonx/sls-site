@@ -31,12 +31,13 @@ export function getAllThePagesUrls() {
 
       // TODO: remake - count pages
 
-      //`/api/1/seasons/${lang}`,
+      `/api/1/seasons/${lang}`,
 
 
       //...seasons.map((el) => `/${lang}/seasons/${el}`),
-      //...seasons.map((el) => `/${lang}/seasons/${el}/1`),
-      // // //
+      ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
+      ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
+
       // // // `/api/1/recent/${lang}/1`,
       `/${lang}/recent`,
       ...collectedTags.map((el) => `/${lang}/tags/${el}`),
@@ -56,7 +57,6 @@ export function getAllThePagesUrls() {
       // ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
       //
       //
-      // ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
 
       // ...blogPages.map((item) => path.join('/api/1', blogDir, lang, item.replace(/\/index.md$/, ''))),
       // ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),

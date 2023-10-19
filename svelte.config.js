@@ -51,7 +51,7 @@ const config = {
   paths: { base: process.argv.includes('dev') ? '' : 'https://bozonx8.github.io/sls-site' },
   //  process.env.BASE_PATH
 
-  //concurrency: 3,
+  concurrency: 3,
 
 
 };

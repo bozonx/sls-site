@@ -7,9 +7,9 @@ import {FILE_ENCODE, BLOG_DIR, SUPPORTED_LANGS} from '$lib/constants';
 export const prerender = true
 
 
-export const entries: EntryGenerator = async () => {
-  return SUPPORTED_LANGS.map((lang) => ({ lang }))
-};
+// export const entries: EntryGenerator = async () => {
+//   return SUPPORTED_LANGS.map((lang) => ({ lang }))
+// };
 
 export async function GET(event) {
   const blogDir = path.join(ROOT_DIR, 'texts', event.params.lang, BLOG_DIR)
