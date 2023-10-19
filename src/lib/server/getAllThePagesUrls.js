@@ -24,28 +24,38 @@ export function getAllThePagesUrls() {
     const seasons = fs.readdirSync(blogPath, enc)
     const blogPages = readDirRecursivelySync(blogPath)
     const collectedTags = collectTagsSync(blogPath, blogPages)
-    // const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
+    const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
 
     res = [
       ...res,
 
       // TODO: remake - count pages
-      ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
-      //path.join('/api/1/seasons', lang),
-      ...seasons.map((el) => `/${lang}/seasons/${el}`),
 
-      //path.join('/api/1/recent', lang, '1'),
-      `/${lang}/recent`,
-      ...collectedTags.map((el) => `/${lang}/tags/${el}`),
+      //`/api/1/seasons/${lang}`,
 
-      `/${lang}/tags`,
-      `/${lang}/seasons`,
+
+      // ...seasons.map((el) => `/${lang}/seasons/${el}`),
+      // // ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
+      // // //
+      // // // `/api/1/recent/${lang}/1`,
+      // `/${lang}/recent`,
+      // // ...collectedTags.map((el) => `/${lang}/tags/${el}`),
+      // //
+      // `/${lang}/tags`,
+      // //
+      // `/${lang}/seasons`,
       `/${lang}`,
 
-      // ...blogPages.map((item) => path.join('/', lang, blogDir, pathTrimExt(item))),
+      //`/${lang}/sitemap`,
+
+
+      // ...blogPages.map((item) => path.join('/', lang, blogDir, item.replace(/\/index.md$/, ''))),
       // ...pagePages.map((item) => path.join('/', lang, pageDir, pathTrimExt(item))),
       //
-      // ...blogPages.map((item) => path.join('/api/1', blogDir, lang, pathTrimExt(item))),
+      //
+      // ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
+
+      // ...blogPages.map((item) => path.join('/api/1', blogDir, lang, item.replace(/\/index.md$/, ''))),
       // ...pagePages.map((item) => path.join('/api/1', pageDir, lang, pathTrimExt(item))),
     ]
 

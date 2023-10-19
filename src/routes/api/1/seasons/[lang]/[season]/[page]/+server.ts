@@ -10,9 +10,6 @@ import {
 } from '$lib/server/helpers.server';
 
 
-export const prerender = true
-
-
 export async function GET(event) {
   const pageNum = Number(event.params.page)
   const season = event.params.season
