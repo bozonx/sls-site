@@ -41,7 +41,7 @@ httpErrors:
   404: Сторінку не знайдено
   500: Помилка сервера
 podcasts:
-  site: Слухати на сторінці випуску
+  site: Слухати&nbsp;на<br/>сторінці<br/>випуску
   castbox: Castbox
   soundstream: Sound stream
   spotify: Spotify

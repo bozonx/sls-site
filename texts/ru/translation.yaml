@@ -31,7 +31,7 @@ messages:
   wrongPage: Не верная страницы. Идите в
   noTranslation: Для этой страницы отсутствует перевод на ваш язык.
 chunks:
-  projectFullName: Система Личной Свободы
+  projectFullName: Система<br/>Личной<br/>Свободы
   author: Автор
   authorName: Айван Кей
   listBeginning: начало списка

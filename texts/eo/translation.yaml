@@ -31,7 +31,7 @@ messages:
   wrongPage: Nevalida paĝo. Iru al
   noTranslation: Ne estas traduko en vian lingvon por ĉi tiu paĝo.
 chunks:
-  projectFullName: Sistemo De Persona Libereco
+  projectFullName: Sistemo&nbsp;de<br/>Persona<br/>Libereco
   author: Aŭtoro
   authorName: Ivano Kaj
   listBeginning: komenco de la listo

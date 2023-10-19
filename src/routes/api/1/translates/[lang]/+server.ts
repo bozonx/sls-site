@@ -15,7 +15,7 @@ export async function GET(event) {
 
   try {
     locYml = await fs.readFile(
-        `${ROOT_DIR}/texts/${langStr}/${langStr}.yaml`,
+        `${ROOT_DIR}/texts/${langStr}/translation.yaml`,
         'utf8'
     )
   }

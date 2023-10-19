@@ -31,7 +31,7 @@ messages:
   wrongPage: Página incorrecta. Ir a
   noTranslation: No hay traducción a su idioma para esta página.
 chunks:
-  projectFullName: Sistema De Libertad Personal
+  projectFullName: Sistema&nbsp;De<br/>Libertad<br/>Personal
   author: Autor
   authorName: Ivan Kay
   listBeginning: inicio de la lista
