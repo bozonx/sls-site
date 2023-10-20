@@ -1,4 +1,15 @@
-# https://www.robotstxt.org/robotstxt.html
-#Sitemap: https://example.com/my_sitemap.xml
-User-agent: *
+User-agent: Mediapartners-Google
 Disallow:
+
+User-agent: Yandex
+#Disallow: /search
+Disallow: /*utm_
+Disallow: /*?m=1
+Allow: /
+
+User-agent: *
+Disallow: /search
+Disallow: /*utm_
+Allow: /
+
+#Sitemap: https://blog.slsfreedom.org/sitemap.xml
