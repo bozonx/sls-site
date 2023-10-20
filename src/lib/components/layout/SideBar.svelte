@@ -1,53 +1,47 @@
 <script>
-  import {
-    Sidebar,
-    SidebarGroup,
-    SidebarItem,
-    SidebarWrapper,
-    SidebarDropdownWrapper,
-    CloseButton,
-  } from 'flowbite-svelte';
-  import {
-    ChevronDoubleUpOutline,
-    ChevronDoubleDownOutline,
-    HomeSolid,
-    HeartSolid,
-    TagSolid,
-    YoutubeSolid,
-    RectangleListSolid,
-    LayersOutline,
-    CalendarMonthSolid,
-    MessagesOutline,
-    ForwardSolid,
-  } from 'flowbite-svelte-icons';
-  import { page } from '$app/stores';
-  import {t} from '$lib/store/t'
-  import MySidebarItem from '$lib/components/layout/MySidebarItem.svelte'
-  import SidebarLogo from '$lib/components/layout/SidebarLogo.svelte'
-  import SidebarSubHeader from '$lib/components/layout/SidebarSubHeader.svelte'
-  import TagList from '$lib/components/TagList.svelte'
-  import LogoIcon from '$lib/components/LogoIcon.svelte'
+import {
+  Sidebar,
+  SidebarGroup,
+  SidebarItem,
+  SidebarWrapper,
+  SidebarDropdownWrapper,
+  CloseButton,
+} from 'flowbite-svelte'
+import {
+  ChevronDoubleUpOutline,
+  ChevronDoubleDownOutline,
+  HomeSolid,
+  HeartSolid,
+  TagSolid,
+  YoutubeSolid,
+  RectangleListSolid,
+  LayersOutline,
+  CalendarMonthSolid,
+  MessagesOutline,
+  ForwardSolid,
+} from 'flowbite-svelte-icons'
+import { page } from '$app/stores'
+import {t} from '$lib/store/t'
+import MySidebarItem from '$lib/components/layout/MySidebarItem.svelte'
+import SidebarLogo from '$lib/components/layout/SidebarLogo.svelte'
+import SidebarSubHeader from '$lib/components/layout/SidebarSubHeader.svelte'
+import TagList from '$lib/components/TagList.svelte'
+import LogoIcon from '$lib/components/LogoIcon.svelte'
 
 
-  $: activeUrl = $page.url.pathname;
-
-  export let allTags
-  export let closeDrawer
+export let allTags
+export let closeDrawer
 </script>
 
 <div class="flex items-center lg:hidden py-2 px-1">
-  <CloseButton
-    on:click={closeDrawer}
-    class="dark:text-white"
-  />
+  <CloseButton on:click={closeDrawer} class="dark:text-white" />
 </div>
 
 <SidebarLogo {closeDrawer} />
 
-<Sidebar {activeUrl} class="w-auto">
+<Sidebar activeUrl={$page.url.pathname} class="w-auto">
   <SidebarWrapper class="!p-0 rounded-none">
     <SidebarGroup>
-
       <MySidebarItem on:click={closeDrawer} label={$t('link.recent')} href="/recent/1" icon={RectangleListSolid} />
 
       <SidebarDropdownWrapper label={$t('layout.tags')} isOpen={true} class="rounded-none">
@@ -66,7 +60,6 @@
 
       <MySidebarItem on:click={closeDrawer} label={$t('link.allTags')} href="/tags" icon={LayersOutline} />
       <MySidebarItem on:click={closeDrawer} label={$t('link.onSeasons')} href="/seasons" icon={CalendarMonthSolid} />
-
     </SidebarGroup>
 
     <SidebarGroup class="mt-5 lg:hidden">
@@ -78,21 +71,21 @@
     <SidebarSubHeader>{$t('layout.links')}</SidebarSubHeader>
 
     <SidebarGroup>
-      <MySidebarItem on:click={closeDrawer} label={$t('link.youtubeChannel')} href="https://youtube.com/@slsfreedom" icon={YoutubeSolid} target="_blank" />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.youtubeChannel')} href="https://youtube.com/@slsfreedom" icon={YoutubeSolid} />
 
       <SidebarItem
         on:click={closeDrawer}
         label={$t('link.telegramChannel')}
         href="https://t.me/slsfreedom"
-        target="_blank"
         class="rounded-none"
+        target="_blank"
       >
         <svelte:fragment slot="icon">
           <LogoIcon icon="telegram" />
         </svelte:fragment>
       </SidebarItem>
 
-      <MySidebarItem on:click={closeDrawer} label={$t('link.telegramChat')} href="https://t.me/slsfreedom_chat" icon={MessagesOutline} target="_blank" />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.telegramChat')} href="https://t.me/slsfreedom_chat" icon={MessagesOutline} />
       <MySidebarItem on:click={closeDrawer} label={$t('link.allLinks')} href="/page/links" icon={ForwardSolid} />
     </SidebarGroup>
 

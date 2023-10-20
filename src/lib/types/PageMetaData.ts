@@ -1,16 +1,16 @@
-import type {PoscastServces} from './PoscastServces';
-
-
 export interface PageMetaData {
+  // generated params
   // url friendly name. Without slash at the start
   name: string
+  dateLocal?: string
+  thumbUrl?: string
+
+  // page meta
   title: string
-  tags: string[]
   descr: string
   date?: string
-  dateLocal?: string
+  tags: string[]
   commentUrl?: string
   videoLink?: string
-  podcasts?: PoscastServces
-  thumbUrl?: string
+  podcasts?: Record<string, string>
 }
