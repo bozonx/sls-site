@@ -8,9 +8,11 @@ import {unified} from 'unified';
 import rehypeStringify from 'rehype-stringify';
 import urls from 'rehype-urls';
 import remarkParse from 'remark-parse';
+import rehypeRaw from 'rehype-raw'
 import remark2rehype from 'remark-rehype';
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeFigure from 'rehype-figure';
+import remarkGfm from 'remark-gfm'
 import {FILE_ENCODE, THUMBS_DIR} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
@@ -85,7 +87,9 @@ export async function convertMdToHtml(
 ) {
   const result = await unified()
     .use(remarkParse)
-    .use(remark2rehype)
+    .use(remarkGfm)
+    .use(remark2rehype, {allowDangerousHtml: true})
+    .use(rehypeRaw)
     .use(rehypeSanitize)
     .use(urls, handleUrlsInHtml)
     .use(rehypeFigure, { className: "img-figure" })

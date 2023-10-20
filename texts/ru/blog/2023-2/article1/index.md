@@ -27,13 +27,18 @@ some text 😉 👍 ⚠️ ➡️
 > aa
 > dff
 
-ordinary **bold** *italic* ***bold italic*** <u>underline</u> <s>striked</s> `little code`
+ordinary **bold** *italic* ***bold italic*** <ins>underline</ins> ~striked~ `little code`
 
 1. one
 2. second
 
 - one
 - second
+
+```csv
+fenced,code,can,include,data
+which,is,turned,into,a,graph
+```
 
 ---
 

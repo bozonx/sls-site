@@ -48,8 +48,8 @@ podcasts:
 * use `> ` for a blockquote
 * use `---` for <hr/>
 * use tab or 4 spaces for code block
-* use `<u>undelined text</u>` for underline
-* use `<s>striked text</s>` for strike through
+* use `<ins>undelined text</ins>` for underline
+* use `~striked text~` for strike through
 
 
 ## Developing
