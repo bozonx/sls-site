@@ -1,11 +1,11 @@
-import {deduplicate} from 'squidlet-lib';
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
+import {deduplicate} from 'squidlet-lib'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import {FILE_ENCODE, BLOG_DIR} from '$lib/constants'
 import {
   readAllFilesRecursively,
   extractMetaDataFromMdPage
-} from '$lib/server/helpers.server';
+} from '$lib/server/helpers.server'
 
 
 export async function GET(event) {

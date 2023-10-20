@@ -39,7 +39,7 @@ export const load: LayoutLoad = async (event) => {
   tStore.set(translates)
 
   // load all tags
-  const allTagsResp = await event.fetch(`/api/1/alltags/${langStr}`, {
+  const allTagsResp = await event.fetch(`/api/1/tag/${langStr}`, {
     method: 'GET',
     headers: { 'content-type': 'application/json' },
   })
