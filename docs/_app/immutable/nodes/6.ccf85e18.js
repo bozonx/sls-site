@@ -1,0 +1,1 @@
+import{r as e}from"../chunks/index.3158323b.js";const r=!0,t=!0,o=async n=>{throw e(307,"/"+navigator.language)},s=Object.freeze(Object.defineProperty({__proto__:null,load:o,prerender:r,ssr:t},Symbol.toStringTag,{value:"Module"}));export{s as universal};
