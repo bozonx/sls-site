@@ -1,5 +1,5 @@
 <script>
-  import {t} from '$lib/store/t'
+import {t} from '$lib/store/t'
 </script>
 
 <span>

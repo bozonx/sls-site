@@ -1,26 +1,25 @@
 <script>
-  import {Img} from 'flowbite-svelte';
-  import {page} from "$app/stores";
-  import TagList from "$lib/components/TagList.svelte";
-  import {THUMBS_DIR} from "$lib/constants";
+import {Img} from 'flowbite-svelte';
+import {page} from "$app/stores";
+import TagList from "$lib/components/TagList.svelte";
 
 
-  export let name
-  export let title
-  export let dateLocal = null
-  export let tags = []
-  export let descr
-  export let baseUrl
-  export let thumbUrl = null
+export let name
+export let title
+export let dateLocal = null
+export let tags = []
+export let descr
+export let baseUrl
+export let thumbUrl = null
 </script>
 
 <a
   href={`${baseUrl}/${name}`}
   class="mb-6 block px-5 py-5 bg-white dark:bg-gray-800 border rounded-lg border-gray-200 dark:border-gray-700 page-list-item"
 >
-  <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+  <h4 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
     {title}
-  </h5>
+  </h4>
   <div class="md:flex w-full">
     {#if thumbUrl}
       <div class="md:mr-4">

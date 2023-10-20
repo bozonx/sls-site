@@ -1,24 +1,22 @@
 <script>
-  import { Heading, Alert } from 'flowbite-svelte';
-  import { pickObj } from 'squidlet-lib';
-  import {error} from '@sveltejs/kit';
-  import {page} from "$app/stores";
-  import PagePreviewListItem from '$lib/components/PagePreviewListItem.svelte'
-  import Pagination from '$lib/components/Pagination.svelte'
-  import PageHeader from '$lib/components/PageHeader.svelte'
-  import {PAGINATION_MAX_ITEMS} from '$lib/constants'
-  import {t} from '$lib/store/t'
+import {Alert} from 'flowbite-svelte';
+import {pickObj} from 'squidlet-lib';
+import {page} from "$app/stores";
+import PagePreviewListItem from '$lib/components/PagePreviewListItem.svelte'
+import Pagination from '$lib/components/Pagination.svelte'
+import PageHeader from '$lib/components/PageHeader.svelte'
+import {PAGINATION_MAX_ITEMS} from '$lib/constants'
+import {t} from '$lib/store/t'
 
-  export let res
-  export let baseUrl
 
-  let className = ''
+let className = ''
+let paginationBaseUrl
 
-  export { className as class }
+$: paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
 
-  let paginationBaseUrl
-
-  $: paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
+export { className as class }
+export let res
+export let baseUrl
 </script>
 
 <div class="{className}">

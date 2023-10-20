@@ -1,15 +1,14 @@
 <script>
-  import {PODCAST_ICONS_FILE_NAMES} from "../constants";
+import {PODCAST_ICONS_FILE_NAMES} from "../constants";
 
-  export let icon
 
-  let className = ''
+let className = ''
+let fileName
 
-  export { className as class }
+$: fileName = PODCAST_ICONS_FILE_NAMES[icon]
 
-  let fileName
-
-  $: fileName = PODCAST_ICONS_FILE_NAMES[icon]
+export let icon
+export { className as class }
 </script>
 
 <img class={className} src={`/images/podcasts/${fileName}.svg`} alt="{icon} podcast service icon" />

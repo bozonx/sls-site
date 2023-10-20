@@ -1,20 +1,18 @@
 <script>
-  import {Button} from "flowbite-svelte"
-  import {page} from "$app/stores";
-  import { createEventDispatcher } from 'svelte';
+import {Button} from "flowbite-svelte"
+import {page} from "$app/stores";
+import { createEventDispatcher } from 'svelte';
 
-  const dispatch = createEventDispatcher();
 
-  export let tags = []
+const dispatch = createEventDispatcher()
+let className = ''
+const isActive = (tag) => {
+  return decodeURI($page.url.pathname)
+    .startsWith(`/${$page.params.lang}/tags/${tag}`)
+}
 
-  let className = ''
-
-  export { className as class }
-
-  const isActive = (tag) => {
-    return decodeURI($page.url.pathname)
-      .startsWith(`/${$page.params.lang}/tags/${tag}`)
-  }
+export let tags = []
+export { className as class }
 </script>
 
 <div class="flex flex-wrap gap-x-1 gap-y-1 {className}">

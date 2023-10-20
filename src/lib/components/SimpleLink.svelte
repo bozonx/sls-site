@@ -1,16 +1,15 @@
 <script>
-  import {page} from "$app/stores"
+import {page} from "$app/stores"
 
-  export let href
-  export let target = null
 
-  let className = ''
+let className = ''
+let resolvedHref
 
-  export { className as class }
+$: resolvedHref = (href.startsWith('/')) ? `/${$page.params.lang}${href}` : href
 
-  let resolvedHref
-
-  $: resolvedHref = (href.startsWith('/')) ? `/${$page.params.lang}${href}` : href
+export { className as class }
+export let href
+export let target = null
 </script>
 
 <a class="simple-link {className}" href={resolvedHref} {target}><slot /></a>

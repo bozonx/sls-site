@@ -4,6 +4,7 @@ import {HeadphonesSolid} from 'flowbite-svelte-icons';
 import PoscastIcon from "./PoscastIcon.svelte"
 import {t} from '$lib/store/t'
 
+
 export let poscastName
 export let href
 </script>
@@ -19,4 +20,3 @@ export let href
     <span> {$t(`podcasts.${poscastName}`)}</span>
   </DropdownItem>
 {/if}
-

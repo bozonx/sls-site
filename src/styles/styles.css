@@ -92,7 +92,7 @@ button {
 .dark .page-list-item:hover {
 	filter: brightness(110%);
 }
-.page-list-item:visited h5 {
+.page-list-item:visited h4 {
 	color: var(--color-a-light-visited);
 }
 

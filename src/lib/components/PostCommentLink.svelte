@@ -1,9 +1,8 @@
 <script>
-  import { MessageCaptionSolid } from 'flowbite-svelte-icons'
-  import SimpleLink from "$lib/components/SimpleLink.svelte";
-  import {t} from '$lib/store/t'
+import { MessageCaptionSolid } from 'flowbite-svelte-icons'
+import {t} from '$lib/store/t'
 
-  export let href
+export let href
 </script>
 
 <a href={href} class="flex items-center underline hover:text-gray-700 dark:hover:text-white" target="_blank">
