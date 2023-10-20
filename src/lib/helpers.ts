@@ -1,5 +1,7 @@
 //import {trimCharStart} from 'squidlet-lib';
-import {DEFAULT_LANG, SUPPORTED_LANGS} from '$lib/constants';
+import {DEFAULT_LANG, SUPPORTED_LANGS} from '$lib/constants'
+import type {PaginatedResponse} from './types/PaginatedResponse'
+import {ITEM_PER_PAGE} from './constants'
 
 
 export function acceptLangHeaderToLand(acceptLang?: string) {
@@ -16,7 +18,23 @@ export function acceptLangHeaderToLand(acceptLang?: string) {
 }
 
 export function removeIndexMd(somePath: string): string {
-  return somePath.replace(/\/index.md$/, '')
+  return somePath.replace(/\/index\.md$/, '')
+}
+
+export function calculatePaginatedResponse(
+  items: any[],
+  pageNum: number,
+  // TODO: не нужно, можно расчитать
+  totalItems: number
+): PaginatedResponse {
+  const start = (pageNum - 1) * ITEM_PER_PAGE
+
+  return {
+    result: items.slice(start, start + ITEM_PER_PAGE),
+    page: pageNum,
+    perPage: ITEM_PER_PAGE,
+    totalPages: Math.ceil(totalItems / ITEM_PER_PAGE)
+  }
 }
 
 // export function curLang(currentPathname: string = ''): string {

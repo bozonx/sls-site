@@ -1,19 +1,19 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import {arraySimilar} from 'squidlet-lib';
-import {FILE_ENCODE, BLOG_DIR, SIMILAR_COUNT} from '$lib/constants';
-import type {PageItemData} from '$lib/types/PageItemData';
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import {arraySimilar} from 'squidlet-lib'
+import {FILE_ENCODE, BLOG_DIR, INDEX_MD, SIMILAR_COUNT} from '$lib/constants'
+import type {PageItemData} from '$lib/types/PageItemData'
 import {
   readAllFilesRecursively,
   sortPageItemsByDateDesc,
   extractMetaDataFromMdPage
-} from '$lib/server/helpers.server';
-import {removeIndexMd} from '$lib/helpers';
+} from '$lib/server/helpers.server'
+import {removeIndexMd} from '$lib/helpers'
+
 
 export async function GET(event) {
   const langStr = event.params.lang
   const fileName = event.params.file
-  let articleString
   let rootPath
   let fileNames
 
@@ -29,18 +29,10 @@ export async function GET(event) {
     }))
   }
 
-  try {
-    articleString = await fs.readFile(
-      path.join(rootPath, fileName, 'index.md'),
-      FILE_ENCODE
-    )
-  }
-  catch (e) {
-    return new Response(JSON.stringify({
-      result: [],
-    }))
-  }
-
+  const articleString = await fs.readFile(
+    path.join(rootPath, fileName, INDEX_MD),
+    FILE_ENCODE
+  )
   const extractedArticle = extractMetaDataFromMdPage(
     articleString,
     langStr,

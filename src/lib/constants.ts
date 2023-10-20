@@ -11,6 +11,7 @@ export const PAGE_DIR = 'page'
 export const PAGES_FULL_DIR = 'pages-full'
 export const PAGES_DIR = 'pages'
 export const THUMBS_DIR = 'thumbs'
+export const INDEX_MD = 'index.md'
 
 //export const TRANSLATES_CONTEXT = 'translates'
 

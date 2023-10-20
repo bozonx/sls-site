@@ -13,6 +13,7 @@ const PAGES_FULL_DIR = 'pages-full'
 const TEXTS_DIR = 'texts'
 const PAGES_DIR = 'pages'
 const THUMBS_DIR = 'thumbs'
+const INDEX_MD = 'index.md'
 
 
 export function convertPageImagesSync(rootPath) {
@@ -87,7 +88,7 @@ function convertImage(
 }
 
 export function getFirstImageFromMd(articleDirPath) {
-  const articlePath = `${articleDirPath}/index.md`
+  const articlePath = `${articleDirPath}/${INDEX_MD}`
   const articleContent = fs.readFileSync(articlePath, FILE_ENCODE)
   const firstImgMatch = articleContent
     .match(FIND_MD_IMAGE_REGEX)

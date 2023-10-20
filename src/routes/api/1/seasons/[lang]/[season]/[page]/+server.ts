@@ -1,17 +1,13 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
-import type {PageItemData} from '$lib/types/PageItemData';
-import {ITEM_PER_PAGE} from '$lib/constants';
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import {FILE_ENCODE, BLOG_DIR} from '$lib/constants'
+import type {PageItemData} from '$lib/types/PageItemData'
 import {
   readAllFilesRecursively,
   sortPageItemsByDateDesc,
   extractMetaDataFromMdPage
 } from '$lib/server/helpers.server';
-import {removeIndexMd} from '$lib/helpers';
-
-
-export const prerender = true
+import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers'
 
 
 export async function GET(event) {
@@ -36,12 +32,9 @@ export async function GET(event) {
 
   allFiles = sortPageItemsByDateDesc(allFiles)
 
-  const start = (pageNum - 1) * ITEM_PER_PAGE
-
-  return new Response(JSON.stringify({
-    result: allFiles.slice(start, start + ITEM_PER_PAGE),
-    page: pageNum,
-    perPage: ITEM_PER_PAGE,
-    totalPages: Math.ceil(fileNames.length / ITEM_PER_PAGE)
-  }))
+  return new Response(JSON.stringify(calculatePaginatedResponse(
+    allFiles,
+    pageNum,
+    fileNames.length
+  )))
 }
