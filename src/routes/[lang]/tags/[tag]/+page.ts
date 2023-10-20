@@ -1,5 +1,5 @@
-import {redirect} from '@sveltejs/kit';
-import type {PageLoad} from './$types';
+import {redirect} from '@sveltejs/kit'
+import type {PageLoad} from './$types'
 
 
 // redirect to the first page

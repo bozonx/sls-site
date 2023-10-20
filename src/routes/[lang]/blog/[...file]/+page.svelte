@@ -1,13 +1,14 @@
 <script lang="ts">
-  import {omitObj} from 'squidlet-lib'
-  import { Heading, Alert } from 'flowbite-svelte';
-  import type {PageMetaData} from "$lib/types/PageMetaData";
-  import Article from '$lib/components/Article.svelte'
-  import PagesList from '$lib/components/PagesList.svelte'
-  import {t} from '$lib/store/t'
-  import {page} from '$app/stores';
+import {omitObj} from 'squidlet-lib'
+import {Alert} from 'flowbite-svelte';
+import type {PageMetaData} from "$lib/types/PageMetaData";
+import {t} from '$lib/store/t'
+import {page} from '$app/stores';
+import Article from '$lib/components/Article.svelte'
+import PagesList from '$lib/components/PagesList.svelte'
 
-  export let data
+
+export let data
 </script>
 
 <svelte:head>
@@ -16,9 +17,7 @@
 </svelte:head>
 
 {#if data.page.noTranslation}
-  <Alert color="blue" class="mb-10">
-    {$t('messages.noTranslation')}
-  </Alert>
+  <Alert color="blue" class="mb-10">{$t('messages.noTranslation')}</Alert>
 {/if}
 
 <secion>

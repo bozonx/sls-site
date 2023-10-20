@@ -1,14 +1,15 @@
 <script>
-  import PagesList from '$lib/components/PagesList.svelte'
-  import HeaderSubLink from '$lib/components/HeaderSubLink.svelte'
-  import {page} from "$app/stores";
-  import {t} from '$lib/store/t'
+import PagesList from '$lib/components/PagesList.svelte'
+import {page} from "$app/stores";
+import {t} from '$lib/store/t'
+import HeaderSubLink from '$lib/components/HeaderSubLink.svelte'
 
-  export let data
 
-  let season
+let season
 
-  $: season = $page.params.season.replace(/\-/, ' - ')
+$: season = $page.params.season.replace(/\-/, ' - ')
+
+export let data
 </script>
 
 <svelte:head>
@@ -21,7 +22,9 @@
     <div class="flex w-full">
       <div class="flex-1">{`${$t('chunks.season')} ${season}`}</div>
       <div>
-        <HeaderSubLink href={`/${$page.params.lang}/seasons`}>{$t('link.allSeasons')}</HeaderSubLink>
+        <HeaderSubLink href={`/${$page.params.lang}/seasons`}>
+          {$t('link.allSeasons')}
+        </HeaderSubLink>
       </div>
     </div>
   </PagesList>

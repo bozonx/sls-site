@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { getContext } from 'svelte'
-  import {ALL_TAGS_CONTEXT} from '$lib/constants'
-  import {page} from "$app/stores"
-  import SimpleLink from '$lib/components/SimpleLink.svelte'
-  import PageHeader from '$lib/components/PageHeader.svelte'
-  import {t} from '$lib/store/t'
+import { getContext } from 'svelte'
+import {page} from "$app/stores"
+import {t} from '$lib/store/t'
+import {ALL_TAGS_CONTEXT} from '$lib/constants'
+import SimpleLink from '$lib/components/SimpleLink.svelte'
+import PageHeader from '$lib/components/PageHeader.svelte'
 
 
-  export let data
+export let data
 </script>
 
 <svelte:head>

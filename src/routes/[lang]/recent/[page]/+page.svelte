@@ -1,9 +1,9 @@
 <script>
-  import PagesList from '$lib/components/PagesList.svelte'
-  import {page} from "$app/stores";
-  import {t} from '$lib/store/t'
+import PagesList from '$lib/components/PagesList.svelte'
+import {page} from "$app/stores";
+import {t} from '$lib/store/t'
 
-  export let data
+export let data
 </script>
 
 <svelte:head>

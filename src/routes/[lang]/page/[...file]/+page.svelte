@@ -1,10 +1,10 @@
 <script lang="ts">
-  import {omitObj} from 'squidlet-lib'
-  import type {PageMetaData} from "$lib/types/PageMetaData";
-  import Article from '$lib/components/Article.svelte'
-  import {t} from '$lib/store/t'
+import {omitObj} from 'squidlet-lib'
+import type {PageMetaData} from "$lib/types/PageMetaData";
+import {t} from '$lib/store/t'
+import Article from '$lib/components/Article.svelte'
 
-  export let data: {meta: PageMetaData, html: string}
+export let data: {meta: PageMetaData, html: string}
 </script>
 
 <svelte:head>

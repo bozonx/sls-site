@@ -1,4 +1,4 @@
-import type {PageLoad, EntryGenerator} from './$types'
+import type {PageLoad} from './$types'
 import {loadListItems} from '$lib/requests'
 
 
