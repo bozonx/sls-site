@@ -134,9 +134,9 @@ onMount(() => {
   {/if}
 
   <div class="flex px-4 sm:px-8 mx-auto w-full">
-    <main class="lg:ml-72 w-full mx-auto flex justify-center">
+    <div class="lg:ml-72 w-full mx-auto flex justify-center">
 
-      <div id="app-page" class="mt-4">
+      <main id="app-page" class="mt-4">
         <div class="lg:hidden mb-6 text-center text-2xl text-gray-600 dark:text-gray-300">
           {$t('chunks.projectFullName')}
         </div>
@@ -146,9 +146,9 @@ onMount(() => {
         <div class="mt-24 mb-8">
           <Footer />
         </div>
-      </div>
+      </main>
 
-    </main>
+    </div>
   </div>
 
 </div>

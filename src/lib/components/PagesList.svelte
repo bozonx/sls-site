@@ -30,7 +30,7 @@ export let baseUrl
       <a href={paginationBaseUrl} class="underline">{$t('chunks.listBeginning')}</a>
     </Alert>
   {:else}
-    <div>
+    <div role="list">
       {#each res.result as item}
         <PagePreviewListItem
           baseUrl={baseUrl}

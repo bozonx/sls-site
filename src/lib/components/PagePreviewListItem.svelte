@@ -15,6 +15,7 @@ export let thumbUrl = null
 
 <a
   href={`${baseUrl}/${name}`}
+  role="listitem"
   class="mb-6 block px-5 py-5 bg-white dark:bg-gray-800 border rounded-lg border-gray-200 dark:border-gray-700 page-list-item"
 >
   <h4 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
