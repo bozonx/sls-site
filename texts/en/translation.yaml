@@ -31,7 +31,8 @@ messages:
   wrongPage: Invalid page. Go to
   noTranslation: There is no translation into your language for this page.
 chunks:
-  projectFullName: System&nbsp;of<br/>Personal<br/>Freedom
+  projectFullName: System of Personal Freedom
+  projectLogo: System&nbsp;of<br/>Personal<br/>Freedom
   author: Author
   authorName: Ivan K
   listBeginning: start of the list

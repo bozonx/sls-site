@@ -1,8 +1,8 @@
 <script>
-	import {t} from '$lib/store/t'
-	import RenderHtml from "$lib/components/RenderHtml.svelte";
+import {t} from '$lib/store/t'
+import RenderHtml from "$lib/components/RenderHtml.svelte";
 
-	export let data
+export let data
 </script>
 
 <svelte:head>

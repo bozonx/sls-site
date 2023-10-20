@@ -32,6 +32,7 @@ messages:
   noTranslation: Для цієї сторінки відсутній переклад на вашу мову.
 chunks:
   projectFullName: Система Особистої Свободи
+  projectLogo: Система<br/>Особистої<br/>Свободи
   author: Автор
   authorName: Айван Кей
   listBeginning: початок списку
@@ -41,7 +42,7 @@ httpErrors:
   404: Сторінку не знайдено
   500: Помилка сервера
 podcasts:
-  site: Слухати&nbsp;на<br/>сторінці<br/>випуску
+  site: Слухати на сторінці випуску
   castbox: Castbox
   soundstream: Sound stream
   spotify: Spotify
