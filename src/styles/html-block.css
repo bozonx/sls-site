@@ -30,6 +30,7 @@
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
+
 .html-block ul {
   list-style: disc;
   padding-left: 1.5rem;
@@ -99,6 +100,7 @@
 }
 .dark .html-block pre {
   background: black;
+  overflow-x: auto;
 }
 
 .html-block pre code {

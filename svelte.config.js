@@ -44,12 +44,10 @@ const config = {
     }),
   },
 
-  paths: { base: process.argv.includes('dev') ? '' : 'https://bozonx8.github.io/sls-site' },
-  //  process.env.BASE_PATH
+  paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH },
+  //paths: { base: process.argv.includes('dev') ? '' : 'https://bozonx8.github.io/sls-site' },
 
   concurrency: 3,
-
-
 };
 
 export default config;
