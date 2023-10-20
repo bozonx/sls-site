@@ -1,56 +1,75 @@
 <script lang="ts">
-  import { onMount, setContext } from 'svelte'
-  import { Drawer, CloseButton, Modal } from 'flowbite-svelte'
-  import { writable } from 'svelte/store'
-  import { sineIn } from 'svelte/easing'
-  import "../../app.postcss"
-  import "../../styles/styles.css"
-  import { page } from '$app/stores'
-  import {ALL_TAGS_CONTEXT, OPEN_IMG_MODAL_CONTEXT} from '$lib/constants'
-  import SidebarFooter from '$lib/components/layout/SidebarFooter.svelte'
-  import TopBar from '$lib/components/layout/TopBar.svelte'
-  import SideBar from "$lib/components/layout/SideBar.svelte"
-  import Footer from '$lib/components/layout/Footer.svelte'
-  import ToTheTop from '$lib/components/layout/ToTheTop.svelte'
-  import {t} from '$lib/store/t'
-  //import { pwaInfo } from 'virtual:pwa-info'
+import {onMount, setContext} from 'svelte'
+import {Drawer, Modal} from 'flowbite-svelte'
+import {writable} from 'svelte/store'
+import {sineIn} from 'svelte/easing'
+import "../../app.postcss"
+import "../../styles/styles.css"
+import {page} from '$app/stores'
+import {ALL_TAGS_CONTEXT, OPEN_IMG_MODAL_CONTEXT} from '$lib/constants'
+import SidebarFooter from '$lib/components/layout/SidebarFooter.svelte'
+import TopBar from '$lib/components/layout/TopBar.svelte'
+import SideBar from "$lib/components/layout/SideBar.svelte"
+import Footer from '$lib/components/layout/Footer.svelte'
+import ToTheTop from '$lib/components/layout/ToTheTop.svelte'
+import {t} from '$lib/store/t'
+//import { pwaInfo } from 'virtual:pwa-info'
 
 
-  //$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
+//$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
 
-  export let data: {
-    allTags: string[]
-    translates: Record<string, any>
-  }
+export let data: {
+  allTags: string[]
+  translates: Record<string, any>
+}
 
-  const allTags = writable()
+const allTags = writable()
+let transitionParams = {
+  x: -320,
+  duration: 200,
+  easing: sineIn
+}
+let breakPoint: number = 1024
+let windowWidth: number
+let windowHeight: number
+let scrollY: number
+let breakPointReached = false
+let showBackdrop: boolean = false
+let activateClickOutside = true
+let drawerHidden: boolean = false
+let modalOpened: boolean = false
+let modalImgSrc: string | null = null
 
-  $: allTags.set(data.allTags)
+setContext(ALL_TAGS_CONTEXT, allTags)
+setContext(OPEN_IMG_MODAL_CONTEXT, (imgSrc: string) => {
+  modalImgSrc = imgSrc
+  modalOpened = true
+})
 
-  setContext(ALL_TAGS_CONTEXT, allTags)
+const toggleDrawer = () => {
+  drawerHidden = !drawerHidden
+}
+const closeDrawer = () => {
+  if (!breakPointReached) return
 
-  let transitionParams = {
-    x: -320,
-    duration: 200,
-    easing: sineIn
-  };
-  let breakPoint: number = 1024;
-  let windowWidth: number;
-  let windowHeight: number;
-  let scrollY: number;
-  let breakPointReached = false
-  let showBackdrop: boolean = false
-  let activateClickOutside = true;
-  let drawerHidden: boolean = false;
-  let modalOpened: boolean = false
-  let modalImgSrc: string | null = null
+  drawerHidden = true
+}
 
-  setContext(OPEN_IMG_MODAL_CONTEXT, (imgSrc: string) => {
-    modalImgSrc = imgSrc
-    modalOpened = true
-  })
+$: allTags.set(data.allTags)
+$: if (windowWidth >= breakPoint) {
+  drawerHidden = false
+  breakPointReached = false
+  activateClickOutside = false
+  showBackdrop = false
+} else {
+  drawerHidden = true
+  breakPointReached = true
+  activateClickOutside = true
+  showBackdrop = true
+}
 
-  $: if (windowWidth >= breakPoint) {
+onMount(() => {
+  if (windowWidth >= breakPoint) {
     drawerHidden = false
     breakPointReached = false
     activateClickOutside = false
@@ -61,31 +80,7 @@
     activateClickOutside = true
     showBackdrop = true
   }
-  $: activeUrl = $page.url.pathname
-
-  const toggleDrawer = () => {
-    drawerHidden = !drawerHidden
-  };
-
-  const closeDrawer = () => {
-    if (!breakPointReached) return
-
-    drawerHidden = true
-  }
-
-  onMount(() => {
-    if (windowWidth >= breakPoint) {
-      drawerHidden = false;
-      breakPointReached = false
-      activateClickOutside = false;
-      showBackdrop = false;
-    } else {
-      drawerHidden = true;
-      breakPointReached = true
-      activateClickOutside = true;
-      showBackdrop = true;
-    }
-  })
+})
 </script>
 
 <!--
@@ -118,15 +113,14 @@
     bind:activateClickOutside
     position={(breakPointReached) ? "fixed" : "absolute"}
     width={(breakPointReached) ? 'w-80' : 'w-72'}
-    class="max-lg:overflow-y-auto lg:overflow-y-visible lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+    class="overflow-y-visible max-lg:overflow-y-auto lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
     id="sidebar"
   >
     <div>
       <SideBar allTags={$allTags || []} {closeDrawer} />
     </div>
-    <div class="pt-5 pb-3 w-full flex items-end lg:hidden">
-      <SidebarFooter on:langSelect={closeDrawer} />
-    </div>
+
+    <SidebarFooter on:langSelect={closeDrawer} class="lg:hidden" />
 
     <div class="sidebar-gradient max-lg:hidden"><div></div></div>
   </Drawer>

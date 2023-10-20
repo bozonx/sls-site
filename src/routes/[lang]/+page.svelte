@@ -1,6 +1,6 @@
 <script>
 import {t} from '$lib/store/t'
-import RenderHtml from "$lib/components/RenderHtml.svelte";
+import RenderHtml from "$lib/components/RenderHtml.svelte"
 
 export let data
 </script>
