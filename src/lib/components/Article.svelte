@@ -1,5 +1,4 @@
 <script>
-  import {getContext} from "svelte";
   import {Heading} from 'flowbite-svelte';
   import TagList from "$lib/components/TagList.svelte";
   import PostCommentLink from "$lib/components/PostCommentLink.svelte";
@@ -25,17 +24,21 @@
 </script>
 
 <div>
-  <Heading tag="h1" class="text-4xl max-md:text-2xl mb-5">
+  <Heading tag="h1" class="text-4xl max-md:text-2xl mb-5 tracking-tight">
     {title}
   </Heading>
 
   {#if dateLocal || season}
     <div class="mt-2">
-      <span class="text-gray-400 dark:text-gray-500 text-sm">{dateLocal}</span>
-      <span class="text-sm ml-5">
-        (<a class="underline" href={`/${$page.params.lang}/seasons/${season}/1`}>
-          {$t('chunks.season')} {season.replace(/\-/, ' - ')}</a>)
-      </span>
+      {#if dateLocal}
+        <span class="text-sm text-gray-400 dark:text-gray-500">{dateLocal}</span>
+      {/if}
+      {#if season}
+        <span class="text-sm ml-5">
+          (<a class="underline" href={`/${$page.params.lang}/seasons/${season}/1`}>
+            {$t('chunks.season')} {season.replace(/\-/, ' - ')}</a>)
+        </span>
+      {/if}
     </div>
   {/if}
 
@@ -66,13 +69,11 @@
 
   {#if commentUrl}
     <div class="mt-24">
-      <PostCommentLink href={commentUrl}  />
+      <PostCommentLink href={commentUrl} />
     </div>
   {/if}
 
   {#if tags && tags.length}
-  <div class="mt-6">
-    <TagList tags={tags} />
-  </div>
+    <TagList tags={tags} class="mt-6" />
   {/if}
 </div>
