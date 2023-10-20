@@ -8,6 +8,8 @@ import {
 } from '$lib/server/helpers.server'
 
 
+export const prerender = true
+
 export async function GET(event) {
   const [rootPath, fileNames] = await readAllFilesRecursively(
     event,

@@ -1,6 +1,6 @@
 <script lang="ts">
 import {onMount, setContext} from 'svelte'
-import {Drawer, Modal} from 'flowbite-svelte'
+import {Drawer, Modal, Img} from 'flowbite-svelte'
 import {writable} from 'svelte/store'
 import {sineIn} from 'svelte/easing'
 import "../../app.postcss"
@@ -97,7 +97,7 @@ onMount(() => {
 
 
 <Modal dialogClass="fixed top-0 left-0 right-0 h-modal md:inset-0 md:h-full z-50 w-full lg:p-2 flex justify-center items-center img-modal" bind:open={modalOpened} autoclose outsideclose size="xl">
-  <img src={modalImgSrc} alt="Enlarged image" />
+  <Img src={modalImgSrc} alt="Enlarged image" />
 </Modal>
 
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
@@ -126,8 +126,8 @@ onMount(() => {
   </Drawer>
 
   {#if scrollY > windowHeight / 2}
-    <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden">
-      <span on:click={() => scrollY = 0}>
+    <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
+      <span on:click={() => scrollY = 0} aria-hidden="true">
         <ToTheTop />
       </span>
     </div>

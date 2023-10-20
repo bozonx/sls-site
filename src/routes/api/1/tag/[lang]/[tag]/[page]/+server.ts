@@ -1,15 +1,17 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import {error} from '@sveltejs/kit';
-import type {PageItemData} from '$lib/types/PageItemData';
-import {FILE_ENCODE, BLOG_DIR} from '$lib/constants';
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import {error} from '@sveltejs/kit'
+import type {PageItemData} from '$lib/types/PageItemData'
+import {FILE_ENCODE, BLOG_DIR} from '$lib/constants'
 import {
   readAllFilesRecursively,
   sortPageItemsByDateDesc,
   extractMetaDataFromMdPage
-} from '$lib/server/helpers.server';
-import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers';
+} from '$lib/server/helpers.server'
+import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers'
 
+
+export const prerender = true
 
 export async function GET(event) {
   const pageNum = Number(event.params.page)
@@ -35,6 +37,16 @@ export async function GET(event) {
 
   // sort by date
   allFiles = sortPageItemsByDateDesc(allFiles)
+
+
+  // const start = (pageNum - 1) * ITEM_PER_PAGE
+  // return new Response(JSON.stringify({
+  //   result: allFiles.slice(start, start + ITEM_PER_PAGE),
+  //   page: pageNum,
+  //   perPage: ITEM_PER_PAGE,
+  //   totalPages: Math.ceil(allFiles.length / ITEM_PER_PAGE)
+  // }));
+
 
   return new Response(JSON.stringify(calculatePaginatedResponse(allFiles, pageNum)))
 }

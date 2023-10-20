@@ -10,6 +10,8 @@ import {
 import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers'
 
 
+export const prerender = true
+
 export async function GET(event) {
   const pageNum = Number(event.params.page)
   const season = event.params.season

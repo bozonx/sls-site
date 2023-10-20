@@ -6,6 +6,8 @@ import {ROOT_DIR} from '$lib/server/constants.server'
 import {SUPPORTED_LANGS, TEXTS_DIR, FILE_ENCODE} from '$lib/constants'
 
 
+export const prerender = true
+
 export async function GET(event) {
   const lang = event.params.lang
   let locYml

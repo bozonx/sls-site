@@ -23,7 +23,7 @@
   export let season = null
 </script>
 
-<div>
+<article>
   <Heading tag="h1" class="text-4xl max-md:text-2xl mb-5 tracking-tight">
     {title}
   </Heading>
@@ -76,4 +76,4 @@
   {#if tags && tags.length}
     <TagList tags={tags} class="mt-6" />
   {/if}
-</div>
+</article>
