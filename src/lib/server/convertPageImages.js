@@ -10,12 +10,13 @@ const MAX_ARTICLE_WIDTH = 840
 const THUMB_WIDTH = 320
 const filterImageRegExp = /\.(avif|jpeg|jpg|png|webp)$/i
 const PAGES_FULL_DIR = 'pages-full'
+const TEXTS_DIR = 'texts'
 const PAGES_DIR = 'pages'
 const THUMBS_DIR = 'thumbs'
 
 
 export function convertPageImagesSync(rootPath) {
-  const textsDir = path.join(rootPath, 'texts')
+  const textsDir = path.join(rootPath, TEXTS_DIR)
   const langs = fs.readdirSync(textsDir, FILE_ENCODE)
 
   for (const lang of langs) {

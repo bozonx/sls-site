@@ -3,7 +3,7 @@ import {pathTrimExt} from 'squidlet-lib'
 import { DOMAIN_NAME } from '$env/static/private'
 import {readDirRecursively} from '$lib/server/helpers.server'
 import {ROOT_DIR} from '$lib/server/constants.server'
-import {BLOG_DIR, PAGE_DIR, SUPPORTED_LANGS} from '$lib/constants'
+import {TEXTS_DIR, BLOG_DIR, PAGE_DIR, SUPPORTED_LANGS} from '$lib/constants'
 import {removeIndexMd} from '$lib/helpers';
 
 
@@ -16,7 +16,7 @@ export async function GET() {
   let urls: [string, string | undefined][] = []
 
   for (const lang of langs) {
-    const langDir = path.join(ROOT_DIR, 'texts', lang)
+    const langDir = path.join(ROOT_DIR, TEXTS_DIR, lang)
     const blogPages = await readDirRecursively(path.join(langDir, BLOG_DIR))
     const pagePages = await readDirRecursively(path.join(langDir, PAGE_DIR))
 

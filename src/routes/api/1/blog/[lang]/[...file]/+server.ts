@@ -1,6 +1,6 @@
-import { error } from '@sveltejs/kit';
-import {getBlogPage} from '$lib/server/fileRequests';
-import {DEFAULT_LANG} from '$lib/constants';
+import { error } from '@sveltejs/kit'
+import {getBlogPage} from '$lib/server/fileRequests'
+import {DEFAULT_LANG} from '$lib/constants'
 
 
 export async function GET(event) {
@@ -14,8 +14,6 @@ export async function GET(event) {
   catch (e) {
     try {
       result = await getBlogPage(DEFAULT_LANG, event.params.file)
-
-      //result = await getBlogPage('ru', event.params.file)
 
       noTranslation = true
     }

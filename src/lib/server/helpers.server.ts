@@ -17,7 +17,7 @@ import {FILE_ENCODE, THUMBS_DIR} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
 import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
-import {PAGES_FULL_DIR, PAGES_DIR} from "$lib/constants"
+import {PAGES_FULL_DIR, PAGES_DIR, TEXTS_DIR} from "$lib/constants"
 
 
 export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
@@ -39,7 +39,7 @@ export async function readAllFilesRecursively(
     throw error(400, 'Wrong page number')
   }
 
-  const rootPath = path.join(ROOT_DIR, 'texts', langStr, subPath)
+  const rootPath = path.join(ROOT_DIR, TEXTS_DIR, langStr, subPath)
   const fileNames = await readDirRecursively(rootPath)
 
   return [rootPath, fileNames]

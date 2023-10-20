@@ -1,22 +1,23 @@
-import { error } from '@sveltejs/kit';
-import fs from 'node:fs/promises';
-import yaml from 'yaml';
-import {ROOT_DIR} from '$lib/server/constants.server';
-import {SUPPORTED_LANGS} from '$lib/constants';
+import {error} from '@sveltejs/kit'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import yaml from 'yaml'
+import {ROOT_DIR} from '$lib/server/constants.server'
+import {SUPPORTED_LANGS, TEXTS_DIR, FILE_ENCODE} from '$lib/constants'
 
 
 export async function GET(event) {
-  const langStr = event.params.lang
+  const lang = event.params.lang
   let locYml
 
-  if (!SUPPORTED_LANGS.includes(langStr)) {
+  if (!SUPPORTED_LANGS.includes(lang)) {
     throw error(404, 'Lang not found')
   }
 
   try {
     locYml = await fs.readFile(
-        `${ROOT_DIR}/texts/${langStr}/translation.yaml`,
-        'utf8'
+      path.join(ROOT_DIR, TEXTS_DIR, lang, `translation.yaml`),
+      FILE_ENCODE
     )
   }
   catch (e) {
@@ -25,5 +26,5 @@ export async function GET(event) {
 
   return new Response(JSON.stringify({
     result: yaml.parse(locYml)
-  }));
+  }))
 }
