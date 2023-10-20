@@ -9,6 +9,8 @@ import {
   sortPageItemsByDateDesc,
   extractMetaDataFromMdPage
 } from '$lib/server/helpers.server';
+import {removeIndexMd} from '$lib/helpers';
+
 
 export async function GET(event) {
   const langStr = event.params.lang
@@ -25,7 +27,7 @@ export async function GET(event) {
     const [meta] = extractMetaDataFromMdPage(
       content,
       langStr,
-      filePath.replace(/\/index.md$/, '')
+      removeIndexMd(filePath)
     )
 
     if (meta.tags.includes(tagName)) allFiles.push(meta)

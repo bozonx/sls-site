@@ -122,7 +122,7 @@ onMount(() => {
 
     <SidebarFooter on:langSelect={closeDrawer} class="lg:hidden" />
 
-    <div class="sidebar-gradient max-lg:hidden"><div></div></div>
+    <div class="sidebar-gradient max-lg:hidden" aria-hidden="true"><div></div></div>
   </Drawer>
 
   {#if scrollY > windowHeight / 2}

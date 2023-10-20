@@ -1,51 +1,33 @@
 import {trimCharStart} from 'squidlet-lib';
 import {error, redirect} from '@sveltejs/kit';
 import type { LayoutLoad } from './$types'
-import {SUPPORTED_LANGS} from '$lib/constants';
+import {SUPPORTED_LANGS, DEFAULT_LANG} from '$lib/constants';
 import {tStore} from '$lib/store/t';
-import {DEFAULT_LANG} from '$lib/constants';
-
-
-export const prerender = true
-export const ssr = true
-
-// TODO: если включить то не отображается левая панель
-//export const csr = false
 
 
 export const load: LayoutLoad = async (event) => {
-  //if (event.url.pathname.startsWith('/api/')) return {}
-
   let langStr = event.params.lang || ''
 
-  // if (event.url.pathname === '/') {
-  //   if (browser) {
-  //     throw redirect(307, '/' + navigator.language)
-  //   }
-  //   // if there is a server then +layout.server.ts will be called
-  // }
-  // else
-
   if (!SUPPORTED_LANGS.includes(langStr)) {
+    // try to get language from pathname
     const splat = trimCharStart(event.url.pathname, '/').split('/')
 
     if (SUPPORTED_LANGS.includes(splat[0])) {
+      // in case of event.params.lang is empty
       langStr = splat[0]
       event.params.lang = splat[0]
+      // set the language and go further
     }
     else {
-      // can't recognize an language
+      // can't recognize a language - redirect to default language (en)
       throw redirect(307, '/' + DEFAULT_LANG)
     }
   }
 
-  // TODO: handle error - translate error
-
+  // load translations
   const translateResp = await event.fetch(`/api/1/translates/${langStr}`, {
     method: 'GET',
-    headers: {
-      'content-type': 'application/json',
-    },
+    headers: { 'content-type': 'application/json' },
   })
 
   if (translateResp.status >= 400) {
@@ -53,14 +35,13 @@ export const load: LayoutLoad = async (event) => {
   }
 
   const translates = (await translateResp.json()).result
-
+  // save translates to the store
   tStore.set(translates)
 
+  // load all tags
   const allTagsResp = await event.fetch(`/api/1/alltags/${langStr}`, {
     method: 'GET',
-    headers: {
-      'content-type': 'application/json',
-    },
+    headers: { 'content-type': 'application/json' },
   })
 
   if (allTagsResp.status >= 400) {

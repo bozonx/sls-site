@@ -1,18 +1,18 @@
-import path from 'path';
-import {pathTrimExt} from 'squidlet-lib';
-import { DOMAIN_NAME } from '$env/static/private';
-import {readDirRecursively} from '$lib/server/helpers.server';
-import {ROOT_DIR} from '$lib/server/constants.server';
-import {BLOG_DIR, PAGE_DIR, FILE_ENCODE} from '$lib/constants';
-import fs from 'node:fs';
+import path from 'path'
+import {pathTrimExt} from 'squidlet-lib'
+import { DOMAIN_NAME } from '$env/static/private'
+import {readDirRecursively} from '$lib/server/helpers.server'
+import {ROOT_DIR} from '$lib/server/constants.server'
+import {BLOG_DIR, PAGE_DIR, SUPPORTED_LANGS} from '$lib/constants'
+import {removeIndexMd} from '$lib/helpers';
+
 
 export const prerender = true
 
 
 export async function GET() {
   const domain = DOMAIN_NAME
-  const textsDir = path.join(ROOT_DIR, 'texts')
-  const langs = fs.readdirSync(textsDir, FILE_ENCODE)
+  const langs = SUPPORTED_LANGS
   let urls: [string, string | undefined][] = []
 
   for (const lang of langs) {
@@ -25,7 +25,7 @@ export async function GET() {
       ...blogPages
         .map((el): [string, string | undefined] => {
           return [
-            `/${lang}/${BLOG_DIR}/${el.replace(/(.+)\/index\.md$/, '$1')}`,
+            `/${lang}/${BLOG_DIR}/${removeIndexMd(el)}`,
             undefined
           ]
         }),
@@ -50,9 +50,7 @@ export async function GET() {
   return new Response(
     resArr.join('\n'),
     {
-      headers: {
-        'Content-Type': 'application/xml',
-      },
+      headers: { 'Content-Type': 'application/xml' },
     },
   );
 }

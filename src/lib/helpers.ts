@@ -15,6 +15,10 @@ export function acceptLangHeaderToLand(acceptLang?: string) {
   return splat[0]
 }
 
+export function removeIndexMd(somePath: string): string {
+  return somePath.replace(/\/index.md$/, '')
+}
+
 // export function curLang(currentPathname: string = ''): string {
 //   const splat = trimCharStart(currentPathname, '/').split('/')
 //
