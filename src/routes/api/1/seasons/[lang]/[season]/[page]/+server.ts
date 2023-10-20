@@ -32,9 +32,5 @@ export async function GET(event) {
 
   allFiles = sortPageItemsByDateDesc(allFiles)
 
-  return new Response(JSON.stringify(calculatePaginatedResponse(
-    allFiles,
-    pageNum,
-    fileNames.length
-  )))
+  return new Response(JSON.stringify(calculatePaginatedResponse(allFiles, pageNum)))
 }

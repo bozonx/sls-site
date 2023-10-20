@@ -21,19 +21,14 @@ export function removeIndexMd(somePath: string): string {
   return somePath.replace(/\/index\.md$/, '')
 }
 
-export function calculatePaginatedResponse(
-  items: any[],
-  pageNum: number,
-  // TODO: не нужно, можно расчитать
-  totalItems: number
-): PaginatedResponse {
+export function calculatePaginatedResponse(items: any[], pageNum: number): PaginatedResponse {
   const start = (pageNum - 1) * ITEM_PER_PAGE
 
   return {
     result: items.slice(start, start + ITEM_PER_PAGE),
     page: pageNum,
     perPage: ITEM_PER_PAGE,
-    totalPages: Math.ceil(totalItems / ITEM_PER_PAGE)
+    totalPages: Math.ceil(items.length / ITEM_PER_PAGE)
   }
 }
 
