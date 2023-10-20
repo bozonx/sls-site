@@ -28,16 +28,17 @@
   import TagList from '$lib/components/TagList.svelte'
   import LogoIcon from '$lib/components/LogoIcon.svelte'
 
-  export let allTags
-  export let closeDrawer
 
   $: activeUrl = $page.url.pathname;
+
+  export let allTags
+  export let closeDrawer
 </script>
 
-<div class="flex items-center lg:hidden">
+<div class="flex items-center lg:hidden py-2 px-1">
   <CloseButton
     on:click={closeDrawer}
-    class="mb-4 dark:text-white"
+    class="dark:text-white"
   />
 </div>
 

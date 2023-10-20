@@ -1,7 +1,7 @@
 <script>
-  import { Footer, FooterLinkGroup } from 'flowbite-svelte';
-  import MyFooterLink from '$lib/components/layout/MyFooterLink.svelte'
-  import {t} from '$lib/store/t'
+import { Footer, FooterLinkGroup } from 'flowbite-svelte';
+import MyFooterLink from '$lib/components/layout/MyFooterLink.svelte'
+import {t} from '$lib/store/t'
 </script>
 
 <Footer class="!bg-transparent !p-0 shadow-none">
@@ -10,7 +10,7 @@
     {$t('layout.copyWarn')}
   </div>
 
-  <FooterLinkGroup ulClass="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400">
+  <FooterLinkGroup ulClass="flex flex-wrap gap-x-9 items-center text-sm text-gray-500 dark:text-gray-400">
     <MyFooterLink href="/page/about">{$t('link.about')}</MyFooterLink>
     <MyFooterLink href="/page/contacts">{$t('link.contacts')}</MyFooterLink>
   </FooterLinkGroup>

@@ -1,15 +1,19 @@
 <script>
-  import { page } from '$app/stores';
+import { page } from '$app/stores';
+import { createEventDispatcher } from 'svelte';
 
-  export let href = null
-  export let isIcon = false
 
-  let active = false
+const dispatch = createEventDispatcher()
+let active = false
 
-  $: active = $page.url.pathname === href
+$: active = $page.url.pathname === href
+
+export let href = null
+export let isIcon = false
 </script>
 
 <a
   {href}
+  on:click={() => dispatch('click')}
   class="{(active) ? 'text-gray-500 dark:text-gray-400' : ''} {isIcon ? 'px-3 py-3' : 'px-5 py-2'} flex items-center gap-x-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800"
 ><slot /></a>

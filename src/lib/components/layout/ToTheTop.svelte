@@ -1,8 +1,7 @@
 <script>
-  import {ArrowUpSolid} from 'flowbite-svelte-icons';
-  import { fade } from 'svelte/transition';
-  import {t} from '$lib/store/t'
-
+import {ArrowUpSolid} from 'flowbite-svelte-icons';
+import { fade } from 'svelte/transition';
+import {t} from '$lib/store/t'
 </script>
 
 <span

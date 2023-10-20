@@ -1,17 +1,13 @@
 <script>
-  import {FooterLink} from "flowbite-svelte"
-  import {page} from "$app/stores";
+import {FooterLink} from "flowbite-svelte"
+import {page} from "$app/stores";
 
-  export let href
 
-  let className = ''
-
-  export { className as class }
-
+export let href
 </script>
 
 <FooterLink
   href={`/${$page.params.lang}${href}`}
-  aClass="hover:text-gray-200"
-  liClass="mr-4 last:mr-0 md:mr-6 {className}"
+  aClass="hover:text-gray-400 hover:dark:text-gray-300"
+  liClass=""
 ><slot /></FooterLink>
