@@ -1,13 +1,14 @@
 <script>
-import {FooterLink} from "flowbite-svelte"
-import {page} from "$app/stores";
+import {page} from "$app/stores"
 
 
 export let href
 </script>
 
-<FooterLink
-  href={`/${$page.params.lang}${href}`}
-  aClass="hover:text-gray-400 hover:dark:text-gray-300"
-  liClass=""
-><slot /></FooterLink>
+<li>
+  <a
+    href={`/${$page.params.lang}${href}`}
+    class="hover:text-gray-400 hover:dark:text-gray-300"
+    liClass=""
+  ><slot /></a>
+</li>
