@@ -26,3 +26,21 @@ some text 😉 👍 ⚠️ ➡️
 
 > aa
 > dff
+
+ordinary **bold** *italic* ***bold italic*** <u>underline</u> <s>striked</s> `little code`
+
+1. one
+2. second
+
+- one
+- second
+
+---
+
+
+    code block
+    # eee
+
+    some other code
+
+end

@@ -41,10 +41,15 @@ podcasts:
 ## Markdown formatting of articles
 
 * use `-` for lists
+* use `1. item` for numeric lists
 * use `**` for a bold text
 * use `*` for an italic text
 * use `***` for a bold-italic text
 * use `> ` for a blockquote
+* use `---` for <hr/>
+* use tab or 4 spaces for code block
+* use `<u>undelined text</u>` for underline
+* use `<s>striked text</s>` for strike through
 
 
 ## Developing

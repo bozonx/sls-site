@@ -36,6 +36,12 @@
   margin-top: 0.75rem;
   margin-bottom: 1rem;
 }
+.html-block ol {
+  list-style: auto;
+  padding-left: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
 
 .html-block a {
   text-decoration: underline;
@@ -75,4 +81,35 @@
 
 .html-block img {
   cursor: pointer;
+}
+
+.html-block code {
+  background: #e9e9e9;
+  padding: 0.125rem 0.25rem;
+}
+.dark .html-block code {
+  background: black;
+}
+
+.html-block pre {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  background: #e9e9e9;
+}
+.dark .html-block pre {
+  background: black;
+}
+
+.html-block pre code {
+  background: none;
+  padding: 0;
+}
+.dark .html-block pre code {
+  background: none;
+}
+
+.html-block hr {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
 }
