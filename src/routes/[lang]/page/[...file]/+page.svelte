@@ -13,5 +13,5 @@ export let data: {meta: PageMetaData, html: string}
 </svelte:head>
 
 <secion>
-  <Article {...omitObj(data.meta, 'date', 'name')} html={data.html} />
+  <Article {...omitObj(data.meta, 'date', 'name', 'thumbUrl')} html={data.html} />
 </secion>

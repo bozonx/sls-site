@@ -1,6 +1,6 @@
-import {deduplicate} from 'squidlet-lib'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import {deduplicate} from 'squidlet-lib'
 import {FILE_ENCODE, BLOG_DIR} from '$lib/constants'
 import {
   readAllFilesRecursively,
@@ -33,7 +33,5 @@ export async function GET(event) {
 
   tags.sort()
 
-  return new Response(JSON.stringify({
-    result: tags,
-  }));
+  return new Response(JSON.stringify({ result: tags }))
 }

@@ -1,9 +1,7 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import {ROOT_DIR} from '$lib/server/constants.server';
-import {FILE_ENCODE, BLOG_DIR, TEXTS_DIR} from '$lib/constants';
-
-export const prerender = true
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import {ROOT_DIR} from '$lib/server/constants.server'
+import {FILE_ENCODE, BLOG_DIR, TEXTS_DIR} from '$lib/constants'
 
 
 export async function GET(event) {

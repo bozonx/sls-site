@@ -25,7 +25,7 @@ export let data
     showAuthor={true}
     showDescr={true}
     season={data.page.result.meta.name.split('/')[0]}
-    {...omitObj(data.page.result.meta, 'date', 'name')}
+    {...omitObj(data.page.result.meta, 'date', 'name', 'thumbUrl')}
     html={data.page.result.html}
   />
 </secion>
