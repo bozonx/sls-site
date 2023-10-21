@@ -11,12 +11,12 @@
       .startsWith(`/${$page.params.lang}/tags/${tag}`)
   }
 
-  export let tags = []
+  export let tags = {}
   export { className as class }
 </script>
 
 <div class="sm:grid grid-cols-4 gap-2 max-sm:space-x-1 max-sm:space-y-2 {className}">
-  {#each tags as tag}
+  {#each Object.keys(tags) as tag}
     {#key `${$page.url.pathname} ${tag}`}
       <Button
         on:click={() => dispatch('selected')}
@@ -25,7 +25,7 @@
         size="lg"
         color={(isActive(tag)) ? 'purple' : 'blue'}
         class="py-1 px-4"
-      >{tag}</Button>
+      >{tag} ({tags[tag]})</Button>
     {/key}
   {/each}
 </div>

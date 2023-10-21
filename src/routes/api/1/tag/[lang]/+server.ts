@@ -31,9 +31,20 @@ export async function GET(event) {
     ]
   }
 
-  tags = deduplicate(tags)
-
   tags.sort()
 
-  return new Response(JSON.stringify({ result: tags }))
+  const tagsWithCount: Record<string, number> = {}
+
+  for (const tag of tags) {
+    if (tagsWithCount[tag]) {
+      ++tagsWithCount[tag]
+    }
+    else {
+      tagsWithCount[tag] = 1
+    }
+  }
+
+  //tags = deduplicate(tags)
+
+  return new Response(JSON.stringify({ result: tagsWithCount }))
 }

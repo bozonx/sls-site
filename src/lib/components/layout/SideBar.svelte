@@ -55,7 +55,7 @@ export let closeDrawer
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <TagList on:selected={closeDrawer} class="ml-2" tags={allTags} />
+        <TagList on:selected={closeDrawer} class="ml-2" tags={Object.keys(allTags)} />
       </SidebarDropdownWrapper>
 
       <MySidebarItem on:click={closeDrawer} label={$t('link.allTags')} href="/tags" icon={LayersOutline} />

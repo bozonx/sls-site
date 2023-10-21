@@ -11,7 +11,7 @@ const isActive = (tag) => {
     .startsWith(`/${$page.params.lang}/tags/${tag}`)
 }
 
-export let tags = []
+export let tags = {}
 export { className as class }
 </script>
 

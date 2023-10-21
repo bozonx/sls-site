@@ -19,7 +19,7 @@ import {t} from '$lib/store/t'
 //$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : ''
 
 export let data: {
-  allTags: string[]
+  allTags: Record<string, number>
   translates: Record<string, any>
 }
 
@@ -117,7 +117,7 @@ onMount(() => {
     id="sidebar"
   >
     <div>
-      <SideBar allTags={$allTags || []} {closeDrawer} />
+      <SideBar allTags={$allTags || {}} {closeDrawer} />
     </div>
 
     <SidebarFooter on:langSelect={closeDrawer} class="lg:hidden" />
