@@ -5,6 +5,7 @@ import {page} from "$app/stores"
 import {t} from '$lib/store/t'
 import SimpleLink from '$lib/components/SimpleLink.svelte'
 import PageHeader from '$lib/components/PageHeader.svelte'
+import TagsGrid from '$lib/components/TagsGrid.svelte'
 
 
 let allTags
@@ -20,11 +21,13 @@ $: allTags = getContext(ALL_TAGS_CONTEXT)
 <section>
   <PageHeader>{$t('link.allTags')}</PageHeader>
 
-  <ul class="space-y-3">
+  <TagsGrid tags={$allTags} />
+
+<!--  <ul class="space-y-3">
     {#each $allTags as tag}
       <li>
         <SimpleLink href={`/tags/${tag}/1`}>#{tag}</SimpleLink>
       </li>
     {/each}
-  </ul>
+  </ul>-->
 </section>

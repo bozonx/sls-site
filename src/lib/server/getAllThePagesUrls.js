@@ -35,7 +35,7 @@ export function getAllThePagesUrls() {
 
       `/api/1/seasons/${lang}`,
       `/${lang}/seasons`,
-      //`/${lang}/tags`,
+      `/${lang}/tags`,
       `/${lang}/recent`,
       `/${lang}/page/links`,
       `/${lang}`,

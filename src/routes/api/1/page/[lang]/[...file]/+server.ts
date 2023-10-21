@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit'
 import {getSitePage} from '$lib/server/fileRequests'
 
 
-export const prerender = true
+//export const prerender = true
 
 export async function GET(event) {
   const langStr = event.params.lang

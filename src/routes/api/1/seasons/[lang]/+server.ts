@@ -4,7 +4,7 @@ import {ROOT_DIR} from '$lib/server/constants.server'
 import {FILE_ENCODE, BLOG_DIR, TEXTS_DIR} from '$lib/constants'
 
 
-export const prerender = true
+//export const prerender = true
 
 export async function GET(event) {
   const blogDir = path.join(ROOT_DIR, TEXTS_DIR, event.params.lang, BLOG_DIR)

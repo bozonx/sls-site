@@ -11,7 +11,7 @@ import {
 import {removeIndexMd} from '$lib/helpers'
 
 
-export const prerender = true
+//export const prerender = true
 
 export async function GET(event) {
   const langStr = event.params.lang

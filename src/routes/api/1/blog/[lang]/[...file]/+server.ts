@@ -3,7 +3,7 @@ import {getBlogPage} from '$lib/server/fileRequests'
 import {DEFAULT_LANG} from '$lib/constants'
 
 
-export const prerender = true
+//export const prerender = true
 
 export async function GET(event) {
   const langStr = event.params.lang
