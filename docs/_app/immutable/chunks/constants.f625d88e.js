@@ -1,1 +1,0 @@
-const a=9,n="en",o="allTags",t="openImgModal",A="blog",_="page",s={eo:"Esperanto",en:"English",ru:"Russian",uk:"Ukrainian",es:"Spanish"},c=Object.keys(s),e={yandexMusic:"yandex-music",soundstream:"soundstream",castbox:"castbox",spotify:"spotify",vk:"vk"};export{o as A,A as B,n as D,s as L,t as O,_ as P,c as S,e as a,a as b};
