@@ -16,11 +16,10 @@ const pagesUrls = getAllThePagesUrls()
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  // Consult https://kit.svelte.dev/docs/integrations#preprocessors
-  // for more information about preprocessors
   preprocess: [vitePreprocess({})],
 
   kit: {
+    appDir: 'app',
     prerender: {
       entries: [
         ...pagesUrls,
@@ -42,10 +41,14 @@ const config = {
       precompress: false,
       strict: true,
     }),
-  },
 
-  paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH },
-  //paths: { base: process.argv.includes('dev') ? '' : 'https://bozonx8.github.io/sls-site' },
+    paths: {
+      relative: false,
+      base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
+    },
+
+    //target: "#svelte",
+  },
 
   concurrency: 3,
 };
