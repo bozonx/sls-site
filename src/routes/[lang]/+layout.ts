@@ -5,7 +5,7 @@ import {SUPPORTED_LANGS, DEFAULT_LANG} from '$lib/constants';
 import {tStore} from '$lib/store/t';
 
 
-//export const prerender = true
+export const prerender = true
 export const ssr = true
 
 

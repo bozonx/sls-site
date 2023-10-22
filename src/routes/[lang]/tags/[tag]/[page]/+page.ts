@@ -2,8 +2,6 @@ import type {PageLoad} from './$types'
 import {loadListItems} from '$lib/requests'
 
 
-//export const prerender = true
-
 export const load: PageLoad = async (event) => {
   return loadListItems(
     event,

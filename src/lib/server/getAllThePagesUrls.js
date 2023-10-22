@@ -29,11 +29,12 @@ export function getAllThePagesUrls() {
     res = [
       ...res,
 
-      ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
+      // ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
       ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
       ...collectedTags.map((el) => `/${lang}/tags/${el}`),
-
-      `/api/1/seasons/${lang}`,
+      ...collectedTags.map((el) => `/api/1/tag/${lang}/${el}/1`),
+      //
+      // `/api/1/seasons/${lang}`,
       `/${lang}/seasons`,
       `/${lang}/tags`,
       `/${lang}/recent`,

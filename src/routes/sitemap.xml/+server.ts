@@ -7,7 +7,7 @@ import {TEXTS_DIR, BLOG_DIR, PAGE_DIR, SUPPORTED_LANGS} from '$lib/constants'
 import {removeIndexMd} from '$lib/helpers';
 
 
-//export const prerender = true
+export const prerender = true
 
 
 export async function GET() {

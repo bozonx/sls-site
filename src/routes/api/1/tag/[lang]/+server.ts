@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import {deduplicate} from 'squidlet-lib'
 import {FILE_ENCODE, BLOG_DIR} from '$lib/constants'
 import {
   readAllFilesRecursively,
@@ -8,7 +7,7 @@ import {
 } from '$lib/server/helpers.server'
 
 
-//export const prerender = true
+export const prerender = true
 
 export async function GET(event) {
   const [rootPath, fileNames] = await readAllFilesRecursively(
@@ -43,8 +42,6 @@ export async function GET(event) {
       tagsWithCount[tag] = 1
     }
   }
-
-  //tags = deduplicate(tags)
 
   return new Response(JSON.stringify({ result: tagsWithCount }))
 }
