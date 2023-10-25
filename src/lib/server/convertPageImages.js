@@ -68,8 +68,8 @@ function convertImage(
   outputThumbFileName
 ) {
   const fullOutputPath = path.join(rootPath, `static/postimg/${PAGES_FULL_DIR}/${outputArticleFileName}.${getExt(inputPath)}`)
-  const articleOutputPath = path.join(rootPath, `static/postimg/${PAGES_DIR}/${outputArticleFileName}.jpg`)
-  const thumbOutputPath = path.join(rootPath, `static/postimg/${THUMBS_DIR}/${outputThumbFileName}.jpg`)
+  const articleOutputPath = path.join(rootPath, `static/postimg/${PAGES_DIR}/${outputArticleFileName}.avif`)
+  const thumbOutputPath = path.join(rootPath, `static/postimg/${THUMBS_DIR}/${outputThumbFileName}.avif`)
   const identifyCmd = `identify ${inputPath}`
   const identifyRes = child_process.execSync(identifyCmd, {encoding: 'utf8'})
   const fullSizeString = identifyRes.split(' ')[2]
@@ -78,8 +78,17 @@ function convertImage(
     .map((el) => Number(el))
   const articleWidth = (width > MAX_ARTICLE_WIDTH) ? MAX_ARTICLE_WIDTH : width
   const fullImgCmd = `cp ${inputPath} ${fullOutputPath}`
-  const convertArticleCmd = `convert ${inputPath} -adaptive-resize ${articleWidth} -quality 85 ${articleOutputPath}`
-  const convertThumbCmd = `convert ${inputPath} -adaptive-resize ${THUMB_WIDTH} -quality 80 ${thumbOutputPath}`
+
+  // TODO: получается есл входной файл не avif то не понятно как будет - лучше его ужать отдельно
+  
+  const convertArticleCmd = `convert ${inputPath} -strip -adaptive-resize ${articleWidth} ${articleOutputPath}`
+  const convertThumbCmd = `convert ${inputPath} -strip -adaptive-resize ${THUMB_WIDTH} ${thumbOutputPath}`
+  // bad compression
+  //const convertArticleCmd = `convert ${inputPath} -strip -quality 70 -adaptive-resize ${articleWidth} ${articleOutputPath}`
+  //const convertThumbCmd = `convert ${inputPath} -strip -quality 70 -adaptive-resize ${THUMB_WIDTH} ${thumbOutputPath}`
+  // for jpeg
+  // const convertArticleCmd = `convert ${inputPath} -strip -adaptive-resize ${articleWidth} -quality 85 ${articleOutputPath}`
+  // const convertThumbCmd = `convert ${inputPath} -strip -adaptive-resize ${THUMB_WIDTH} -quality 80 ${thumbOutputPath}`
 
   child_process.execSync(fullImgCmd)
   child_process.execSync(convertArticleCmd)

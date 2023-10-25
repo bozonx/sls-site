@@ -121,7 +121,7 @@ export async function convertMdToHtml(
       if (isPage) {
         node.properties['data-full'] = `/postimg/${PAGES_FULL_DIR}/${resolvedLang}_page_${imgName}`
         // page
-        return `/postimg/${PAGES_DIR}/${resolvedLang}_page_${replaceExt(imgName, 'jpg')}`
+        return `/postimg/${PAGES_DIR}/${resolvedLang}_page_${replaceExt(imgName, 'avif')}`
       }
       else {
         node.properties['data-full'] = `/postimg/pages-full`
@@ -129,7 +129,7 @@ export async function convertMdToHtml(
         // blog
         return `/postimg/${PAGES_DIR}`
           + `/${resolvedLang}_${pageName.replace('/', '_')}`
-          + `_${replaceExt(imgName, 'jpg')}`
+          + `_${replaceExt(imgName, 'avif')}`
       }
     }
   }
@@ -170,7 +170,7 @@ export function extractMetaDataFromMdPage(
       resolvedLand = DEFAULT_LANG
     }
 
-    meta.thumbUrl = `/postimg/${THUMBS_DIR}/${resolvedLand}_${name.replace('/', '_')}.jpg`
+    meta.thumbUrl = `/postimg/${THUMBS_DIR}/${resolvedLand}_${name.replace('/', '_')}.avif`
   }
 
   return [meta, md]
