@@ -161,8 +161,16 @@ export function extractMetaDataFromMdPage(
         : undefined,
   }
 
-  if (md.match(FIND_MD_IMAGE_REGEX)) {
-    meta.thumbUrl = `/images/${THUMBS_DIR}/${lang}_${name.replace('/', '_')}.jpg`
+  const firstImgMatch = md.match(FIND_MD_IMAGE_REGEX)
+
+  if (firstImgMatch) {
+    let resolvedLand = lang
+
+    if (firstImgMatch[1].startsWith('!')) {
+      resolvedLand = DEFAULT_LANG
+    }
+
+    meta.thumbUrl = `/images/${THUMBS_DIR}/${resolvedLand}_${name.replace('/', '_')}.jpg`
   }
 
   return [meta, md]
