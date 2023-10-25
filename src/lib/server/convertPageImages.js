@@ -80,7 +80,7 @@ function convertImage(
   const fullImgCmd = `cp ${inputPath} ${fullOutputPath}`
 
   // TODO: получается есл входной файл не avif то не понятно как будет - лучше его ужать отдельно
-  
+
   const convertArticleCmd = `convert ${inputPath} -strip -adaptive-resize ${articleWidth} ${articleOutputPath}`
   const convertThumbCmd = `convert ${inputPath} -strip -adaptive-resize ${THUMB_WIDTH} ${thumbOutputPath}`
   // bad compression

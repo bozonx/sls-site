@@ -76,7 +76,7 @@ export let closeDrawer
       <SidebarItem
         on:click={closeDrawer}
         label={$t('link.telegramChannel')}
-        href="https://t.me/slsfreedom"
+        href="https://t.me/+X3brRqc3VsJkNmMy"
         class="rounded-none"
         target="_blank"
       >
@@ -85,7 +85,7 @@ export let closeDrawer
         </svelte:fragment>
       </SidebarItem>
 
-      <MySidebarItem on:click={closeDrawer} label={$t('link.telegramChat')} href="https://t.me/slsfreedom_chat" icon={MessagesOutline} />
+      <MySidebarItem on:click={closeDrawer} label={$t('link.telegramChat')} href="https://t.me/+Y6hSx-tAiN5hODFi" icon={MessagesOutline} />
       <MySidebarItem on:click={closeDrawer} label={$t('link.allLinks')} href="/page/links" icon={ForwardSolid} />
     </SidebarGroup>
 
