@@ -26,18 +26,16 @@ const config = {
         '/sitemap.xml',
         '/',
       ],
-
       crawl: true,
       handleHttpError: 'warn',
       handleMissingId: 'warn',
       handleEntryGeneratorMismatch: 'warn',
-
     },
 
     adapter: adapter({
       pages: "docs",
       assets: "docs",
-      fallback: undefined,
+      fallback: '404.html',
       precompress: false,
       strict: true,
     }),

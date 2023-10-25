@@ -13,7 +13,7 @@ import remark2rehype from 'remark-rehype';
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeFigure from 'rehype-figure';
 import remarkGfm from 'remark-gfm'
-import {FILE_ENCODE, THUMBS_DIR} from '../constants';
+import {DEFAULT_LANG, FILE_ENCODE, THUMBS_DIR} from '../constants';
 import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
 import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
@@ -106,19 +106,25 @@ export async function convertMdToHtml(
       }
     }
     else if (node.tagName === 'img' && !url.host) {
-      const imgName = path.basename(url.pathname)
+      let imgName = path.basename(url.pathname)
+      let resolvedLang = lang
+
+      if (imgName.startsWith('!')) {
+        imgName = imgName.slice(1)
+        resolvedLang = DEFAULT_LANG
+      }
 
       if (isPage) {
-        node.properties['data-full'] = `/images/${PAGES_FULL_DIR}/${lang}_page_${imgName}`
+        node.properties['data-full'] = `/images/${PAGES_FULL_DIR}/${resolvedLang}_page_${imgName}`
         // page
-        return `/images/${PAGES_DIR}/${lang}_page_${replaceExt(imgName, 'jpg')}`
+        return `/images/${PAGES_DIR}/${resolvedLang}_page_${replaceExt(imgName, 'jpg')}`
       }
       else {
         node.properties['data-full'] = `/images/pages-full`
-          + `/${lang}_${pageName.replace('/', '_')}_${imgName}`
+          + `/${resolvedLang}_${pageName.replace('/', '_')}_${imgName}`
         // blog
         return `/images/${PAGES_DIR}`
-          + `/${lang}_${pageName.replace('/', '_')}`
+          + `/${resolvedLang}_${pageName.replace('/', '_')}`
           + `_${replaceExt(imgName, 'jpg')}`
       }
     }
