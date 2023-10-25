@@ -102,6 +102,10 @@ export async function convertMdToHtml(
         node.properties.target = '_blank'
       }
       else {
+        if (url.pathname.startsWith('//')) {
+          return url.pathname.slice(1)
+        }
+
         return `/${lang}${url.pathname}`
       }
     }

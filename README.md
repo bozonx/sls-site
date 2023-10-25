@@ -50,6 +50,7 @@ podcasts:
 * use tab or 4 spaces for code block
 * use `<ins>undelined text</ins>` for underline
 * use `~striked text~` for strike through
+* For images which the same for all the languages put "!" and the begging of file name. E.g. `[...](!img.avif)` and this image will be got from the default language (en)
 
 
 ## Developing
