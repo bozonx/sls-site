@@ -67,9 +67,9 @@ function convertImage(
   outputArticleFileName,
   outputThumbFileName
 ) {
-  const fullOutputPath = path.join(rootPath, `static/images/${PAGES_FULL_DIR}/${outputArticleFileName}.${getExt(inputPath)}`)
-  const articleOutputPath = path.join(rootPath, `static/images/${PAGES_DIR}/${outputArticleFileName}.jpg`)
-  const thumbOutputPath = path.join(rootPath, `static/images/${THUMBS_DIR}/${outputThumbFileName}.jpg`)
+  const fullOutputPath = path.join(rootPath, `static/postimg/${PAGES_FULL_DIR}/${outputArticleFileName}.${getExt(inputPath)}`)
+  const articleOutputPath = path.join(rootPath, `static/postimg/${PAGES_DIR}/${outputArticleFileName}.jpg`)
+  const thumbOutputPath = path.join(rootPath, `static/postimg/${THUMBS_DIR}/${outputThumbFileName}.jpg`)
   const identifyCmd = `identify ${inputPath}`
   const identifyRes = child_process.execSync(identifyCmd, {encoding: 'utf8'})
   const fullSizeString = identifyRes.split(' ')[2]

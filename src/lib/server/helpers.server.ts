@@ -119,15 +119,15 @@ export async function convertMdToHtml(
       }
 
       if (isPage) {
-        node.properties['data-full'] = `/images/${PAGES_FULL_DIR}/${resolvedLang}_page_${imgName}`
+        node.properties['data-full'] = `/postimg/${PAGES_FULL_DIR}/${resolvedLang}_page_${imgName}`
         // page
-        return `/images/${PAGES_DIR}/${resolvedLang}_page_${replaceExt(imgName, 'jpg')}`
+        return `/postimg/${PAGES_DIR}/${resolvedLang}_page_${replaceExt(imgName, 'jpg')}`
       }
       else {
-        node.properties['data-full'] = `/images/pages-full`
+        node.properties['data-full'] = `/postimg/pages-full`
           + `/${resolvedLang}_${pageName.replace('/', '_')}_${imgName}`
         // blog
-        return `/images/${PAGES_DIR}`
+        return `/postimg/${PAGES_DIR}`
           + `/${resolvedLang}_${pageName.replace('/', '_')}`
           + `_${replaceExt(imgName, 'jpg')}`
       }
@@ -170,7 +170,7 @@ export function extractMetaDataFromMdPage(
       resolvedLand = DEFAULT_LANG
     }
 
-    meta.thumbUrl = `/images/${THUMBS_DIR}/${resolvedLand}_${name.replace('/', '_')}.jpg`
+    meta.thumbUrl = `/postimg/${THUMBS_DIR}/${resolvedLand}_${name.replace('/', '_')}.jpg`
   }
 
   return [meta, md]
