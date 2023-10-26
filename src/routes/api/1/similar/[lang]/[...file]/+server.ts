@@ -35,7 +35,7 @@ export async function GET(event) {
     path.join(rootPath, fileName, INDEX_MD),
     FILE_ENCODE
   )
-  const extractedArticle = extractMetaDataFromMdPage(
+  const extractedArticle = await extractMetaDataFromMdPage(
     articleString,
     langStr,
     fileName
@@ -46,7 +46,7 @@ export async function GET(event) {
   for (const filePath of fileNames) {
     const clearFilePath = removeIndexMd(filePath)
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
-    const [meta] = extractMetaDataFromMdPage(
+    const [meta] = await extractMetaDataFromMdPage(
       content,
       langStr,
       clearFilePath

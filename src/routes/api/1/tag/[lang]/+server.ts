@@ -18,7 +18,7 @@ export async function GET(event) {
 
   for (const filePath of fileNames) {
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
-    const [meta] = extractMetaDataFromMdPage(
+    const [meta] = await extractMetaDataFromMdPage(
       content,
       event.params.lang,
       filePath

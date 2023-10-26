@@ -6,6 +6,8 @@ import yaml from 'yaml';
 import moment from 'moment';
 import {unified} from 'unified';
 import rehypeStringify from 'rehype-stringify';
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkStringify from 'remark-stringify'
 import urls from 'rehype-urls';
 import remarkParse from 'remark-parse';
 import rehypeRaw from 'rehype-raw'
@@ -137,25 +139,22 @@ export async function convertMdToHtml(
   return String(result)
 }
 
-export function extractMetaDataFromMdPage(
+export async function extractMetaDataFromMdPage(
     rawContent: string,
     lang: string,
     name: string
-): [PageMetaData, string] {
-  const splat = rawContent.split('</meta>')
+): Promise<[PageMetaData, string]> {
+  const [rawMetaData, md] = await splitMdAndMeta(rawContent)
 
-  if (splat.length !== 2) {
-    throw new Error(`Wrong page file`)
+  if (!rawMetaData.title) {
+    throw new Error(`Md file "${name}" doesn't have a title`)
   }
 
-  const md = splat[1].trim()
-  const yamlString = splat[0].replace('<meta>', '').trim()
-  const rawMetaData = yaml.parse(yamlString)
   const meta: PageMetaData = {
     name,
     title: '',
     descr: '',
-    ...rawMetaData,
+    ...rawMetaData as any,
     dateLocal: (rawMetaData.date)
         ? moment(rawMetaData.date).locale(lang).format('LL')
         : undefined,
@@ -174,4 +173,28 @@ export function extractMetaDataFromMdPage(
   }
 
   return [meta, md]
+}
+
+export async function splitMdAndMeta(rawMdContent: string): Promise<[Record<string, any>, string]> {
+  let yamlMetaStr: string  = ''
+  const md = String(await unified()
+    .use(remarkParse)
+    .use(remarkStringify)
+    .use(remarkFrontmatter, ['yaml'])
+    .use(function () {
+      return function (tree: any) {
+        const yamlIndex = tree.children.findIndex((el: any) => el.type === 'yaml')
+
+        if (yamlIndex < 0) return
+
+        yamlMetaStr = tree?.children[yamlIndex]?.value || ''
+        // remove node
+        tree?.children.splice(yamlIndex, 1)
+      }
+    })
+    .process(rawMdContent))
+
+  const rawMetaData = yaml.parse(yamlMetaStr)
+
+  return [rawMetaData, md]
 }

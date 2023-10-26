@@ -1,7 +1,7 @@
-<meta>
+---
 title: Все ссылки проекта
 descr: Все ссылки проекта на всех платформах
-</meta>
+---
 
 * [Youtube канал](https://youtube.com/@slsfreedom) - все видео тут
 * [Telegram канал](https://t.me/+X3brRqc3VsJkNmMy) - все новости проекта

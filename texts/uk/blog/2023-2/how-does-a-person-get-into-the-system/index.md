@@ -1,4 +1,4 @@
-<meta>
+---
 date: 2023-08-26
 tags:
   - система
@@ -13,7 +13,7 @@ podcasts:
   spotify: https://open.spotify.com/episode/7juzbcWD1l1wbvHJOCrUm7
   vk: https://vk.com/podcast-214911215_456239021
   yandexMusic: https://music.yandex.ru/album/26679261/track/116768416
-</meta>
+---
 
 ![Как человек попадает в систему](!010article.avif)
 

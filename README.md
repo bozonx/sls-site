@@ -14,11 +14,11 @@ Season and article name have to be the same for all the languages.
 
 ## Meta data of an article
 
-Articles have to have meta data inside a tag `<meta>...</meta>`.
+Articles have to have meta data inside a tag `---...---`.
 Meta data is in YAML format. The meta data has to be paced at the beginning of the document.
 
 ```
-<meta>
+---
 date: YYYY-MM-DD
 tags:
   - some_tag
@@ -34,7 +34,7 @@ podcasts:
   spotify: https://open.spotify.com/episode/...
   vk: https://vk.com/...
   yandexMusic: https://music.yandex.ru/album/...
-</meta>
+---
 ```
 
 

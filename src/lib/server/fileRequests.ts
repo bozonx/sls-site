@@ -11,7 +11,7 @@ export async function getBlogPage(lang: string, pageName: string): Promise<strin
       `texts/${lang}/${BLOG_DIR}/${pageName}/${INDEX_MD}`
   )
   const fileContent = await fs.readFile(fullFilePath, 'utf8')
-  const [meta, md] = extractMetaDataFromMdPage(
+  const [meta, md] = await extractMetaDataFromMdPage(
     fileContent,
     lang,
     pageName
@@ -29,7 +29,7 @@ export async function getSitePage(lang: string, pageName: string): Promise<strin
       `texts/${lang}/${PAGE_DIR}/${pageName}.md`
   )
   const fileContent = await fs.readFile(fullFilePath, 'utf8')
-  const [meta, md] = extractMetaDataFromMdPage(
+  const [meta, md] = await extractMetaDataFromMdPage(
     fileContent,
     lang,
     pageName
