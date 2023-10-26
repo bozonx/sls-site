@@ -33,11 +33,11 @@ export let allTags
 export let closeDrawer
 </script>
 
-<div class="flex items-center lg:hidden py-2 px-1">
-  <CloseButton on:click={closeDrawer} class="dark:text-white" />
+<div class="flex justify-end w-full absolute lg:hidden py-2 px-1">
+  <CloseButton on:click={closeDrawer} class="dark:text-gray-700 dark:hover:text-gray-300" />
 </div>
 
-<SidebarLogo {closeDrawer} />
+<SidebarLogo {closeDrawer} class="dark:mb-4" />
 
 <Sidebar activeUrl={$page.url.pathname} class="w-auto">
   <SidebarWrapper class="!p-0 rounded-none">
