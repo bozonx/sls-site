@@ -15,7 +15,6 @@ export let thumbUrl = null
 
 <a
   href={`${baseUrl}/${name}`}
-  role="listitem"
   class="mb-6 block px-5 py-5 bg-white dark:bg-gray-800 border rounded-lg border-gray-200 dark:border-gray-700 page-list-item"
 >
   <h4 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -43,6 +42,7 @@ export let thumbUrl = null
 
     <div class="max-md:mt-5 flex-1">
       <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{descr}</p>
+      <p>...</p>
     </div>
   </div>
 

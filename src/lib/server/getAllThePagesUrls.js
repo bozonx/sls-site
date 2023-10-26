@@ -81,7 +81,7 @@ function collectTagsSync(blogPath, blogPages) {
   let tags = []
 
   // TODO: remove
-  
+
   return []
 
   for (const mdPath of blogPages) {

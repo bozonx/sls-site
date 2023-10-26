@@ -30,14 +30,16 @@ export let baseUrl
       <a href={paginationBaseUrl} class="underline">{$t('chunks.listBeginning')}</a>
     </Alert>
   {:else}
-    <div role="list">
+    <ul>
       {#each res.result as item}
-        <PagePreviewListItem
-          baseUrl={baseUrl}
-          {...pickObj(item, 'name', 'title', 'dateLocal', 'tags', 'descr', 'thumbUrl')}
-        />
+        <li>
+          <PagePreviewListItem
+            baseUrl={baseUrl}
+            {...pickObj(item, 'name', 'title', 'dateLocal', 'tags', 'descr', 'thumbUrl')}
+          />
+        </li>
       {/each}
-    </div>
+    </ul>
 
     {#if res.totalPages > 1}
       <div class="mt-14">
