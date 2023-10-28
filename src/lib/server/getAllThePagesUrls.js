@@ -34,7 +34,7 @@ export function getAllThePagesUrls() {
       ...collectedTags.map((el) => `/${lang}/tags/${el}`),
       ...collectedTags.map((el) => `/api/1/tag/${lang}/${el}/1`),
       //
-      // `/api/1/seasons/${lang}`,
+      `/api/1/seasons/${lang}`,
       `/${lang}/seasons`,
       `/${lang}/tags`,
       `/${lang}/recent`,

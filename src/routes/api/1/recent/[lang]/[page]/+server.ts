@@ -10,8 +10,6 @@ import {
 import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers'
 
 
-//export const prerender = true
-
 export async function GET(event) {
   const pageNum = Number(event.params.page)
   const [rootPath, fileNames] = await readAllFilesRecursively(

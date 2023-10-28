@@ -1,40 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Single Page Apps for GitHub Pages</title>
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // https://github.com/rafgraph/spa-github-pages
-    // This script takes the current url and converts the path and query
-    // string into just a query string, and then redirects the browser
-    // to the new url with only a query string and hash fragment,
-    // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-    // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-    // Note: this 404.html file must be at least 512 bytes for it to work
-    // with Internet Explorer (it is currently > 512 bytes)
+<html lang="">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+		<link rel="mask-icon" href="/favicon-mask.svg" color="#000000">
+		<link rel="apple-touch-icon" href="/favicon180.png">
+		<meta name="viewport" content="width=device-width" />
+		
+		<link rel="modulepreload" href="/app/immutable/entry/start.ff3bf393.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/scheduler.d92df8e5.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/singletons.0b5dca94.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="/app/immutable/entry/app.dd5a4cdb.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/index.8ce64f8c.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_1vv1i43 = {
+						base: "",
+						env: {}
+					};
 
-    // If you're creating a Project Pages site and NOT using a custom domain,
-    // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-    // This way the code will only replace the route part of the path, and not
-    // the real directory in which the app resides, for example:
-    // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
-    // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-    // Otherwise, leave pathSegmentsToKeep as 0.
-    var pathSegmentsToKeep = 0;
+					const element = document.currentScript.parentElement;
 
-    var l = window.location;
-    l.replace(
-      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-      l.hash
-    );
+					Promise.all([
+						import("/app/immutable/entry/start.ff3bf393.js"),
+						import("/app/immutable/entry/app.dd5a4cdb.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
 
-  </script>
-</head>
-<body>
-</body>
+					if ('serviceWorker' in navigator) {
+						addEventListener('load', function () {
+							navigator.serviceWorker.register('/service-worker.js');
+						});
+					}
+				}
+			</script>
+		</div>
+	</body>
 </html>
