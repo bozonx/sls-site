@@ -80,18 +80,17 @@ function readDirRecursivelySync(rootDir, subDir = '') {
 function collectTagsSync(blogPath, blogPages) {
   let tags = []
 
-  // TODO: remove
-
-  return []
-
   for (const mdPath of blogPages) {
     const filePath = path.join(blogPath, mdPath)
     const content = fs.readFileSync(filePath, enc)
+    const splat = content
+      .split('---')
+      .map((el) => String(el).trim())
+      .filter((el) => Boolean(el))
+    const yamlString = splat[0]
 
-    // TODO: WTF ???
+    if (splat.length <= 1 || !yamlString.match(/^[\w\d\_]+\:\s*/)) continue
 
-    const splat = content.split('</meta>')
-    const yamlString = splat[0].replace('<meta>', '').trim()
     const metaData = yaml.parse(yamlString)
 
     tags = [
