@@ -91,6 +91,7 @@
 .html-block code {
   background: #e9e9e9;
   padding: 0.125rem 0.25rem;
+  overflow-x: auto;
 }
 .dark .html-block code {
   background: black;
@@ -118,4 +119,12 @@
 .html-block hr {
   margin-top: 2rem;
   margin-bottom: 2.5rem;
+}
+
+
+
+@media (max-width: 640px) {
+  .html-block code {
+    display: block;
+  }
 }
