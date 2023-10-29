@@ -17,14 +17,24 @@
   topBarDrawerSwitch.onclick = switchDrawer
   sideBarDrawerSwitch.onclick = closeDrawer
 
+  window.onresize = (event) => {
+    console.log(event.target.innerWidth)
+    if (event.target.innerWidth > breakPoint) {
+      openDrawer()
+    }
+    else {
+      closeDrawer()
+    }
+  }
+
   function switchDrawer() {
     isOpen = !isOpen
 
     if (isOpen) {
-      appDrawer.setAttribute('style', 'display: block;')
+      openDrawer()
     }
     else {
-      appDrawer.setAttribute('style', 'display: none;')
+      closeDrawer()
     }
   }
 
@@ -32,5 +42,10 @@
     isOpen = false
 
     appDrawer.setAttribute('style', 'display: none;')
+  }
+  function openDrawer() {
+    isOpen = false
+
+    appDrawer.setAttribute('style', 'display: block;')
   }
 })()
