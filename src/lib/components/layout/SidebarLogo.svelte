@@ -5,14 +5,12 @@ import {t} from '$lib/store/t'
 
 let className = ''
 
-export let closeDrawer
 export { className as class }
 </script>
 
 
 <a
   href={`/${$page.params.lang}`}
-  on:click={closeDrawer}
   class="flex items-center sidebar-logo {className}"
 >
   <img src="/images/site_logo.svg" class="h-16" alt="Project logo" />
