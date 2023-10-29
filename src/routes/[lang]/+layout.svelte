@@ -81,6 +81,14 @@ onMount(() => {
     showBackdrop = true
   }
 })
+
+/*
+    width={(breakPointReached) ? 'w-80' : 'w-72'}
+    class="overflow-y-visible max-lg:overflow-y-auto lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
+
+ */
+
+
 </script>
 
 <!--
@@ -105,38 +113,22 @@ onMount(() => {
     <TopBar {toggleDrawer} {breakPointReached} />
   </header>
 
-  <Drawer
-    transitionType={(breakPointReached) ? undefined : "fly"}
-    backdrop={showBackdrop}
-    transitionParams={(breakPointReached) ? transitionParams : undefined}
-    bind:hidden={drawerHidden}
-    bind:activateClickOutside
-    position={(breakPointReached) ? "fixed" : "absolute"}
-    width={(breakPointReached) ? 'w-80' : 'w-72'}
-    class="overflow-y-visible max-lg:overflow-y-auto lg:z-10 lg:h-fit flex flex-wrap !p-0 bg-gray-50 box-content border-r border-gray-100 dark:border-black"
-    id="sidebar"
-  >
-    <div>
-      <SideBar allTags={$allTags || {}} {closeDrawer} />
+  <div class="lg:flex w-full">
+    <div
+      id="app-drawer"
+      class="w-80 lg:w-72 max-lg:overflow-y-auto max-lg:fixed lg:h-fit"
+    >
+      <div>
+        <SideBar allTags={$allTags || {}} {closeDrawer} />
+      </div>
+
+      <SidebarFooter on:langSelect={closeDrawer} class="lg:hidden" />
+
+      <div class="sidebar-gradient max-lg:hidden" aria-hidden="true"><div></div></div>
     </div>
 
-    <SidebarFooter on:langSelect={closeDrawer} class="lg:hidden" />
-
-    <div class="sidebar-gradient max-lg:hidden" aria-hidden="true"><div></div></div>
-  </Drawer>
-
-  {#if scrollY > windowHeight / 2}
-    <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
-      <span on:click={() => scrollY = 0} aria-hidden="true">
-        <ToTheTop />
-      </span>
-    </div>
-  {/if}
-
-  <div class="flex px-4 sm:px-8 mx-auto w-full">
-    <div class="lg:ml-72 w-full mx-auto flex justify-center">
-
-      <main id="app-page" class="mt-4">
+    <div class="flex flex-1 justify-center">
+      <main id="app-page" class="mt-4 px-4 sm:px-8">
         <div class="lg:hidden mb-6 text-center text-2xl text-gray-600 dark:text-gray-300">
           {$t('chunks.projectFullName')}
         </div>
@@ -147,8 +139,15 @@ onMount(() => {
           <Footer />
         </div>
       </main>
-
     </div>
   </div>
+
+  {#if scrollY > windowHeight / 2}
+    <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
+          <span on:click={() => scrollY = 0} aria-hidden="true">
+            <ToTheTop />
+          </span>
+    </div>
+  {/if}
 
 </div>

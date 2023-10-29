@@ -16,7 +16,7 @@ export let breakPointReached
 		{#if breakPointReached}
 			<ul class="flex pl-1 pr-1">
 				<li>
-					<TopBarLink isIcon={true} on:click={toggleDrawer}><BarsSolid /></TopBarLink>
+					<TopBarLink id="topbar-drawer-switch" isIcon={true} on:click={toggleDrawer}><BarsSolid /></TopBarLink>
 				</li>
 			</ul>
 		{/if}
