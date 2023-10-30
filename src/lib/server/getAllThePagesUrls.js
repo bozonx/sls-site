@@ -31,14 +31,16 @@ export function getAllThePagesUrls() {
 
       // ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
       //...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
-      ...collectedTags.map((el) => `/${lang}/tags/${el}`),
-      ...collectedTags.map((el) => `/api/1/tag/${lang}/${el}/1`),
-      //
-      `/api/1/seasons/${lang}`,
-      //`/${lang}/seasons`,
-      `/${lang}/tags`,
-      `/${lang}/recent`,
-      `/${lang}/page/links`,
+
+
+      // ...collectedTags.map((el) => `/${lang}/tags/${el}`),
+      // ...collectedTags.map((el) => `/api/1/tag/${lang}/${el}/1`),
+      // //
+      // `/api/1/seasons/${lang}`,
+      // //`/${lang}/seasons`,
+      // `/${lang}/tags`,
+      // `/${lang}/recent`,
+      // `/${lang}/page/links`,
       `/${lang}`,
 
       // ...blogPages.map((item) => path.join('/', lang, blogDir, item.replace(/\/index.md$/, ''))),
