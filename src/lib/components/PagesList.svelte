@@ -17,6 +17,7 @@ $: paginationBaseUrl = $page.url.pathname.replace(/\/\d+$/, '')
 export { className as class }
 export let res
 export let baseUrl
+
 </script>
 
 <div class="{className}">
