@@ -7,7 +7,7 @@ import TagList from "$lib/components/TagList.svelte";
 export let name
 export let title
 export let dateLocal = null
-export let tags = []
+export let tags = {}
 export let descr
 export let baseUrl
 export let thumbUrl = null
@@ -34,7 +34,7 @@ export let thumbUrl = null
           <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{dateLocal}</div>
         {/if}
 
-        {#if tags && tags.length}
+        {#if Object.keys(tags || {}).length}
           <TagList tags={tags} class="mt-2" />
         {/if}
       </div>
@@ -48,7 +48,7 @@ export let thumbUrl = null
 
   {#if !thumbUrl}
     <div class="flex items-end mt-4">
-      {#if tags && tags.length}
+      {#if Object.keys(tags || {}).length}
         <TagList tags={tags} class="flex-1 mr-2" />
       {/if}
 

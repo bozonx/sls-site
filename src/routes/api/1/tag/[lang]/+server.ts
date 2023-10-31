@@ -14,7 +14,7 @@ export async function GET(event) {
     event,
     BLOG_DIR
   )
-  let tags: string[] = []
+  let tags: Record<string, TagItem> = {}
 
   for (const filePath of fileNames) {
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
@@ -24,19 +24,24 @@ export async function GET(event) {
       filePath
     )
 
-    tags = [
+    // TODO: поидее объект не нужен
+    tags = {
       ...tags,
       ...meta.tags,
-    ]
+    }
   }
 
-  tags.sort()
+  const tagsNames = Object.keys(tags)
+
+  tagsNames.sort()
 
   const tagsWithCount: Record<string, TagItem> = {}
 
-  for (const tag of tags) {
+  for (const tag of tagsNames) {
     if (tagsWithCount[tag]) {
-      ++tagsWithCount[tag].count
+      if (typeof tagsWithCount[tag].count === 'number') {
+        ++tagsWithCount[tag].count!
+      }
     }
     else {
       tagsWithCount[tag] = {

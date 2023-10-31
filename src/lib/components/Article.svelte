@@ -13,7 +13,7 @@
   export let title
   export let html
   export let dateLocal = null
-  export let tags = []
+  export let tags = {}
   export let commentUrl = null
   export let videoLink = null
   export let podcasts = null
@@ -73,7 +73,7 @@
     </div>
   {/if}
 
-  {#if tags && tags.length}
+  {#if Object.keys(tags || {}).length}
     <TagList tags={tags} class="mt-6" />
   {/if}
 </article>
