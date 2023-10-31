@@ -6,7 +6,7 @@ import {
   extractMetaDataFromMdPage
 } from '$lib/server/helpers.server'
 import type {TagItem} from '$lib/types/TagItem'
-import {transliterate} from '$lib/server/helpers.server'
+import {transliterate} from "$lib/server/helpers.jsserver.js"
 
 
 export async function GET(event) {
