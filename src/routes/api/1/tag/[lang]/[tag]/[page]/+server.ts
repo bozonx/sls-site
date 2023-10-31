@@ -28,7 +28,9 @@ export async function GET(event) {
       removeIndexMd(filePath)
     )
 
-    if (meta.tags.includes(tagName)) allFiles.push(meta)
+    if (
+      Object.keys(meta.tags).find((el) => meta.tags[el].slug === tagName)
+    ) allFiles.push(meta)
   }
 
   if (!allFiles.length) throw error(404)
