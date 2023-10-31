@@ -5,6 +5,8 @@ import {
   readAllFilesRecursively,
   extractMetaDataFromMdPage
 } from '$lib/server/helpers.server'
+import type {TagItem} from '$lib/types/TagItem'
+import {transliterate} from '$lib/server/helpers.server'
 
 
 export async function GET(event) {
@@ -30,14 +32,17 @@ export async function GET(event) {
 
   tags.sort()
 
-  const tagsWithCount: Record<string, number> = {}
+  const tagsWithCount: Record<string, TagItem> = {}
 
   for (const tag of tags) {
     if (tagsWithCount[tag]) {
-      ++tagsWithCount[tag]
+      ++tagsWithCount[tag].count
     }
     else {
-      tagsWithCount[tag] = 1
+      tagsWithCount[tag] = {
+        slug: transliterate(tag, event.params.lang),
+        count: 1
+      }
     }
   }
 

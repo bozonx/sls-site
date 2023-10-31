@@ -54,7 +54,7 @@ export let allTags
           <ChevronDoubleDownOutline class="w-3 h-3" />
         </svelte:fragment>
 
-        <TagList class="ml-2" tags={Object.keys(allTags)} />
+        <TagList class="ml-2" tags={allTags} />
       </SidebarDropdownWrapper>
 
       <MySidebarItem label={$t('link.allTags')} href="/tags" icon={LayersOutline} />
