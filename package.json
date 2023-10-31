@@ -31,6 +31,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "remark-stringify": "^11.0.0",
+    "slug": "^8.2.3",
     "squidlet-lib": "^0.1.6",
     "svelte": "^4.0.5",
     "svelte-check": "^3.4.3",

@@ -20,6 +20,8 @@ import type {PageItemData} from '../types/PageItemData';
 import type {PageMetaData} from '../types/PageMetaData';
 import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
 import {PAGES_FULL_DIR, PAGES_DIR, TEXTS_DIR} from "$lib/constants"
+import type {TagItem} from '../types/TagItem';
+import {transliterate} from "$lib/server/helpers.jsserver.js"
 
 
 export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
@@ -150,6 +152,15 @@ export async function extractMetaDataFromMdPage(
     throw new Error(`Md file "${name}" doesn't have a title`)
   }
 
+  const tags: Record<string, TagItem> = {}
+
+  for (const item of rawMetaData.tags || []) {
+    tags[item] = { slug: transliterate(item, lang) }
+  }
+
+  // TODO: sort tags
+  //tags.sort()
+
   const meta: PageMetaData = {
     name,
     title: '',
@@ -158,6 +169,7 @@ export async function extractMetaDataFromMdPage(
     dateLocal: (rawMetaData.date)
         ? moment(rawMetaData.date).locale(lang).format('LL')
         : undefined,
+    tags,
   }
 
   const firstImgMatch = md.match(FIND_MD_IMAGE_REGEX)

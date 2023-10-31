@@ -16,16 +16,16 @@
 </script>
 
 <div class="sm:grid grid-cols-4 gap-2 max-sm:space-x-1 max-sm:space-y-2 {className}">
-  {#each Object.keys(tags) as tag}
-    {#key `${$page.url.pathname} ${tag}`}
+  {#each Object.keys(tags) as tagName}
+    {#key `${$page.url.pathname} ${tags[tagName].slug}`}
       <Button
         on:click={() => dispatch('selected')}
-        href={`/${$page.params.lang}/tags/${tag}/1`}
+        href={`/${$page.params.lang}/tags/${tags[tagName].slug}/1`}
         pill
         size="lg"
-        color={(isActive(tag)) ? 'purple' : 'blue'}
+        color={(isActive(tags[tagName].slug)) ? 'purple' : 'blue'}
         class="py-1 px-4"
-      >{tag} ({tags[tag]})</Button>
+      >{tagName} ({tags[tagName].count})</Button>
     {/key}
   {/each}
 </div>

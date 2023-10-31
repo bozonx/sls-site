@@ -32,17 +32,10 @@ body {
 	margin: 0;
 }
 
-#app-page {
-  width: 100%
-}
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
 	#app-page {
-    width: 840px
+    width: 840px;
 	}
-}
-
-#sidebar > div {
-	width: 100%;
 }
 
 svg {
@@ -53,23 +46,27 @@ button {
 	outline: 0;
 }
 
+/******** App Drawer */
 
-/******** Img Modal */
-.img-modal > div > div {
-	background: none !important;
-}
-.img-modal div[role="document"] {
-	padding: 0 !important;
-	display: flex;
-	justify-content: center;
-}
-.img-modal button {
-	margin-top: -3.5rem;
-	margin-right: -0.25rem;
+#app-drawer {
+	border-right: 1px solid #333;
+	box-sizing: content-box;
+	background: #ccc;
+	overflow-x: visible;
+	overflow-y: visible;
+	z-index: 10;
+	top: 0;
+	bottom: 0;
 }
 
+.dark #app-drawer {
+	background: rgb(31 41 55);
+}
 
-/******** Layout */
+.dark #app-drawer {
+	border-right: 1px solid black;
+}
+
 .sidebar-gradient {
 	width: 100%;
 	position: relative;
@@ -86,6 +83,26 @@ button {
 	background: rgb(17,24,39);
 	background: linear-gradient(0deg, rgba(17,24,39,1) 0%, rgba(17,24,39,0) 100%);
 }
+
+/*#sidebar > div {
+	width: 100%;
+}*/
+
+
+/******** Img Modal */
+.img-modal > div > div {
+	background: none !important;
+}
+.img-modal div[role="document"] {
+	padding: 0 !important;
+	display: flex;
+	justify-content: center;
+}
+.img-modal button {
+	margin-top: -3.5rem;
+	margin-right: -0.25rem;
+}
+
 
 /******** PagePreviewListItem */
 .page-list-item:hover {

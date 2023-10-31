@@ -10,6 +10,7 @@ export async function GET(event) {
   const blogDir = path.join(ROOT_DIR, TEXTS_DIR, event.params.lang, BLOG_DIR)
   const result = await fs.readdir(blogDir, FILE_ENCODE)
 
+
   result.sort()
   result.reverse()
 

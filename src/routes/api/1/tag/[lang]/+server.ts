@@ -5,6 +5,8 @@ import {
   readAllFilesRecursively,
   extractMetaDataFromMdPage
 } from '$lib/server/helpers.server'
+import type {TagItem} from '$lib/types/TagItem'
+import {transliterate} from "$lib/server/helpers.jsserver.js"
 
 
 export async function GET(event) {
@@ -12,7 +14,7 @@ export async function GET(event) {
     event,
     BLOG_DIR
   )
-  let tags: string[] = []
+  let tags: Record<string, TagItem> = {}
 
   for (const filePath of fileNames) {
     const content = await fs.readFile(path.join(rootPath, filePath), FILE_ENCODE)
@@ -22,22 +24,30 @@ export async function GET(event) {
       filePath
     )
 
-    tags = [
+    // TODO: поидее объект не нужен
+    tags = {
       ...tags,
       ...meta.tags,
-    ]
+    }
   }
 
-  tags.sort()
+  const tagsNames = Object.keys(tags)
 
-  const tagsWithCount: Record<string, number> = {}
+  tagsNames.sort()
 
-  for (const tag of tags) {
+  const tagsWithCount: Record<string, TagItem> = {}
+
+  for (const tag of tagsNames) {
     if (tagsWithCount[tag]) {
-      ++tagsWithCount[tag]
+      if (typeof tagsWithCount[tag].count === 'number') {
+        ++tagsWithCount[tag].count!
+      }
     }
     else {
-      tagsWithCount[tag] = 1
+      tagsWithCount[tag] = {
+        slug: transliterate(tag, event.params.lang),
+        count: 1
+      }
     }
   }
 

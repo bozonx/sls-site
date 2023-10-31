@@ -4,6 +4,7 @@ import {deduplicate} from 'squidlet-lib';
 import {fileURLToPath} from 'node:url';
 import {pathTrimExt} from 'squidlet-lib';
 import yaml from "yaml";
+import {transliterate} from "./helpers.jsserver.js"
 
 
 const filename = fileURLToPath(import.meta.url);
@@ -30,12 +31,13 @@ export function getAllThePagesUrls() {
       ...res,
 
       // ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
-      //...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
-      ...collectedTags.map((el) => `/${lang}/tags/${el}`),
-      ...collectedTags.map((el) => `/api/1/tag/${lang}/${el}/1`),
-      //
-      `/api/1/seasons/${lang}`,
-      //`/${lang}/seasons`,
+      // ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
+
+      ...collectedTags.map((el) => `/${lang}/tags/${transliterate(el, lang)}`),
+      ...collectedTags.map((el) => `/api/1/tag/${lang}/${transliterate(el, lang)}/1`),
+
+      // `/api/1/seasons/${lang}`,
+      // `/${lang}/seasons`,
       `/${lang}/tags`,
       `/${lang}/recent`,
       `/${lang}/page/links`,
