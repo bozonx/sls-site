@@ -3,6 +3,7 @@ import {replaceExt} from 'squidlet-lib';
 import { error } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import yaml from 'yaml';
+import slug from 'slug'
 import moment from 'moment';
 import {unified} from 'unified';
 import rehypeStringify from 'rehype-stringify';
@@ -21,6 +22,33 @@ import type {PageMetaData} from '../types/PageMetaData';
 import {FIND_MD_IMAGE_REGEX, ROOT_DIR} from './constants.server';
 import {PAGES_FULL_DIR, PAGES_DIR, TEXTS_DIR} from "$lib/constants"
 
+
+export function transliterate(rawStr: string, lang: string): string {
+  //  {transliterate('ĉĤdgŝ', 'eo')}
+  if (lang === 'eo') {
+    const charTable = {
+      'ĉ': 'cy',
+      'Ĉ': 'Cy',
+      'ĝ': 'gy',
+      'Ĝ': 'Gy',
+      'ĥ': 'x',
+      'Ĥ': 'X',
+      'ĵ': 'jy',
+      'Ĵ': 'Jy',
+      'ŝ': 'sy',
+      'Ŝ': 'Sy',
+      'ŭ': 'w',
+      'Ŭ': 'W',
+    }
+
+    return rawStr
+      .split('')
+      .map((el) => (charTable[el]) ? charTable[el] : el)
+      .join('')
+  }
+
+  return slug(rawStr, { locale: lang })
+}
 
 export function sortPageItemsByDateDesc(allFiles: PageItemData[]): PageItemData[] {
   return [...allFiles].sort((a: PageItemData, b: PageItemData) => {
