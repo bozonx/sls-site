@@ -24,13 +24,13 @@ export let data: {
 }
 
 const allTags = writable()
-let transitionParams = {
-  x: -320,
-  duration: 200,
-  easing: sineIn
-}
-let scrollY: number
-let windowHeight: number
+// let transitionParams = {
+//   x: -320,
+//   duration: 200,
+//   easing: sineIn
+// }
+// let scrollY: number
+// let windowHeight: number
 
 setContext(ALL_TAGS_CONTEXT, allTags)
 
@@ -47,10 +47,12 @@ onMount(() => {
 </svelte:head>
 -->
 
+<!--
 <svelte:window
   bind:innerHeight={windowHeight}
   bind:scrollY={scrollY}
 />
+-->
 
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
   <header>
@@ -71,7 +73,7 @@ onMount(() => {
       <div class="sidebar-gradient max-lg:hidden" aria-hidden="true"><div></div></div>
     </div>
 
-    <div class="flex flex-1 justify-center">
+    <div class="lg:flex flex-1 justify-center">
       <main id="app-page" class="mt-4 px-4 sm:px-8">
         <div class="lg:hidden mb-6 text-center text-2xl text-gray-600 dark:text-gray-300">
           {$t('chunks.projectFullName')}
@@ -79,19 +81,23 @@ onMount(() => {
 
         <slot />
 
-        <div class="mt-24 mb-8">
+        <div class="mt-24 pb-8">
           <Footer />
         </div>
       </main>
     </div>
   </div>
 
-  {#if scrollY > windowHeight / 2}
-    <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
-          <span on:click={() => scrollY = 0} aria-hidden="true">
+  <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
+          <span aria-hidden="true">
             <ToTheTop />
           </span>
-    </div>
+  </div>
+
+<!--
+  {#if scrollY > windowHeight / 2}
+
   {/if}
+-->
 
 </div>

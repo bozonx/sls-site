@@ -1,10 +1,8 @@
 <script>
 import {Button} from "flowbite-svelte"
 import {page} from "$app/stores";
-import { createEventDispatcher } from 'svelte';
 
 
-const dispatch = createEventDispatcher()
 let className = ''
 
 // TODO: review
@@ -21,7 +19,6 @@ export { className as class }
   {#each Object.keys(tags) as tagName}
     {#key `${$page.url.pathname} ${tags[tagName].slug}`}
       <Button
-        on:click={() => dispatch('selected')}
         href={`/${$page.params.lang}/tags/${tags[tagName].slug}/1`}
         pill
         size="sm"

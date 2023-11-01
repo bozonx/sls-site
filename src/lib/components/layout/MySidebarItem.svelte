@@ -16,7 +16,6 @@ export let icon
 </script>
 
 <SidebarItem
-  on:click
   {label}
   target={(internalLink) ? undefined : '_blank'}
   href={resolvedHref}
