@@ -91,7 +91,46 @@ button {
 
 
 /******** Img Modal */
-.img-modal > div > div {
+.img-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.85);
+	z-index: 50;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+@media (min-width: 800px) {
+	.img-modal {
+		padding: 1rem;
+	}
+}
+
+.img-modal > div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1.5rem 2rem;
+}
+.img-modal > div span {
+	color: #aaa;
+	font-size: 1.35rem;
+}
+.img-modal > div span:hover {
+	color: #fff;
+}
+
+
+.img-modal img {
+
+}
+
+/*.img-modal > div > div {
 	background: none !important;
 }
 .img-modal div[role="document"] {
@@ -102,7 +141,7 @@ button {
 .img-modal button {
 	margin-top: -3.5rem;
 	margin-right: -0.25rem;
-}
+}*/
 
 
 /******** PagePreviewListItem */

@@ -8,6 +8,7 @@
   const sideBarDrawerSwitchId = 'sidebar-drawer-switch'
   const appDrawerId = 'app-drawer'
   const themeBtnClass = 'thememode-btn'
+  const imgModalClass = 'img-modal'
   const topBarDrawerSwitch = document.getElementById(topBarDrawerSwitchId)
   const sideBarDrawerSwitch = document.getElementById(sideBarDrawerSwitchId)
   const themeBtns = document.getElementsByClassName(themeBtnClass)
@@ -53,6 +54,13 @@
     }
   }
 
+  // images
+  for (const item of document.getElementsByClassName('html-block')) {
+    for (const img of item.getElementsByTagName('img')) {
+      img.onclick = () => openImgModal(img.attributes['data-full'].nodeValue)
+    }
+  }
+
   function switchDrawer() {
     isOpen = !isOpen
 
@@ -86,5 +94,16 @@
       localStorage.setItem('color-theme', 'dark')
       htmlTag.className = 'dark'
     }
+  }
+
+  function openImgModal(imgUrl) {
+    const div = document.createElement("div");
+
+    div.className = imgModalClass
+    div.innerHTML = `<div><span>🗙</span></div><img src="${imgUrl}" alt="Enlarged image" />`
+
+    document.getElementsByTagName('body')[0].prepend(div)
+
+    div.onclick = () => div.remove()
   }
 })()

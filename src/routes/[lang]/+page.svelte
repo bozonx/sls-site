@@ -20,7 +20,7 @@ export let data
 </svelte:head>
 
 <section>
-	<div class="html-block">
+	<div>
 		<RenderHtml html={data.result.html} />
 	</div>
 
