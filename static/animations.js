@@ -54,6 +54,13 @@
     }
   }
 
+  // list item
+  for (const item of document.getElementsByClassName('page-list-item')) {
+    const href = item.attributes['data-href'].nodeValue
+
+    item.onclick = () => location.pathname = href
+  }
+
   // images
   for (const item of document.getElementsByClassName('html-block')) {
     for (const img of item.getElementsByTagName('img')) {
