@@ -59,6 +59,7 @@ onMount(() => {
 
       <div class="sidebar-gradient max-lg:hidden" aria-hidden="true"><div></div></div>
     </div>
+    <div id="app-drawer-backdrop" class="hidden"></div>
   </div>
   <!-- right col-->
   <div class="flex-1">
@@ -83,7 +84,7 @@ onMount(() => {
     </div>
   </div>
 
-  <div id="to-the-top" class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
+  <div id="to-the-top" class="bottom-0 fixed mb-8 ml-4 max-lg:hidden hidden" aria-hidden="true">
     <span aria-hidden="true">
       <ToTheTop />
     </span>

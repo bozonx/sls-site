@@ -52,8 +52,7 @@ button {
 	border-right: 1px solid #e2e2e2;
 	box-sizing: content-box;
 	background: #F9FAFBFF;
-	overflow-x: visible;
-	overflow-y: visible;
+	overflow-x: clip;
 	z-index: 10;
 	top: 0;
 	bottom: 0;
@@ -66,6 +65,17 @@ button {
 
 .dark #app-drawer {
 	border-right: 1px solid black;
+}
+
+#app-drawer-backdrop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.85);
+	z-index: 9;
+	cursor: pointer;
 }
 
 .sidebar-gradient {

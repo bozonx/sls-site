@@ -7,12 +7,14 @@
   const topBarDrawerSwitchId = 'topbar-drawer-switch'
   const sideBarDrawerSwitchId = 'sidebar-drawer-switch'
   const appDrawerId = 'app-drawer'
+  const appDrawerBackdropId = 'app-drawer-backdrop'
   const themeBtnClass = 'thememode-btn'
   const imgModalClass = 'img-modal'
   const topBarDrawerSwitch = document.getElementById(topBarDrawerSwitchId)
   const sideBarDrawerSwitch = document.getElementById(sideBarDrawerSwitchId)
   const themeBtns = document.getElementsByClassName(themeBtnClass)
   const appDrawer = document.getElementById(appDrawerId)
+  const appDrawerBackdrop = document.getElementById(appDrawerBackdropId)
   const storedColorScheme = localStorage.getItem('color-theme')
   const htmlTag = document.getElementsByTagName('html')[0]
   let isOpen = breakPoint < windowWidth
@@ -40,6 +42,7 @@
 
   topBarDrawerSwitch.onclick = switchDrawer
   sideBarDrawerSwitch.onclick = closeDrawer
+  appDrawerBackdrop.onclick = closeDrawer
 
   document.getElementById('to-the-top')
     .onclick = () => window.scrollTo(0, 0)
@@ -50,10 +53,10 @@
 
   window.onresize = (event) => {
     if (event.target.innerWidth > breakPoint) {
-      openDrawer()
+      if (!isOpen) openDrawer(true)
     }
     else {
-      closeDrawer()
+      if (isOpen) closeDrawer()
     }
   }
 
@@ -99,11 +102,14 @@
     isOpen = false
 
     appDrawer.setAttribute('style', 'display: none;')
+    appDrawerBackdrop.className = 'hidden'
   }
-  function openDrawer() {
-    isOpen = false
+  function openDrawer(onlyDrawer = false) {
+    isOpen = true
 
     appDrawer.setAttribute('style', 'display: block;')
+
+    if (!onlyDrawer) appDrawerBackdrop.className = ''
   }
 
   function handleThemeBtnClick() {
