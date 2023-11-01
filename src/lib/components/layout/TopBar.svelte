@@ -10,14 +10,14 @@ import {t} from '$lib/store/t'
 <div class="flex w-full py-2 px-2">
 	<div class="flex-1">
 		<ul class="flex pl-1 pr-1">
-			<li>
+			<li class="lg:hidden">
 				<TopBarLink id="topbar-drawer-switch" isIcon={true}><BarsSolid /></TopBarLink>
 			</li>
 		</ul>
 	</div>
 
 	<ul class="flex">
-		<li><TopBarLink href={`/${$page.params.lang}`}>{$t('link.home')}</TopBarLink></li>
+		<li class="max-lg:hidden"><TopBarLink href={`/${$page.params.lang}`}>{$t('link.home')}</TopBarLink></li>
 		<li>
 			<TopBarLink href={`/${$page.params.lang}/page/donate`}>
 				<HeartSolid /><span>{$t('link.donate')}</span>
@@ -26,7 +26,7 @@ import {t} from '$lib/store/t'
 		<!--
 		<li><TopBarLink isIcon={true}><SearchSolid class="w-5 h-5" /></TopBarLink></li>
 		-->
-		<li><SwitchLanguage /></li>
-		<li><DarkModeSwitch /></li>
+		<li class="max-lg:hidden"><SwitchLanguage /></li>
+		<li class="max-lg:hidden"><DarkModeSwitch /></li>
 	</ul>
 </div>

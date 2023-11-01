@@ -49,9 +49,9 @@ button {
 /******** App Drawer */
 
 #app-drawer {
-	border-right: 1px solid #333;
+	border-right: 1px solid #e2e2e2;
 	box-sizing: content-box;
-	background: #ccc;
+	background: #F9FAFBFF;
 	overflow-x: visible;
 	overflow-y: visible;
 	z-index: 10;
@@ -61,6 +61,7 @@ button {
 
 .dark #app-drawer {
 	background: rgb(31 41 55);
+	border-right-color: #000;
 }
 
 .dark #app-drawer {

@@ -45,7 +45,6 @@
   }
 
   window.onresize = (event) => {
-    console.log(event.target.innerWidth)
     if (event.target.innerWidth > breakPoint) {
       openDrawer()
     }
