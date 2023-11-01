@@ -1,12 +1,12 @@
 <script lang="ts">
 import {onMount, setContext} from 'svelte'
-import {Drawer, Modal, Img} from 'flowbite-svelte'
+import {Drawer, Img} from 'flowbite-svelte'
 import {writable} from 'svelte/store'
 import {sineIn} from 'svelte/easing'
 import "../../app.postcss"
 import "../../styles/styles.css"
 import {page} from '$app/stores'
-import {ALL_TAGS_CONTEXT, OPEN_IMG_MODAL_CONTEXT} from '$lib/constants'
+import {ALL_TAGS_CONTEXT} from '$lib/constants'
 import SidebarFooter from '$lib/components/layout/SidebarFooter.svelte'
 import TopBar from '$lib/components/layout/TopBar.svelte'
 import SideBar from "$lib/components/layout/SideBar.svelte"
@@ -31,14 +31,8 @@ let transitionParams = {
 }
 let scrollY: number
 let windowHeight: number
-let modalOpened: boolean = false
-let modalImgSrc: string | null = null
 
 setContext(ALL_TAGS_CONTEXT, allTags)
-setContext(OPEN_IMG_MODAL_CONTEXT, (imgSrc: string) => {
-  modalImgSrc = imgSrc
-  modalOpened = true
-})
 
 $: allTags.set(data.allTags)
 
@@ -57,13 +51,6 @@ onMount(() => {
   bind:innerHeight={windowHeight}
   bind:scrollY={scrollY}
 />
-
-<!--
-
-<Modal dialogClass="fixed top-0 left-0 right-0 h-modal md:inset-0 md:h-full z-50 w-full lg:p-2 flex justify-center items-center img-modal" bind:open={modalOpened} autoclose outsideclose size="xl">
-  <Img src={modalImgSrc} alt="Enlarged image" />
-</Modal>
--->
 
 <div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
   <header>

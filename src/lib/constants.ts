@@ -4,7 +4,6 @@ export const SIMILAR_COUNT = 5
 export const FILE_ENCODE = 'utf8'
 export const DEFAULT_LANG = 'en'
 export const ALL_TAGS_CONTEXT = 'allTags'
-export const OPEN_IMG_MODAL_CONTEXT = 'openImgModal'
 export const TEXTS_DIR = 'texts'
 export const BLOG_DIR = 'blog'
 export const PAGE_DIR = 'page'
