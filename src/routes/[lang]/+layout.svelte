@@ -1,8 +1,6 @@
 <script lang="ts">
 import {onMount, setContext} from 'svelte'
-import {Drawer, Img} from 'flowbite-svelte'
 import {writable} from 'svelte/store'
-import {sineIn} from 'svelte/easing'
 import "../../app.postcss"
 import "../../styles/styles.css"
 import {page} from '$app/stores'
@@ -24,13 +22,6 @@ export let data: {
 }
 
 const allTags = writable()
-// let transitionParams = {
-//   x: -320,
-//   duration: 200,
-//   easing: sineIn
-// }
-// let scrollY: number
-// let windowHeight: number
 
 setContext(ALL_TAGS_CONTEXT, allTags)
 
@@ -49,17 +40,13 @@ onMount(() => {
 
 <!--
 <svelte:window
-  bind:innerHeight={windowHeight}
   bind:scrollY={scrollY}
 />
 -->
 
-<div class="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
-  <header>
-    <TopBar />
-  </header>
-
-  <div class="lg:flex w-full">
+<div class="min-h-screen lg:flex w-full dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
+  <!--  left col-->
+  <div>
     <div
       id="app-drawer"
       class="w-80 lg:w-72 max-lg:overflow-y-auto max-lg:fixed lg:h-fit"
@@ -72,8 +59,15 @@ onMount(() => {
 
       <div class="sidebar-gradient max-lg:hidden" aria-hidden="true"><div></div></div>
     </div>
+  </div>
+  <!-- right col-->
+  <div class="flex-1">
+    <header>
+      <TopBar />
+    </header>
 
-    <div class="lg:flex flex-1 justify-center">
+    <div class="lg:flex justify-center">
+
       <main id="app-page" class="mt-4 px-4 sm:px-8">
         <div class="lg:hidden mb-6 text-center text-2xl text-gray-600 dark:text-gray-300">
           {$t('chunks.projectFullName')}
@@ -85,19 +79,14 @@ onMount(() => {
           <Footer />
         </div>
       </main>
+
     </div>
   </div>
 
   <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
-          <span aria-hidden="true">
-            <ToTheTop />
-          </span>
+    <span aria-hidden="true">
+      <ToTheTop />
+    </span>
   </div>
-
-<!--
-  {#if scrollY > windowHeight / 2}
-
-  {/if}
--->
 
 </div>
