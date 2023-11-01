@@ -33,14 +33,16 @@ export function getAllThePagesUrls() {
       // ...seasons.map((el) => `/${lang}/seasons/${el}/1`),
       // ...seasons.map((el) => `/api/1/seasons/${lang}/${el}/1`),
 
-      ...collectedTags.map((el) => `/${lang}/tags/${transliterate(el, lang)}`),
       ...collectedTags.map((el) => `/api/1/tag/${lang}/${transliterate(el, lang)}/1`),
+      //...collectedTags.map((el) => `/${lang}/tags/${transliterate(el, lang)}/1`),
 
       // `/api/1/seasons/${lang}`,
       // `/${lang}/seasons`,
-      `/${lang}/tags`,
-      `/${lang}/recent`,
-      `/${lang}/page/links`,
+      //`/${lang}/tags`,
+      `/${lang}/recent/1`,
+
+      //`/${lang}/page/links`,
+
       `/${lang}`,
 
       // ...blogPages.map((item) => path.join('/', lang, blogDir, item.replace(/\/index.md$/, ''))),

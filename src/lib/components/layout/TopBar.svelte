@@ -1,8 +1,8 @@
 <script>
-import {DarkMode} from "flowbite-svelte";
 import {HeartSolid, BarsSolid} from "flowbite-svelte-icons";
 import { page } from '$app/stores';
 import SwitchLanguage from "$lib/components/layout/SwitchLanguage.svelte";
+import DarkModeSwitch from "$lib/components/layout/DarkModeSwitch.svelte";
 import TopBarLink from "./TopBarLink.svelte";
 import {t} from '$lib/store/t'
 </script>
@@ -27,6 +27,6 @@ import {t} from '$lib/store/t'
 		<li><TopBarLink isIcon={true}><SearchSolid class="w-5 h-5" /></TopBarLink></li>
 		-->
 		<li><SwitchLanguage /></li>
-		<li><DarkMode size="lg" /></li>
+		<li><DarkModeSwitch /></li>
 	</ul>
 </div>

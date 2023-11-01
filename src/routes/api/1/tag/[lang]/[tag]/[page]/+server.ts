@@ -11,7 +11,11 @@ import {
 import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers'
 
 
+// TODO: тут tag будет транслитерированный
+
 export async function GET(event) {
+  //return new Response(JSON.stringify({result: []}))
+
   const pageNum = Number(event.params.page)
   const tagName = event.params.tag
   const [rootPath, fileNames] = await readAllFilesRecursively(
