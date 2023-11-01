@@ -83,7 +83,7 @@ onMount(() => {
     </div>
   </div>
 
-  <div class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
+  <div id="to-the-top" class="bottom-0 fixed mb-8 ml-4 max-lg:hidden" aria-hidden="true">
     <span aria-hidden="true">
       <ToTheTop />
     </span>

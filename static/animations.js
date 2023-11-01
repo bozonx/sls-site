@@ -41,6 +41,9 @@
   topBarDrawerSwitch.onclick = switchDrawer
   sideBarDrawerSwitch.onclick = closeDrawer
 
+  document.getElementById('to-the-top')
+    .onclick = () => window.scrollTo(0, 0)
+
   for (const item of themeBtns) {
     item.onclick = handleThemeBtnClick
   }
@@ -51,6 +54,19 @@
     }
     else {
       closeDrawer()
+    }
+  }
+
+  window.onscroll = (event) => {
+    const classArr = document.getElementById('to-the-top').className
+      .split(' ')
+      .filter((item) => item !== 'hidden')
+
+    if (window.scrollY > window.innerHeight / 2) {
+      document.getElementById('to-the-top').className = classArr.join(' ')
+    }
+    else {
+      document.getElementById('to-the-top').className = classArr.join(' ') + ' hidden'
     }
   }
 
