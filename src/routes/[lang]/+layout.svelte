@@ -49,7 +49,7 @@ onMount(() => {
   <div>
     <div
       id="app-drawer"
-      class="w-80 lg:w-72 max-lg:overflow-y-auto max-lg:fixed lg:h-fit"
+      class="w-80 lg:w-72 max-lg:overflow-y-auto max-lg:overflow-x-clip max-lg:fixed lg:h-fit"
     >
       <div>
         <SideBar allTags={$allTags || {}} />

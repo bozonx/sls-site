@@ -52,7 +52,6 @@ button {
 	border-right: 1px solid #e2e2e2;
 	box-sizing: content-box;
 	background: #F9FAFBFF;
-	overflow-x: clip;
 	z-index: 10;
 	top: 0;
 	bottom: 0;
