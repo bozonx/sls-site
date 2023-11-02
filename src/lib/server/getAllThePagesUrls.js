@@ -1,10 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path';
-import {deduplicate} from 'squidlet-lib';
-import {fileURLToPath} from 'node:url';
-import {pathTrimExt} from 'squidlet-lib';
+import {deduplicate, pathTrimExt} from 'squidlet-lib';
 import yaml from "yaml";
 import {transliterate} from "./helpers.jsserver.js"
+import {fileURLToPath} from 'node:url';
 
 
 const filename = fileURLToPath(import.meta.url);
@@ -12,8 +11,8 @@ const myDirname = path.dirname(filename)
 const prjRootDir = path.resolve(myDirname, '../../../')
 const textsDir = path.join(prjRootDir, 'texts')
 const enc = 'utf8'
-const blogDir = 'blog'
-const pageDir = 'page'
+// const blogDir = 'blog'
+// const pageDir = 'page'
 
 
 export function getAllThePagesUrls() {
@@ -21,10 +20,10 @@ export function getAllThePagesUrls() {
   const langs = fs.readdirSync(textsDir, enc)
 
   for (const lang of langs) {
-    const blogPath = path.join(textsDir, lang, blogDir)
-    const seasons = fs.readdirSync(blogPath, enc)
-    const blogPages = readDirRecursivelySync(blogPath)
-    const collectedTags = collectTagsSync(blogPath, blogPages)
+    // const blogPath = path.join(textsDir, lang, blogDir)
+    // const seasons = fs.readdirSync(blogPath, enc)
+    // const blogPages = readDirRecursivelySync(blogPath)
+    // const collectedTags = collectTagsSync(blogPath, blogPages)
     //const pagePages = readDirRecursivelySync(path.join(textsDir, lang, pageDir))
 
     res = [
@@ -57,53 +56,53 @@ export function getAllThePagesUrls() {
 }
 
 
-function readDirRecursivelySync(rootDir, subDir = '') {
-  const fullDirPath = path.join(rootDir, subDir)
-  const files = fs.readdirSync(fullDirPath, enc)
-  let res = []
-
-  for (const file of files) {
-    const stat = fs.lstatSync(path.join(fullDirPath, file))
-
-    if (stat.isDirectory()) {
-      res = [
-        ...res,
-        ...readDirRecursivelySync(rootDir, path.join(subDir, file))
-      ]
-    }
-    else {
-      if (!file.endsWith('.md')) continue
-
-      res.push(path.join(subDir, file))
-    }
-  }
-
-  return res
-}
-
-function collectTagsSync(blogPath, blogPages) {
-  let tags = []
-
-  for (const mdPath of blogPages) {
-    const filePath = path.join(blogPath, mdPath)
-    const content = fs.readFileSync(filePath, enc)
-    const splat = content
-      .split('---')
-      .map((el) => String(el).trim())
-      .filter((el) => Boolean(el))
-    const yamlString = splat[0]
-
-    if (splat.length <= 1 || !yamlString.match(/^[\w\d\_]+\:\s*/)) continue
-
-    const metaData = yaml.parse(yamlString)
-
-    tags = [
-      ...tags,
-      ...metaData.tags,
-    ]
-  }
-
-  tags = deduplicate(tags)
-
-  return tags
-}
+// function readDirRecursivelySync(rootDir, subDir = '') {
+//   const fullDirPath = path.join(rootDir, subDir)
+//   const files = fs.readdirSync(fullDirPath, enc)
+//   let res = []
+//
+//   for (const file of files) {
+//     const stat = fs.lstatSync(path.join(fullDirPath, file))
+//
+//     if (stat.isDirectory()) {
+//       res = [
+//         ...res,
+//         ...readDirRecursivelySync(rootDir, path.join(subDir, file))
+//       ]
+//     }
+//     else {
+//       if (!file.endsWith('.md')) continue
+//
+//       res.push(path.join(subDir, file))
+//     }
+//   }
+//
+//   return res
+// }
+//
+// function collectTagsSync(blogPath, blogPages) {
+//   let tags = []
+//
+//   for (const mdPath of blogPages) {
+//     const filePath = path.join(blogPath, mdPath)
+//     const content = fs.readFileSync(filePath, enc)
+//     const splat = content
+//       .split('---')
+//       .map((el) => String(el).trim())
+//       .filter((el) => Boolean(el))
+//     const yamlString = splat[0]
+//
+//     if (splat.length <= 1 || !yamlString.match(/^[\w\d\_]+\:\s*/)) continue
+//
+//     const metaData = yaml.parse(yamlString)
+//
+//     tags = [
+//       ...tags,
+//       ...metaData.tags,
+//     ]
+//   }
+//
+//   tags = deduplicate(tags)
+//
+//   return tags
+// }
