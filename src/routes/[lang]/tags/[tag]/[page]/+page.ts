@@ -4,7 +4,11 @@ import {loadListItems} from '$lib/requests'
 
 export const load: PageLoad = async (event) => {
   // return {
-  //   result: []
+  //   result: [
+  //     {
+  //       name: 'some', title: 'aaa', dateLocal: '2022', tags: [], descr: 'sdf'
+  //     }
+  //   ]
   // }
 
   return loadListItems(

@@ -11,10 +11,20 @@ import {
 import {removeIndexMd, calculatePaginatedResponse} from '$lib/helpers'
 
 
+export const prerender = true
+
 // TODO: тут tag будет транслитерированный
 
-export async function GET(event) {
-  //return new Response(JSON.stringify({result: []}))
+export async function GET(event: any) {
+
+  // console.log(1111, event.params)
+  //
+  // return new Response(JSON.stringify(calculatePaginatedResponse([
+  //   {
+  //     name: 'some', title: 'aaa', dateLocal: '2022', tags: [], descr: 'sdf'
+  //   }
+  // ], 1)))
+
 
   const pageNum = Number(event.params.page)
   const tagName = event.params.tag

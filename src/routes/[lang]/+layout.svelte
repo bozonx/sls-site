@@ -38,12 +38,6 @@ onMount(() => {
 </svelte:head>
 -->
 
-<!--
-<svelte:window
-  bind:scrollY={scrollY}
-/>
--->
-
 <div class="min-h-screen lg:flex w-full dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-lg">
   <!--  left col-->
   <div>
