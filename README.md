@@ -1,73 +1,29 @@
-# The System of Personal Freedom site
+# Personal freedom system site
 
-## Adding a new blog page
+## Run
 
-Put the new md file to `/texts/[language]/blog/[season]/[article-name]/index.md`.
-Where:
+Use node version: 18 or greater
 
-* `[language]` is a language of the article
-* `[season]` is a name of a season like `2023-1`. Where on the left side is a year is and on the right a number of the season of this year.
-* `[article-name]` it is an url-friendly name.
-* `index.md` - it is a content or the article in Markdown format
+- Install dependencies:
 
-Season and article name have to be the same for all the languages.
+  ```bash
+  yarn
+  ```
 
-## Meta data of an article
+- Run locally:
 
-Articles have to have meta data inside a tag `---...---`.
-Meta data is in YAML format. The meta data has to be paced at the beginning of the document.
+  ```bash
+  yarn dev
+  ```
 
-```
----
-date: YYYY-MM-DD
-tags:
-  - some_tag
-  ...
-title: The heading of an article which is used as a header and in the title HTML tag
-descr: A short description which will be use in lists and description meta tag
-commentUrl: https://t.me/slsfreedom/...
-videoLink: https://www.youtube.com/watch?v=...
-podcasts:
-  site: https://slsfreedom.mave.digital/...
-  castbox: https://castbox.fm/episode/...
-  soundstream: https://soundstream.media/clip/...
-  spotify: https://open.spotify.com/episode/...
-  vk: https://vk.com/...
-  yandexMusic: https://music.yandex.ru/album/...
----
-```
+  Go to `http://localhost:5173/`
 
+- Build and Preview
 
-## Markdown formatting of articles
+  ```bash
+  yarn build && yarn preview
+  ```
 
-* use `-` for lists
-* use `1. item` for numeric lists
-* use `**` for a bold text
-* use `*` for an italic text
-* use `***` for a bold-italic text
-* use `> ` for a blockquote
-* use `---` for <hr/>
-* use tab or 4 spaces for code block
-* use `<ins>undelined text</ins>` for underline
-* use `~striked text~` for strike through
-* For images which the same for all the languages put "!" and the begging of file name. E.g. `[...](!img.avif)` and this image will be got from the default language (en)
+  Go to `http://localhost:4173/`
 
-
-## Developing
-
-Clone the repo.
-
-```bash
-yarn install
-
-# HMR development mode
-yarn dev
-
-# Build a production version of the project
-yarn build
-
-# preview the just built project
-yarn preview
-```
-
-After building the production just commit it and push the repo.
+  Local admin panel is on `http://localhost:4173/admin/`

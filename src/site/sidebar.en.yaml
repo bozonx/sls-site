@@ -1,0 +1,7 @@
+title: sidebar
+body: |
+  doc:
+    - text: "Personal fredon"
+      items:
+        - text: "Introduction"
+          link: ""

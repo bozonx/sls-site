@@ -1,0 +1,7 @@
+title: sidebar
+body: |
+  doc:
+    - text: "Система Личной Свободы"
+      items:
+        - text: "Введение"
+          link: ""

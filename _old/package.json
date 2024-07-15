@@ -1,0 +1,52 @@
+{
+  "name": "libereco-site",
+  "version": "0.0.3",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@fontsource/fira-mono": "^5.0.12",
+    "@sveltejs/adapter-static": "^3.0.1",
+    "@sveltejs/kit": "^2.5.5",
+    "@vite-pwa/sveltekit": "^0.4.0",
+    "autoprefixer": "^10.4.19",
+    "flowbite": "^2.3.0",
+    "flowbite-svelte": "^0.44.24",
+    "flowbite-svelte-icons": "^1.5.0",
+    "moment": "^2.30.1",
+    "postcss": "^8.4.38",
+    "postcss-load-config": "^5.0.3",
+    "rehype-figure": "^1.0.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0",
+    "rehype-stringify": "^10.0.0",
+    "rehype-urls": "^1.2.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.0",
+    "remark-stringify": "^11.0.0",
+    "slug": "^9.0.0",
+    "squidlet-lib": "^0.1.6",
+    "svelte": "^4.2.12",
+    "svelte-check": "^3.6.9",
+    "tailwindcss": "^3.4.3",
+    "tslib": "^2.4.1",
+    "typescript": "^5.4.5",
+    "unified": "^11.0.4",
+    "vite": "^5.2.8",
+    "vite-plugin-pwa": "^0.19.8",
+    "yaml": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.6.0",
+    "@types/mdast": "^4.0.3",
+    "@types/node": "^20.12.7",
+    "kolorist": "^1.8.0"
+  }
+}
