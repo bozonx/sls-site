@@ -27,4 +27,8 @@ export default {
     en: { lang: "en-US", ...en },
     ru: { lang: "ru-RU", ...ru },
   },
+  themeConfig: {
+    ...configBase.themeConfig,
+    logo: "/img/logo.svg",
+  },
 };
