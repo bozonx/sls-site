@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3e0c4b4e-4fab-419a-a5ff-8a4e860e9f18/deploy-status)](https://app.netlify.com/sites/p-libereco/deploys)
+
 # Personal freedom system site
 
 ## Run
