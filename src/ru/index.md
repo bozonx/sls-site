@@ -1,23 +1,19 @@
 ---
-editLink: false
-lastUpdated: false
-prev: false
-next: false
 layout: page
 ---
 
 <script setup>
 import { useData } from "vitepress";
-import SiteHome from "vitepress-sls-blog-tmpl/src/SiteHome.vue";
+import SiteHome from "vitepress-sls-blog-tmpl/SiteHome.vue";
 
-const { theme } = useData();
+const { theme, localeIndex } = useData();
 
 const hero = {
   name: "Система Личной Свободы",
   text: "Философия свободы",
   tagline: "Путь свободы открывает дорогу счастью",
   image: {
-    src: "/img/site-big-logo.webp",
+    src: theme.value.mainHeroImg,
     alt: "Лого СЛС",
   },
   actions: [
@@ -34,7 +30,7 @@ const hero = {
     {
       theme: "alt",
       text: "Поддержать проект",
-      link: "/ru/page/donate",
+      link: `/${localeIndex.value}/${theme.value.donateUrl}`,
     },
   ],
 }
