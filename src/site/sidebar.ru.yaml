@@ -5,3 +5,7 @@ body: |
       items:
         - text: "Введение"
           link: ""
+        - text: "О проекте"
+          link: "about"
+        - text: "Айван Кей"
+          link: "ivan-k"

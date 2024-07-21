@@ -5,6 +5,7 @@ layout: page
 <script setup>
 import { useData } from "vitepress";
 import SiteHome from "vitepress-sls-blog-tmpl/SiteHome.vue";
+import { PROPS } from "../.vitepress/props.js";
 
 const { theme, localeIndex } = useData();
 
@@ -19,18 +20,18 @@ const hero = {
   actions: [
     {
       theme: "brand",
-      text: "Youtube channel (RU)",
-      link: "https://www.youtube.com/@slsfreedom",
+      text: `📃 About the project`,
+      link: `/${localeIndex.value}/doc/about`,
     },
     {
       theme: "alt",
-      text: "Telegram (RU)",
-      link: "https://t.me/slsfreedom",
+      text: `🗞️ Articles, podcast texts`,
+      link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
     },
     {
       theme: "alt",
-      text: "Support us",
-      link: `/${localeIndex.value}/${theme.value.donateUrl}`,
+      text: `📢 We in social media`,
+      link: `/${localeIndex.value}/${theme.value.linksUrl}`,
     },
   ],
 }

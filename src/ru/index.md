@@ -5,6 +5,7 @@ layout: page
 <script setup>
 import { useData } from "vitepress";
 import SiteHome from "vitepress-sls-blog-tmpl/SiteHome.vue";
+import { PROPS } from "../.vitepress/props.js";
 
 const { theme, localeIndex } = useData();
 
@@ -14,23 +15,23 @@ const hero = {
   tagline: "Путь свободы открывает дорогу счастью",
   image: {
     src: theme.value.mainHeroImg,
-    alt: "Лого СЛС",
+    alt: "Логотип Система Личной Свободы",
   },
   actions: [
     {
       theme: "brand",
-      text: "Youtube канал",
-      link: "https://www.youtube.com/@slsfreedom",
+      text: `📃 О проекте`,
+      link: `/${localeIndex.value}/doc/about`,
     },
     {
       theme: "alt",
-      text: "Telegram канал",
-      link: "https://t.me/slsfreedom",
+      text: `🗞️ Статьи, тексты подкастов`,
+      link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
     },
     {
       theme: "alt",
-      text: "Поддержать проект",
-      link: `/${localeIndex.value}/${theme.value.donateUrl}`,
+      text: `📢 Мы в соц сетях`,
+      link: `/${localeIndex.value}/${theme.value.linksUrl}`,
     },
   ],
 }

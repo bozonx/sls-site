@@ -5,3 +5,7 @@ body: |
       items:
         - text: "Introduction"
           link: ""
+        - text: "About the project"
+          link: "about"
+        - text: "Ivan K"
+          link: "ivan-k"
