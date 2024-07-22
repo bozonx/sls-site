@@ -11,8 +11,8 @@ const { theme, localeIndex } = useData();
 
 const hero = {
   name: "Система Личной Свободы",
-  text: "Философия свободы",
-  tagline: "Путь свободы открывает дорогу счастью",
+  text: "Путь свободы открывает дорогу к счастью",
+  tagline: "Философия свободы",
   image: {
     src: theme.value.mainHeroImg,
     alt: "Логотип Система Личной Свободы",
