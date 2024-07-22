@@ -1,89 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Creator: CorelDRAW -->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xml:space="preserve"
-   width="180"
-   height="180"
+   width="212.61548"
+   height="212.61551"
+   viewBox="0 0 56.254512 56.25452"
    version="1.1"
-   style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-   viewBox="0 0 26.464623 26.464623"
-   id="svg7"
-   sodipodi:docname="favicon180.svg"
-   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
-   inkscape:export-filename="favicon180.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   id="svg1"
+   xml:space="preserve"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
-   id="namedview7"
-   pagecolor="#ffffff"
-   bordercolor="#cccccc"
-   borderopacity="1"
-   inkscape:showpageshadow="0"
-   inkscape:pageopacity="1"
-   inkscape:pagecheckerboard="0"
-   inkscape:deskcolor="#d1d1d1"
-   inkscape:zoom="1.1592765"
-   inkscape:cx="39.679921"
-   inkscape:cy="133.27278"
-   inkscape:window-width="1920"
-   inkscape:window-height="1017"
-   inkscape:window-x="0"
-   inkscape:window-y="35"
-   inkscape:window-maximized="1"
-   inkscape:current-layer="Слой_x0020_1"
-   inkscape:export-bgcolor="#ffffffff" />&#10; <defs
-   id="defs1">&#10;  <style
-   type="text/css"
-   id="style1">&#10;   <![CDATA[
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><style
+       type="text/css"
+       id="style1">
+   <![CDATA[
     .fil2 {fill:black}
     .fil4 {fill:#003BB7}
     .fil0 {fill:#E6E6E6}
     .fil3 {fill:black;fill-rule:nonzero}
     .fil1 {fill:#003BB7;fill-rule:nonzero}
-   ]]>&#10;  </style>&#10; </defs>&#10; <g
-   id="Слой_x0020_1"
-   inkscape:label="Слой 1"
-   inkscape:groupmode="layer">&#10;  <metadata
-   id="CorelCorpID_0Corel-Layer" />&#10;  &#10;  &#10;  <rect
-   style="fill:#ffffff;stroke-width:0.0510711;-inkscape-stroke:none"
-   id="rect1"
-   width="26.464622"
-   height="26.464622"
-   x="0"
-   y="0" /><g
-   id="_1597903196688-7"
-   transform="matrix(0.05178407,0,0,0.05178407,-9.9420076,-2.7857114)"
-   style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision">&#10;   <g
-   id="g7-8">&#10;    <path
+   ]]>
+  </style><style
+       type="text/css"
+       id="style1-6">
+   <![CDATA[
+    .fil2 {fill:black}
+    .fil4 {fill:#003BB7}
+    .fil0 {fill:#E6E6E6}
+    .fil3 {fill:black;fill-rule:nonzero}
+    .fil1 {fill:#003BB7;fill-rule:nonzero}
+   ]]>
+  </style></defs><g
+     id="Слой_x0020_1-8"
+     transform="matrix(0.07044044,0,0,0.07044044,-103.59221,-215.15638)"
+     style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision">
+  <metadata
+   id="CorelCorpID_0Corel-Layer-1" />
+  
+  
+  <circle
+   class="fil0"
+   cx="1869.941"
+   cy="3453.7495"
+   r="399.30557"
+   id="circle1-0-9-6-3"
+   style="clip-rule:evenodd;fill:#fefefe;fill-opacity:1;fill-rule:evenodd;stroke-width:0.871884;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" /><g
+   id="_1597903196688-0-1-4-9"
+   transform="matrix(1.4049655,0,0,1.4049655,1252.6264,3000.0999)"
+   style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision">
+   <g
+   id="g7-4-9-9-9">
+    <path
    class="fil2"
    d="m 596.46,474.43 c 19.63,0 35.55,-15.92 35.55,-35.56 0,-19.63 -15.92,-35.55 -35.55,-35.55 -3.88,0 -7.6,0.62 -11.09,1.76 l 6.02,17.6 -1.36,0.85 -11.66,-15.28 c -10.46,6.19 -17.47,17.59 -17.47,30.62 0,19.64 15.92,35.56 35.56,35.56 z"
-   id="path2-5"
-   style="fill:#000000" />&#10;    <path
+   id="path2-4-4-2-0"
+   style="fill:#000000" />
+    <path
    class="fil3"
    d="m 273.69,297.86 c 1.85,-2.99 3.93,-6.24 6.24,-9.75 3.27,-4.97 5.4,-8.17 6.4,-9.6 l 40.83,28.39 c -3.16,4.52 -5.1,7.34 -5.82,8.43 -1.67,2.55 -3.49,5.41 -5.46,8.58 z m 20.04,-29.54 c 16.04,-21.64 34.02,-41.65 53.66,-59.75 19.66,-18.13 41.02,-34.42 63.81,-48.6 l 26.25,42.19 c -20.18,12.56 -39.07,26.96 -56.43,42.96 -17.47,16.11 -33.36,33.77 -47.44,52.75 z"
-   id="path3-7"
-   style="fill:#000000;fill-rule:nonzero" />&#10;    <path
+   id="path3-4-7-0-7"
+   style="fill:#000000;fill-rule:nonzero" />
+    <path
    class="fil3"
    d="m 290.44,521.43 c 0,-57.78 14.27,-112.33 39.49,-160.32 26.1,-49.67 63.99,-92.2 109.94,-123.9 l 28.2,40.83 c -39.35,27.14 -71.8,63.6 -94.2,106.2 -21.49,40.9 -33.66,87.57 -33.66,137.19 z m 173.71,-299.6 c 25.57,-14.68 53.32,-26.19 82.71,-33.99 28.45,-7.56 58.21,-11.59 88.76,-11.59 v 49.78 c -26.46,0 -51.97,3.42 -76.12,9.83 -24.91,6.62 -48.62,16.48 -70.66,29.13 z"
-   id="path4-4"
-   style="fill:#000000;fill-rule:nonzero" />&#10;    <path
+   id="path4-4-8-6-6"
+   style="fill:#000000;fill-rule:nonzero" />
+    <path
    class="fil3"
    d="m 432.67,521.43 c 0,-36.4 9.65,-70.63 26.56,-100.28 17.5,-30.7 42.74,-56.38 73.04,-74.35 l 25.27,42.77 c -22.92,13.6 -41.98,32.96 -55.15,56.07 -12.7,22.28 -19.95,48.14 -19.95,75.79 z M 556.73,334.49 c 12.27,-5.18 25.19,-9.2 38.62,-11.91 13.34,-2.69 26.81,-4.1 40.27,-4.1 v 49.77 c -10.8,0 -21,1.01 -30.55,2.94 -10.05,2.03 -19.79,5.06 -29.09,8.99 z"
-   id="path5-1"
-   style="fill:#000000;fill-rule:nonzero" />&#10;    <path
+   id="path5-7-4-8-3"
+   style="fill:#000000;fill-rule:nonzero" />
+    <path
    class="fil4"
    d="m 411.89,129.95 46.83,82.26 c 16.76,-9.61 34.38,-17.88 52.71,-24.7 L 478.66,98.82 c -23.22,8.58 -45.53,19.02 -66.77,31.13 z"
-   id="path6-8"
-   style="fill:#003bb7" />&#10;    <path
+   id="path6-6-5-9-7"
+   style="fill:#003bb7" />
+    <path
    class="fil3"
    d="m 249.78,431 c 81.58,0 155.43,-33.07 208.89,-86.52 53.45,-53.46 86.52,-127.31 86.52,-208.88 h 49.77 c 0,95.31 -38.64,181.6 -101.1,244.07 -62.47,62.47 -148.76,101.1 -244.08,101.1 z"
-   id="path7-5"
-   style="fill:#000000;fill-rule:nonzero" />&#10;   </g>&#10;   <polygon
+   id="path7-3-0-2-6"
+   style="fill:#000000;fill-rule:nonzero" />
+   </g>
+   <polygon
    class="fil2"
-   points="295.42,157.11 293.05,144.32 305.85,146.69 313.22,135.96 320.59,146.69 333.38,144.32 331.01,157.11 341.73,164.48 331.01,171.85 333.38,184.64 320.59,182.27 313.22,193 305.85,182.27 293.05,184.64 295.42,171.85 284.7,164.48 "
-   id="polygon7-9"
-   style="fill:#000000" />&#10;  </g>&#10; </g>&#10;</svg>
+   points="313.22,193 305.85,182.27 293.05,184.64 295.42,171.85 284.7,164.48 295.42,157.11 293.05,144.32 305.85,146.69 313.22,135.96 320.59,146.69 333.38,144.32 331.01,157.11 341.73,164.48 331.01,171.85 333.38,184.64 320.59,182.27 "
+   id="polygon7-1-3-6-1"
+   style="fill:#000000" />
+  </g>
+ </g></svg>
