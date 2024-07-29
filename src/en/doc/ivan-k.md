@@ -1,6 +1,5 @@
 ---
-title: Айван Кей
+title: Ivan K
 description: ""
 ---
-
 # Айван Кей
