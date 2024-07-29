@@ -3,7 +3,6 @@ title: Айван Кей
 description: ""
 editLink: false
 ---
-
 # Айван Кей
 
 ![Айван Кей](/media/ivan-k.avif)
