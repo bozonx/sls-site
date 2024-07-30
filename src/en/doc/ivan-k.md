@@ -2,6 +2,7 @@
 title: Ivan K
 description: ""
 ---
+
 # Ivan K
 
 ![Ivan K](/media/ivan-k.avif)
@@ -42,6 +43,6 @@ Ivan K is the author of The Eden Project. Building a new free society based on t
 
 ## Please support projects by donating
 
-- [Support Personal Freedom System](page/donate)
+- [Support Personal Freedom System](/en/page/donate)
 - [Support Project Eden](https://prjedem.org/en/page/donate)
 - [Support Antifeminism | Masculism](https://blog.antifem-move.org/en/page/donate)
