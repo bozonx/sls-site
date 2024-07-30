@@ -30,6 +30,7 @@ Ivan K is an anti-feminism ideologue and co-author of the channel "Anti-feminism
 Ivan K is the author of The Eden Project. Building a new free society based on the principle of anarchism.
 
 - [Telegram channel (RU)](https://t.me/prjedem)
+- [Telegram чат chat (RU)](https://t.me/prjedem_chat)
 - [YouTube (RU)](https://www.youtube.com/@prjedem)
 - [Blog](https://blog.prjedem.org/en/recent/1)
 
@@ -41,6 +42,6 @@ Ivan K is the author of The Eden Project. Building a new free society based on t
 
 ## Please support projects by donating
 
-- [Support Personal Freedom System](https://p-libereco.org/en/page/donate)
+- [Support Personal Freedom System](page/donate)
 - [Support Project Eden](https://prjedem.org/en/page/donate)
 - [Support Antifeminism | Masculism](https://blog.antifem-move.org/en/page/donate)

@@ -31,6 +31,7 @@ editLink: false
 Айван Кей автор проекта "Проект Эдем". Строим новое свободное общество по принципу анархизма.
 
 - [Telegram канал](https://t.me/prjedem)
+- [Telegram чат](https://t.me/prjedem_chat)
 - [YouTube](https://www.youtube.com/@prjedem)
 - [Блог](https://blog.prjedem.org/ru/recent/1)
 
@@ -42,6 +43,6 @@ editLink: false
 
 ## Поддержите пожалуйста проекты донатом
 
-- [Поддержать проект Система Личной Свободы](https://p-libereco.org/ru/page/donate)
+- [Поддержать проект Система Личной Свободы](page/donate)
 - [Поддержать Проект Эдем](https://prjedem.org/ru/page/donate)
 - [Поддержать канал "Антифеминизм | Маскулизм"](https://blog.antifem-move.org/ru/page/donate)
