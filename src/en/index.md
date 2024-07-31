@@ -29,7 +29,7 @@ link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
 },
 {
 theme: "alt",
-text: `📢 Social media`,
+text: "`📢 ${PROPS.t.socialMedia}"`,
 link: `/${localeIndex.value}/${theme.value.linksUrl}`,
 },
 ],
