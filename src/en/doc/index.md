@@ -9,3 +9,5 @@ At the moment the wiki is not full. In the future it will contain information ab
 
 - [About](about)
 - Project author [Ivan-K](ivan-k)
+
+Articles and podcast texts can be found in [blog](https://blog.p-libereco.org/en/recent/1).
