@@ -1,2 +1,9 @@
 User-agent: *
-Disallow: /
+Disallow: /admin
+
+Disallow: /*utm_
+Disallow: /*?m=1
+Allow: /
+
+Sitemap: https://p-libereco.org/sitemap.xml
+

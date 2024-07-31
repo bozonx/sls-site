@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: home
 ---
+
 <script setup>
 import { useData } from "vitepress";
 import SiteHome from "vitepress-sls-blog-tmpl/SiteHome.vue";
@@ -29,7 +30,7 @@ link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
 },
 {
 theme: "alt",
-text: "`📢 ${PROPS.t.socialMedia}"`,
+text: `📢 ${theme.value.t.socialMedia}`,
 link: `/${localeIndex.value}/${theme.value.linksUrl}`,
 },
 ],
