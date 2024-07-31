@@ -1,6 +1,5 @@
 ---
-title: About us
-description: About our project
+title: About the project
+description: ""
 ---
-
-# About us
+# About the project

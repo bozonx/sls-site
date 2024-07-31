@@ -1,15 +1,7 @@
 ---
-title: О нас
-description: О нашем проекте
+title: О проекте
+description: ""
 ---
+# О проекте
 
-# О нас
-
-    //   theme: "brand",
-    //   text: "Youtube канал",
-    //   link: "https://www.youtube.com/@slsfreedom",
-    // },
-    // {
-    //   theme: "alt",
-    //   text: "Telegram канал",
-    //   link: "https://t.me/slsfreedom",
+Проект Система Личной Свободы был запущен 3 августа 2022 года. Автор проекта [Айван Кей](ivan-k).
