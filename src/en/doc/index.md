@@ -7,5 +7,5 @@ prev: false
 
 At the moment the wiki is not full. In the future it will contain information about the Personal Freedom System project, how to achieve personal freedom, the lifestyle of free people and everything that free people and those who strive for freedom need to know.
 
-[About](about)
-Project author [Ivan-K](ivan-k)
+- [About](about)
+- Project author [Ivan-K](ivan-k)
