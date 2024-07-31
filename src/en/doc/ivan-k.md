@@ -14,7 +14,7 @@ Author of the philosophy The Personal Freedom System. Getting out of the system 
 
 - [YouTube (RU)](https://www.youtube.com/@slsfreedom)
 - [Telegram channel (RU)](https://t.me/slsfreedom)
-- [Links to podcasts and other platforms](/ru/page/links)
+- [Links to podcasts and other platforms](/en/page/links)
 
 ## Anti-feminism
 
