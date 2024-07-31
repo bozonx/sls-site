@@ -1,7 +1,6 @@
 ---
 layout: page
 ---
-
 <script setup>
 import { useData } from "vitepress";
 import SiteHome from "vitepress-sls-blog-tmpl/SiteHome.vue";
@@ -10,30 +9,30 @@ import { PROPS } from "../.vitepress/props.js";
 const { theme, localeIndex } = useData();
 
 const hero = {
-  name: "Система Личной Свободы",
-  text: "Путь свободы открывает дорогу к счастью",
-  tagline: "Философия свободы",
-  image: {
-    src: theme.value.mainHeroImg,
-    alt: "Логотип Система Личной Свободы",
-  },
-  actions: [
-    {
-      theme: "brand",
-      text: `📃 О проекте`,
-      link: `/${localeIndex.value}/doc/about`,
-    },
-    {
-      theme: "alt",
-      text: `🗞️ Статьи, тексты подкастов`,
-      link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
-    },
-    {
-      theme: "alt",
-      text: `📢 Мы в соц сетях`,
-      link: `/${localeIndex.value}/${theme.value.linksUrl}`,
-    },
-  ],
+name: "Система Личной Свободы",
+text: "Путь свободы открывает дорогу к счастью",
+tagline: "Философия свободы",
+image: {
+src: theme.value.mainHeroImg,
+alt: "Логотип Система Личной Свободы",
+},
+actions: [
+{
+theme: "brand",
+text: `📃 О проекте`,
+link: `/${localeIndex.value}/doc/about`,
+},
+{
+theme: "alt",
+text: `🗞️ Статьи, тексты подкастов`,
+link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
+},
+{
+theme: "alt",
+text: `📢 Соц сети`,
+link: `/${localeIndex.value}/${theme.value.linksUrl}`,
+},
+],
 }
 const features = [
 //   {
