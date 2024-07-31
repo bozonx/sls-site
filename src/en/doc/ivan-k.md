@@ -2,7 +2,6 @@
 title: Ivan K
 description: ""
 ---
-
 # Ivan K
 
 ![Ivan K](/media/ivan-k.avif)
@@ -15,8 +14,7 @@ Author of the philosophy The Personal Freedom System. Getting out of the system 
 
 - [YouTube (RU)](https://www.youtube.com/@slsfreedom)
 - [Telegram channel (RU)](https://t.me/slsfreedom)
-- [SLS Chat](https://t.me/slsfreedom_chat) - Like-minded people striving for freedom.
-- [Blog](https://blog.p-libereco.org/en/recent/1)
+- [Links to podcasts and other platforms](/ru/page/links)
 
 ## Anti-feminism
 

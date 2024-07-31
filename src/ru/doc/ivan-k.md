@@ -3,7 +3,6 @@ title: Айван Кей
 description: ""
 editLink: false
 ---
-
 # Айван Кей
 
 ![Айван Кей](/media/ivan-k.avif)
@@ -16,8 +15,7 @@ editLink: false
 
 - [YouTube](https://www.youtube.com/@slsfreedom)
 - [Telegram канал](https://t.me/slsfreedom)
-- [Чат СЛС](https://t.me/slsfreedom_chat) - Единомышленики, люди стремящихся к свободе
-- [Блог](https://blog.p-libereco.org/ru/recent/1)
+- [Ссылки на подкасты и другие платформы](/ru/page/links)
 
 ## Антифеминизм
 
