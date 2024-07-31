@@ -43,5 +43,5 @@ editLink: false
 ## Поддержите пожалуйста проекты донатом
 
 - [Поддержать проект Система Личной Свободы](/ru/page/donate)
-- [Поддержать Проект Эдем](https://prjedem.org/ru/page/donate)
 - [Поддержать канал "Антифеминизм | Маскулизм"](https://blog.antifem-move.org/ru/page/donate)
+- [Поддержать Проект Эдем](https://prjedem.org/ru/page/donate)
