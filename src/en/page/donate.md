@@ -1,13 +1,12 @@
 ---
-title: Support us
-description: Support us
-outline: false
+title: Support the project
+description: ""
 prev: false
+outline: false
 editLink: false
 lastUpdated: false
 next: false
 ---
-
 # Support us
 
 ### Bank cards and e-wallets
