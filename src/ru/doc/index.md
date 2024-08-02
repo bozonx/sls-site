@@ -10,4 +10,4 @@ prev: false
 - [О проекте](about)
 - Автор проекта [Айван Кей](ivan-k)
 
-Статьи и тексты подкастов вы найдете в [блоге](https://blog.p-libereco.org/ru/recent/1).
+Статьи и тексты подкастов вы найдете в [блоге](https://blog.p-libereco.org/ru/recent/1). А все ссылки на соц сети вы найдете [тут](/ru/page/links).

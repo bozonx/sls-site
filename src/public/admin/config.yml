@@ -86,11 +86,6 @@ collections:
         preview_path: "{{locale}}/page/{{slug}}"
         i18n: true
         fields:
-          - label: "Title"
-            name: "title"
-            widget: "string"
-            preview: false
-            i18n: true
           - label: "Description"
             name: "description"
             widget: "text"
@@ -107,11 +102,6 @@ collections:
         preview_path: "{{locale}}/page/{{slug}}"
         i18n: true
         fields:
-          - label: "Title"
-            name: "title"
-            widget: "string"
-            preview: false
-            i18n: true
           - label: "Description"
             name: "description"
             widget: "text"

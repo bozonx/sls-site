@@ -1,5 +1,4 @@
 ---
-title: Поддержать проект
 description: ""
 prev: false
 outline: false
@@ -7,6 +6,7 @@ editLink: false
 lastUpdated: false
 next: false
 ---
+
 # Поддержать проект
 
 ### Банковские карты и электронные кошельки

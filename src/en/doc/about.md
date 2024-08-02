@@ -4,7 +4,7 @@ description: ""
 ---
 # About the project
 
-The Personal Freedom System project was launched on August 3, 2022. The author of the project is [Ivan K](ivan-k).
+The Personal Freedom System project was launched on August 3, 2022. The author of the project is [Ivan K](ivan-k). All links to social networks can be found [here](/en/page/links).
 
 ## Project Goals:
 

@@ -1,5 +1,4 @@
 ---
-title: Links and social media accounts
 description: ""
 prev: false
 outline: false
@@ -13,6 +12,7 @@ next: false
 - [Telegram channel (RU)](https://t.me/slsfreedom) - All information and news of the project
 - [SLS Chat (RU)](https://t.me/slsfreedom_chat) - Like-minded people striving for freedom.
 - [Blog](https://blog.p-libereco.org/ru/recent/1) - Blog on the Internet. Here are articles and podcast texts
+- [Main project website](/en/) - Basic information and wiki of the project
 
 ## Podcasts
 
