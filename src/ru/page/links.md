@@ -6,13 +6,12 @@ editLink: false
 lastUpdated: false
 next: false
 ---
+
 # Ссылки и аккаунты в соц сетях
 
 - [YouTube](https://www.youtube.com/@slsfreedom) - Видеоподкасты
-- [Telegram канал](https://t.me/slsfreedom) - Вся информация и новости проекта
-- [Чат СЛС](https://t.me/slsfreedom_chat) - Единомышленики, люди стремящихся к свободе
+- [Чат СЛС](https://t.me/slsfreedom_chat) - чат свободных и развитых людей
 - [Блог](https://blog.p-libereco.org/ru/recent/1) - Блог в интернете. Здесь статьи и тексты подкастов
-- [Главный сайт проекта](/ru/) - Основная информация и вики проекта
 
 ## Подкасты
 

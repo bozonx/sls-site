@@ -6,13 +6,12 @@ editLink: false
 lastUpdated: false
 next: false
 ---
+
 # Links and social media accounts
 
 - [YouTube (RU)](https://www.youtube.com/@slsfreedom) - Video podcasts
-- [Telegram channel (RU)](https://t.me/slsfreedom) - All information and news of the project
-- [SLS Chat (RU)](https://t.me/slsfreedom_chat) - Like-minded people striving for freedom.
+- [SLS Chat (RU)](https://t.me/slsfreedom_chat) - chat of free and developed people
 - [Blog](https://blog.p-libereco.org/ru/recent/1) - Blog on the Internet. Here are articles and podcast texts
-- [Main project website](/en/) - Basic information and wiki of the project
 
 ## Podcasts
 
