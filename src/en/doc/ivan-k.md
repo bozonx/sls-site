@@ -12,8 +12,6 @@ Thinker and practitioner in the field of philosophy of freedom, public figure, a
 - [YouTube channel Ivan K (RU)](https://www.youtube.com/@ivan-k-freedom) - self-development lectures and other easy content for everyone
 - [Yandex Dzen](https://dzen.ru/ivan_k_freedom) - all my articles on all projects, taking into account Russian censorship
 
-Also have a [personal Instagram](https://www.instagram.com/ivan_k_freedom) - my travels, taking pictures of everything I see
-
 ## Personal Freedom System
 
 Author of the philosophy The Personal Freedom System. Getting out of the system and gaining personal freedom. A project at the intersection of philosophy, psychology, self-development, masculism and esotericism.
@@ -30,8 +28,11 @@ Ivan K is an anti-feminism ideologue and co-author of the channel "Anti-feminism
 - [Telegram chat (RU)](https://t.me/antifem_battle_chat)
 - [Blog](https://blog.antifem-move.org/en/recent/1)
 
+---
+
+Also have a [personal Instagram](https://www.instagram.com/ivan_k_freedom) - my travels, taking pictures of everything I see
+
 ## Please support projects by donating
 
 - [Support Personal Freedom System](/en/page/donate)
 - [Support Antifeminism | Masculism](https://blog.antifem-move.org/en/page/donate)
-- [Support Project Eden](https://prjedem.org/en/page/donate)
