@@ -30,7 +30,7 @@ next: false
 - ETH (сеть ERC20) - `0x8c3dE041E984F1E164a00af8ed87FF04d17bd2a8` ([QR код](/img/crypto/donate_qr_eth_erc20.jpg), [Trust Wallet](https://link.trustwallet.com/send?coin=60&address=0x8c3dE041E984F1E164a00af8ed87FF04d17bd2a8))
 - BTC - `bc1qu88y7zsway288y3f9tdsaccjx2uxh0thc8p0vn` ([QR код](/img/crypto/donate_qr_btc.jpg), [Trust Wallet](https://link.trustwallet.com/send?coin=0&address=bc1qu88y7zsway288y3f9tdsaccjx2uxh0thc8p0vn))
 
-Предпочтительный способ доната - монета USDT в сети BEP20, там низкая комиссия, еще хорошая монета Monero (XMR) там тоже низкая комиссия, а транзакции анонимны.
+Предпочтительный способ доната - монета USDT в сети TON, там низкая комиссия, еще хорошая монета Monero (XMR) там тоже низкая комиссия, а транзакции анонимны.
 
 ---
 

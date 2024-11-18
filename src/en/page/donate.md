@@ -30,7 +30,7 @@ Blockchain
 - ETH on ERC20 - `0x8c3dE041E984F1E164a00af8ed87FF04d17bd2a8` ([QR code](/img/crypto/donate_qr_eth_erc20.jpg), [Trust Wallet](https://link.trustwallet.com/send?coin=60&address=0x8c3dE041E984F1E164a00af8ed87FF04d17bd2a8))
 - BTC - `bc1qu88y7zsway288y3f9tdsaccjx2uxh0thc8p0vn` ([QR code](/img/crypto/donate_qr_btc.jpg), [Trust Wallet](https://link.trustwallet.com/send?coin=0&address=bc1qu88y7zsway288y3f9tdsaccjx2uxh0thc8p0vn))
 
-The preferred method of donation is the USDT coin on the BUP20 network, there is a low commission, there is also a good Moneta coin (XML), there is also a low commission, and transactions are anonymous.
+The preferred method of donation is the USDT coin on the TON network, there is a low commission, there is also a good Moneta coin (XML), there is also a low commission, and transactions are anonymous.
 
 ---
 
