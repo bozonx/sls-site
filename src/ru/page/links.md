@@ -7,7 +7,7 @@ lastUpdated: false
 next: false
 ---
 
-# Ссылки и аккаунты в соц сетях
+# Ссылки и аккаунты в соц сетях проекта Система Личной Свободы
 
 - [YouTube](https://www.youtube.com/@slsfreedom) - Видеоподкасты
 - [Чат СЛС](https://t.me/slsfreedom_chat) - чат свободных и развитых людей
