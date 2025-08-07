@@ -1,0 +1,7 @@
+name = 'sls-main-site'
+main = "worker.js"
+compatibility_date = "2025-08-07"
+
+[assets]
+directory = "docs"
+binding = "ASSETS"
