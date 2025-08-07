@@ -2,6 +2,10 @@ name = 'sls-main-site'
 main = "worker.js"
 compatibility_date = "2025-08-07"
 
+routes = [
+  { pattern = "p-libereco.org", custom_domain = true }
+]
+
 [assets]
 directory = "docs"
 binding = "ASSETS"

@@ -1,3 +1,4 @@
+import { defineConfig } from "vitepress";
 import siteConfigBase from "vitepress-sls-blog-tmpl/siteConfigBase.js";
 import { loadSiteLocale } from "vitepress-sls-blog-tmpl/siteConfigHelper.js";
 import { PROPS } from "./props.js";
@@ -6,7 +7,7 @@ const ru = loadSiteLocale("ru", __filename, PROPS);
 const en = loadSiteLocale("en", __filename, PROPS);
 const configBase = siteConfigBase(PROPS, en);
 
-export default {
+export default defineConfig({
   ...configBase,
   locales: {
     ...configBase.locales,
@@ -36,4 +37,4 @@ export default {
        gtag('config', 'G-PEBENST1JE');`,
     ],
   ],
-};
+});
