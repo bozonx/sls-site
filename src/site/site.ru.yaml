@@ -5,11 +5,11 @@ body: |-
   siteTitle: "С.Л.С."
   footer:
     message: "Копирование разрешено только со ссылкой на источник."
-    copyright: "${PROPS.footerCopyright}"
+    copyright: "Copyright © 2024-present La sistemo de persona libereco."
   nav:
-    - text: "❤️ ${PROPS.t.donate}"
-      link: "/${PROPS.lang}/${PROPS.theme.donateUrl}"
-    - text: "📖 ${PROPS.t.wiki}"
-      link: "${PROPS.lang}/${PROPS.theme.docUrl}"
-    - text: "📢 ${PROPS.t.socialMedia}"
-      link: "/${PROPS.lang}/${PROPS.theme.linksUrl}"
+    - text: "❤️ ${t.donate}"
+      link: "/${lang}/${theme.donateUrl}"
+    - text: "📖 Проект"
+      link: "${lang}/${theme.docUrl}"
+    - text: "📢 ${t.socialMedia}"
+      link: "/${lang}/${theme.linksUrl}"
