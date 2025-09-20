@@ -10,31 +10,31 @@ import { PROPS } from "../.vitepress/props.js";
 const { theme, localeIndex } = useData();
 
 const hero = {
-name: "The system of personal freedom",
-text: "The path of freedom opens the way to happiness",
-tagline: "The philosophy of Freedom",
-image: {
-src: theme.value.mainHeroImg,
-alt: "Logo of The system of personal freedom",
-},
-actions: [
-{
-theme: "brand",
-text: `📃 About the project`,
-link: `/${localeIndex.value}/doc/about`,
-},
-{
-theme: "alt",
-text: `🗞️ Articles, podcast texts`,
-link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
-},
-{
-theme: "alt",
-text: `📢 ${theme.value.t.socialMedia}`,
-link: `/${localeIndex.value}/${theme.value.linksUrl}`,
-},
-],
-}
+  name: "The system of personal freedom",
+  text: "The path of freedom opens the way to happiness",
+  tagline: "The philosophy of Freedom",
+  image: {
+    src: theme.value.mainHeroImg,
+    alt: "Logo of The system of personal freedom",
+  },
+  actions: [
+    {
+      theme: "brand",
+      text: `📃 About the project`,
+      link: `/${localeIndex.value}/doc/about`,
+    },
+    {
+      theme: "alt",
+      text: `🗞️ Articles, podcast texts`,
+      link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
+    },
+    {
+      theme: "alt",
+      text: `📢 ${theme.value.t.socialMedia}`,
+      link: `/${localeIndex.value}/${theme.value.linksUrl}`,
+    },
+  ],
+};
 const features = [
 //   {
 //     icon: "🤝",
