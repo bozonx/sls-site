@@ -5,7 +5,6 @@ layout: home
 <script setup>
 import { useData } from "vitepress";
 import SiteHome from "vitepress-sls-blog-tmpl/SiteHome.vue";
-import { PROPS } from "../.vitepress/props.js";
 
 const { theme, localeIndex } = useData();
 
@@ -26,7 +25,7 @@ const hero = {
     {
       theme: "alt",
       text: `🗞️ Статьи, тексты подкастов`,
-      link: `${PROPS.blogUrl}/${localeIndex.value}/recent/1`,
+      link: `${theme.value.blogUrl}/${localeIndex.value}/recent/1`,
     },
     {
       theme: "alt",
