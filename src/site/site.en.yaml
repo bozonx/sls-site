@@ -12,5 +12,5 @@ body: |-
       link: "/${localeIndex}/page/donate"
     - text: "📖 Project"
       link: "${localeIndex}/doc"
-    - text: "📢 ${t.socialMedia}"
+    - text: "📢 Social media"
       link: "/${localeIndex}/page/links"
