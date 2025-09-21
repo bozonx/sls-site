@@ -32,11 +32,11 @@ export default async () => {
     ],
   });
 
-  const ru = await loadSiteLocale("ru", __filename, config);
-  const en = await loadSiteLocale("en", __filename, config);
-
   return mergeSiteConfig({
     ...config,
-    locales: { en, ru },
+    locales: {
+      en: await loadSiteLocale("en", __filename, config),
+      ru: await loadSiteLocale("ru", __filename, config),
+    },
   });
 };
