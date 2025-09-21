@@ -13,7 +13,6 @@ const hero = {
   text: "The path of freedom opens the way to happiness",
   tagline: "The philosophy of Freedom",
   image: {
-    src: theme.value.mainHeroImg,
     alt: "Logo of The system of personal freedom",
   },
   actions: [

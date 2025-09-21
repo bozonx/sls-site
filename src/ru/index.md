@@ -13,7 +13,6 @@ const hero = {
   text: "Путь свободы открывает дорогу к счастью",
   tagline: "Философия свободы",
   image: {
-    src: theme.value.mainHeroImg,
     alt: "Логотип Система Личной Свободы",
   },
   actions: [
