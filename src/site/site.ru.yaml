@@ -9,8 +9,8 @@ body: |-
     copyright: "Copyright © 2024-present La sistemo de persona libereco."
   nav:
     - text: "❤️ ${t.donate}"
-      link: "/${localeIndex}/${theme.donateUrl}"
+      link: "/${localeIndex}/page/donate"
     - text: "📖 Проект"
-      link: "${localeIndex}/${theme.docUrl}"
+      link: "${localeIndex}/doc"
     - text: "📢 ${t.socialMedia}"
-      link: "/${localeIndex}/${theme.linksUrl}"
+      link: "/${localeIndex}/page/links"
